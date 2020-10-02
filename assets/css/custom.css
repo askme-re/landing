@@ -1,0 +1,32 @@
+html {
+	min-height: 100%;	
+}
+.nda {
+	padding: 50px;
+}
+.mulai:hover {
+	background-color: #3472F7;
+	color: #fff;
+}
+.bawah{
+	padding-top: 50px;
+	text-align: center;
+	/*background-color: blue;*/
+}
+.thanks {
+	width: 5%;
+}
+.latar {
+  background: rgb(5,91,175);
+  background: radial-gradient(circle, rgba(5,91,175,1) 9%, rgba(7,151,152,1) 46%);
+}
+body{
+  height: 100%;
+  margin: 0;
+  background: rgb(5,91,175);
+  background: radial-gradient(circle, rgba(5,91,175,1) 9%, rgba(7,151,152,1) 46%);
+
+}
+.sideatas {
+	font-size:24px;text-decoration:none;color:rgb(5,91,175);padding:30 0 30 0;
+}

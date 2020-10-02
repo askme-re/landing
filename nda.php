@@ -1,0 +1,1 @@
+Selamat Datang, anda sampai pada portal mandiri screening kesehatan, Anda akan diwajibkan mengisi data-data yang dibutuhkan untuk penilaian kriteria Screeinging awal.
