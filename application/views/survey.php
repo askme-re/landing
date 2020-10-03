@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				  <!--
                   <li><a href="#cluster" data-toggle="tab">Klaster</a></li>
 				  -->
-                  <li><a href="#quiz" data-toggle="tab">Screening & Kuesioner</a></li>
+                  <li><a href="#quiz" data-toggle="tab">Screening</a></li>
                 </ul>
 						  </div>
 

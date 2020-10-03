@@ -78,6 +78,7 @@ class Welcome extends CI_Controller {
 
 	public function register()
 	{
+		$data['prov'] = $this->landing_m->get_provinsi();
 		$data['questions'] = $this->landing_m->pertanyaan();
 		// $this->load->view('header');
 		$this->load->view('survey',$data);
@@ -167,25 +168,25 @@ class Welcome extends CI_Controller {
 		echo json_encode($result);
 	}
 	
-	function ajax_prov(){
-		$idprov = $this->input->post('id');
+	// function ajax_prov(){
+	// 	$idprov = $this->input->post('id');
 		
-		$query = $this->handheld_model->get_provinsi($idprov);
-		if($query){
-			$result = array(
-				'status' => 1,
-				'data' => $query
-			);
-		} else {
-			$result = array(
-				'status' => 0,
-				'data' => [
-					'msg' => "We found a problem, please restart your page and try again."
-				]
-			);
-		}
-		echo json_encode($result);
-	}
+	// 	$query = $this->handheld_model->get_provinsi($idprov);
+	// 	if($query){
+	// 		$result = array(
+	// 			'status' => 1,
+	// 			'data' => $query
+	// 		);
+	// 	} else {
+	// 		$result = array(
+	// 			'status' => 0,
+	// 			'data' => [
+	// 				'msg' => "We found a problem, please restart your page and try again."
+	// 			]
+	// 		);
+	// 	}
+	// 	echo json_encode($result);
+	// }
 
 	function ajax_kab(){
 		$idprov = $this->input->post('id');
