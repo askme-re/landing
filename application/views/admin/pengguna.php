@@ -18,8 +18,8 @@
               <th> Nama </th>
               <th> Usia </th>
               <th> Hasil </th>
-              <th> Kode </th>
-              <th> Aksi </th>
+              <th> Email</th>
+              <!-- <th> Aksi </th> -->
             </thead>
             <tbody>
               <tr>
@@ -35,7 +35,8 @@
                           ?>
                 </td>
                 <td><?php echo "$orang->name";?></td>
-                <td><a href="<?php  echo base_url('calculate/detail/' . $orang->id_user); ?>" class="btn btn-info">Detail</a></td>
+                <td><?php echo "$orang->email";?></td>
+                <!-- <td><a href="<?php  echo base_url('calculate/detail/' . $orang->id_user); ?>" class="btn btn-info">Detail</a></td> -->
                 </tr>
                 <?php endforeach; ?>
                        <?php else: ?>

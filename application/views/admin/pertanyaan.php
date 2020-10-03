@@ -36,9 +36,12 @@
                            };
                           ?>
                 </td>
-                <td><?php echo "$tanya->bobot";?></td>
-                <td><?php echo "$tanya->bobot";?></td>
-                <td><a href="<?php  echo base_url('calculate/detail/' . $tanya->id); ?>" class="btn btn-info">Detail</a></td>
+                <td><?php echo "$tanya->bobot1";?></td>
+                <td><?php echo "$tanya->bobot2";?></td>
+                <td>
+                    <a href="<?php  echo base_url('Admin/detailpertanyaan/' . $tanya->id); ?>" class="btn btn-info btn-sm">Ubah Skor</a>
+                    <a href="<?php  echo base_url('Admin/detailquiz/' . $tanya->id); ?>" class="btn btn-info btn-sm" >Ubah Pertanyaan</a>
+                </td>
                 </tr>
                 <?php endforeach; ?>
                        <?php else: ?>

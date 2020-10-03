@@ -21,7 +21,27 @@ class Admin_m extends CI_Model
 		$this->db->join('bobot','form.id = bobot.id');
 		return $this->db->get();
 	}
+	public function detail($where,$table)
+	{	
+		return $this->db->get_where($table,$where);
+	}
+	public function detail_quiz($where,$table)
+	{	
+		return $this->db->get_where($table,$where);
+	}
+	public function update_skor($bobot2,$bobot1,$id){
+		$hasil = $this->db->query("UPDATE `form` SET `bobot2` = '$bobot2', `bobot1` = '$bobot1' WHERE `form`.`id` = $id");
+		return $hasil;
+	}
 
+	public function update_quiz($pertanyaan,$pilihan1,$pilihan2,$id){
+		$hasil = $this->db->query("UPDATE `form` SET `pilihan` = '$pilihan1', `pilihan2` = '$pilihan2', `pertanyaan` = '$pertanyaan' WHERE `form`.`id` = $id");
+		return $hasil;
+	}
+	public function detail_skrining($where,$table)
+	{	
+		return $this->db->get_where($table,$where);
+	}
 	public function insert_form(){
 	// $nama_proyek, $dana, $jenis, $daterange, $institusi, $frekuensi, 
 	// 		$teknologi,
@@ -77,24 +97,7 @@ class Admin_m extends CI_Model
 		$this->load->view('footer_admin');
 	}
 	
-	public function detailpertanyaan($id)
-	{
-		$where = array('id' => $id);
-		
-		$data['datapertanyaan'] = $this->admin_m->detail($where,'form')->result();
-		
-		$this->load->view('header_admin');
-		$this->load->view('navigasi');
-		$this->load->view('admin/pertanyaan_detail',$data);
-		$this->load->view('footer_admin');
-	}
-	function updateskor()
-	{
-		$bobot1 = $this->input->post('bobot1');
-		$bobot2 =$this->input->post('bobot2');
-		$id =$this->input->post('id');
-		$this->admin_m->update_skor($bobot2,$bobot1,$id);
-		$this->pertanyaan();
-	}
+	
+	
 }
 ?>

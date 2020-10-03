@@ -68,7 +68,7 @@
                        <?php echo $hasil->kode;?>
                         </td>
                         <td style="text-align: center;">
-                          <a href="<?php  echo base_url('calculate/detail/' . $hasil->id); ?>" class="btn btn-info">Detail</a>
+                          <a href="<?php  echo base_url('Admin/detailSkrining/' . $hasil->id); ?>" class="btn btn-info">Detail</a>
                           <!-- <button type="submit" data-toggle="modal" data-target="#hapus<?php echo $id;?>" class="btn btn-success btn-rose">Hapus</button> -->
                         </td>
                      </tr>
