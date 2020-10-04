@@ -113,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<input name="kel" type="text" class="form-control" placeholder="Contoh: Tegal Alur">
                       </div>
                     </div>
-                    <div class="col-sm-5 col-sm-offset-1"">
+                    <div class="col-sm-5 col-sm-offset-1">
                       <div class="form-group">
                         <label>No. Telepon <small>(wajib)</small></label>
                         <input name="telp" id="telp" type="number" class="form-control" placeholder="Contoh: 08123456789">
@@ -198,7 +198,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="form-group label-floating">
 								<label class="control-label">Jenis Infeksi</label>
 								<select class="form-control" id="jenis" name="jenis">
-									<option disabled="" selected=""></option>
+									<option disabled="" selected="selected">Pilih Jenis Screening</option>
 									<option value="1"> COVID-19 </option>
 									<option value="2"> Malaria </option>
 									<option value="3"> Demam Berdarah </option>
@@ -240,6 +240,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div> <!--  big container -->
 <!-- ini untk pengecekan -->
 
+
+<div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Konfirmasi
+            </div>
+            <div class="modal-body">
+                Are you sure you want to submit the following details?
+                <table class="table">
+                    <tr>
+                        <th>Nama</th>
+                        <td id="fname"></td>
+                    </tr>
+                  </table>
+              </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -332,23 +351,21 @@ $(document).ready(function() {
 			 $('#kel').focus();
 			 return false;
 		 }
-		
-		 if(vTelp === "" || vTelp === " "){
-			 alert("No. Telepon tidak boleh kosong!");
-			 $('#telp').focus();
-			 return false;
-		 }
-		
-		 if(vEmail === "" || vEmail === " "){
-			 alert("Email tidak boleh kosong!");
-			 $('#email').focus();
-			return false;
-		 }
-		
-		 console.log(vNama + vProv);
-		// return false;
 
-  }); 
+     
 	
 });
+
+  var infeksi = document.getElementById('infeksi').value;
+
+    $('#btn_submit').click(function() {
+     $('#fname').text($('#nama').val());
+     // $('#fdob').text($('#dob').val());
+     });
+
+  $('#submit').click(function(){
+      alert('submitting');
+      $('#formfield').submit();
+
+  }); 
 </script>
