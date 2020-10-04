@@ -98,22 +98,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-sm-5 ">
                       <div class="form-group">
                         <label>Kabupaten/Kota <small>(wajib)</small></label>
-						<input name="kab" type="text" class="form-control" placeholder="Contoh: Jakarta Barat">
+                        <select name="kab" id="kab" class="form-control">
+                          <option value="0"> Piih Kabupaten/Kota </option>
+                        </select>
                       </div>
                     </div>
                     <div class="col-sm-5 col-sm-offset-1">
                       <div class="form-group">
                         <label>Kecamatan <small>(wajib)</small></label>
-						<input name="kec" type="text" class="form-control" placeholder="Contoh: Kalideres">
+                        <select name="kec" id="kec" class="form-control">
+                          <option value="0"> Piih Kecamatan </option>
+                        </select>
                       </div>
                     </div>
                     <div class="col-sm-5">
                       <div class="form-group">
                         <label>Desa/Kelurahan <small>(wajib)</small></label>
-							<input name="kel" type="text" class="form-control" placeholder="Contoh: Tegal Alur">
+                        <select name="kel" id="kel" class="form-control">
+                          <option value="0"> Piih Desa/Kelurahan </option>
+                        </select>
                       </div>
                     </div>
-                    <div class="col-sm-5 col-sm-offset-1"">
+                    <div class="col-sm-5 col-sm-offset-1">
                       <div class="form-group">
                         <label>No. Telepon <small>(wajib)</small></label>
                         <input name="telp" id="telp" type="number" class="form-control" placeholder="Contoh: 08123456789">
@@ -242,44 +248,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <script type="text/javascript">
-$(document).ready(function() {
-	$('#prov').change(function() {
-		var selGroup = $(this).val();
-		 console.log(selGroup);
-		
-		 if(selGroup==0){
-			 alert("Pilih Provinsi");
-			 return false;
-		 }
-		
-		 $.ajax({
-			 url:'ajax_kab',
-			 method: 'post',
-			data: {id: selGroup},
-			dataType: 'json',
-			success: function(res){
-				 if(res.status == 1){
-					 var option = "<option value='0'>Pilih Kabupaten/Kota</option>";
-					var src = res.data;
-					
-					 if(src.length>0){
-						 for(var i=0; i<src.length; i++){
-							 var id = src[i].k;
-							 var name = src[i].v;
-
-							 option += "<option value='"+id+"'>"+name+"</option>"; 
-						 }
-					 }
-					
-					 $("#kab").empty();
-					 $("#kab").append(option);
-				
-				 }
-			 }
-		 });
-		
-	 });
-	
+$(document).ready(function() {	
 	$("#jenis").change(function () {
         var vJenis = this.value;
 		
@@ -339,16 +308,119 @@ $(document).ready(function() {
 			 return false;
 		 }
 		
-		 if(vEmail === "" || vEmail === " "){
-			 alert("Email tidak boleh kosong!");
-			 $('#email').focus();
-			return false;
-		 }
-		
 		 console.log(vNama + vProv);
 		// return false;
 
   }); 
-	
+  
+  
+  // Dropdown Ajax
+	$('#prov').change(function() {
+		var selGroup = $(this).val();
+		 console.log(selGroup);
+		
+		 if(selGroup==0){
+			 alert("Pilih Provinsi");
+			 return false;
+		 }
+		
+		 $.ajax({
+			 url:'ajax_kab',
+			 method: 'post',
+			data: {id: selGroup},
+			dataType: 'json',
+			success: function(res){
+				 if(res.status == 1){
+					 var option = "<option value='0'>Tentukan Kabupaten/Kota</option>";
+					 var src = res.data;
+					
+					 if(src.length>0){
+						 for(var i=0; i<src.length; i++){
+							 var id = src[i].k;
+							 var name = src[i].v;
+
+							 option += "<option value='"+id+"'>"+name+"</option>"; 
+						 }
+           }
+           
+					 $("#kab").empty();
+					 $("#kab").append(option);
+				 }
+			 }
+		 });
+  });
+  
+
+	$('#kab').change(function() {
+		var selGroup = $(this).val();
+		 console.log(selGroup);
+		
+		 if(selGroup==0){
+			 alert("Tentukan Kabupaten/Kota");
+			 return false;
+		 }
+		
+		 $.ajax({
+			 url:'ajax_kec',
+			 method: 'post',
+			data: {id: selGroup},
+			dataType: 'json',
+			success: function(res){
+				 if(res.status == 1){
+					 var option = "<option value='0'>Tentukan Kecamatan</option>";
+					 var src = res.data;
+					
+					 if(src.length>0){
+						 for(var i=0; i<src.length; i++){
+							 var id = src[i].k;
+							 var name = src[i].v;
+
+							 option += "<option value='"+id+"'>"+name+"</option>"; 
+						 }
+           }
+           
+					 $("#kec").empty();
+					 $("#kec").append(option);
+				 }
+			 }
+		 });
+  });
+  
+  
+	$('#kec').change(function() {
+		var selGroup = $(this).val();
+		 console.log(selGroup);
+		
+		 if(selGroup==0){
+			 alert("Tentukan Kecamatan");
+			 return false;
+		 }
+		
+		 $.ajax({
+			 url:'ajax_kel',
+			 method: 'post',
+			data: {id: selGroup},
+			dataType: 'json',
+			success: function(res){
+				 if(res.status == 1){
+					 var option = "<option value='0'>Tentukan Desa/Kelurahan</option>";
+					 var src = res.data;
+					
+					 if(src.length>0){
+						 for(var i=0; i<src.length; i++){
+							 var id = src[i].k;
+							 var name = src[i].v;
+
+							 option += "<option value='"+id+"'>"+name+"</option>"; 
+						 }
+           }
+           
+					 $("#kel").empty();
+					 $("#kel").append(option);
+				 }
+			 }
+		 });
+	});
+
 });
 </script>

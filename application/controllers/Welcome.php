@@ -167,31 +167,51 @@ class Welcome extends CI_Controller {
 		}
 		echo json_encode($result);
 	}
-	
-	// function ajax_prov(){
-	// 	$idprov = $this->input->post('id');
-		
-	// 	$query = $this->handheld_model->get_provinsi($idprov);
-	// 	if($query){
-	// 		$result = array(
-	// 			'status' => 1,
-	// 			'data' => $query
-	// 		);
-	// 	} else {
-	// 		$result = array(
-	// 			'status' => 0,
-	// 			'data' => [
-	// 				'msg' => "We found a problem, please restart your page and try again."
-	// 			]
-	// 		);
-	// 	}
-	// 	echo json_encode($result);
-	// }
 
 	function ajax_kab(){
 		$idprov = $this->input->post('id');
 		
-		$query = $this->handheld_model->get_kabupaten($idprov);
+		$query = $this->landing_m->get_kabupaten($idprov);
+		if($query){
+			$result = array(
+				'status' => 1,
+				'data' => $query
+			);
+		} else {
+			$result = array(
+				'status' => 0,
+				'data' => [
+					'msg' => "We found a problem, please restart your page and try again."
+				]
+			);
+		}
+		echo json_encode($result);
+	}
+
+	function ajax_kec(){
+		$key = $this->input->post('id');
+		
+		$query = $this->landing_m->get_kecamatan($key);
+		if($query){
+			$result = array(
+				'status' => 1,
+				'data' => $query
+			);
+		} else {
+			$result = array(
+				'status' => 0,
+				'data' => [
+					'msg' => "We found a problem, please restart your page and try again."
+				]
+			);
+		}
+		echo json_encode($result);
+	}
+
+	function ajax_kel(){
+		$key = $this->input->post('id');
+		
+		$query = $this->landing_m->get_kelurahan($key);
 		if($query){
 			$result = array(
 				'status' => 1,

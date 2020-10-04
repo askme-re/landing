@@ -81,5 +81,41 @@ class Landing_m extends CI_Model
 		}
 		return null;
 	}
+	
+	function get_kabupaten($id_prov){
+		$this->db->select('id_kab AS k, nama_kab AS v');
+		$this->db->from('ms_kabupaten');
+		$this->db->where('id_prop', $id_prov);
+        $query = $this->db->get();
+									
+		if ($query->num_rows() > 0){
+			return $query->result();
+		}
+		return null;
+	}
+	
+	function get_kecamatan($id_kab){
+		$this->db->select('id_kec AS k, nama_kec AS v');
+		$this->db->from('ms_kecamatan');
+		$this->db->where('id_kab', $id_kab);
+        $query = $this->db->get();
+									
+		if ($query->num_rows() > 0){
+			return $query->result();
+		}
+		return null;
+	}
+	
+	function get_kelurahan($id_kec){
+		$this->db->select('id_desa AS k, nama_desa AS v');
+		$this->db->from('ms_desa');
+		$this->db->where('id_kec', $id_kec);
+        $query = $this->db->get();
+									
+		if ($query->num_rows() > 0){
+			return $query->result();
+		}
+		return null;
+	}
 }
  ?>
