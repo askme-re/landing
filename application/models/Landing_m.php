@@ -67,6 +67,7 @@ class Landing_m extends CI_Model
 	
 	public function save_trx($data){
 		$query = $this->db->insert('temp_trx', $data);
+		var_export($query);
 		
 		return ($query) ? true : false;
 	}

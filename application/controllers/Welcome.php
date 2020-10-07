@@ -57,21 +57,21 @@ class Welcome extends CI_Controller {
         // mencetak string 
         $pdf->Cell(190,7,'ASK ME',0,1,'C');
         $pdf->SetFont('Arial','B',12);
-        $pdf->Cell(190,7,'Rangkuman Data Skrining Penyakit Menular',0,1,'C');
         // Memberikan space kebawah agar tidak terlalu rapat
         $pdf->Cell(10,7,'',0,1);
         $pdf->SetFont('Arial','B',10);
-        $pdf->Cell(20,6,'NIM',1,0);
-        $pdf->Cell(85,6,'NAMA Kamu',1,0);
-        $pdf->Cell(27,6,'NO HP',1,0);
-        $pdf->Cell(25,6,'TGL LHR',1,1);
+        // $pdf->Cell(20,6,'NIM',1,0);
+        // $pdf->Cell(85,6,'NAMA Kamu',1,0);
+        // $pdf->Cell(27,6,'NO HP',1,0);
+        // $pdf->Cell(25,6,'TGL LHR',1,1);
         $pdf->SetFont('Arial','',10);
-        $hasil = $this->db->get('bobot')->result();
+        $hasil = $this->db->get('temp_trx')->result();
         foreach ($hasil as $row){
-            $pdf->Cell(20,6,$row->jawaban,1,0);
-            $pdf->Cell(85,6,$row->bobot,1,0);
-            $pdf->Cell(27,6,$row->id_pertanyaan,1,0);
-            $pdf->Cell(25,6,$row->bobot,1,1);
+        	$pdf->Cell(190,7,"Rangkuman Data Skrining Penyakit Menular : ".$row->nama,0,1,'l');
+            $pdf->Cell(55,6,"Tanggal Screening ".$row->tgl,0,1);
+            $pdf->Cell(55,6,$row->jawban,1,0);
+            $pdf->Cell(85,6,$row->nilai,1,0);
+            $pdf->Cell(55,6,"Kode ".$row->kode,1,0);
         }
         $pdf->Output("D","skrining.pdf");
     }
@@ -85,12 +85,27 @@ class Welcome extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
+
 	public function register_save(){
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $charactersLength = strlen($characters);
+	    $randomString = '';
+	    for ($i = 0; $i <5; $i++) {
+	        $randomString .= $characters[rand(0, $charactersLength - 1)];
+	    }
+		// $kode = $this->generateRandomString();
 		$data['nama'] = $this->input->post('nama');
-		$data['jenis'] = $this->input->post('jenis');
 		$data['tgl'] = date('Y-m-d');
+		$data['kode'] = $randomString;
+		$data['jenis'] = $this->input->post('jenis');
+		// $data['prov'] = date('Y-m-d');
+		// $data['kab'] = date('Y-m-d');
+		// $data['kel'] = date('Y-m-d');
+		// $data['telp'] = $this->input->post('telp');
+		// $data['tempat_lhr'] = $this->input->post('pob');
+		// $data['tgl_lhr'] = $this->input->post('dob');
 		
-		$jenis = 1;
+		// $jenis = 1;
 		// get 
 		// $data['questions'] = $this->landing_m->pertanyaan();
 		// print_r($this->landing_m->quizes($jenis));
@@ -103,13 +118,18 @@ class Welcome extends CI_Controller {
 				
 				
 				$data[$val] = (!is_null($this->input->post($rb))) ? $this->input->post($rb) : null;
+
+				$nilai = $nilai + $rb;
+				print_r($data.$nilai);
 			}
 		}
 		
-		// insert into trx
+		// // insert into trx
 		$insert = $this->landing_m->save_trx($data);
+		print_r($data);
+		// $insert = $this->generateRandomString();
 		
-		if($insert) redirect('/index.php/welcome/register', 'refresh');
+		if($insert) redirect('/index.php/welcome/sent', 'refresh');
 		// print_r($data);
 	}
 
@@ -119,16 +139,6 @@ class Welcome extends CI_Controller {
 		// $this->load->view('header_admin');
 		$this->load->view('survey',$data);
 		// $this->load->view('footer');
-	}
-	
-	function generateRandomString($length = 5) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
-    }
-    echo "$randomString";
 	}
 	
 	function ajax_quiz(){
@@ -226,5 +236,14 @@ class Welcome extends CI_Controller {
 			);
 		}
 		echo json_encode($result);
+	}
+
+	function sent()
+	{
+		
+		$this->load->view('header');
+		$data['nama'] = $this->input->post('nama');
+		$this->load->view('publik/redirecthasil',$data);
+		$this->load->view('footer');
 	}
 }

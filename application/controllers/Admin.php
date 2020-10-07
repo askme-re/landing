@@ -21,7 +21,8 @@ class Admin extends CI_Controller {
 
 	public function pertanyaan()
 	{
-		$data['pertanyaan'] = $this->admin_m->forms();
+		// $data['pertanyaan'] = $this->admin_m->forms();
+		$data['pertanyaan'] = $this->admin_m->quizes();
 		$this->load->view('header_admin');
 		$this->load->view('navigasi');
 		$this->load->view('admin/pertanyaan',$data);

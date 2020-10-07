@@ -33,6 +33,19 @@ class Admin_m extends CI_Model
 		$hasil = $this->db->query("UPDATE `form` SET `bobot2` = '$bobot2', `bobot1` = '$bobot1' WHERE `form`.`id` = $id");
 		return $hasil;
 	}
+	public function quizes(){
+		$str = "SELECT f.id, f.pertanyaan,f.jenis,b.id AS id_bobot,b.bobot,b.jawaban,b.id_pertanyaan
+					,CASE WHEN b.jawaban=1 THEN 'Iya'
+						WHEN b.jawaban = 0 THEN 'Tidak' END AS opsi_bobot
+					FROM form f 
+					LEFT JOIN bobot b ON b.id_pertanyaan=f.id
+					group by f.pertanyaan ORDER BY f.id";
+		$qry = $this->db->query($str);
+		if ($qry->num_rows() > 0){
+			return $qry->result();
+		}
+		return null;
+	}
 
 	public function update_quiz($pertanyaan,$pilihan1,$pilihan2,$id){
 		$hasil = $this->db->query("UPDATE `form` SET `pilihan` = '$pilihan1', `pilihan2` = '$pilihan2', `pertanyaan` = '$pertanyaan' WHERE `form`.`id` = $id");

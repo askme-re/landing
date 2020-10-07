@@ -37,7 +37,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!--      Wizard container        -->
         <div class="wizard-container">
           <div class="card wizard-card" data-color="theme" id="wizardProfile">
-            <form method="POST" action="<?php echo base_url().'index.php/Welcome/quwa'?>" >
+            <form method="POST" action="<?php echo base_url().'index.php/Welcome/register_save'?>" >
+            <form method="POST" action="#" >
               <div class="wizard-header">
                 <h3>
                   <b><a href="<?php echo base_url('');?>"> AKS_ME</a></b> Screening Kesehatan Anda <br>
@@ -133,7 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                   </div>
                 </div>
-                <div class="tab-pane" id="cluster">
+<!--                 <div class="tab-pane" id="cluster">
                   <h4 class="info-text"> Screening Apa yang ingin Anda lakukan? </h4>
                   <div class="row">
                     <div class="col-sm-10 col-sm-offset-1">
@@ -146,54 +147,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <h6>COVID-19</h6>
                           </div>
                       </div>
-                      <div class="col-sm-4">
-                        <div class="choice" data-toggle="wizard-checkbox">
-                          <input type="radio" name="jobb" value="Malaria">
-                          <div class="icon">
-                            <i class="fa fa-terminal"></i>
-                          </div>
-                          <h6>Malaria</h6>
-                        </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <div class="choice" data-toggle="wizard-checkbox">
-                          <input type="radio" name="jobb" value="Malaria">
-                          <div class="icon">
-                            <i class="fa fa-terminal"></i>
-                          </div>
-                          <h6>Malaria</h6>
-                        </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <div class="choice" data-toggle="wizard-checkbox">
-                          <input type="radio" name="jobb" value="Malaria">
-                          <div class="icon">
-                            <i class="fa fa-terminal"></i>
-                          </div>
-                          <h6>Malaria</h6>
-                        </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <div class="choice" data-toggle="wizard-checkbox">
-                          <input type="radio" name="jobb" value="Malaria">
-                          <div class="icon">
-                            <i class="fa fa-terminal"></i>
-                          </div>
-                          <h6>Malaria</h6>
-                        </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <div class="choice" data-toggle="wizard-checkbox">
-                          <input type="radio" name="jobb" value="Malaria">
-                          <div class="icon">
-                            <i class="fa fa-terminal"></i>
-                          </div>
-                          <h6>Malaria</h6>
-                        </div>
-                      </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
                 <div class="tab-pane" id="quiz">
 				
@@ -204,7 +160,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="form-group label-floating">
 								<label class="control-label">Jenis Infeksi</label>
 								<select class="form-control" id="jenis" name="jenis">
-									<option disabled="" selected=""></option>
+									<option disabled="" selected="true">Pilih salah satu</option>
 									<option value="1"> COVID-19 </option>
 									<option value="2"> Malaria </option>
 									<option value="3"> Demam Berdarah </option>
@@ -230,7 +186,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' id="btn_next" value='Selanjutnya' />
 									
                   <!--<input type='submit' onClick="$('#createFormId').modal('show')" data-toggle="modal" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Finish' />-->
-									
+					<!-- <button type="button" id="cinta" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' data-toggle="modal" data-target="#resume">Open Modal</button> -->
                   <input type='submit' id="btn_submit" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Finish' />
                 </div>
                 <div class="pull-left">
@@ -246,6 +202,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div> <!--  big container -->
 <!-- ini untk pengecekan -->
 
+<!-- Modal preview -->
+
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="resume" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <!-- <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">TERIMA KASIH!</h4>
+        </div>
+        <div class="modal-body">
+        <form method="POST" action="<?php echo base_url().'index.php/Welcome/quwa'?>" > -->
+        	<!-- <label id="dnama">ss</label> -->
+        	<!-- <p id="dnama"></p>
+        	<input type="text" value="xx">
+        	<BR>
+        	<input type="submit" value="OK">
+        	<input type="submit" value="Cetak PDF">
+        </form>
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div> -->
+ 
 
 <script type="text/javascript">
 $(document).ready(function() {	
@@ -265,6 +252,11 @@ $(document).ready(function() {
 		});
     });
 	
+	$("#cinta").click(function(){
+	var vNama = $('#nama').val();
+	console.log("ini kalo kel" + vNama);
+	}); 
+
   $("#btn_next").click(function(){
 		var vNama = $('#nama').val();
 		var vTempatLahir = $('#tempat_lahir').val();
