@@ -15,6 +15,7 @@ class Landing_m extends CI_Model
 
 		return $this->db->get();
 	}
+	
 	public function forms(){
 		$this->db->select('*');
 		$this->db->from('form');
@@ -28,17 +29,24 @@ class Landing_m extends CI_Model
 		return $hasil;
 	
 	}
+	
+	function save_user($data){
+		$this->db->insert('user', $data);
+		$insert_id = $this->db->insert_id();
+
+		return  $insert_id;
+	}
+	
 	function hasilask(){
 		$hasi=$this->db->query("select  nama, (SELECT sum(nilai) FROM `temp_trx` group by tgl) total , tgl from temp_trx GROUP BY nama");
 		return $hasi;
 	}
 
-
-
 	public function pertanyaan(){
 		$hasil = $this->db->query("select * from form where jenis=1");
 		return $hasil;
 	}
+<<<<<<< HEAD
 	public function getnilai($insert_id){
 		$nini = $this->db->query("select b.bobot as nilaiks
 					FROM screening s
@@ -48,11 +56,23 @@ class Landing_m extends CI_Model
 
 		$hasil = $this->db->query("select sum(nilaiks) as skor from hasiluser2")->row()->skor;
 		$nilaiks = $this->db->query("update temp_trx set nilai='$hasil' where id=$insert_id");
-		// $hasil = $this->db->query("select sum(nilaiks) as skor from hasiluser2")->row()->skor;
+	
 		return $hasil;
-		// return $hasil->num_rows('nilaiks');
+	
 	}
 		public function jawb(){
+=======
+	
+	public function tanya($jenis){
+		$qry = $this->db->query('select * from form where jenis="'.$jenis.'"');
+		if ($qry->num_rows() > 0){
+			return $qry->result();
+		}
+		return null;
+	}
+	
+	public function jawb(){
+>>>>>>> 56b4e2d3533750b55d095e81b6f9dc60f787ab42
 		$hasil = $this->db->query("select * from form where jenis=1");
 		return $hasil;
 	}
@@ -71,6 +91,7 @@ class Landing_m extends CI_Model
 
 		return $this->db->get();
 	}
+	
 	public function quizes($jenis){
 		$str = "SELECT f.id, f.pertanyaan,f.jenis,b.id AS id_bobot,b.bobot,b.jawaban,b.id_pertanyaan
 					,CASE WHEN b.jawaban=1 THEN 'Iya'
@@ -86,13 +107,17 @@ class Landing_m extends CI_Model
 	}
 	
 	public function save_trx($data){
+<<<<<<< HEAD
 		 $this->db->insert_batch('temp_trx', $data);
 		$insert_id = $this->db->insert_id();
 
    				return  $insert_id;
 
+=======
+		$query = $this->db->insert_batch('screening', $data); 
+>>>>>>> 56b4e2d3533750b55d095e81b6f9dc60f787ab42
 		
-		// return ($query) ? true : false;
+
 	}
 	
 	function get_provinsi(){

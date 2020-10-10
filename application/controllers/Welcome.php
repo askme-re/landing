@@ -23,15 +23,15 @@ class Welcome extends CI_Controller {
 	public function quwa()
 	{
 		$data['kokom'] = $this->session->flashdata('item');
-		print_r($data);
+		
 		$insert = $this->landing_m->save_trx($data);
-		// print_r($insert_id);
-		var_export($insert_id);
+
+
 // 		$this->landing_m->insert_form($nama, $tempat_lhr, $tanggal_lhr);
 		$this->session->set_flashdata('msg', "<div class='alert alert-success' role='alert'>
 		<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button> <strong>Success!</strong> Berhasil simpan. </div>");
 // 		$this->load->library('../controllers/GeneratePDFController');
-		// $this->inde();
+
 
 	}
 	
@@ -77,15 +77,17 @@ class Welcome extends CI_Controller {
 	public function register()
 	{
 		$data['prov'] = $this->landing_m->get_provinsi();
-		$data['questions'] = $this->landing_m->pertanyaan();
+		// $data['questions'] = $this->landing_m->pertanyaan();
 		// $this->load->view('header');
 		$this->load->view('survey',$data);
 		$this->load->view('footer');
 	}
 	
 
-	public function register_save(){
+	public function register_save()
+	{
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+<<<<<<< HEAD
 	    $charactersLength = strlen($characters);
 	    $randomString = '';
 	    for ($i = 0; $i <5; $i++) {
@@ -103,19 +105,76 @@ class Welcome extends CI_Controller {
 
 		$jenis = $data['jenis'];
 		$quizes = $this->landing_m->quizes($jenis);
+=======
+
+	
+	
+
+
+
+		$jenis = $this->input->post('jenis');
+
+		$user['nama'] = $this->input->post('nama');
+		$user['tp_lahir'] = $this->input->post('tempat_lahir');
+		$user['tgl_lahir'] = $this->input->post('tgl_lahir');
+		$user['id_prov'] = $this->input->post('prov');
+		$user['id_kab'] = $this->input->post('kab');
+		$user['id_kec'] = $this->input->post('kec');
+		$user['id_kel'] = $this->input->post('kel');
+		$user['alamat'] = $this->input->post('alamat');
+		$user['telp'] = $this->input->post('telp');
+		$user['email'] = $this->input->post('email');
+		
+		// save user data return id
+		$id_user = $this->landing_m->save_user($user);
+		
+		
+		// array of screening data
+		$screening = array();
+		
+		// $data['kode'] = $randomString;
+		$data['tgl'] = date('Y-m-d');
+		$data['id_user'] = $id_user;
+		
+		// save hasil screening by key jenis & user_id
+		$nilai = 0;
+		$quizes = $this->landing_m->tanya($jenis);
+>>>>>>> 56b4e2d3533750b55d095e81b6f9dc60f787ab42
 		foreach($quizes as $v){
-			if(!is_null($v->bobot)){
-				$val = 'cov'.$v->id;
-				$rb = 'rb_'.$v->id;
+			$rb = 'rb_'.$v->id;
+			$str_bobot = (!is_null($this->input->post($rb))) ? $this->input->post($rb) : null;
+			
+			$data['id_pertanyaan'] = $v->id;
+			$data['id_bobot'] = '';
+			$data['hasil'] = '';
+			
+			if($str_bobot != null )
+			{
+				$arr_bobot = explode("#",$str_bobot);
+				$nilai = $nilai + $arr_bobot[1];
 				
-				
+<<<<<<< HEAD
 				$data[$val] = (!is_null($this->input->post($rb))) ? $this->input->post($rb) : null;
+=======
+				$data['id_bobot'] = $arr_bobot[0];
+				$data['hasil'] = $nilai;
+>>>>>>> 56b4e2d3533750b55d095e81b6f9dc60f787ab42
 			}
+			
+			array_push($screening, $data);
 		}
 		
+<<<<<<< HEAD
 		$this->session->set_flashdata('item', $data);
 		$this->sent();
-		// if($insert) redirect('/index.php/welcome/sent', 'refresh');
+
+
+	
+
+		$insert = $this->landing_m->save_trx($screening);
+		
+		if($insert) redirect('/index.php/welcome/sent', 'refresh');
+>>>>>>> 56b4e2d3533750b55d095e81b6f9dc60f787ab42
 	}
 
 	public function jwb()
@@ -153,7 +212,11 @@ class Welcome extends CI_Controller {
 				$result .= '
                           <div class="radio">
 							  <label>
+<<<<<<< HEAD
 								<input type="radio" name="rb_'.$v->id.'" value="'.$v->bobot.'" required>
+=======
+								<input type="radio" name="rb_'.$v->id.'" value="'.$v->id_bobot.'#'.$v->bobot.'">
+>>>>>>> 56b4e2d3533750b55d095e81b6f9dc60f787ab42
 								'.$v->opsi_bobot.'
 							  </label>
                           </div>';
@@ -225,14 +288,13 @@ class Welcome extends CI_Controller {
 
 	function sent()
 	{
-		
 		$this->load->view('header');
 		$data['kokom'] = $this->session->flashdata('item');
 		$insert_id = $this->landing_m->save_trx($data);
 		$hasil = $this->landing_m->getnilai($insert_id);
 
 
-// $data = $this->session->flashdata('item');  
+ 
   
 $data['hasil'] = $hasil;  
   
