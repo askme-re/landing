@@ -46,7 +46,6 @@ class Landing_m extends CI_Model
 		$hasil = $this->db->query("select * from form where jenis=1");
 		return $hasil;
 	}
-<<<<<<< HEAD
 	public function getnilai($insert_id){
 		$nini = $this->db->query("select b.bobot as nilaiks
 					FROM screening s
@@ -60,8 +59,6 @@ class Landing_m extends CI_Model
 		return $hasil;
 	
 	}
-		public function jawb(){
-=======
 	
 	public function tanya($jenis){
 		$qry = $this->db->query('select * from form where jenis="'.$jenis.'"');
@@ -72,7 +69,6 @@ class Landing_m extends CI_Model
 	}
 	
 	public function jawb(){
->>>>>>> 56b4e2d3533750b55d095e81b6f9dc60f787ab42
 		$hasil = $this->db->query("select * from form where jenis=1");
 		return $hasil;
 	}
@@ -107,17 +103,12 @@ class Landing_m extends CI_Model
 	}
 	
 	public function save_trx($data){
-<<<<<<< HEAD
 		 $this->db->insert_batch('temp_trx', $data);
 		$insert_id = $this->db->insert_id();
 
    				return  $insert_id;
 
-=======
 		$query = $this->db->insert_batch('screening', $data); 
->>>>>>> 56b4e2d3533750b55d095e81b6f9dc60f787ab42
-		
-
 	}
 	
 	function get_provinsi(){

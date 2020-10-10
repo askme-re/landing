@@ -87,7 +87,6 @@ class Welcome extends CI_Controller {
 	public function register_save()
 	{
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-<<<<<<< HEAD
 	    $charactersLength = strlen($characters);
 	    $randomString = '';
 	    for ($i = 0; $i <5; $i++) {
@@ -105,13 +104,6 @@ class Welcome extends CI_Controller {
 
 		$jenis = $data['jenis'];
 		$quizes = $this->landing_m->quizes($jenis);
-=======
-
-	
-	
-
-
-
 		$jenis = $this->input->post('jenis');
 
 		$user['nama'] = $this->input->post('nama');
@@ -135,11 +127,11 @@ class Welcome extends CI_Controller {
 		// $data['kode'] = $randomString;
 		$data['tgl'] = date('Y-m-d');
 		$data['id_user'] = $id_user;
+
 		
 		// save hasil screening by key jenis & user_id
 		$nilai = 0;
 		$quizes = $this->landing_m->tanya($jenis);
->>>>>>> 56b4e2d3533750b55d095e81b6f9dc60f787ab42
 		foreach($quizes as $v){
 			$rb = 'rb_'.$v->id;
 			$str_bobot = (!is_null($this->input->post($rb))) ? $this->input->post($rb) : null;
@@ -153,32 +145,31 @@ class Welcome extends CI_Controller {
 				$arr_bobot = explode("#",$str_bobot);
 				$nilai = $nilai + $arr_bobot[1];
 				
-<<<<<<< HEAD
-				$data[$val] = (!is_null($this->input->post($rb))) ? $this->input->post($rb) : null;
-=======
+				// $data[$val] = (!is_null($this->input->post($rb))) ? $this->input->post($rb) : null;
 				$data['id_bobot'] = $arr_bobot[0];
 				$data['hasil'] = $nilai;
->>>>>>> 56b4e2d3533750b55d095e81b6f9dc60f787ab42
 			}
 			
 			array_push($screening, $data);
 		}
 		
-<<<<<<< HEAD
-		$this->session->set_flashdata('item', $data);
-		$this->sent();
-
-
-	
-
+		// $this->session->set_flashdata('item', $data);
+		// $this->sent();
 		$insert = $this->landing_m->save_trx($screening);
 		
 		if($insert) redirect('/index.php/welcome/sent', 'refresh');
->>>>>>> 56b4e2d3533750b55d095e81b6f9dc60f787ab42
 	}
 
 	public function jwb()
 	{
+		
+$result .= '
+<div class="radio">
+ <label>
+ <input type="radio" name="rb_'.$v->id.'" value="'.$v->id_bobot.'#'.$v->bobot.'">
+ '.$v->opsi_bobot.'
+ </label>
+</div>';
 		$data['questions'] = $this->landing_m->jawb();
 		// $this->load->view('header_admin');
 		$this->load->view('survey',$data);
@@ -212,11 +203,8 @@ class Welcome extends CI_Controller {
 				$result .= '
                           <div class="radio">
 							  <label>
-<<<<<<< HEAD
 								<input type="radio" name="rb_'.$v->id.'" value="'.$v->bobot.'" required>
-=======
 								<input type="radio" name="rb_'.$v->id.'" value="'.$v->id_bobot.'#'.$v->bobot.'">
->>>>>>> 56b4e2d3533750b55d095e81b6f9dc60f787ab42
 								'.$v->opsi_bobot.'
 							  </label>
                           </div>';
@@ -292,21 +280,13 @@ class Welcome extends CI_Controller {
 		$data['kokom'] = $this->session->flashdata('item');
 		$insert_id = $this->landing_m->save_trx($data);
 		$hasil = $this->landing_m->getnilai($insert_id);
-
-
- 
   
-$data['hasil'] = $hasil;  
-  
-$data['kokom'] = $this->session->flashdata('item', $data); 
+		$data['hasil'] = $hasil;  
+		$data['kokom'] = $this->session->flashdata('item', $data); 
 
 
-		// print_r($hasil);
-		// $data['kokom'] = $this->session->flashdata('skor',$hasil);
-		// $data['kokom']=$this->session->set_flashdata('item', $hasil);
 		$this->load->view('publik/redirecthasil',$data);
 		// $this->load->view('publik/redirecthasil',$hasil);
-		// $this->quwa();
 		$this->load->view('footer');
 	}
 }
