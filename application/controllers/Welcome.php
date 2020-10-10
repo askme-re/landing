@@ -17,7 +17,7 @@ class Welcome extends CI_Controller {
 	public function brief()
 	{
 		$this->load->view('header_admin');
-		$this->load->view('beranda');
+		$this->load->view('publik/index');
 	}
 
 	public function quwa()
