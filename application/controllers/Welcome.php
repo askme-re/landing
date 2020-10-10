@@ -6,6 +6,7 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url','form'));
 		$this->load->model('landing_m');
+		$this->load->library('session');
 	}
 
 	public function index()
@@ -13,42 +14,30 @@ class Welcome extends CI_Controller {
 		$this->load->view('header_admin');
 		$this->load->view('welcome_message');
 	}
+	public function brief()
+	{
+		$this->load->view('header_admin');
+		$this->load->view('beranda');
+	}
 
 	public function quwa()
 	{
-		$nama = $this->input->post('name');
-		$tempat_lhr =$this->input->post('pob');
-		// $tanggal_lhr =$this->input->post('dob');
-		$tanggal_lhr ='2000-02-02';
-		
-		$jenis = 1;
-		// get 
-		// $data['questions'] = $this->landing_m->pertanyaan();
-		// print_r($this->landing_m->quizes($jenis));
-		
-		$quizes = $this->landing_m->quizes($jenis);
-		foreach($quizes as $v){
-			if(!is_null($v->bobot)){
-				$val = 'cov'.$v->id;
-				$rb = 'rb_'.$v->id;
-				
-				
-				$data[$val] = (!is_null($this->input->post($rb))) ? $this->input->post($rb) : null;
-			}
-		}
-		
+		$data['kokom'] = $this->session->flashdata('item');
+		print_r($data);
+		$insert = $this->landing_m->save_trx($data);
+		// print_r($insert_id);
+		var_export($insert_id);
 // 		$this->landing_m->insert_form($nama, $tempat_lhr, $tanggal_lhr);
 		$this->session->set_flashdata('msg', "<div class='alert alert-success' role='alert'>
 		<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button> <strong>Success!</strong> Berhasil simpan. </div>");
 // 		$this->load->library('../controllers/GeneratePDFController');
-		$this->inde();
-// 		$this->load->GeneratePDFController();
-// 		redirect('index.php/GeneratePDFController');
-		// $this->load->view('survey');
+		// $this->inde();
+
 	}
 	
-	 function inde(){
+	 function inde($kode){
 	   //   $this->load->library('pdf');
+	 	$image="ASK_ME.jpg";
         $pdf = new FPDF('l','mm','A4');
         // membuat halaman baru
         $pdf->AddPage();
@@ -65,14 +54,23 @@ class Welcome extends CI_Controller {
         // $pdf->Cell(27,6,'NO HP',1,0);
         // $pdf->Cell(25,6,'TGL LHR',1,1);
         $pdf->SetFont('Arial','',10);
-        $hasil = $this->db->get('temp_trx')->result();
+        // $hasil = $this->db->get('temp_trx')->result();
+        $hasil = $this->db->query("select * from temp_trx where kode ='$kode' ")->result();
         foreach ($hasil as $row){
         	$pdf->Cell(190,7,"Rangkuman Data Skrining Penyakit Menular : ".$row->nama,0,1,'l');
+        	$pdf->Cell(190,7,"Tanggal Lahir: ".$row->tgl_lhr,0,1,'l');
             $pdf->Cell(55,6,"Tanggal Screening ".$row->tgl,0,1);
-            $pdf->Cell(55,6,$row->jawban,1,0);
-            $pdf->Cell(85,6,$row->nilai,1,0);
+            if ($row->nilai >5) {
+            	$kesimpulan = "Merah, Anda harus melakukan rujukan";
+            }else{
+            	$kesimpulan = "Hijau";
+            }
+            $pdf->Cell(55,6,"Hasil : ".$kesimpulan,0,1);
+            $pdf->Cell(55,6,"Tempat Lahir : ".$row->tempat_lhr,0,1);
+            $pdf->Cell(55,6,"Jenis Skrining: ".$row->jenis,0,1);
             $pdf->Cell(55,6,"Kode ".$row->kode,1,0);
         }
+        $pdf->Image('./assets/img/'.$image,100,15,35,35);
         $pdf->Output("D","skrining.pdf");
     }
 
@@ -93,23 +91,17 @@ class Welcome extends CI_Controller {
 	    for ($i = 0; $i <5; $i++) {
 	        $randomString .= $characters[rand(0, $charactersLength - 1)];
 	    }
-		// $kode = $this->generateRandomString();
 		$data['nama'] = $this->input->post('nama');
-		$data['tgl'] = date('Y-m-d');
 		$data['kode'] = $randomString;
 		$data['jenis'] = $this->input->post('jenis');
-		// $data['prov'] = date('Y-m-d');
-		// $data['kab'] = date('Y-m-d');
-		// $data['kel'] = date('Y-m-d');
+		$data['prov'] = $this->input->post('prov');
+		$data['kab'] = $this->input->post('kab');
+		$data['kel'] = $this->input->post('kel');
 		// $data['telp'] = $this->input->post('telp');
-		// $data['tempat_lhr'] = $this->input->post('pob');
-		// $data['tgl_lhr'] = $this->input->post('dob');
-		
-		// $jenis = 1;
-		// get 
-		// $data['questions'] = $this->landing_m->pertanyaan();
-		// print_r($this->landing_m->quizes($jenis));
-		
+		$data['tempat_lhr'] = $this->input->post('tempat_lahir');
+		$data['tgl_lhr'] = $this->input->post('tgl_lahir');
+
+		$jenis = $data['jenis'];
 		$quizes = $this->landing_m->quizes($jenis);
 		foreach($quizes as $v){
 			if(!is_null($v->bobot)){
@@ -118,19 +110,12 @@ class Welcome extends CI_Controller {
 				
 				
 				$data[$val] = (!is_null($this->input->post($rb))) ? $this->input->post($rb) : null;
-
-				$nilai = $nilai + $rb;
-				print_r($data.$nilai);
 			}
 		}
 		
-		// // insert into trx
-		$insert = $this->landing_m->save_trx($data);
-		print_r($data);
-		// $insert = $this->generateRandomString();
-		
-		if($insert) redirect('/index.php/welcome/sent', 'refresh');
-		// print_r($data);
+		$this->session->set_flashdata('item', $data);
+		$this->sent();
+		// if($insert) redirect('/index.php/welcome/sent', 'refresh');
 	}
 
 	public function jwb()
@@ -168,7 +153,7 @@ class Welcome extends CI_Controller {
 				$result .= '
                           <div class="radio">
 							  <label>
-								<input type="radio" name="rb_'.$v->id.'" value="'.$v->bobot.'">
+								<input type="radio" name="rb_'.$v->id.'" value="'.$v->bobot.'" required>
 								'.$v->opsi_bobot.'
 							  </label>
                           </div>';
@@ -242,8 +227,24 @@ class Welcome extends CI_Controller {
 	{
 		
 		$this->load->view('header');
-		$data['nama'] = $this->input->post('nama');
+		$data['kokom'] = $this->session->flashdata('item');
+		$insert_id = $this->landing_m->save_trx($data);
+		$hasil = $this->landing_m->getnilai($insert_id);
+
+
+// $data = $this->session->flashdata('item');  
+  
+$data['hasil'] = $hasil;  
+  
+$data['kokom'] = $this->session->flashdata('item', $data); 
+
+
+		// print_r($hasil);
+		// $data['kokom'] = $this->session->flashdata('skor',$hasil);
+		// $data['kokom']=$this->session->set_flashdata('item', $hasil);
 		$this->load->view('publik/redirecthasil',$data);
+		// $this->load->view('publik/redirecthasil',$hasil);
+		// $this->quwa();
 		$this->load->view('footer');
 	}
 }

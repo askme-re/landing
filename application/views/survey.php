@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <form method="POST" action="#" >
               <div class="wizard-header">
                 <h3>
-                  <b><a href="<?php echo base_url('');?>"> AKS_ME</a></b> Screening Kesehatan Anda <br>
+                  <b><a href="<?php echo base_url('home');?>"> ASK_ME</a></b> Screening Kesehatan Anda <br>
                   <small>Isi formulir berikut sesuai keadaan Anda</small>
                 </h3>
               </div>

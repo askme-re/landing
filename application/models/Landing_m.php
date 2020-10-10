@@ -39,9 +39,29 @@ class Landing_m extends CI_Model
 		$hasil = $this->db->query("select * from form where jenis=1");
 		return $hasil;
 	}
+	public function getnilai($insert_id){
+		$nini = $this->db->query("select b.bobot as nilaiks
+					FROM screening s
+					LEFT JOIN bobot b ON s.id_bobot=b.id
+					LEFT JOIN user u ON s.id_user=u.id_user
+					where s.id_user = '$insert_id'");
+
+		$hasil = $this->db->query("select sum(nilaiks) as skor from hasiluser2")->row()->skor;
+		$nilaiks = $this->db->query("update temp_trx set nilai='$hasil' where id=$insert_id");
+		// $hasil = $this->db->query("select sum(nilaiks) as skor from hasiluser2")->row()->skor;
+		return $hasil;
+		// return $hasil->num_rows('nilaiks');
+	}
 		public function jawb(){
 		$hasil = $this->db->query("select * from form where jenis=1");
 		return $hasil;
+	}
+	public function getdata($insert_id){
+		$this->db->select('*');
+		$this->db->from('temp_trx');
+		$this->db->where('id','$insert_id');
+
+		return $this->db->get();
 	}
 
 	public function sets(){
@@ -66,10 +86,13 @@ class Landing_m extends CI_Model
 	}
 	
 	public function save_trx($data){
-		$query = $this->db->insert('temp_trx', $data);
-		var_export($query);
+		 $this->db->insert_batch('temp_trx', $data);
+		$insert_id = $this->db->insert_id();
+
+   				return  $insert_id;
+
 		
-		return ($query) ? true : false;
+		// return ($query) ? true : false;
 	}
 	
 	function get_provinsi(){
