@@ -17,34 +17,36 @@
               <th> No </th>
               <th> Pertanyaan </th>
               <th> Jenis </th>
-              <th> Skor YA </th>
-              <th> Skor Tidak </th>
+              <th> Jawaban</th>
+              <th> Bobot </th>
               <th> Aksi</th>
             </thead>
             <tbody>
               <tr>
-              <?php if($pertanyaan->num_rows() > 0): ?>
+              <?php if(isset($pertanyaan)): ?>
                       <?php $index = 1; ?>
-                <?php foreach($pertanyaan->result() as $tanya):
+                <?php foreach($pertanyaan as $tanya):
                       $id = $tanya->id; 
                        ?>
                 <td> <?php echo $index++; ?></td>
                 <td><?php echo "$tanya->pertanyaan";?></td>
                 <td><?php 
-                           if($tanya->jenis){
+                           if($tanya->jenis == 1){
                             echo "Covid";
+                           }elseif ($tanya->jenis == 2) {
+                            echo "Malaria";
                            };
                           ?>
                 </td>
-                <td><?php echo "$tanya->bobot1";?></td>
-                <td><?php echo "$tanya->bobot2";?></td>
+                <td><?php echo "$tanya->opsi_bobot";?></td>
+                <td><?php echo "$tanya->bobot";?></td>
                 <td>
                     <a href="<?php  echo base_url('Admin/detailpertanyaan/' . $tanya->id); ?>" class="btn btn-info btn-sm">Ubah Skor</a>
                     <a href="<?php  echo base_url('Admin/detailquiz/' . $tanya->id); ?>" class="btn btn-info btn-sm" >Ubah Pertanyaan</a>
                 </td>
                 </tr>
                 <?php endforeach; ?>
-                       <?php else: ?>
+                       <?php  else: ?>
                     <tr>
                       <td colspan="6" style="text-align: center;">Data tidak tersedia</td>
                     </tr>

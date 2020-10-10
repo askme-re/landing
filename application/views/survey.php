@@ -37,10 +37,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!--      Wizard container        -->
         <div class="wizard-container">
           <div class="card wizard-card" data-color="theme" id="wizardProfile">
-            <form method="POST" action="<?php echo base_url().'index.php/Welcome/quwa'?>" >
+            <form method="POST" action="<?php echo base_url().'index.php/Welcome/register_save'?>" >
+            <form method="POST" action="#" >
               <div class="wizard-header">
                 <h3>
-                  <b><a href="<?php echo base_url('');?>"> AKS_ME</a></b> Screening Kesehatan Anda <br>
+                  <b><a href="<?php echo base_url('home');?>"> ASK_ME</a></b> Screening Kesehatan Anda <br>
                   <small>Isi formulir berikut sesuai keadaan Anda</small>
                 </h3>
               </div>
@@ -98,19 +99,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-sm-5 ">
                       <div class="form-group">
                         <label>Kabupaten/Kota <small>(wajib)</small></label>
-						<input name="kab" type="text" class="form-control" placeholder="Contoh: Jakarta Barat">
+                        <select name="kab" id="kab" class="form-control">
+                          <option value="0"> Piih Kabupaten/Kota </option>
+                        </select>
                       </div>
                     </div>
                     <div class="col-sm-5 col-sm-offset-1">
                       <div class="form-group">
                         <label>Kecamatan <small>(wajib)</small></label>
-						<input name="kec" type="text" class="form-control" placeholder="Contoh: Kalideres">
+                        <select name="kec" id="kec" class="form-control">
+                          <option value="0"> Piih Kecamatan </option>
+                        </select>
                       </div>
                     </div>
                     <div class="col-sm-5">
                       <div class="form-group">
                         <label>Desa/Kelurahan <small>(wajib)</small></label>
-							<input name="kel" type="text" class="form-control" placeholder="Contoh: Tegal Alur">
+                        <select name="kel" id="kel" class="form-control">
+                          <option value="0"> Piih Desa/Kelurahan </option>
+                        </select>
                       </div>
                     </div>
                     <div class="col-sm-5 col-sm-offset-1">
@@ -127,7 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                   </div>
                 </div>
-                <div class="tab-pane" id="cluster">
+<!--                 <div class="tab-pane" id="cluster">
                   <h4 class="info-text"> Screening Apa yang ingin Anda lakukan? </h4>
                   <div class="row">
                     <div class="col-sm-10 col-sm-offset-1">
@@ -140,54 +147,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <h6>COVID-19</h6>
                           </div>
                       </div>
-                      <div class="col-sm-4">
-                        <div class="choice" data-toggle="wizard-checkbox">
-                          <input type="radio" name="jobb" value="Malaria">
-                          <div class="icon">
-                            <i class="fa fa-terminal"></i>
-                          </div>
-                          <h6>Malaria</h6>
-                        </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <div class="choice" data-toggle="wizard-checkbox">
-                          <input type="radio" name="jobb" value="Malaria">
-                          <div class="icon">
-                            <i class="fa fa-terminal"></i>
-                          </div>
-                          <h6>Malaria</h6>
-                        </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <div class="choice" data-toggle="wizard-checkbox">
-                          <input type="radio" name="jobb" value="Malaria">
-                          <div class="icon">
-                            <i class="fa fa-terminal"></i>
-                          </div>
-                          <h6>Malaria</h6>
-                        </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <div class="choice" data-toggle="wizard-checkbox">
-                          <input type="radio" name="jobb" value="Malaria">
-                          <div class="icon">
-                            <i class="fa fa-terminal"></i>
-                          </div>
-                          <h6>Malaria</h6>
-                        </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <div class="choice" data-toggle="wizard-checkbox">
-                          <input type="radio" name="jobb" value="Malaria">
-                          <div class="icon">
-                            <i class="fa fa-terminal"></i>
-                          </div>
-                          <h6>Malaria</h6>
-                        </div>
-                      </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
                 <div class="tab-pane" id="quiz">
 				
@@ -198,7 +160,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="form-group label-floating">
 								<label class="control-label">Jenis Infeksi</label>
 								<select class="form-control" id="jenis" name="jenis">
-									<option disabled="" selected="selected">Pilih Jenis Screening</option>
+									<option disabled="" selected="true">Pilih salah satu</option>
 									<option value="1"> COVID-19 </option>
 									<option value="2"> Malaria </option>
 									<option value="3"> Demam Berdarah </option>
@@ -224,7 +186,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' id="btn_next" value='Selanjutnya' />
 									
                   <!--<input type='submit' onClick="$('#createFormId').modal('show')" data-toggle="modal" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Finish' />-->
-									
+					<!-- <button type="button" id="cinta" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' data-toggle="modal" data-target="#resume">Open Modal</button> -->
                   <input type='submit' id="btn_submit" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Finish' />
                 </div>
                 <div class="pull-left">
@@ -240,65 +202,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div> <!--  big container -->
 <!-- ini untk pengecekan -->
 
+<!-- Modal preview -->
 
-<div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="resume" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                Konfirmasi
-            </div>
-            <div class="modal-body">
-                Are you sure you want to submit the following details?
-                <table class="table">
-                    <tr>
-                        <th>Nama</th>
-                        <td id="fname"></td>
-                    </tr>
-                  </table>
-              </div>
+    
+      <!-- Modal content-->
+      <!-- <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">TERIMA KASIH!</h4>
         </div>
+        <div class="modal-body">
+        <form method="POST" action="<?php echo base_url().'index.php/Welcome/quwa'?>" > -->
+        	<!-- <label id="dnama">ss</label> -->
+        	<!-- <p id="dnama"></p>
+        	<input type="text" value="xx">
+        	<BR>
+        	<input type="submit" value="OK">
+        	<input type="submit" value="Cetak PDF">
+        </form>
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
     </div>
-</div>
+  </div> -->
+ 
 
 <script type="text/javascript">
-$(document).ready(function() {
-	$('#prov').change(function() {
-		var selGroup = $(this).val();
-		 console.log(selGroup);
-		
-		 if(selGroup==0){
-			 alert("Pilih Provinsi");
-			 return false;
-		 }
-		
-		 $.ajax({
-			 url:'ajax_kab',
-			 method: 'post',
-			data: {id: selGroup},
-			dataType: 'json',
-			success: function(res){
-				 if(res.status == 1){
-					 var option = "<option value='0'>Pilih Kabupaten/Kota</option>";
-					var src = res.data;
-					
-					 if(src.length>0){
-						 for(var i=0; i<src.length; i++){
-							 var id = src[i].k;
-							 var name = src[i].v;
-
-							 option += "<option value='"+id+"'>"+name+"</option>"; 
-						 }
-					 }
-					
-					 $("#kab").empty();
-					 $("#kab").append(option);
-				
-				 }
-			 }
-		 });
-		
-	 });
-	
+$(document).ready(function() {	
 	$("#jenis").change(function () {
         var vJenis = this.value;
 		
@@ -315,6 +252,11 @@ $(document).ready(function() {
 		});
     });
 	
+	$("#cinta").click(function(){
+	var vNama = $('#nama').val();
+	console.log("ini kalo kel" + vNama);
+	}); 
+
   $("#btn_next").click(function(){
 		var vNama = $('#nama').val();
 		var vTempatLahir = $('#tempat_lahir').val();
@@ -351,21 +293,126 @@ $(document).ready(function() {
 			 $('#kel').focus();
 			 return false;
 		 }
-
-     
-	
-});
-
-  var infeksi = document.getElementById('infeksi').value;
-
-    $('#btn_submit').click(function() {
-     $('#fname').text($('#nama').val());
-     // $('#fdob').text($('#dob').val());
-     });
-
-  $('#submit').click(function(){
-      alert('submitting');
-      $('#formfield').submit();
+		
+		 if(vTelp === "" || vTelp === " "){
+			 alert("No. Telepon tidak boleh kosong!");
+			 $('#telp').focus();
+			 return false;
+		 }
+		
+		 console.log(vNama + vProv);
+		// return false;
 
   }); 
+  
+  
+  // Dropdown Ajax
+	$('#prov').change(function() {
+		var selGroup = $(this).val();
+		 console.log(selGroup);
+		
+		 if(selGroup==0){
+			 alert("Pilih Provinsi");
+			 return false;
+		 }
+		
+		 $.ajax({
+			 url:'ajax_kab',
+			 method: 'post',
+			data: {id: selGroup},
+			dataType: 'json',
+			success: function(res){
+				 if(res.status == 1){
+					 var option = "<option value='0'>Tentukan Kabupaten/Kota</option>";
+					 var src = res.data;
+					
+					 if(src.length>0){
+						 for(var i=0; i<src.length; i++){
+							 var id = src[i].k;
+							 var name = src[i].v;
+
+							 option += "<option value='"+id+"'>"+name+"</option>"; 
+						 }
+           }
+           
+					 $("#kab").empty();
+					 $("#kab").append(option);
+				 }
+			 }
+		 });
+  });
+  
+
+	$('#kab').change(function() {
+		var selGroup = $(this).val();
+		 console.log(selGroup);
+		
+		 if(selGroup==0){
+			 alert("Tentukan Kabupaten/Kota");
+			 return false;
+		 }
+		
+		 $.ajax({
+			 url:'ajax_kec',
+			 method: 'post',
+			data: {id: selGroup},
+			dataType: 'json',
+			success: function(res){
+				 if(res.status == 1){
+					 var option = "<option value='0'>Tentukan Kecamatan</option>";
+					 var src = res.data;
+					
+					 if(src.length>0){
+						 for(var i=0; i<src.length; i++){
+							 var id = src[i].k;
+							 var name = src[i].v;
+
+							 option += "<option value='"+id+"'>"+name+"</option>"; 
+						 }
+           }
+           
+					 $("#kec").empty();
+					 $("#kec").append(option);
+				 }
+			 }
+		 });
+  });
+  
+  
+	$('#kec').change(function() {
+		var selGroup = $(this).val();
+		 console.log(selGroup);
+		
+		 if(selGroup==0){
+			 alert("Tentukan Kecamatan");
+			 return false;
+		 }
+		
+		 $.ajax({
+			 url:'ajax_kel',
+			 method: 'post',
+			data: {id: selGroup},
+			dataType: 'json',
+			success: function(res){
+				 if(res.status == 1){
+					 var option = "<option value='0'>Tentukan Desa/Kelurahan</option>";
+					 var src = res.data;
+					
+					 if(src.length>0){
+						 for(var i=0; i<src.length; i++){
+							 var id = src[i].k;
+							 var name = src[i].v;
+
+							 option += "<option value='"+id+"'>"+name+"</option>"; 
+						 }
+           }
+           
+					 $("#kel").empty();
+					 $("#kel").append(option);
+				 }
+			 }
+		 });
+	});
+
+});
 </script>
