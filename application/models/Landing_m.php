@@ -15,6 +15,7 @@ class Landing_m extends CI_Model
 
 		return $this->db->get();
 	}
+	
 	public function forms(){
 		$this->db->select('*');
 		$this->db->from('form');
@@ -28,18 +29,33 @@ class Landing_m extends CI_Model
 		return $hasil;
 	
 	}
+	
+	function save_user($data){
+		$this->db->insert('user', $data);
+		$insert_id = $this->db->insert_id();
+
+		return  $insert_id;
+	}
+	
 	function hasilask(){
 		$hasi=$this->db->query("select  nama, (SELECT sum(nilai) FROM `temp_trx` group by tgl) total , tgl from temp_trx GROUP BY nama");
 		return $hasi;
 	}
 
-
-
 	public function pertanyaan(){
 		$hasil = $this->db->query("select * from form where jenis=1");
 		return $hasil;
 	}
-		public function jawb(){
+	
+	public function tanya($jenis){
+		$qry = $this->db->query('select * from form where jenis="'.$jenis.'"');
+		if ($qry->num_rows() > 0){
+			return $qry->result();
+		}
+		return null;
+	}
+	
+	public function jawb(){
 		$hasil = $this->db->query("select * from form where jenis=1");
 		return $hasil;
 	}
@@ -51,6 +67,7 @@ class Landing_m extends CI_Model
 
 		return $this->db->get();
 	}
+	
 	public function quizes($jenis){
 		$str = "SELECT f.id, f.pertanyaan,f.jenis,b.id AS id_bobot,b.bobot,b.jawaban,b.id_pertanyaan
 					,CASE WHEN b.jawaban=1 THEN 'Iya'
@@ -66,8 +83,7 @@ class Landing_m extends CI_Model
 	}
 	
 	public function save_trx($data){
-		$query = $this->db->insert('temp_trx', $data);
-		var_export($query);
+		$query = $this->db->insert_batch('screening', $data); 
 		
 		return ($query) ? true : false;
 	}

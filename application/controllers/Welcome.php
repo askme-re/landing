@@ -79,58 +79,74 @@ class Welcome extends CI_Controller {
 	public function register()
 	{
 		$data['prov'] = $this->landing_m->get_provinsi();
-		$data['questions'] = $this->landing_m->pertanyaan();
+		// $data['questions'] = $this->landing_m->pertanyaan();
 		// $this->load->view('header');
 		$this->load->view('survey',$data);
 		$this->load->view('footer');
 	}
 	
 
-	public function register_save(){
+	public function register_save()
+	{
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	    $charactersLength = strlen($characters);
-	    $randomString = '';
-	    for ($i = 0; $i <5; $i++) {
-	        $randomString .= $characters[rand(0, $charactersLength - 1)];
-	    }
-		// $kode = $this->generateRandomString();
-		$data['nama'] = $this->input->post('nama');
-		$data['tgl'] = date('Y-m-d');
-		$data['kode'] = $randomString;
-		$data['jenis'] = $this->input->post('jenis');
-		// $data['prov'] = date('Y-m-d');
-		// $data['kab'] = date('Y-m-d');
-		// $data['kel'] = date('Y-m-d');
-		// $data['telp'] = $this->input->post('telp');
-		// $data['tempat_lhr'] = $this->input->post('pob');
-		// $data['tgl_lhr'] = $this->input->post('dob');
-		
-		// $jenis = 1;
-		// get 
-		// $data['questions'] = $this->landing_m->pertanyaan();
-		// print_r($this->landing_m->quizes($jenis));
-		
-		$quizes = $this->landing_m->quizes($jenis);
-		foreach($quizes as $v){
-			if(!is_null($v->bobot)){
-				$val = 'cov'.$v->id;
-				$rb = 'rb_'.$v->id;
-				
-				
-				$data[$val] = (!is_null($this->input->post($rb))) ? $this->input->post($rb) : null;
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i <5; $i++) {
+				$randomString .= $characters[rand(0, $charactersLength - 1)];
+		}
 
-				$nilai = $nilai + $rb;
-				print_r($data.$nilai);
+		$jenis = $this->input->post('jenis');
+
+		$user['nama'] = $this->input->post('nama');
+		$user['tp_lahir'] = $this->input->post('tempat_lahir');
+		$user['tgl_lahir'] = $this->input->post('tgl_lahir');
+		$user['id_prov'] = $this->input->post('prov');
+		$user['id_kab'] = $this->input->post('kab');
+		$user['id_kec'] = $this->input->post('kec');
+		$user['id_kel'] = $this->input->post('kel');
+		$user['alamat'] = $this->input->post('alamat');
+		$user['telp'] = $this->input->post('telp');
+		$user['email'] = $this->input->post('email');
+		
+		// save user data return id
+		$id_user = $this->landing_m->save_user($user);
+		
+		
+		// array of screening data
+		$screening = array();
+		
+		// $data['kode'] = $randomString;
+		$data['tgl'] = date('Y-m-d');
+		$data['id_user'] = $id_user;
+		
+		// save hasil screening by key jenis & user_id
+		$nilai = 0;
+		$quizes = $this->landing_m->tanya($jenis);
+		foreach($quizes as $v){
+			$rb = 'rb_'.$v->id;
+			$str_bobot = (!is_null($this->input->post($rb))) ? $this->input->post($rb) : null;
+			
+			$data['id_pertanyaan'] = $v->id;
+			$data['id_bobot'] = '';
+			$data['hasil'] = '';
+			
+			if($str_bobot != null )
+			{
+				$arr_bobot = explode("#",$str_bobot);
+				$nilai = $nilai + $arr_bobot[1];
+				
+				$data['id_bobot'] = $arr_bobot[0];
+				$data['hasil'] = $nilai;
 			}
+			
+			array_push($screening, $data);
 		}
 		
-		// // insert into trx
-		$insert = $this->landing_m->save_trx($data);
-		print_r($data);
-		// $insert = $this->generateRandomString();
+		// print_r($screening);exit;
+		// insert into trx
+		$insert = $this->landing_m->save_trx($screening);
 		
 		if($insert) redirect('/index.php/welcome/sent', 'refresh');
-		// print_r($data);
 	}
 
 	public function jwb()
@@ -168,7 +184,7 @@ class Welcome extends CI_Controller {
 				$result .= '
                           <div class="radio">
 							  <label>
-								<input type="radio" name="rb_'.$v->id.'" value="'.$v->bobot.'">
+								<input type="radio" name="rb_'.$v->id.'" value="'.$v->id_bobot.'#'.$v->bobot.'">
 								'.$v->opsi_bobot.'
 							  </label>
                           </div>';
@@ -240,7 +256,6 @@ class Welcome extends CI_Controller {
 
 	function sent()
 	{
-		
 		$this->load->view('header');
 		$data['nama'] = $this->input->post('nama');
 		$this->load->view('publik/redirecthasil',$data);
