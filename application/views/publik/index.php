@@ -54,7 +54,7 @@
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2">
-            <div class="mb-0 site-logo"><a href="index.html" class="mb-0">ASK_ME<span class="text-primary">.</span> </a></div>
+            <div class="mb-0 site-logo"><a href="<?php base_url('Skrin') ?>" class="mb-0">ASK_ME<span class="text-primary">.</span> </a></div>
           </div>
 
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -84,8 +84,6 @@
 
     </header>
 
-
-
     <div class="site-section hero" id="home-section">
       <div class="container text-center">
         <div class="row justify-content-center text-center">
@@ -94,7 +92,7 @@
               <h1 class="hero-heading"><strong>A</strong>plikasi <strong>S</strong>krining <strong>K</strong>husus Penyakit <strong>Me</strong>nular</h1>
               <p>Rumah Sakit Dr Suyoto Jakarta, Indonesia </p>
               <p>Bekerjasama dengan Kementerian Pertahanan Republik Indonesia (RI) dan Pusat Rehabilitasi Kementerian Pertahanan (PUSREHAB KEMHAN) Rumah Sakit Dr. SUYOTO</p>
-              <a href="#" class="btn btn-primary">ASK_ME</a>
+              <a href="<?php echo base_url('skrin')?>" class="btn btn-primary">ASK_ME</a>
             </div>
             <img src="<?php echo base_url()?>assets/theme/images/foto_main.jpg" alt="image" class="img-fluid">
           </div>
