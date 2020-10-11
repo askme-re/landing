@@ -26,7 +26,7 @@ class Welcome extends CI_Controller {
 		print_r($data);
 		$insert = $this->landing_m->save_trx($data);
 		// print_r($insert_id);
-		var_export($insert_id);
+		var_export($insert);
 // 		$this->landing_m->insert_form($nama, $tempat_lhr, $tanggal_lhr);
 		$this->session->set_flashdata('msg', "<div class='alert alert-success' role='alert'>
 		<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button> <strong>Success!</strong> Berhasil simpan. </div>");
