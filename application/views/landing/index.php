@@ -244,9 +244,9 @@
               </div>
               <div class="form-group row">
                 <div class="col-sm-12">
-                  <div class="custom-control custom-checkbox col-12">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="cb_setuju">
+                    <label class="custom-control-label" for="cb_setuju">Check this custom checkbox</label>
                   </div>
                 </div>
               </div>
@@ -263,7 +263,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-primary" id="btn_submit">Save changes</button>
             </div>
           </div>
       </div>
@@ -271,7 +271,23 @@
 
 <script src="<?php echo base_url()?>assets/theme/js/jquery-3.3.1.min.js"></script>
 <script type="application/javascript">
-  $("#md_peretujuan").click(function(){
-    alert("The paragraph was clicked.");
+  $("#btn_submit").click(function() {
+    var vSetuju = $('#cb_setuju').val();
+    var vBaseUrl = <?php echo json_encode(base_url()); ?>;
+    console.log(vBaseUrl);
+
+    if(vSetuju === 'on') {
+      var vEmail = $('#tb_email').val();
+      $.ajax({
+        url: vBaseUrl+'/landing/cek_user_email',
+        method: 'post',
+        data: {email: vEmail},
+        dataType: 'json',
+        success: function(res){
+          var uri = vBaseUrl + res.url;
+          window.location.replace(uri);
+        }
+      });
+    }
   }); 
 </script> 

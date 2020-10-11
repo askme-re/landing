@@ -79,6 +79,7 @@ class Landing_m extends CI_Model
 					LEFT JOIN bobot b ON b.id_pertanyaan=f.id
 					WHERE f.jenis='".$jenis."' ORDER BY f.id";
 		$qry = $this->db->query($str);
+		
 		if ($qry->num_rows() > 0){
 			return $qry->result();
 		}
