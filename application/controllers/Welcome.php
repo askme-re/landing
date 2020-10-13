@@ -14,6 +14,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('header_admin');
 		$this->load->view('welcome_message');
 	}
+	
 	public function brief()
 	{
 		// $this->load->view('header_admin');
