@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+/* Kontroller untuk manage admin
+
+
+*/
 class Admin extends CI_Controller {
 
 	public function __construct(){

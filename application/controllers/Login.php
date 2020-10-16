@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/* Kontroller untuk proses login pengguna saja
+
+
+*/
 class Login extends CI_Controller {
 
 	public function __construct(){
