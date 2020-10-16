@@ -143,6 +143,7 @@ class Welcome extends CI_Controller {
 				// Write question
 				$result .= '<div class="col-sm-10 ">
 							  <div class="form-group">
+							  <label class="form-check-label">'.$nQuiz.'</label>	
 								<label class="form-check-label">'.$v->pertanyaan.'</label>';
 				
 				// Set id of question
