@@ -7,7 +7,7 @@ class Welcome extends CI_Controller {
   {
 		parent::__construct();
 		$this->load->helper(array('url','form'));
-		$this->load->model('landing_model');
+		// $this->load->model('landing_model');
 		$this->load->library('session');
   }
   
@@ -15,10 +15,10 @@ class Welcome extends CI_Controller {
   {
     $head['title'] = 'Landing';
 
-    $this->load->view('layout/landing/header', $head);
-    $this->load->view('layout/landing/nav_header');
-    $this->load->view('landing/index');
-    $this->load->view('layout/landing/footer');
+    $this->load->view('publik/t_head', $head);
+    $this->load->view('publik/t_nav');
+    $this->load->view('publik/index');
+    $this->load->view('publik/t_foot');
   }
 
   function cek_user_email()
