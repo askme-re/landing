@@ -127,19 +127,19 @@
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 pricing">
             <div class="border p-5 text-center rounded">
               <h3>Pernyataan</h3>
-              <p class="mb-4">Sebagai data yang penting dan dipergunakan selanjutnya oleh pihak lain maka wajib untuk peserta skrining mandiri memberikan pernyataan akan kesediaan dalam mengikuti dan melaksanakan skrining mandiri.</p>
+              <p class="mb-4">Mohon mengisi data secara jujur dan benar. Hal ini menentukan tindakan lanjut untuk diri Anda dan orang di sekitar Anda. Data yang Anda masukan dijamin kerahasiaannya oleh Rumah Sakit dan hanya untuk kepentingan pelayanan di RS dr. Suyoto.</p>
             </div>
           </div>
         <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 pricing">
             <div class="border p-5 text-center rounded">
               <h3>Biodata</h3>
-              <p class="mb-4">Melengkapi data umum seperti biodata lengkap seseorang untuk memudahkan dalam indentifikasi peserta skrining sehingga dapat memberikan tindakan lanjutan yang tepat ketika menerima pelayanan di RS dr Suyoto.</p>
+              <p class="mb-4">Anda harus mengisi data Identitas diri secara lengkap untuk memudahkan identifikasi Anda sebagai penerima pelayanan di RS dr Suyoto. Untuk memudahkan dalam indentifikasi peserta skrining sehingga dapat memberikan tindakan lanjutan yang tepat ketika menerima pelayanan di RS dr Suyoto.</p>
             </div>
           </div>
         <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 pricing">
             <div class="border p-5 text-center rounded">
-              <h3>Pertanyaan</h3>
-              <p class="mb-4">Data skrining merupakah acuan yang sudah ditetapkan oleh pihak peneliti dan fasilitas kesehatan yang dapat dilakukan penilaian awal untuk selanjutnya diberikan tindakan sesuai Permenhan untuk kasus penyakit menular.</p>
+              <h3>Skrining Penyakit Menular</h3>
+              <p class="mb-4">Berisi pertanyaan sederhana dari beberapa Penyakit Menular (sesuai dengan PERMENHAN N0. 22 Tahun 2017) yang harus Anda jawab. Data ini digunakan untuk mengidentifikasi status kesehatan Anda dengan memberikan penilaian dari pertanyaan yang telah Anda jawab.</p>
             </div>
           </div>
 
