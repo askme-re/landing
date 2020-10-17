@@ -98,6 +98,7 @@ class Landing extends CI_Controller {
 		$arr_add = '';
 		
 		// save hasil screening by key jenis & user_id
+		$screening = array();
 		$nilai = 0;
 		$quizes = $this->landing_model->tanya($jenis);
 		
@@ -120,14 +121,15 @@ class Landing extends CI_Controller {
 				// $data[$val] = (!is_null($this->input->post($rb))) ? $this->input->post($rb) : null;
 				$data['id_bobot'] = $arr_bobot[0];
 				$data['hasil'] = $nilai;
+				
 			}
 			
-			print_r($data);exit;
-			// array_push($screening, $data);
+			array_push($screening, $data);
 		}
 		
+		$query = $this->landing_model->quizes($jenis);
 		
-		print_r("Scrining save");exit;
+		if($query) redirect('index.php/landing/screening/'.$data['id_user']);
 	}
 
   function test()
@@ -164,7 +166,7 @@ class Landing extends CI_Controller {
 				$result .= '
                           <div class="radio">
 							  <label>
-								<input type="radio" name="rb_'.$v->id.'" value="'.$v->bobot.'" required>
+								<input type="radio" name="rb_'.$v->id.'" value="'.$v->id_bobot.'#'.$v->bobot.'" required>
 								'.$v->opsi_bobot.'
 							  </label>
                           </div>';

@@ -44,6 +44,11 @@ class Landing_model extends CI_Model
 		return null;
 	}
 	
+	function insert_screening($data){
+		$insert = $this->db->insert_batch('screening', $data); 
+		
+		return ($insert) ? true : false ;
+	}
 	
 	public function tanya($jenis){
 		$qry = $this->db->query('select * from form where jenis="'.$jenis.'"');

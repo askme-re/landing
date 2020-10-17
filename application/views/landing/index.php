@@ -238,11 +238,13 @@
               </button>
             </div>
             <div class="modal-body">
-            <form>
-              <div class="form-group row">
-                <label class="col-sm-12 col-form-label">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus.<br/>Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum. </label>
-              </div>
-              <div class="form-group row">
+						<form>
+							<div class="form-group">
+								<label class="col-form-label">
+									Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus.<br/>Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum. 
+								</label>
+							</div>
+							<div class="form-group row">
                 <div class="col-sm-12">
                   <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="cb_setuju">
@@ -250,16 +252,88 @@
                   </div>
                 </div>
               </div>
-
-              <hr>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                  <input type="email" class="form-control" id="tb_email" id="tb_email" aria-describedby="emailHelp" placeholder="Masukkan alamat email">  
+							<div class="form-group">
+								<label class="col-form-label">Nomor Telepon :</label>
+								<input type="text" class="form-control" id="phone" name="phone">
+							</div>
+							<div class="form-group">
+								<label class="col-form-label">Status :</label>
+								<select class="form-control" id="dd_status" name="dd_status">
+									<option value="" selected="selected" disabled >-- Pilih --</option>
+									<option value="Pasien">Pasien</option>
+									<option value="Pengunjung">Pengunjung</option>
+									<option value="Pegawai">Pegawai</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label class="col-form-label">Tujuan :</label>
+								<select class="form-control" id="dd_tujuan" name="dd_tujuan">
+									<option value="" selected="selected" disabled >-- Pilih --</option>
+									<option value="Rawat Jalan (Poliklinik)">Rawat Jalan (Poliklinik)</option>
+									<option value="Rawat Inap">Rawat Inap</option>
+									<option value="Laboratorium">Laboratorium</option>
+									<option value="Farmasi">Farmasi</option>
+									<option value="Radiologi">Radiologi</option>
+									<option value="Administrasi RS (Admin Ranap, BPJS, dll)">Administrasi RS (Admin Ranap, BPJS, dll)</option>
+									<option value="Manajemen RS (Jajaran pimpinan, pengadaan dll)">Manajemen RS (Jajaran pimpinan, pengadaan dll)</option>
+									<option value="Rehab Medik (Terapi)">Rehab Medik (Terapi)</option>
+								</select>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-form-label">Riwayat Penyakit :</label>
+							</div>
+							<div class="form-group row">
+                <div class="col-sm-12">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_1" value="Kencing Manis (diabetes)">
+                    <label class="custom-control-label" for="cb_tujuan_1">Kencing Manis (diabetes)</label>
+                  </div>
                 </div>
               </div>
-              <!-- -->
-            </form>
+							<div class="form-group row">
+                <div class="col-sm-12">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_2" value="Tekanan Darah Tinggi (Hipertensi)">
+                    <label class="custom-control-label" for="cb_tujuan_2">Tekanan Darah Tinggi (Hipertensi)</label>
+                  </div>
+                </div>
+              </div>
+							<div class="form-group row">
+                <div class="col-sm-12">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_3" value="Penyakit Kanker">
+                    <label class="custom-control-label" for="cb_tujuan_3">Penyakit Kanker</label>
+                  </div>
+                </div>
+              </div>
+							<div class="form-group row">
+                <div class="col-sm-12">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_4" value="Penyakit Ginjal">
+                    <label class="custom-control-label" for="cb_tujuan_4">Penyakit Ginjal</label>
+                  </div>
+                </div>
+              </div>
+							<div class="form-group row">
+                <div class="col-sm-12">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_5" value="Penyakit Lupus">
+                    <label class="custom-control-label" for="cb_tujuan_5">Penyakit Lupus</label>
+                  </div>
+                </div>
+              </div>
+							<div class="form-group row">
+                <div class="col-sm-12">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_6" value="Penyakit Saraf ">
+                    <label class="custom-control-label" for="cb_tujuan_6">Penyakit Saraf </label>
+                  </div>
+                </div>
+              </div>
+							
+						</form>
+						
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
