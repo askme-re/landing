@@ -63,7 +63,7 @@
                   </div>
                   <div class="form-group col-sm-12">
                     <label>No. Telepon <small>(wajib)</small></label>
-                    <input name="telp" id="telp" type="number" class="form-control" placeholder="Contoh: 08123456789">
+                    <input name="telp" id="telp" type="text" class="form-control" placeholder="Contoh: 08123456789" readonly>
                   </div>
                   <hr>
                   <br/>

@@ -20,8 +20,23 @@ class Landing_model extends CI_Model
 		}
 		return null;
   }
-  
-	//new inisiated
+	
+  function get_jenis_skrining($where=NULL)
+  {
+    if (isset($where) or $where != NULL) {
+				$this->db->where($where);
+		}
+		
+		$query = $this->db->get('jns_wabah');
+		if ($query->num_rows() > 0) {
+				if (isset($where) or $where != NULL) {
+						return $query->row();
+				} else {
+						return $query->result();
+				}
+		}
+		return FALSE;
+	}
 	function save_user($data){
 		$this->db->insert('user', $data);
 		$insert_id = $this->db->insert_id();

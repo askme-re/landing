@@ -20,9 +20,13 @@
                     <label class="control-label">Jenis Infeksi</label>
 										<select class="form-control" id="jenis" name="jenis">
 											<option disabled="" selected="true">Pilih salah satu</option>
-											<option value="1"> COVID-19 </option>
-											<option value="2"> Malaria </option>
-											<option value="3"> Demam Berdarah </option>
+											<?php
+											foreach ($jenis as $row) {
+											?>
+												<option value="<?php echo $row->id; ?>">
+													<?php echo $row->wabah; ?>
+												</option>
+											<?php } ?>
 										</select>
                   </div>
 									
@@ -66,7 +70,7 @@ $(document).ready(function() {
 		var vJenis = this.value;
 		
 		$.ajax({
-			url:'<?php echo base_url()?>/index.php/landing/ajax_quiz',
+			url:'<?php echo base_url()?>/index.php/welcome/ajax_quiz',
 			method: 'post',
 			data: {jenis: vJenis},
 			dataType: 'json',
