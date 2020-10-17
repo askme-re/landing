@@ -6,17 +6,10 @@ class Admin extends CI_Controller {
 	public function __construct(){
 		parent:: __construct();
 		$this->load->model('admin_m');
-		$this->load->library('session'); 
-		$this->load->helper('url'); 
-	}
-
-	public function pengguna()
-	{
-		$data['pengguna'] = $this->admin_m->users();
-		$this->load->view('header_admin');
-		$this->load->view('navigasi');
-		$this->load->view('admin/pengguna',$data);
-		$this->load->view('footer_admin');
+		 $this->load->database();
+		if($this->session->userdata('status') != "login"){
+			redirect(base_url("login"));
+		}
 	}
 
 	public function pertanyaan()

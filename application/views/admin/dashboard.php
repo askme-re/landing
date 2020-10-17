@@ -15,9 +15,6 @@
         <input class="btn btn-primary" type="submit" value="search">
       </form>
 
-        <?php if($this->session->flashdata('msg')): ?>
-        <p><?php echo $this->session->flashdata('msg'); ?></p>
-        <?php endif; ?>
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">

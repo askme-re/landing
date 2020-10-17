@@ -5,7 +5,7 @@ class Login extends CI_Controller {
 
 	public function __construct(){
 		parent:: __construct();
-		$this->load->model('admin_m');
+		$this->load->model('login_m');
 	}
 
 	public function index()
@@ -18,20 +18,34 @@ class Login extends CI_Controller {
 	{
 		$email =$this->input->post('email');
 		$password =$this->input->post('password');
-		if ($email=="admin@mail.com" && $password =="cinta") {
-			$this->skrinning();
+		$where = array(
+			'email' => $email,
+			'password' => md5($password)
+			);
+		$cek = $this->login_m->cek_login("user",$where)->num_rows();
+		if($cek > 0){
+ 
+			$data_session = array(
+				'email' => $email,
+				'status' => "login"
+				);
+ 
+			$this->session->set_userdata($data_session);
+ 
+			$this->session->set_flashdata('msg', "<div class='alert alert-success' role='alert'>
+			<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button> <strong>Sukses!</strong>Login Berhasil !</div>");
+			redirect(base_url("index.php/user"));
+ 
 		}else{
+			$this->session->set_flashdata('msg', "<div class='alert alert-warning' role='alert'>
+			<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button> <strong>Gagal!</strong> Email atau password salah !</div>");
 			redirect('Login');
 		}
 	}
 
-	public function skrinning()
-	{
-		$data['result'] = $this->admin_m->get_all();
-		$this->load->view('header_admin');
-		$this->load->view('navigasi');
-		$this->load->view('admin/dashboard',$data);
-		$this->load->view('footer_admin');
+	function keluar(){
+		$this->session->sess_destroy();
+		redirect(base_url('login'));
 	}
-	
+
 }

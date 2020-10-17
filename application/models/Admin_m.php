@@ -11,14 +11,18 @@ class Admin_m extends CI_Model
 	public function users(){
 		$this->db->select('*');
 		$this->db->from('user');
-		$this->db->order_by('name','asc');
+		$this->db->order_by('nama','asc');
 
 		return $this->db->get();
 	}
+
 	public function forms(){
-		$this->db->select('*');
-		$this->db->from('form');
-		$this->db->join('bobot','form.id = bobot.id');
+		$this->db->select("f.id, f.pertanyaan, f.jenis ,b.bobot,b.jawaban, CASE WHEN b.jawaban=1 THEN 'Iya' WHEN b.jawaban = 0 THEN 'Tidak' END AS opsi_bobot, jw.wabah penyakit");
+		$this->db->from('form f');
+		$this->db->join('bobot b','b.id_pertanyaan=f.id','left');
+		$this->db->join('jns_wabah jw','jw.wabah=f.jenis','left');
+		// $this->db->join('jns_wabah','form.jenis = jns_wabah.id');
+		// print_r($this->db->get());
 		return $this->db->get();
 	}
 	public function detail($where,$table)

@@ -13,7 +13,7 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="">
-            <a href="<?php echo base_url('Admin/pengguna');?>">
+            <a href="<?php echo base_url('user');?>">
               <i class="nc-icon nc-badge"></i>
               <p>Pengguna</p>
             </a>
@@ -25,13 +25,13 @@
             </a>
           </li>
           <li class="">
-             <a href="<?php echo base_url('Admin/pertanyaan');?>">
+             <a href="<?php echo base_url('pertanyaan');?>">
               <i class="nc-icon nc-tap-01"></i>
               <p>Pertanyaan</p>
             </a>
           </li>
           <li style="margin-top:30px;">
-             <a href="<?php echo base_url('Login');?>" style="font-size:12px;color:orange;">
+             <a href="<?php echo base_url('index.php/Login/keluar');?>" style="font-size:12px;color:orange;">
               <p>Keluar</p>
             </a>
           </li>
