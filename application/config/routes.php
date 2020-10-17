@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome/index';
 $route['admin'] = 'admin/index';
 
-$route['skrin'] = 'welcome/index';
+$route['skrin'] = 'skrining/index';
 
 
 $route['404_override'] = '';

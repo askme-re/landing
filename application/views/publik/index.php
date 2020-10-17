@@ -3,13 +3,13 @@
         <div class="row justify-content-center text-center">
           <div class="col-lg-10">
             <div class="mb-5">
-              <h1 class="hero-heading"><strong>A</strong>plikasi <strong>S</strong>krining <strong>K</strong>husus Penyakit <strong>Me</strong>nular</h1>
-              <p>Rumah Sakit Dr Suyoto Jakarta, Indonesia </p>
-              <p>Bekerjasama dengan Kementerian Pertahanan Republik Indonesia (RI) dan Pusat Rehabilitasi Kementerian Pertahanan (PUSREHAB KEMHAN) Rumah Sakit Dr. SUYOTO</p>
+              <h1 class="hero-heading"><strong>A</strong>plikasi <strong>S</strong>krining <strong>K</strong>husus <br>Penyakit <strong>ME</strong>nular</h1>
+              <!-- <p>Bekerjasama dengan Kementerian Pertahanan Republik Indonesia (RI) dan Pusat Rehabilitasi Kementerian Pertahanan (PUSREHAB KEMHAN) Rumah Sakit Dr. SUYOTO</p> -->
               <a href="<?php echo base_url('skrin')?>" class="btn btn-primary">ASK_ME</a>
             </div>
-            <img src="<?php echo base_url()?>assets/theme/images/foto_main.jpg" alt="image" class="img-fluid">
+            <img src="<?php echo base_url()?>assets/img/logo_RSdrSuyoto.jpg" alt="image" class="img-fluid">
           </div>
+              <p><br><strong>Pusat Rehabilitasi Kementerian Pertahanan RI Rumah Sakit dr. SUYOTO</strong></p>
         </div>
       </div>
     </div>
@@ -28,25 +28,27 @@
           </div>
           <div class="col-lg-5 mr-auto">
             <div class="mb-4">
-              <h2 class="section-title-2">Covid-19</h2>
-              <p>Ini tentang covid 19 apa si? gak tau juga, tanya la :D</p>
+              <h2 class="section-title-2">Apa itu Covid-19?</h2>
+              <p>Pneumonia Coronavirus Disease 2019 atau COVID-19 adalah penyakit peradangan paru yang disebabkan oleh Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2). 
+Gejala klinis yang muncul beragam, mulai dari seperti gejala flu biasa (batuk, pilek, nyeri tenggorok, nyeri otot, nyeri kepala) sampai yang berkomplikasi berat (pneumonia atau sepsis)</p>
             </div>
 
             <div class="d-flex feature-v1">
               <span class="wrap-icon icon-users"></span>
               <div>
-                <h3>Kontak Kerumunan</h3>
-                <p>Penularan infeksi akibat kerumunan orang orang yang sudah terinfeksi</p>
+                <h3>Bagaimana Covid-19 Menular</h3>
+                <p>Cara penularan SARS-CoV-2 penyebab COVID-19 ialah melalui kontak dengan droplet saluran napas penderita. Droplet merupakan partikel kecil dari mulut penderita yang 
+mengandung kuman penyakit, yang dihasilkan pada saat batuk, bersin, atau berbicara. Droplet dapat melewati sampai jarak tertentu (biasanya 1 meter). Droplet bisa menempel</p>
               </div>
             </div>
 
-            <div class="d-flex feature-v1">
+            <<!-- div class="d-flex feature-v1">
               <span class="wrap-icon icon-layers"></span>
               <div>
                 <h3>Sajian Makanan Tidak Higienis</h3>
                 <p>Sajian kelelawar dari kawasan China yang bermutasi menjadi virus</p>
               </div>
-            </div>
+            </div> -->
 
           </div>
         </div>

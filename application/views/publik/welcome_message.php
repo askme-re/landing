@@ -16,7 +16,7 @@
                         	<p>Anda akan diminta mengisi beberapa pertanyaan dengan benar dan sadar untuk menjaga informasi yang Anda kirimkan adalah benar dan tidak dibuat-buat.</p>
                         	<p>Data yang dimasukan sudah sesuai dan data tersebut tidak di sebar luaskan, dipergunakan semestinya.</p>
                         	<p>Jika ada SETUJU silakan tekan tombol 
-                        		<a class="btn btn-primary mulai" href="<?php echo base_url('index.php/welcome/register');?>"> Mulai Skrining!</a>
+                        		<a class="btn btn-primary mulai" href="<?php echo base_url('index.php/Skrining/register');?>"> Mulai Skrining!</a>
                         	</p>
                     		<p class="bawah">Bersama <img class="thanks" src="assets/img/ASK_ME.jpg">, kami mengucapkan terima kasih</p>
                     	</div>

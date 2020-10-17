@@ -12,13 +12,13 @@ class Skrining extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header_admin');
-		$this->load->view('welcome_message');
+		$this->load->view('publik/welcome_message');
 	}
-	public function brief()
-	{
-		// $this->load->view('header_admin');
-		$this->load->view('publik/index');
-	}
+	// public function brief()
+	// {
+	// 	// $this->load->view('header_admin');
+	// 	$this->load->view('publik/index');
+	// }
 
 	public function quwa()
 	{
@@ -79,7 +79,7 @@ class Skrining extends CI_Controller {
 		$data['prov'] = $this->landing_m->get_provinsi();
 		$data['questions'] = $this->landing_m->pertanyaan();
 		// $this->load->view('header');
-		$this->load->view('survey',$data);
+		$this->load->view('publik/survey',$data);
 		$this->load->view('footer');
 	}
 	
@@ -126,43 +126,43 @@ class Skrining extends CI_Controller {
 		// $this->load->view('footer');
 	}
 	
-	function ajax_quiz(){
-		$jenis = $this->input->post('jenis');
+	// function ajax_quiz(){
+	// 	$jenis = $this->input->post('jenis');
 		
-		$query = $this->landing_m->quizes($jenis);
-		$result = "";
-		$nQuiz = 0;
-		foreach($query as $v){
-			if($nQuiz != $v->id){
-				if($nQuiz > 0){
-					$result .= '
-									</div>
-								  </div>';
-				}
+	// 	$query = $this->landing_m->quizes($jenis);
+	// 	$result = "";
+	// 	$nQuiz = 0;
+	// 	foreach($query as $v){
+	// 		if($nQuiz != $v->id){
+	// 			if($nQuiz > 0){
+	// 				$result .= '
+	// 								</div>
+	// 							  </div>';
+	// 			}
 				
-				// Write question
-				$result .= '<div class="col-sm-10 ">
-							  <div class="form-group">
-							  <label class="form-check-label">'.$nQuiz+1.'</label>	
-								<label class="form-check-label">'.$v->pertanyaan.'</label>';
+	// 			// Write question
+	// 			$result .= '<div class="col-sm-10 ">
+	// 						  <div class="form-group">
+	// 						  <!--<label class="form-check-label">'.$nQuiz+1.'</label>'	-->
+	// 							'<label class="form-check-label">'.$v->pertanyaan.'</label>';
 				
-				// Set id of question
-				$nQuiz = $v->id;
-			}
+	// 			// Set id of question
+	// 			$nQuiz = $v->id;
+	// 		}
 			
-			if(!is_null($v->bobot)){
-				$result .= '
-                          <div class="radio">
-							  <label>
-								<input type="radio" name="rb_'.$v->id.'" value="'.$v->bobot.'" required>
-								'.$v->opsi_bobot.'
-							  </label>
-                          </div>';
-			}
+	// 		if(!is_null($v->bobot)){
+	// 			$result .= '
+ //                          <div class="radio">
+	// 						  <label>
+	// 							<input type="radio" name="rb_'.$v->id.'" value="'.$v->bobot.'" required>
+	// 							'.$v->opsi_bobot.'
+	// 						  </label>
+ //                          </div>';
+	// 		}
 			
-		}
-		echo json_encode($result);
-	}
+	// 	}
+	// 	echo json_encode($result);
+	// }
 
 	function ajax_kab(){
 		$idprov = $this->input->post('id');

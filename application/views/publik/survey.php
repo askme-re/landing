@@ -20,10 +20,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url();?>assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet" />
 	<link href="<?php echo base_url();?>assets/css/demo.css" rel="stylesheet" />
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/theme/css/bootstrap-datepicker.css">
   <!--   Core JS Files   -->
   <script src="<?php echo base_url();?>assets/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+
   <script src="<?php echo base_url();?>assets/js/bootstrap.min.js" type="text/javascript"></script>
   <script src="<?php echo base_url();?>assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
 
 </head>
 
@@ -37,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!--      Wizard container        -->
         <div class="wizard-container">
           <div class="card wizard-card" data-color="theme" id="wizardProfile">
-            <form method="POST" action="<?php echo base_url().'index.php/Welcome/register_save'?>" >
+            <form method="POST" action="<?php echo base_url().'index.php/Skrining/register_save'?>" >
             <form method="POST" action="#" >
               <div class="wizard-header">
                 <h3>
@@ -74,7 +77,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-sm-5">
                       <div class="form-group">
                         <label>Tanggal Lahir <small>(wajib)</small></label>
-                        <input name="tgl_lahir" id="tgl_lahir" type="text" class="form-control" placeholder="DD/MM/YYYY" required/>
+                        <input id="datepicker" data-date-format="mm/dd/yyyy">
+                        <!-- <input name="tgl_lahir" id="tgl_lahir" type="text" class="form-control" placeholder="DD/MM/YYYY" required/> -->
                       </div>
                     </div>
                     
@@ -163,8 +167,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<select class="form-control" id="jenis" name="jenis">
 									<option disabled="" selected="true">Pilih salah satu</option>
 									<option value="1"> COVID-19 </option>
-									<option value="2"> Malaria </option>
-									<option value="3"> Demam Berdarah </option>
+									<option value="2"> Campak </option>
+									<option value="3"> Malaria  </option>
+									<option value="8"> Kolera </option>
+									<option value="9"> PES </option>
+									<option value="10"> Demam Berdarah Dengue</option>
+									<option value="11"> Polio </option>
+									<option value="12"> Demam Berdarah </option>
+									<option value="13"> Demam Berdarah </option>
+									<option value="14"> Demam Berdarah </option>
+									<option value="15"> Demam Berdarah </option>
+									<option value="16"> Demam Berdarah </option>
+									<option value="17"> Demam Berdarah </option>
+									<option value="18">Chikungunya </option>
 								</select>
 							</div>
 						</div>
@@ -236,6 +251,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  
 
 <script type="text/javascript">
+// $('.datepicker').datepicker({
+//     format: 'mm/dd/yyyy',
+//     startDate: '-3d'
+// });
+ $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+
+
 $(document).ready(function() {	
 	$("#jenis").change(function () {
         var vJenis = this.value;
