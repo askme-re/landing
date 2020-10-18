@@ -77,6 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <input name="tgl_lahir" id="tgl_lahir" type="text" class="form-control" placeholder="DD/MM/YYYY" required/>
                       </div>
                     </div>
+                    
                     <div class="col-sm-10 col-sm-offset-1">
                       <div class="form-group">
                         <label>Alamat <small>(wajib)</small></label>

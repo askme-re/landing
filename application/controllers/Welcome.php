@@ -27,10 +27,53 @@ class Welcome extends CI_Controller {
 		$riwayat = $this->input->post('riwayat');
 		$tujuan = $this->input->post('tujuan');
 		
+<<<<<<< .merge_file_a04076
 		// is user available
 		$user = $this->landing_model->get_user_detail($us_mail);
     if($user){
 			// overwrite data user
+||||||| .merge_file_a13540
+		$query = $this->landing_m->quizes($jenis);
+		$result = "";
+		$nQuiz = 0;
+		foreach($query as $v){
+			if($nQuiz != $v->id){
+				if($nQuiz > 0){
+					$result .= '
+									</div>
+								  </div>';
+				}
+				
+				// Write question
+				$result .= '<div class="col-sm-10 ">
+							  <div class="form-group">
+								<label class="form-check-label">'.$v->pertanyaan.'</label>';
+				
+				// Set id of question
+				$nQuiz = $v->id;
+			}
+=======
+		$query = $this->landing_m->quizes($jenis);
+		$result = "";
+		$nQuiz = 0;
+		foreach($query as $v){
+			if($nQuiz != $v->id){
+				if($nQuiz > 0){
+					$result .= '
+									</div>
+								  </div>';
+				}
+				
+				// Write question
+				$result .= '<div class="col-sm-10 ">
+							  <div class="form-group">
+							  <label class="form-check-label">'.$nQuiz.'</label>	
+								<label class="form-check-label">'.$v->pertanyaan.'</label>';
+				
+				// Set id of question
+				$nQuiz = $v->id;
+			}
+>>>>>>> .merge_file_a11880
 			
 			
 		} else {

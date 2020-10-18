@@ -46,7 +46,7 @@ class Landing_m extends CI_Model
 					LEFT JOIN user u ON s.id_user=u.id_user
 					where s.id_user = '$insert_id'");
 
-		$hasil = $this->db->query("select sum(nilaiks) as skor from hasiluser2")->row()->skor;
+		$hasil = $this->db->query("select sum(nilaiks) as skor from hasiluser2 where `s`.`id_user` = '$insert_id'")->row()->skor;
 		$nilaiks = $this->db->query("update temp_trx set nilai='$hasil' where id=$insert_id");
 		// $hasil = $this->db->query("select sum(nilaiks) as skor from hasiluser2")->row()->skor;
 		return $hasil;
