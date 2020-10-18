@@ -125,5 +125,13 @@ class Landing_model extends CI_Model
 		}
 		return null;
 	}
+
+	function result_skrining($id){
+		$this->db->select('*');
+		$this->db->from('data_hasil_skrining');
+		$this->db->where('id_user', $id);
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
 ?>

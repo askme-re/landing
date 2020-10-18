@@ -27,7 +27,7 @@ class User extends CI_Controller {
       $data = [];
       foreach($query->result() as $r) {
            $data[] = array(
-                $r->id_user,
+                $r->id,
                 $r->nama,
                 $r->jenis_user,
                 $r->telp,

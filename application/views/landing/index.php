@@ -163,7 +163,10 @@
               <a href="single.html">
                 <img src="<?php echo base_url()?>assets/theme/images/img_2.jpg" alt="Image" class="img-fluid">
               </a>
-              <p>Aplikasi ini dapat digunakan oleh seluruh pasien dan pengunjung yang mendapatkan pelayanan di RS dr Suyoto, sebagai salah satu cara untuk membantu mendeteksi status kesehatan seseorang dalam kondisi sehat atau memiliki gejala penyakit infeksi yang memerlukan pemeriksaan dan Penatalaksanaan lebih lanjut.</p>
+              <h4>Aplikasi ASKME?</h4>
+              <p>Berisi pertanyaan sederhana dari beberapa Penyakit Menular (sesuai dengan PERMENHAN N0. 22 Tahun 2017) yang harus Anda jawab. 
+Data ini digunakan untuk mengidentifikasi status kesehatan Anda dengan memberikan penilaian dari pertanyaan yang telah Anda jawab. 
+Hal ini membantu dalam menentukan rencana tindak lanjut pelayanan yang akan Anda dapatkan di RS dr Suyoto.</p>
             </div> 
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
@@ -171,7 +174,14 @@
               <a href="single.html">
                 <img src="<?php echo base_url()?>assets/theme/images/tentang.jpg" alt="Image" class="img-fluid">
               </a>
-              <p>Tahap awalnya adalah Skrining penyakit infeksi Menular COVID-19, dilanjutkan tahapan tindak lanjut sesuai Permehan No 22 tahun 2017 untuk semua kasus penyakit infeksi</p>
+              <h4>Proses Perhitungan Risiko</h4>
+              <p>menggunakan 3 tipe pendekatan data dalam menentukan hasil skrining. Yaitu;
+              <ol>
+                <li>Biodata diri dan data demografi; digunakan untuk melihat zona / area risiko tempat tinggal Anda. </li>
+                <li>Riwayat kesehatan; digunakan untuk mengetahui penyakit penyerta dan kemungkinan menjadi faktor pemberat kasus penyakit menular</li>
+                <li>Riwayat keluhan saat ini; digunakan untuk mengidentifikasi kasus baru penyakit menular</li>
+              </ol>
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
@@ -179,7 +189,10 @@
               <a href="single.html">
                 <img src="<?php echo base_url()?>assets/theme/images/img_2.jpg" alt="Image" class="img-fluid">
               </a>
-              <p>Seluruh data harus diisi dengan sejujur-jujurnya dan kerahasiaan data di jamin oleh Rumah Sakit dr Suyoto dan data yang digunakan adalah riwayat skrining dalam waktu 14 hari terakhir</p>
+              <h4>Bagaimana Cara Kerja ASKME?</h4>
+              <p>Dibangun sebagai bentuk salah satu upaya preventif penanggulangan wabah penyakit menular di Lingkungan 
+Kemhan. Pada tahap awal aplikasi ini khusus untuk skrining wabah penyakit COVID-19 sedangkan untuk selanjutnya akan dikembangkan dengan kemampuan melakukan 
+penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa pertanyaan sederhana. Setiap pertanyaan telah ditentukan bobot dan dilakukan pemrosesan data</p>
             </div> 
           </div>
           
@@ -333,15 +346,15 @@
                 <div class="col-sm-12">
                   <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="cb_setuju" id="cb_setuju">
-                    <label class="custom-control-label" for="cb_setuju">Check this custom checkbox</label>
+                    <label class="custom-control-label" for="cb_setuju">Centang jika Anda Setuju</label>
                   </div>
                 </div>
               </div>
 						
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary" id="btn_submit">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+              <button type="submit" class="btn btn-primary" id="btn_submit">Selanjutnya</button>
 							
             </div>
           </div>

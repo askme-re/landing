@@ -49,16 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-<<<<<<< .merge_file_a06336
 $route['default_controller'] = 'welcome/index';
 $route['home'] = 'welcome/brief';
-
-||||||| .merge_file_a06448
-$route['default_controller'] = 'welcome/index';
-$route['home'] = 'welcome/brief';
-=======
-$route['skrin'] = 'welcome/index';
-$route['default_controller'] = 'welcome/brief';
->>>>>>> .merge_file_a06152
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

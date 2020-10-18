@@ -83,7 +83,7 @@ class Skrining extends CI_Controller {
         foreach ($rs->result() as $r){
                  // $exceldata[] = $row;
                  $exceldata[] = array(
-                  $r->id_user,
+                  $r->id,
                   $r->nama,
                   $r->jenis_user,
                   $r->telp,
