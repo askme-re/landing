@@ -7,6 +7,7 @@
           <h4 class="card-title">Daftar Hasil Skrining</h4>
         </div>
         <div class="card-body">
+        <?php $this->load->view('admin/pencarian_modal') ?>
           <div class="table-responsive">
             <table class="table" id="tabelHSkrining">
               <thead class=" text-primary">
