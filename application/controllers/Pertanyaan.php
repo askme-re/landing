@@ -29,7 +29,7 @@ class Pertanyaan extends CI_Controller {
            $data[] = array(
                 $r->id,
                 $r->pertanyaan,
-                $r->jenis,
+                $r->penyakit,
                 $r->opsi_bobot,
                 $r->bobot
 
