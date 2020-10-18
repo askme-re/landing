@@ -10,7 +10,10 @@
               <h4 class="card-title">Input Data Peserta Skrining</h4>
             </div>
             <div class="card-body">
-              <form method="POST" action="<?php echo base_url().'index.php/landing/biodata_save'?>">
+              <form method="POST" action="<?php echo base_url().'/welcome/biodata_save'?>">
+								
+								<input type="text" name="id" style="display:none" value="<?php echo $user->id; ?>"/>
+							
                 <div class="form-row col-12">
                   <div class="form-group col-sm-12">
                     <label >Nama Lengkap <small>(wajib)</small></label>
@@ -63,7 +66,7 @@
                   </div>
                   <div class="form-group col-sm-12">
                     <label>No. Telepon <small>(wajib)</small></label>
-                    <input name="telp" id="telp" type="text" class="form-control" placeholder="Contoh: 08123456789" readonly>
+                    <input name="telp" id="telp" type="text" class="form-control" value="<?php echo $user->telp; ?>" readonly>
                   </div>
                   <hr>
                   <br/>
@@ -172,7 +175,7 @@ $(document).ready(function() {
 		 }
 		
 		 $.ajax({
-			 url:'ajax_kab',
+			 url:'<?php echo base_url()?>/index.php/welcome/ajax_kab',
 			 method: 'post',
 			data: {id: selGroup},
 			dataType: 'json',
@@ -208,7 +211,7 @@ $(document).ready(function() {
 		 }
 		
 		 $.ajax({
-			 url:'ajax_kec',
+			 url:'<?php echo base_url()?>/index.php/welcome/ajax_kec',
 			 method: 'post',
 			data: {id: selGroup},
 			dataType: 'json',
@@ -244,7 +247,7 @@ $(document).ready(function() {
 		 }
 		
 		 $.ajax({
-			 url:'ajax_kel',
+			 url:'<?php echo base_url()?>/index.php/welcome/ajax_kel',
 			 method: 'post',
 			data: {id: selGroup},
 			dataType: 'json',

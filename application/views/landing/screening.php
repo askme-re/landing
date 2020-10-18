@@ -11,9 +11,9 @@
               <h4 class="card-title">Input Data Peserta Skrining</h4>
             </div>
             <div class="card-body">
-              <form method="POST" action="<?php echo base_url().'index.php/landing/screening_save'?>">
+              <form method="POST" action="<?php echo base_url().'/welcome/screening_save'?>">
 								
-								<input type="text" name="id" style="display:none" value="<?php $user_id; ?>"/>
+								<input type="text" name="id" style="display:none" value="<?php echo $user_id; ?>"/>
 								
                 <div class="form-row col-12">
                   <div class="form-group col-sm-12">

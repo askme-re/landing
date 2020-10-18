@@ -8,17 +8,21 @@ class Landing_model extends CI_Model
 		parent::__construct();
 	}
 
-  function get_user_detail($email)
+  function get_user_detail($where=NULL)
   {
-    $this->db->select('*');
-    $this->db->from('user');
-    $this->db->where('email',$email);
-    $qry = $this->db->get();
-
-    if ($qry->num_rows() > 0){
-			return $qry->row();
+     if (isset($where) or $where != NULL) {
+				$this->db->where($where);
 		}
-		return null;
+		
+		$query = $this->db->get('user');
+		if ($query->num_rows() > 0) {
+				if (isset($where) or $where != NULL) {
+						return $query->row();
+				} else {
+						return $query->result();
+				}
+		}
+		return FALSE;
   }
 	
   function get_jenis_skrining($where=NULL)
@@ -37,6 +41,7 @@ class Landing_model extends CI_Model
 		}
 		return FALSE;
 	}
+	
 	function save_user($data){
 		$this->db->insert('user', $data);
 		$insert_id = $this->db->insert_id();

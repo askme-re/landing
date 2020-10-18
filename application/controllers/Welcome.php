@@ -23,28 +23,51 @@ class Welcome extends CI_Controller {
 	function user_check()
 	{
 		$phone = $this->input->post('phone');
-		$status = $this->input->post('status');
-		$riwayat = $this->input->post('riwayat');
-		$tujuan = $this->input->post('tujuan');
+		// $setuju = $this->input->post('setuju');
+		$status = $this->input->post('dd_status');
+		$tujuan = $this->input->post('dd_tujuan');
+		$riwayat = $this->input->post('cb_tujuan');
 		
 		// is user available
-		$user = $this->landing_model->get_user_detail($us_mail);
-    if($user){
+		$user = $this->landing_model->get_user_detail(array('telp' => $phone));
+		
+		if($user){
 			// overwrite data user
+			$id = $user->id;
 			
+			$data['telp'] = $phone;
+			$data['riw_penyakit'] = $riwayat;
+			$data['tujuan_rs'] = $tujuan;
+			$data['jenis_user'] = $status;
+			
+			$this->db->where('id', $id);
+			$this->db->update('user', $data);
+
+			$this->session->set_flashdata('message_sukses', 'Perubahan Data Berhasil Disimpan');
+
+			redirect("/welcome/screening/$id");
 			
 		} else {
 			// save new user return id
+			$data['telp'] = $phone;
+			$data['riw_penyakit'] = $riwayat;
+			$data['tujuan_rs'] = $tujuan;
+			$data['jenis_user'] = $status;
 			
-			
+			$this->db->insert('user', $data);
+			$id = $this->db->insert_id();
+
+			$this->session->set_flashdata('message_sukses', 'Data Berhasil Disimpan');
+
+			redirect("/welcome/biodata/$id");
 		}
-    // echo json_encode($id_user);
 	}
 
-  function biodata()
+  function biodata($id_user)
   {
     $head['title'] = 'Biodata';
-    
+		
+		$data['user'] = $this->landing_model->get_user_detail(array('id' => $id_user));
 		$data['prov'] = $this->landing_model->get_provinsi();
 
     $this->load->view('layout/landing/header', $head);
@@ -53,25 +76,98 @@ class Welcome extends CI_Controller {
     $this->load->view('layout/landing/footer');
   }
 	
-  function screening()
+  function biodata_save()
+  {
+    $id = $this->input->post('id');
+    $user['nama'] = $this->input->post('nama');
+		$user['tp_lahir'] = $this->input->post('tempat_lahir');
+		$user['tgl_lahir'] = $this->input->post('tgl_lahir');
+		$user['id_prov'] = $this->input->post('prov');
+		$user['id_kab'] = $this->input->post('kab');
+		$user['id_kec'] = $this->input->post('kec');
+		$user['id_kel'] = $this->input->post('kel');
+		$user['alamat'] = $this->input->post('alamat');
+		$user['email'] = $this->input->post('email');
+		
+		// overwrite data user				
+		$this->db->where('id', $id);
+		$this->db->update('user', $user);
+
+		$this->session->set_flashdata('message_sukses', 'Perubahan Data Berhasil Disimpan');
+
+		redirect("/welcome/screening/$id");
+  }
+
+	
+  function screening($id_user)
   {
     $head['title'] = 'Scrining';
-
-    $link = $_SERVER['PHP_SELF'];
-    $link_array = explode('/',$link);
-    $user_id = end($link_array);
 		
-		$data['user_id'] = 1;
-		// $data['user_id'] = $user_id;
+		$data['user_id'] = $id_user;
 		$data['jenis'] = $this->landing_model->get_jenis_skrining();
-		// print_r($data['jenis']);exit;
 
+		// print_r($data);exit;
+		
     $this->load->view('layout/landing/header', $head);
     $this->load->view('layout/landing/nav_header_logo');
     $this->load->view('landing/screening',$data);
     $this->load->view('layout/landing/footer');
   }
 	
+	function screening_save()
+	{
+		$id = $this->input->post('id');
+		$jenis = $this->input->post('jenis');
+		$arr_add = '';
+		
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i <5; $i++) {
+				$randomString .= $characters[rand(0, $charactersLength - 1)];
+		}
+		
+		// save hasil screening by key jenis & user_id
+		$screening = array();
+		$nilai = 0;
+		$quizes = $this->landing_model->tanya($jenis);
+		
+		foreach($quizes as $v){
+			$rb = 'rb_'.$v->id;
+			$str_bobot = (!is_null($this->input->post($rb))) ? $this->input->post($rb) : null;
+			
+			$data['id_user'] = $id;
+			$data['id_pertanyaan'] = $v->id;
+			
+			if($str_bobot != null )
+			{
+				$arr_bobot = explode("#",$str_bobot);
+				$nilai = $nilai + $arr_bobot[1];
+				
+				$data['id_bobot'] = $arr_bobot[0];
+			}
+			
+			array_push($screening, $data);
+		}
+		
+		$query = $this->db->insert_batch('screening', $screening);
+		if($query){
+			// save to header 
+			$header['hasil'] = $nilai;
+			$header['id_wabah'] = $jenis;
+			$header['id_user'] = $id;
+			$header['kode_skrining'] = $randomString;
+			
+			$this->db->insert('trx_skrining', $header);
+			
+			redirect('/welcome/hasil_screening/'.$id);
+		}
+		
+	}
+
+	function hasil_screening($id){
+		print_r($id);
+	}
 	
 	
 	
@@ -94,9 +190,8 @@ class Welcome extends CI_Controller {
 				
 				// Write question
 				$result .= '<div class="col-sm-10 ">
-							  <div>'.$no.'</div>
 								<div class="form-group">
-								<label class="form-check-label">'.$v->pertanyaan.'</label>';
+								<label class="form-check-label">'.$no.'. '.$v->pertanyaan.'</label>';
 				
 				// Set id of question
 				$nQuiz = $v->id;
@@ -178,6 +273,15 @@ class Welcome extends CI_Controller {
 
 	
 	
-	
+	public function test(){
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i <5; $i++) {
+				$randomString .= $characters[rand(0, $charactersLength - 1)];
+		}
+		
+		print_r($randomString);
+	}
 
 }
