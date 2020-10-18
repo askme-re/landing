@@ -238,23 +238,20 @@
               </button>
             </div>
             <div class="modal-body">
-						<form>
+						<?php echo form_open('/welcome/user_check', array('name' => 'user', 'id' => 'user', 'class' => 'form-validate', 'enctype' => 'multipart/form-data', 'method' => 'post')); ?>
 							<div class="form-group">
+								<input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
+								
 								<label class="col-form-label">
 									Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus.<br/>Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum. 
 								</label>
 							</div>
-							<div class="form-group row">
-                <div class="col-sm-12">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="cb_setuju">
-                    <label class="custom-control-label" for="cb_setuju">Check this custom checkbox</label>
-                  </div>
-                </div>
-              </div>
+							
 							<div class="form-group">
-								<label class="col-form-label">Nomor Telepon :</label>
-								<input type="text" class="form-control" id="phone" name="phone">
+								<label class="col-form-label">Nomor Ponsel :</label>
+								<input type="text" class="form-control" id="phone" name="phone" autocomplete="off">
+                <small class="form-text text-muted"><i>Minimal 11 digit angka</i></small>
+                <small class="form-text text-muted"><i>Maksimal 12 digit angka</i></small>
 							</div>
 							<div class="form-group">
 								<label class="col-form-label">Status :</label>
@@ -262,7 +259,7 @@
 									<option value="" selected="selected" disabled >-- Pilih --</option>
 									<option value="Pasien">Pasien</option>
 									<option value="Pengunjung">Pengunjung</option>
-									<option value="Pegawai">Pegawai</option>
+									<option value="Pegawai RS">Pegawai RS</option>
 								</select>
 							</div>
 							<div class="form-group">
@@ -286,7 +283,7 @@
 							<div class="form-group row">
                 <div class="col-sm-12">
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_1" value="Kencing Manis (diabetes)">
+                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_1" name="cb_tujuan" value="Kencing Manis (diabetes)">
                     <label class="custom-control-label" for="cb_tujuan_1">Kencing Manis (diabetes)</label>
                   </div>
                 </div>
@@ -294,7 +291,7 @@
 							<div class="form-group row">
                 <div class="col-sm-12">
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_2" value="Tekanan Darah Tinggi (Hipertensi)">
+                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_2" name="cb_tujuan" value="Tekanan Darah Tinggi (Hipertensi)">
                     <label class="custom-control-label" for="cb_tujuan_2">Tekanan Darah Tinggi (Hipertensi)</label>
                   </div>
                 </div>
@@ -302,7 +299,7 @@
 							<div class="form-group row">
                 <div class="col-sm-12">
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_3" value="Penyakit Kanker">
+                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_3" name="cb_tujuan" value="Penyakit Kanker">
                     <label class="custom-control-label" for="cb_tujuan_3">Penyakit Kanker</label>
                   </div>
                 </div>
@@ -310,7 +307,7 @@
 							<div class="form-group row">
                 <div class="col-sm-12">
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_4" value="Penyakit Ginjal">
+                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_4" name="cb_tujuan" value="Penyakit Ginjal">
                     <label class="custom-control-label" for="cb_tujuan_4">Penyakit Ginjal</label>
                   </div>
                 </div>
@@ -318,7 +315,7 @@
 							<div class="form-group row">
                 <div class="col-sm-12">
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_5" value="Penyakit Lupus">
+                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_5" name="cb_tujuan" value="Penyakit Lupus">
                     <label class="custom-control-label" for="cb_tujuan_5">Penyakit Lupus</label>
                   </div>
                 </div>
@@ -326,42 +323,106 @@
 							<div class="form-group row">
                 <div class="col-sm-12">
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_6" value="Penyakit Saraf ">
+                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_6" name="cb_tujuan" value="Penyakit Saraf ">
                     <label class="custom-control-label" for="cb_tujuan_6">Penyakit Saraf </label>
                   </div>
                 </div>
               </div>
 							
-						</form>
+							<div class="form-group row">
+                <div class="col-sm-12">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="cb_setuju" id="cb_setuju">
+                    <label class="custom-control-label" for="cb_setuju">Check this custom checkbox</label>
+                  </div>
+                </div>
+              </div>
 						
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" id="btn_submit">Save changes</button>
+              <button type="submit" class="btn btn-primary" id="btn_submit">Save changes</button>
+							
             </div>
           </div>
+							
+						</form>
       </div>
     </div>
 
 <script src="<?php echo base_url()?>assets/theme/js/jquery-3.3.1.min.js"></script>
 <script type="application/javascript">
   $("#btn_submit").click(function() {
-    var vSetuju = $('#cb_setuju').val();
+    var vSetuju = $('#cb_setuju').prop("checked");
+    var vPhone = $('#phone').val();
+    var vStatus = $('#dd_status').val();
+    var vTujuan = $('#dd_tujuan').val();
     var vBaseUrl = <?php echo json_encode(base_url()); ?>;
-    console.log(vBaseUrl);
+		
+		var riwayat = [];
+		$.each($("input[name='cb_tujuan']:checked"), function(){
+				riwayat.push($(this).val());
+		});
+		var vRiwayat = riwayat.join(", ");
+		
+		// // input validation
+		if(vSetuju == false) {
+			alert('Skring harus disetujui');
+			$('#cb_setuju').focus();
+			return false;
+		}
+		
+		if(vPhone == '' || vPhone == 0 || vPhone == ' ') {
+			alert('Nomor Telpon harus diisi');
+			$('#phone').focus();
+			return false;
+		} 
+		
+		if(vPhone.length < 11 || vPhone.length > 12) {
+			alert('Nomor Telpon minimal 11 dan maksimal 12 digit');
+			$('#phone').focus();
+			return false;
+		}
+		
+		if(vStatus == '') {
+			alert('Status harus dipilih');
+			$('#dd_status').focus();
+			return false;
+		}
+		
+		if(vTujuan == '') {
+			alert('Tujuan harus dipilih');
+			$('#dd_tujuan').focus();
+			return false;
+		}
+		
+    // console.log(vBaseUrl);
+		// console.log(vSetuju);
+		// console.log(vPhone);
+		// console.log(vStatus);
+		// console.log(vTujuan);
+		// console.log(vRiwayat);
+		
 
-    if(vSetuju === 'on') {
-      var vEmail = $('#tb_email').val();
-      $.ajax({
-        url: vBaseUrl+'/landing/cek_user_email',
-        method: 'post',
-        data: {email: vEmail},
-        dataType: 'json',
-        success: function(res){
-          var uri = vBaseUrl + res.url;
-          window.location.replace(uri);
-        }
-      });
-    }
+    // if(vSetuju === true) {
+      // console.log('setuju checked');
+			
+			// $.ajax({
+        // url: vBaseUrl+'/welcome/user_check',
+        // method: 'post',
+        // data: {
+								// phone: vPhone,
+								// setuju: vSetuju,
+								// status: vStatus,
+								// tujuan: vTujuan,
+								// riwayat: vRiwayat
+							// },
+        // // dataType: 'json',
+        // success: function(res){
+          // var uri = vBaseUrl + res.url;
+          // window.location.replace(uri);
+        // }
+      // });
+		// };
   }); 
 </script> 
