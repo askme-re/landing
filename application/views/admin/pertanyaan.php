@@ -7,14 +7,14 @@
       <?php endif; ?>
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Daftar Pertanyaan</h4>
+          <h4 class="card-title">Daftar Bobot Pertanyaan</h4>
         </div>
       <div class="card-body">
         
         <div class="table-responsive">
           <table class="table" id="tabelPertanyaan">
             <thead class=" text-primary">
-              <th> No </th>
+              <!-- <th> No </th> -->
               <th> Pertanyaan </th>
               <th> Jenis Wabah </th>
               <th> Jawaban</th>

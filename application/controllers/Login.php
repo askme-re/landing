@@ -20,6 +20,8 @@ class Login extends CI_Controller {
 		$password =$this->input->post('password');
 		$where = array(
 			'email' => $email,
+			/* 1 = admin, 0 atau kosong adalah user biasa*/
+			'role' => '1',
 			'password' => md5($password)
 			);
 		$cek = $this->login_m->cek_login("user",$where)->num_rows();
@@ -34,7 +36,7 @@ class Login extends CI_Controller {
  
 			$this->session->set_flashdata('msg', "<div class='alert alert-success' role='alert'>
 			<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button> <strong>Sukses!</strong>Login Berhasil !</div>");
-			redirect(base_url("index.php/user"));
+			redirect(base_url('user'));
  
 		}else{
 			$this->session->set_flashdata('msg', "<div class='alert alert-warning' role='alert'>

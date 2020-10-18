@@ -19,9 +19,9 @@
             </a>
           </li>
           <li class="">
-            <a href="<?php echo base_url('Admin/Skrinning');?>">
+            <a href="<?php echo base_url('skrining');?>">
               <i class="nc-icon nc-single-copy-04"></i>
-              <p>Skrinning</p>
+              <p>Skrining</p>
             </a>
           </li>
           <li class="">
