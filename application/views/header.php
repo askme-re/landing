@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta name="viewport" content="width=device-width" />
 
 	<!--     Fonts and icons     -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
 
 	<!-- CSS Files -->
   <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" />

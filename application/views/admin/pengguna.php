@@ -59,7 +59,7 @@
 var table = $('#tabelPengguna').DataTable({
     serverSide: true,
     ajax: {
-            url : "<?php echo base_url(); ?>index.php/user/get_pengguna",
+            url : "<?php echo base_url(); ?>user/get_pengguna",
             type : 'GET'
         },
     lengthMenu: [[10, 100, -1], [10, 100, "All"]],

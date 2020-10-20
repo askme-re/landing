@@ -31,7 +31,7 @@
             </a>
           </li>
           <li style="margin-top:30px;">
-             <a href="<?php echo base_url('index.php/Login/keluar');?>" style="font-size:12px;color:orange;">
+             <a href="<?php echo base_url('Login/keluar');?>" style="font-size:12px;color:orange;">
               <p>Keluar</p>
             </a>
           </li>

@@ -61,7 +61,7 @@
 <script>
  $('#tabelHSkrining').DataTable({
         "ajax": {
-            url : "<?php echo base_url(); ?>index.php/skrining/get_hasil_skrining",
+            url : "<?php echo base_url(); ?>skrining/get_hasil_skrining",
             type : 'GET'
         },
     });

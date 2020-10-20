@@ -7,7 +7,7 @@
         <p><?php echo $this->session->flashdata('msg'); ?></p>
     <?php endif; ?>
     <div class="tab-content">
-      <form id="" method="POST" action="<?php echo base_url().'index.php/Login/masuk' ?>">
+      <form id="" method="POST" action="<?php echo base_url().'Login/masuk' ?>">
         <div class="col-sm-10 col-sm-offset-1">
             <div class="form-group">
               <label>Email</label>

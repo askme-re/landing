@@ -11,7 +11,7 @@
               <h4 class="card-title">Input Data Peserta Skrining</h4>
             </div>
             <div class="card-body">
-              <form method="POST" action="<?php echo base_url().'/welcome/screening_save'?>">
+              <form method="POST" action="<?php echo base_url().'welcome/screening_save'?>">
 								
 								<input type="text" name="id" style="display:none" value="<?php echo $user_id; ?>"/>
 								
@@ -70,7 +70,7 @@ $(document).ready(function() {
 		var vJenis = this.value;
 		
 		$.ajax({
-			url:'<?php echo base_url()?>/index.php/welcome/ajax_quiz',
+			url:'<?php echo base_url()?>welcome/ajax_quiz',
 			method: 'post',
 			data: {jenis: vJenis},
 			dataType: 'json',
