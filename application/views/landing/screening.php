@@ -42,7 +42,7 @@
 									
 									<div class="form-group col-sm-12 row" style="margin-top: 15px;">
 										<div class="col-sm-2">
-											<a href="<?php echo base_url()?>index.php/landing" class="btn btn-secondary" role="button">Cancel</a>
+											<a href="<?php echo base_url()?>landing" class="btn btn-secondary" role="button">Cancel</a>
 										</div>
 										<div class="col-sm-8">
 										</div>
@@ -70,7 +70,7 @@ $(document).ready(function() {
 		var vJenis = this.value;
 		
 		$.ajax({
-			url:'<?php echo base_url()?>welcome/ajax_quiz',
+			url:'<?php echo base_url()?>/welcome/ajax_quiz',
 			method: 'post',
 			data: {jenis: vJenis},
 			dataType: 'json',

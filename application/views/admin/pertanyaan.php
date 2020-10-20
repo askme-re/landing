@@ -59,13 +59,13 @@
     </div>
   </div>
 </div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="http://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 <script>
  $('#tabelPertanyaan').DataTable({
         "ajax": {
-            url : "<?php echo base_url(); ?>index.php/pertanyaan/get_pertanyaan",
+            url : "<?php echo base_url(); ?>pertanyaan/get_pertanyaan",
             type : 'GET'
         },
     });

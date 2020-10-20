@@ -70,7 +70,7 @@ class Landing extends CI_Controller {
 		$id_user = $this->landing_model->save_user($user);
 		// $param = base64_encode(date('Ymd').'#'.$id_user.'#'.$user['email']);
 		
-		redirect('index.php/landing/screening/'.$id_user);
+		redirect('landing/screening/'.$id_user);
   }
 
   function screening()
@@ -129,7 +129,7 @@ class Landing extends CI_Controller {
 		
 		$query = $this->landing_model->quizes($jenis);
 		
-		if($query) redirect('index.php/landing/screening/'.$data['id_user']);
+		if($query) redirect('landing/screening/'.$data['id_user']);
 	}
 
   function test()
