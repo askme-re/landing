@@ -30,12 +30,12 @@ class Landing extends CI_Controller {
     if($user){
 			$result = array(
 				'status' => 1,
-				'url' => 'index.php/landing/screening/'.$user->id_user
+				'url' => 'landing/screening/'.$user->id_user
 			);
 		} else {
 			$result = array(
 				'status' => 0,
-				'url' => 'index.php/landing/biodata'
+				'url' => 'landing/biodata'
 			);
 		}
     echo json_encode($result);
