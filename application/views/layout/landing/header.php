@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title><?= $title; ?> | ASK_ME</title>
+  <title>
+  <img src="<?php echo base_url()?>assets/img/Logo_4_icon.ico" alt="ask me" >
+  <?= $title; ?> | ASK_ME</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
 

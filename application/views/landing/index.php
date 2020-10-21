@@ -4,15 +4,12 @@
         <div class="row justify-content-center text-center">
           <div class="col-lg-10">
             <div class="mb-5">
-              <h1 class="hero-heading"><strong>A</strong>plikasi <strong>S</strong>krining <strong>K</strong>husus Penyakit <strong>Me</strong>nular</h1>
-              <p>Rumah Sakit Dr Suyoto Jakarta, Indonesia </p>
-              <p>Bekerjasama dengan Kementerian Pertahanan Republik Indonesia (RI) dan Pusat Rehabilitasi Kementerian Pertahanan (PUSREHAB KEMHAN) Rumah Sakit Dr. SUYOTO</p>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#persetujuanModal" id="md_peretujuan">
-                ASK_ME
-              </button>
+              <h1 class="hero-heading"><strong>A</strong>plikasi <strong>S</strong>krining <strong>K</strong>husus <br>Penyakit <strong>ME</strong>nular</h1>
+              <a href="<?php echo base_url('skrin')?>" class="btn btn-primary">ASK_ME</a>
             </div>
-            <img src="<?php echo base_url()?>assets/theme/images/foto_main.jpg" alt="image" class="img-fluid">
+            <img src="<?php echo base_url()?>assets/img/logo_RSdrSuyoto.jpg" alt="image" class="img-fluid">
           </div>
+              <p><br><strong>Pusat Rehabilitasi Kementerian Pertahanan RI Rumah Sakit dr. SUYOTO</strong></p>
         </div>
       </div>
     </div>
@@ -256,28 +253,43 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
 								<input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
 								
 								<label class="col-form-label">
-									Anda akan diminta mengisi data pribadi untuk kepentingan skrining, dengan mengisi data dibawah Anda menyatakan setuju dengan syarat dan kondisi.
+									Anda kan diminta mengisi beberapa pertanyaan sederhana dengan benar, dapat dipertanggungjawabkan dan tidak dibuat-buat. Data yang Anda masukan akan dilakukan pemrosesan sesuai dengan ketentuan dari ASK_ME. Data ini ditujukan untuk kebutuhan riset dan pelayanan terkait Penyakit Menular dan digunakan dalam kaidah yang diizinkan sesuai dengan Peraturan Perundang-undangan yang berlaku.
 								</label>
 							</div>
 							
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="cb_setuju" id="cb_setuju">
+                    <label class="custom-control-label" for="cb_setuju">Centang jika Anda Setuju</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+              <center>
+                <h3>
+                  Langkah Awal Skrining Mandiri!
+                </h3>
+              </center>
+              </div>
+
 							<div class="form-group">
-								<label class="col-form-label">Nomor Ponsel :</label>
-								<input type="text" class="form-control" id="phone" name="phone" autocomplete="off">
-                <small class="form-text text-muted"><i>Minimal 11 digit angka</i></small>
-                <small class="form-text text-muted"><i>Maksimal 12 digit angka</i></small>
+								<label class="col-form-label">Masukan Nomor Ponsel :</label>
+								<input type="text" class="form-control" id="phone" name="phone" autocomplete="off" required>
+                <small class="form-text text-muted"><i>Min 11 dan Maksimal 13 digit angka</i></small>
 							</div>
 							<div class="form-group">
 								<label class="col-form-label">Status :</label>
-								<select class="form-control" id="dd_status" name="dd_status">
-									<option value="" selected="selected" disabled >-- Pilih --</option>
+								<select class="form-control" id="dd_status" name="dd_status" required>
+									<option value="" selected="selected" disabled >Pilih Salah Satu</option>
 									<option value="Pasien">Pasien</option>
 									<option value="Pengunjung">Pengunjung</option>
 									<option value="Pegawai RS">Pegawai RS</option>
 								</select>
 							</div>
 							<div class="form-group">
-								<label class="col-form-label">Tujuan :</label>
-								<select class="form-control" id="dd_tujuan" name="dd_tujuan">
+								<label class="col-form-label">Tujuan datang ke RS ?</label>
+								<select class="form-control" id="dd_tujuan" name="dd_tujuan" required>
 									<option value="" selected="selected" disabled >-- Pilih --</option>
 									<option value="Rawat Jalan (Poliklinik)">Rawat Jalan (Poliklinik)</option>
 									<option value="Rawat Inap">Rawat Inap</option>
@@ -342,14 +354,6 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
                 </div>
               </div>
 							
-							<div class="form-group row">
-                <div class="col-sm-12">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="cb_setuju" id="cb_setuju">
-                    <label class="custom-control-label" for="cb_setuju">Centang jika Anda Setuju</label>
-                  </div>
-                </div>
-              </div>
 						
             </div>
             <div class="modal-footer">
@@ -391,8 +395,8 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
 			return false;
 		} 
 		
-		if(vPhone.length < 11 || vPhone.length > 12) {
-			alert('Nomor Telpon minimal 11 dan maksimal 12 digit');
+		if(vPhone.length < 11 || vPhone.length > 13) {
+			alert('Nomor Telpon minimal 11 dan maksimal 13 digit');
 			$('#phone').focus();
 			return false;
 		}
@@ -408,34 +412,5 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
 			$('#dd_tujuan').focus();
 			return false;
 		}
-		
-    // console.log(vBaseUrl);
-		// console.log(vSetuju);
-		// console.log(vPhone);
-		// console.log(vStatus);
-		// console.log(vTujuan);
-		// console.log(vRiwayat);
-		
-
-    // if(vSetuju === true) {
-      // console.log('setuju checked');
-			
-			// $.ajax({
-        // url: vBaseUrl+'/welcome/user_check',
-        // method: 'post',
-        // data: {
-								// phone: vPhone,
-								// setuju: vSetuju,
-								// status: vStatus,
-								// tujuan: vTujuan,
-								// riwayat: vRiwayat
-							// },
-        // // dataType: 'json',
-        // success: function(res){
-          // var uri = vBaseUrl + res.url;
-          // window.location.replace(uri);
-        // }
-      // });
-		// };
   }); 
 </script> 
