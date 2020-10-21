@@ -57,12 +57,17 @@ class Skrining extends CI_Controller {
                 //name the worksheet
       $this->excel->getActiveSheet()->setTitle('HasilSkrining');
                 //set cell A1 content with some text
-      $this->excel->getActiveSheet()->setCellValue('A1', 'Country Excel Sheet');
-      $this->excel->getActiveSheet()->setCellValue('A4', 'S.No.');
-      $this->excel->getActiveSheet()->setCellValue('B4', 'Country Code');
-      $this->excel->getActiveSheet()->setCellValue('C4', 'Country Name');
+      $this->excel->getActiveSheet()->setCellValue('A1', 'Daftar Skrining');
+      $this->excel->getActiveSheet()->setCellValue('A4', 'ID');
+      $this->excel->getActiveSheet()->setCellValue('B4', 'Nama');
+      $this->excel->getActiveSheet()->setCellValue('H4', 'Jenis User');
+      $this->excel->getActiveSheet()->setCellValue('G4', 'No. Ponsel');
+      $this->excel->getActiveSheet()->setCellValue('C4', 'Skrining');
+      $this->excel->getActiveSheet()->setCellValue('D4', 'Tujuan ke RS');
+      $this->excel->getActiveSheet()->setCellValue('E4', 'Kode');
+      $this->excel->getActiveSheet()->setCellValue('F4', 'Usia');
                 //merge cell A1 until C1
-                $this->excel->getActiveSheet()->mergeCells('A1:C1');
+                $this->excel->getActiveSheet()->mergeCells('A1:G1');
                 //set aligment to center for that merged cell (A1 to C1)
                 $this->excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
                 //make the font become bold
@@ -75,7 +80,7 @@ class Skrining extends CI_Controller {
                 $this->excel->getActiveSheet()->getStyle(chr($col))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         }
                 //retrive contries table data
-                $rs = $this->db->get('user');
+                $rs = $this->db->get('data_hasil_skrining');
                 $exceldata=[];
         // foreach ($rs->result_array() as $row){
         //         $exceldata[] = $row;
@@ -87,7 +92,10 @@ class Skrining extends CI_Controller {
                   $r->nama,
                   $r->jenis_user,
                   $r->telp,
-                  $r->riw_penyakit
+                  $r->wabah,
+                  $r->tujuan_rs,
+                  $r->kode_skrining,
+                  $r->usia
 
            );
         }
@@ -96,6 +104,10 @@ class Skrining extends CI_Controller {
                 $this->excel->getActiveSheet()->getStyle('A4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
                 $this->excel->getActiveSheet()->getStyle('B4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
                 $this->excel->getActiveSheet()->getStyle('C4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                $this->excel->getActiveSheet()->getStyle('F4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                $this->excel->getActiveSheet()->getStyle('G4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                $this->excel->getActiveSheet()->getStyle('D4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                $this->excel->getActiveSheet()->getStyle('E4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
                 $filename='Skringin.xls'; //save our workbook as this file name
                 header('Content-Type: application/vnd.ms-excel'); //mime type
                 header('Content-Disposition: attachment;filename="'.$filename.'"'); //tell browser what's the file name

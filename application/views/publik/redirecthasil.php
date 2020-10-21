@@ -9,6 +9,7 @@
         <div class="modal-body">
         <!-- <form method="POST" action="<?php echo base_url().'index.php/Welcome/quwa/$value->id_user'?>" > -->
         <form>
+          <img style="max-height:60px; margin-left:20px" src="<?php echo base_url()?>assets/img/favicon.png">
         	<h5>Anda telah berhasil mengisi data skrining mandiri</h5>
         	<h4 class="info-text">
         	<?php # echo "Kode Antrian $kokom[nama] adalah $kokom[kode]."; 

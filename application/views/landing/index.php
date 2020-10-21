@@ -164,19 +164,19 @@ masuk melalui saluran pernapasan dan melekat di sel-sel epitel saluran napas. Se
         <div class="row">
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="">
             <div class="h-entry">
-              <a href="single.html">
-                <img src="<?php echo base_url()?>assets/theme/images/img_2.jpg" alt="Image" class="img-fluid">
+              <a href="<?php echo base_url()?>">
+                <img style="max-height:200px;padding:0px 30px 0px 30px" src="<?php echo base_url();?>assets/img/favicon.png" alt="Image" class="img-fluid">
               </a>
               <h4>Aplikasi ASKME?</h4>
-              <p>Berisi pertanyaan sederhana dari beberapa Penyakit Menular (sesuai dengan PERMENHAN N0. 22 Tahun 2017) yang harus Anda jawab. 
-Data ini digunakan untuk mengidentifikasi status kesehatan Anda dengan memberikan penilaian dari pertanyaan yang telah Anda jawab. 
-Hal ini membantu dalam menentukan rencana tindak lanjut pelayanan yang akan Anda dapatkan di RS dr Suyoto.</p>
+              <p>ASK_ME RS dr Suyoto dibangun sebagai bentuk salah satu upaya preventif penanggulangan wabah penyakit menular di Lingkungan Kemhan. Pada tahap awal 
+aplikasi ini khusus untuk skrining wabah penyakit COVID-19 sedangkan untuk selanjutnya akan dikembangkan dengan kemampuan melakukan penyaringan 16 wabah 
+kasus menular sesuai dengan PERMENHAN No. 22 Tahun 2017 tentang Penanggulangan Wabah Penyakit Menular di Lingkungan Kemhan dan TNI.</p>
             </div> 
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="h-entry">
-              <a href="single.html">
-                <img src="<?php echo base_url()?>assets/theme/images/tentang.jpg" alt="Image" class="img-fluid">
+              <a href="<?php echo base_url()?>">
+                <img src="<?php echo base_url()?>assets/img/perhitungan.jpg" alt="Image" class="img-fluid">
               </a>
               <h4>Proses Perhitungan Risiko</h4>
               <p>menggunakan 3 tipe pendekatan data dalam menentukan hasil skrining. Yaitu;
@@ -190,8 +190,8 @@ Hal ini membantu dalam menentukan rencana tindak lanjut pelayanan yang akan Anda
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="h-entry">
-              <a href="single.html">
-                <img src="<?php echo base_url()?>assets/theme/images/img_2.jpg" alt="Image" class="img-fluid">
+              <a href="<?php echo base_url()?>">
+                <img src="<?php echo base_url()?>assets/img/prosedur.png" alt="Image" class="img-fluid">
               </a>
               <h4>Bagaimana Cara Kerja ASKME?</h4>
               <p>Dibangun sebagai bentuk salah satu upaya preventif penanggulangan wabah penyakit menular di Lingkungan 
@@ -235,12 +235,12 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
               <a href="#">cinta@mail.com</a>
             </p>
           </div>
-          <div class="col-md-5 footer-social">
+        <!--   <div class="col-md-5 footer-social">
             <h4 class="footer-heading ">Ingin terhubung lebih mudah di sosial media?</h4>
             <a href="#" class="pl-0 pr-5"><span class="icon-facebook"></span></a>
-            <a href="#" class="pl-5 pr-5"><span class="icon-instagram"></span></a>
+            <a href="#" class="pl-5 pr-5"><span class="icon-twitter"></span></a>
             <a href="#" class="pl-5 pr-5"><span class="icon-linkedin"></span></a>
-          </div>
+          </div> -->
       </div>
     </div>
 
@@ -365,7 +365,7 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-              <button type="submit" class="btn btn-primary" id="btn_submit">Selanjutnya</button>
+              <button type="submit" class="btn btn-primary" id="btn_submit">Mulai</button>
 							
             </div>
           </div>

@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="<?php echo base_url();?>assets/img/Logo_4_icon.ico"/>
+  <link rel="icon" type="image/png" href="<?php echo base_url();?>assets/img/favicon.png"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     Dasbor ASK_ME </title>
@@ -27,8 +27,6 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css"/>
   <link rel="stylesheet" href="<?php echo base_url();?>assets/theme/css/bootstrap.min.css">
  
-
-
 
 </head>
 <body>

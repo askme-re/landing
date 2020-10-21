@@ -50,32 +50,32 @@
 
 
 <script>
-//  $('#tabelPengguna').DataTable({
-//         "ajax": {
-//             url : "<?php echo base_url(); ?>index.php/user/get_pengguna",
-//             type : 'GET'
-//         },
-// });
-var table = $('#tabelPengguna').DataTable({
-    serverSide: true,
-    ajax: {
-            url : "<?php echo base_url(); ?>user/get_pengguna",
+ $('#tabelPengguna').DataTable({
+        "ajax": {
+            url : "<?php echo base_url(); ?>index.php/user/get_pengguna",
             type : 'GET'
         },
-    lengthMenu: [[10, 100, -1], [10, 100, "All"]],
-    pageLength: 10,
-    buttons: [
-        {
-            extend: 'excel',
-            text: '<span class="fa fa-file-excel-o"></span> Excel Export',
-            exportOptions: {
-                modifier: {
-                    search: 'applied',
-                    order: 'applied'
-                }
-            }
-        }
-    ],
-    // other options
 });
+// var table = $('#tabelPengguna').DataTable({
+//     serverSide: true,
+//     ajax: {
+//             url : "<?php echo base_url(); ?>user/get_pengguna",
+//             type : 'GET'
+//         },
+//     lengthMenu: [[10, 100, -1], [10, 100, "All"]],
+//     pageLength: 10,
+//     buttons: [
+//         {
+//             extend: 'excel',
+//             text: '<span class="fa fa-file-excel-o"></span> Excel Export',
+//             exportOptions: {
+//                 modifier: {
+//                     search: 'applied',
+//                     order: 'applied'
+//                 }
+//             }
+//         }
+//     ],
+//     // other options
+// });
 </script>
