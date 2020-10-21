@@ -275,20 +275,9 @@ function screening($id_user)
 		echo json_encode($result);
 	}
 	
-	public function test(){
-		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		$charactersLength = strlen($characters);
-		$randomString = '';
-		for ($i = 0; $i <5; $i++) {
-				$randomString .= $characters[rand(0, $charactersLength - 1)];
-		}
-		
-		print_r($randomString);
-	}
-
 	function inde($id){
 	   //   $this->load->library('pdf');
-	 	$image="ASK_ME.jpg";
+	 	$image="favicon.png";
         $pdf = new FPDF('l','mm','A4');
         // membuat halaman baru
         $pdf->AddPage();

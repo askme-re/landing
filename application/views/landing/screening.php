@@ -72,7 +72,7 @@ $(document).ready(function() {
 			data: {jenis: vJenis},
 			dataType: 'json',
 			success: function(res){
-				// console.log(res);
+				console.log(res);
 				$("#isi").html(res);
 				$("#pertanyaan").css("display","block");
 			}
