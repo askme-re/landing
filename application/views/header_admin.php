@@ -15,7 +15,7 @@
   <!-- CSS Files -->
   <link href="<?php echo base_url();?>assets/css/paper-dashboard.css?v=2.0.0'" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" /> -->
   <link href="<?php echo base_url();?>assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet" />
   <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
@@ -25,6 +25,7 @@
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css"/>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css"/>
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/theme/css/bootstrap.min.css">
  
 
 

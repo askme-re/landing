@@ -61,7 +61,7 @@
                     </select>
                   </div>
                   <div class="form-group col-sm-12">
-                    <label>Email <small>(wajib)</small></label>
+                    <label>Email</label>
                     <input name="email" id="email" type="email" class="form-control" placeholder="andrew@mail.com">
                   </div>
                   <div class="form-group col-sm-12">
@@ -72,12 +72,12 @@
                   <br/>
                   <div class="form-group col-sm-12 row" style="margin-top: 15px;">
                     <div class="col-sm-2">
-					<a href="<?php echo base_url()?>landing" class="btn btn-secondary" role="button">Cancel</a>
+					<a href="<?php echo base_url()?>landing" class="btn btn-secondary" role="button">Batal</a>
                     </div>
                     <div class="col-sm-8">
                     </div>
                     <div class="col-sm-2">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">Selanjutnya</button>
                     </div>
                   </div>
                 </div>

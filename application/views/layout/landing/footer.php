@@ -1,15 +1,23 @@
 
     <footer class="site-footer bg-light">
       <div class="container">
-       <div class="row">
-          <div class="col-md-9">
-          <p>RS dokter Suyoto, jakarta, Indonesia</p>
-      <div class="col-md-12">
+       <div class="row justify-content-center ">
+       <div class="col-md-8 text-center">
+          <!-- <div class="col-md-9"> -->
+          <img style="max-height:60px; margin-left:20px" src="<?php echo base_url()?>assets/img/Logo_RSdrSuyoto.jpg">
+          <img style="max-height:60px; margin-left:20px" src="<?php echo base_url()?>assets/img/favicon.png">
+          <img style="max-height:50px;margin-left:20px" src="<?php echo base_url()?>assets/img/REFRADA-File-04.png">
+          <!-- <br>
+          <br>
+          <p>RS dokter Suyoto, Jakarta, Indonesia</p> -->
+          <!-- </div> -->
+          </div>
+      <div class="col-md-12 text-center">
           <div class="border-top pt-5">
       <p class="copyright"><small>
           </small>
-          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved ASK_ME powered by Refrada.id made with <i class="icon-heart text-danger" aria-hidden="true"></i> 
-          <a href="https://www.creative-tim.com" target="_blank">Love</a>
+          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved ASK_ME | made with <i class="icon-heart text-danger" aria-hidden="true"></i> 
+          <a href="https://refrada.id" target="_blank">Love</a>
           </p>
           </div>
           </div>

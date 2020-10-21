@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <title>
-  <img src="<?php echo base_url()?>assets/img/Logo_4_icon.ico" alt="ask me" >
   <?= $title; ?> | ASK_ME</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-
+  <link rel="icon" type="image/png" href="<?php echo base_url();?>assets/img/Logo_4_icon.ico"/>
+  <link rel="icon" type="image/png" href="<?php echo base_url();?>assets/img/favicon.png"/>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/theme/fonts/icomoon/style.css">
 

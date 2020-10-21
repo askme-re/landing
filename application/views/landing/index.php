@@ -5,7 +5,9 @@
           <div class="col-lg-10">
             <div class="mb-5">
               <h1 class="hero-heading"><strong>A</strong>plikasi <strong>S</strong>krining <strong>K</strong>husus <br>Penyakit <strong>ME</strong>nular</h1>
-              <a href="<?php echo base_url('skrin')?>" class="btn btn-primary">ASK_ME</a>
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#persetujuanModal" id="md_peretujuan">
+                ASK_ME
+              </button>
             </div>
             <img src="<?php echo base_url()?>assets/img/logo_RSdrSuyoto.jpg" alt="image" class="img-fluid">
           </div>
@@ -28,25 +30,27 @@
           </div>
           <div class="col-lg-5 mr-auto">
             <div class="mb-4">
-              <h2 class="section-title-2">Covid-19</h2>
-              <p>Ini tentang covid 19 apa si? gak tau juga, tanya la :D</p>
+              <h2 class="section-title-2">Apa itu Covid-19?</h2>
+              <p>Pneumonia Coronavirus Disease 2019 atau COVID-19 adalah penyakit peradangan paru yang disebabkan oleh Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2). </p>
             </div>
 
             <div class="d-flex feature-v1">
               <span class="wrap-icon icon-users"></span>
               <div>
-                <h3>Kontak Kerumunan</h3>
-                <p>Penularan infeksi akibat kerumunan orang orang yang sudah terinfeksi</p>
+                <h3>Bagaimana COVID-19 Menular?</h3>
+                <p>Gejala klinis yang muncul beragam, mulai dari seperti gejala flu biasa (batuk, pilek, nyeri tenggorok, nyeri otot, nyeri kepala) sampai yang berkomplikasi berat (pneumonia atau sepsis). Melalui kontak dengan droplet saluran napas penderita. Droplet merupakan partikel kecil dari mulut penderita yang mengandung kuman penyakit, yang dihasilkan pada saat batuk, bersin, atau berbicara. Droplet dapat melewati sampai jarak tertentu (biasanya 1 meter). Droplet bisa menempel di pakaian atau benda di sekitar penderita pada saat batuk atau bersin. Namun, partikel droplet 
+cukup besar sehingga tidak akan bertahan atau mengendap di udara dalam waktu yang lama. Oleh karena itu, orang yang sedang sakit, diwajibkan untuk menggunakan masker 
+untuk mencegah penyebaran droplet. Untuk penularan melalui makanan, sampai saat ini belum ada bukti ilmiahnya.</p>
               </div>
             </div>
 
-            <div class="d-flex feature-v1">
+<!--             <div class="d-flex feature-v1">
               <span class="wrap-icon icon-layers"></span>
               <div>
                 <h3>Sajian Makanan Tidak Higienis</h3>
                 <p>Sajian kelelawar dari kawasan China yang bermutasi menjadi virus</p>
               </div>
-            </div>
+            </div> -->
 
           </div>
         </div>
@@ -57,54 +61,57 @@
           </div>
           <div class="col-lg-5 order-lg-1 ml-auto">
             <div class="mb-4">
-              <h2 class="section-title-2">Malaria</h2>
-              <p>Ditularkan oleh nyamuk nakal yang suka bersarang di tempat yang bergenang dan kotor</p>
+              <h2 class="section-title-2">Apa itu Malaria?</h2>
+              <p> Penyakit yang menyerang sel darah merah disebabkan oleh parasit plasmodium ditularkan kepada manusia melalui gigitan nyamuk Anopheles betina yang terinfeksi</p>
             </div>
 
             <div class="d-flex feature-v1">
               <span class="wrap-icon icon-cog"></span>
               <div>
-                <h3>Iritasi</h3>
-                <p>Bekas gigitan nyamuk yang merah</p>
+                <h3>Bagaimana proses penularan Malaria?</h3>
+                <p>Penularan parasit Plasmodium kepada manusia adalah melalui nyamuk Anopheles berina, ketika nyamuk menggigit seseorang yang terinfeksi malaria, nyamuk tersebut menyedot parasit yang disebut gametocytes. Parasit tersebut menyelesaikan siklus pertumbuhannya di dalam tubuh nyamuk dan kemudian merambat ke kelenjar ludah nyamuk  Pada saat menggigit anda, nyamuk ini menyuntikkan parasit ke aliran darah anda. 
+Menuju hati kemudian melipatgandakan diri. Malaria juga dapat menular melalui transfusi darah</p>
               </div>
             </div>
 
-            <div class="d-flex feature-v1">
+    <!--         <div class="d-flex feature-v1">
               <span class="wrap-icon icon-bolt"></span>
               <div>
                 <h3>Demam</h3>
                 <p>Infeksi membuat demam dan sakit perut</p>
               </div>
             </div>
-
+ -->
           </div>
         </div>
 
         <div class="row align-items-center mb-5">
           <div class="col-lg-6 mb-5 order-lg-2 mb-lg-0" data-aos="fade-right">
-            <img src="<?php echo base_url()?>assets/theme/images/campak.jpg" alt="Image" class="img-fluid img-shadow">
+            <img src="https://www.prosehat.com/wp-content/uploads/2018/08/gejala-campak.jpg" alt="Image" class="img-fluid img-shadow">
+            <!-- <img src="<?php echo base_url()?>assets/img/campak.jpg" alt="Image" class="img-fluid img-shadow"> -->
           </div>
           <div class="col-lg-5 mr-auto">
             <div class="mb-4">
-              <h2 class="section-title-2">Campak</h2>
-              <p>Bentol merah merah seluruh badan disertai demam</p>
+              <h2 class="section-title-2">Apa itu Campak?</h2>
+              <p>Merupakan salah satu penyakit penyebab kematian tertinggi pada anak, sangat infeksius, dapat menular sejak awal masa prodromal (4 hari sebelum muncul ruam) sampai lebih kurang 4 hari setelah munculnya ruam</p>
             </div>
 
             <div class="d-flex feature-v1">
               <span class="wrap-icon icon-users"></span>
               <div>
-                <h3>Ruam Kulit</h3>
-                <p>Biasanya pada wajah hingga keseluruhan tubuh</p>
+                <h3>Bagaimana Penyebaran Campak?</h3>
+                <p>Penyebaran infeksi terjadi jika terhirup droplet yang mengandung virus campak di udara yang berasal dari penderita. Virus campak 
+masuk melalui saluran pernapasan dan melekat di sel-sel epitel saluran napas. Setelah melekat, virus bereplikasi dan diikuti dengan penyebaran ke kelenjar limfe regional</p>
               </div>
             </div>
 
-            <div class="d-flex feature-v1">
+            <!-- <div class="d-flex feature-v1">
               <span class="wrap-icon icon-layers"></span>
               <div>
                 <h3>Demam</h3>
                 <p>Mengalami kenaikan suhu tubuh disertai pilek dan mungkin batuk</p>
               </div>
-            </div>
+            </div> -->
 
           </div>
         </div>
@@ -253,7 +260,7 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
 								<input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
 								
 								<label class="col-form-label">
-									Anda kan diminta mengisi beberapa pertanyaan sederhana dengan benar, dapat dipertanggungjawabkan dan tidak dibuat-buat. Data yang Anda masukan akan dilakukan pemrosesan sesuai dengan ketentuan dari ASK_ME. Data ini ditujukan untuk kebutuhan riset dan pelayanan terkait Penyakit Menular dan digunakan dalam kaidah yang diizinkan sesuai dengan Peraturan Perundang-undangan yang berlaku.
+									Anda akan diminta mengisi beberapa pertanyaan sederhana dengan benar, dapat dipertanggungjawabkan dan tidak dibuat-buat. Data yang Anda masukan akan dilakukan pemrosesan sesuai dengan ketentuan dari ASK_ME. Data ini ditujukan untuk kebutuhan riset dan pelayanan terkait Penyakit Menular dan digunakan dalam kaidah yang diizinkan sesuai dengan Peraturan Perundang-undangan yang berlaku.
 								</label>
 							</div>
 							
@@ -275,8 +282,8 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
 
 							<div class="form-group">
 								<label class="col-form-label">Masukan Nomor Ponsel :</label>
-								<input type="text" class="form-control" id="phone" name="phone" autocomplete="off" required>
-                <small class="form-text text-muted"><i>Min 11 dan Maksimal 13 digit angka</i></small>
+								<input type="text" class="form-control" id="phone" name="phone" maxlength="13" autocomplete="off" placeholder="Ex: 081234567891" required>
+                <small class="form-text "><i>Min 11 dan Maksimal 13 digit angka</i></small>
 							</div>
 							<div class="form-group">
 								<label class="col-form-label">Status :</label>
@@ -290,7 +297,7 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
 							<div class="form-group">
 								<label class="col-form-label">Tujuan datang ke RS ?</label>
 								<select class="form-control" id="dd_tujuan" name="dd_tujuan" required>
-									<option value="" selected="selected" disabled >-- Pilih --</option>
+									<option value="" selected="selected" disabled >Pilih Salah Satu</option>
 									<option value="Rawat Jalan (Poliklinik)">Rawat Jalan (Poliklinik)</option>
 									<option value="Rawat Inap">Rawat Inap</option>
 									<option value="Laboratorium">Laboratorium</option>
