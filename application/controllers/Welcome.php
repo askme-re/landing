@@ -169,10 +169,6 @@ function screening($id_user)
 	function hasil_screening($id){
 		$this->load->view('header');
 		$data['user'] = $this->landing_model->result_skrining($id);
-		// print_r($data);
-		// foreach ($user as $key => $value) {
-		// 	echo $value->nama;
-		// }
 		$this->load->view('publik/redirecthasil',$data);
 		$this->load->view('footer');
 	}

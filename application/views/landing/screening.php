@@ -67,7 +67,7 @@ $(document).ready(function() {
 		var vJenis = this.value;
 		
 		$.ajax({
-			url:'<?php echo base_url()?>/welcome/ajax_quiz',
+			url:'<?php echo base_url()?>welcome/ajax_quiz',
 			method: 'post',
 			data: {jenis: vJenis},
 			dataType: 'json',

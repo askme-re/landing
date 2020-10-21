@@ -1,7 +1,7 @@
   <!--   Core JS Files   -->
   <script src="<?php echo base_url()?>assets/js/core/jquery.min.js"></script>
   <script src="<?php echo base_url()?>assets/js/core/popper.min.js"></script>
-  <script src="<?php echo base_url()?>assets/js/core/bootstrap.min.jS"></script>
+  <script src="<?php echo base_url()?>assets/js/core/bootstrap.min.js"></script>
   <script src="<?php echo base_url()?>assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <script src="<?php echo base_url()?>assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
