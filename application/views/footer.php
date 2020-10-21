@@ -12,7 +12,8 @@
   <script src="<?php echo base_url();?>assets/js/jquery-2.2.4.min.js" type="text/javascript"></script>
   <script src="<?php echo base_url();?>assets/js/bootstrap.min.js" type="text/javascript"></script>
   <script src="<?php echo base_url();?>assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
-
+<script src="<?php echo base_url()?>assets/theme/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url()?>assets/js/core/bootstrap.min.js"></script>
   <!--  Plugin for the Wizard -->
   <script src="<?php echo base_url();?>assets/js/gsdk-bootstrap-wizard.js"></script>
 
