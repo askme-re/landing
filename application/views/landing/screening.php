@@ -7,6 +7,9 @@
             <div class="card-header text-center">
               <h4 class="card-title">Input Data Peserta Skrining</h4>
             </div>
+            <?php if($this->session->flashdata('msg')): ?>
+		        <p><?php echo $this->session->flashdata('msg'); ?></p>
+		      <?php endif; ?>
             <div class="card-body">
               <form method="POST" action="<?php echo base_url().'welcome/screening_save'?>">
 								

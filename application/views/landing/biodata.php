@@ -10,9 +10,9 @@
               <h4 class="card-title">Input Data Peserta Skrining</h4>
             </div>
             <div class="card-body">
-              <form method="POST" action="<?php echo base_url().'landing/biodata_save'?>">
+              <form method="POST" action="<?php echo base_url().'welcome/biodata_save'?>">
 								
-								<input type="text" name="id" style="display:none" value="<?php echo $user->id; ?>"/>
+				<input type="text" name="id" style="display:none" value="<?php echo $user->id; ?>"/>
 							
                 <div class="form-row col-12">
                   <div class="form-group col-sm-12">
@@ -25,7 +25,7 @@
                   </div>
                   <div class="form-group col-sm-6">
                     <label>Tanggal Lahir <small>(wajib)</small></label>
-                    <input name="tgl_lahir" id="tgl_lahir" type="text" class="form-control" placeholder="DD/MM/YYYY" required/>
+                    <input name="tgl_lahir" id="tgl_lahir" type="date" class="form-control" placeholder="DD/MM/YYYY" required/>
                   </div>
                   <div class="form-group col-sm-12">
                     <label>Alamat <small>(wajib)</small></label>

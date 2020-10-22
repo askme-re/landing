@@ -43,7 +43,7 @@ class Welcome extends CI_Controller {
 			$this->db->where('id', $id);
 			$this->db->update('user', $data);
 
-			$this->session->set_flashdata('message_sukses', 'Perubahan Data Berhasil Disimpan');
+			$this->session->set_flashdata('message_sukses', 'Anda Sudah pernah skrining. Perubahan Data Berhasil Disimpan');
 
 			redirect("/welcome/screening/$id");
 			
@@ -159,8 +159,8 @@ function screening($id_user)
 			$header['kode_skrining'] = $randomString;
 			
 			$this->db->insert('trx_skrining', $header);
-			
-			redirect('/welcome/hasil_screening/'.$id);
+			// $this->load->hasil_screening($id);
+			redirect('welcome/hasil_screening/'.$id);
 		}
 
 
@@ -169,6 +169,9 @@ function screening($id_user)
 	function hasil_screening($id){
 		$this->load->view('header');
 		$data['user'] = $this->landing_model->result_skrining($id);
+
+		 // $this->load->view('layout/landing/header');
+	    // $this->load->view('layout/landing/nav_header');
 		$this->load->view('publik/redirecthasil',$data);
 		$this->load->view('footer');
 	}
@@ -278,40 +281,43 @@ function screening($id_user)
 	function inde($id){
 	   //   $this->load->library('pdf');
 	 	$image="favicon.png";
-        $pdf = new FPDF('l','mm','A4');
+        $pdf = new FPDF('l','mm','A5');
         // membuat halaman baru
         $pdf->AddPage();
         // setting jenis font yang akan digunakan
         $pdf->SetFont('Arial','B',16);
         // mencetak string 
-        $pdf->Cell(190,7,'ASK ME',0,1,'C');
+        $pdf->Cell(190,7,' Kartu Hasil ASK ME',0,1,'C');
         $pdf->SetFont('Arial','B',12);
         // Memberikan space kebawah agar tidak terlalu rapat
         $pdf->Cell(10,7,'',0,1);
         $pdf->SetFont('Arial','B',10);
-        // $pdf->Cell(20,6,'NIM',1,0);
-        // $pdf->Cell(85,6,'NAMA Kamu',1,0);
-        // $pdf->Cell(27,6,'NO HP',1,0);
-        // $pdf->Cell(25,6,'TGL LHR',1,1);
         $pdf->SetFont('Arial','',10);
-        // $hasil = $this->db->get('temp_trx')->result();
-        // $hasil = $this->db->query("select * from data_hasil_skrining where kode ='$kode' ")->result();
         $hasil = $this->db->query("select * from data_hasil_skrining where id_user='$id' ")->result();
         foreach ($hasil as $row){
-        	$pdf->Cell(190,7,"Rangkuman Data Skrining Penyakit Menular : ".$row->nama,0,1,'l');
-        	$pdf->Cell(190,7,"Tanggal Lahir: ".$row->tgl_skrining,0,1,'l');
-            $pdf->Cell(55,6,"Tanggal Screening ".$row->tgl_skrining,0,1);
-            if ($row->hasil >5) {
-            	$kesimpulan = "Merah, Anda harus melakukan rujukan";
-            }else{
-            	$kesimpulan = "Hijau";
+        	$pdf->SetFont('Arial','B',12);
+        	$pdf->Cell(190,7,"Nama : ".$row->nama,0,1,'l');
+        $pdf->SetFont('Arial','',10);
+            $pdf->Cell(190,7,"Harap Simpan baik baik kode yang ada di hasil ini ya.",0,1,'l');
+            $pdf->Cell(190,7,"Detail:",0,1,'l');
+        	$pdf->Cell(190,7,"- Jenis Skrining : ".$row->wabah,0,1,'l');
+        	$pdf->Cell(190,7,"- Tanggal Skrining: ".$row->tgl_skrining,0,1,'l');
+            // $pdf->Cell(55,6,"Tanggal Screening ".$row->created_at,0,1);
+
+            if ($row->hasil >=4) {
+              $kesimpulan ="SEGERA RUJUKAN - Berisiko Sedang/Tinggi";
+            }elseif ($row->hasil < 4) {
+              $kesimpulan = "Risiko Rendah Terhadap COVID-19";
+            }elseif ($row->hasil = 0) {
+              $kesimpulan = "Selalu patuhi Protokol Kesehatan, Anda SEHAT";
             }
-            $pdf->Cell(55,6,"Hasil : ".$kesimpulan,0,1);
-            $pdf->Cell(55,6,"Tempat Lahir : ".$row->hasil,0,1);
-            $pdf->Cell(55,6,"Jenis Skrining: ".$row->jenis_user,0,1);
-            $pdf->Cell(55,6,"Kode ".$row->kode_skrining,1,0);
+
+            $pdf->Cell(55,6,"- Hasil : ".$kesimpulan,0,1);
+            $pdf->Cell(55,6,"- Usia : ".$row->usia,0,1);
+            $pdf->Cell(55,6,"- Status Skrining: ".$row->jenis_user,0,1);
+            $pdf->Cell(55,6,"Kode :".$row->kode_skrining,1,0);
         }
-        $pdf->Image('./assets/img/'.$image,100,15,35,35);
+        $pdf->Image('./assets/img/'.$image,100,25,45,45);
         $pdf->Output("D","skrining.pdf");
     }
 

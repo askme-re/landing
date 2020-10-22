@@ -6,7 +6,7 @@
             <div class="mb-5">
               <h1 class="hero-heading"><strong>A</strong>plikasi <strong>S</strong>krining <strong>K</strong>husus <br>Penyakit <strong>ME</strong>nular</h1>
                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#persetujuanModal" id="md_peretujuan">
-                ASK_ME
+                ASK_ME 
               </button>
             </div>
             <img src="<?php echo base_url()?>assets/img/logo_RSdrSuyoto.jpg" alt="image" class="img-fluid">
@@ -20,7 +20,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 text-center mb-5">
-            <span class="subtitle-1">Skrining Khusus</span>
+            <!-- <span class="subtitle-1">Skrining Khusus</span> -->
             <h2 class="section-title-1 font-weight-bold">Skrining Penyakit Menular</h2>
           </div>
         </div>
@@ -282,7 +282,7 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
 
 							<div class="form-group">
 								<label class="col-form-label">Masukan Nomor Ponsel :</label>
-								<input type="text" class="form-control" id="phone" name="phone" maxlength="13" autocomplete="off" placeholder="Ex: 081234567891" required>
+								<input class="form-control" id="phone" type="tel" maxlength="13" minlength="10" name="phone"  placeholder="Ex: 081234567891" required>
                 <small class="form-text "><i>Min 11 dan Maksimal 13 digit angka</i></small>
 							</div>
 							<div class="form-group">
@@ -310,7 +310,7 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
 							</div>
 							
 							<div class="form-group">
-								<label class="col-form-label">Riwayat Penyakit :</label>
+								<label class="col-form-label">Riwayat Penyakit Serius:</label>
 							</div>
 							<div class="form-group row">
                 <div class="col-sm-12">
@@ -357,6 +357,14 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
                   <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="cb_tujuan_6" name="cb_tujuan" value="Penyakit Saraf ">
                     <label class="custom-control-label" for="cb_tujuan_6">Penyakit Saraf </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="cb_tujuan_7" name="cb_tujuan" value="Penyakit Saraf ">
+                    <label class="custom-control-label" for="cb_tujuan_7">Tidak Ada </label>
                   </div>
                 </div>
               </div>
