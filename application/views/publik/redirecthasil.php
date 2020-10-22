@@ -15,11 +15,12 @@
             $id= $value->id_user;
             echo "Nama : $value->nama";
             echo "- Kode Anda : $value->kode_skrining".'<br>';
-            if ($value->hasil >=4) {
+            if ($value->hasil >= 4) {
               echo "Status adalah SEGERA RUJUKAN - Berisiko Sedang/Tinggi";
-            }elseif ($value->hasil < 4) {
+            }elseif ($value->hasil >= 1) {
               echo "Status : Risiko Rendah Terhadap COVID-19";
-            }elseif ($value->hasil = 0) {
+            }
+            if ($value->hasil == "0") {
               echo "Selalu patuhi Protokol Kesehatan, Anda SEHAT";
             }
             echo '<br>'."$value->tgl_skrining";

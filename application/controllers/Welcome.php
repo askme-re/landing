@@ -303,12 +303,12 @@ function screening($id_user)
         	$pdf->Cell(190,7,"- Jenis Skrining : ".$row->wabah,0,1,'l');
         	$pdf->Cell(190,7,"- Tanggal Skrining: ".$row->tgl_skrining,0,1,'l');
             // $pdf->Cell(55,6,"Tanggal Screening ".$row->created_at,0,1);
-
-            if ($row->hasil >=4) {
+        	$hasil = $row->hasil; 
+            if ($hasil >=4) {
               $kesimpulan ="SEGERA RUJUKAN - Berisiko Sedang/Tinggi";
-            }elseif ($row->hasil < 4) {
+            }elseif ($hasil >= 1) {
               $kesimpulan = "Risiko Rendah Terhadap COVID-19";
-            }elseif ($row->hasil = 0) {
+            }elseif ($hasil == "0") {
               $kesimpulan = "Selalu patuhi Protokol Kesehatan, Anda SEHAT";
             }
 
