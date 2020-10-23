@@ -106,18 +106,29 @@ function screening($id_user)
 		$data['user_id'] = $id_user;
 		$data['jenis'] = $this->landing_model->get_jenis_skrining();
 
-		// print_r($data);exit;
-		
     $this->load->view('layout/landing/header', $head);
     $this->load->view('layout/landing/nav_header_logo');
     $this->load->view('landing/screening',$data);
     $this->load->view('layout/landing/footer');
+  }
+
+  public function test()
+  {
+  	$birthdate = new DateTime('2009-02-20');
+		$today     = new DateTime();
+		$interval  = $today->diff($birthdate);
+		echo  $interval->format('%y years');
   }
 	
 	function screening_save()
 	{
 		$id = $this->input->post('id');
 		$jenis = $this->input->post('jenis');
+		$get_umur = $this->input->post('tgl_lahir');
+		$birthdate = new DateTime($get_umur);
+		$today     = new DateTime();
+		$interval  = $today->diff($birthdate);
+		$usia = $interval->format('%y years');
 		$arr_add = '';
 		
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -157,6 +168,7 @@ function screening($id_user)
 			$header['id_wabah'] = $jenis;
 			$header['id_user'] = $id;
 			$header['kode_skrining'] = $randomString;
+			$header['usia'] = $usia;
 			
 			$this->db->insert('trx_skrining', $header);
 			// $this->load->hasil_screening($id);
@@ -198,7 +210,7 @@ function screening($id_user)
 				// Write question
 				$result .= '<div class="col-sm-10 ">
 								<div class="form-group">
-								<label class="form-check-label">'.$no.'. '.$v->pertanyaan.'</label>';
+								<label class="form-check-label">'.$no.'. '.$v->pertanyaan.'? </label>';
 				
 				// Set id of question
 				$nQuiz = $v->id;
@@ -293,7 +305,7 @@ function screening($id_user)
         $pdf->Cell(10,7,'',0,1);
         $pdf->SetFont('Arial','B',10);
         $pdf->SetFont('Arial','',10);
-        $hasil = $this->db->query("select * from data_hasil_skrining where id_user='$id' ")->result();
+        $hasil = $this->db->query("select * from data_hasil_skrining where id_user='$id' order by tgl_skrining desc limit 1 ")->result();
         foreach ($hasil as $row){
         	$pdf->SetFont('Arial','B',12);
         	$pdf->Cell(190,7,"Nama : ".$row->nama,0,1,'l');
@@ -305,7 +317,7 @@ function screening($id_user)
             // $pdf->Cell(55,6,"Tanggal Screening ".$row->created_at,0,1);
         	$hasil = $row->hasil; 
             if ($hasil >=4) {
-              $kesimpulan ="SEGERA RUJUKAN - Berisiko Sedang/Tinggi";
+              $kesimpulan ="Selalu patuhi Protokol Kesehatan, Anda dalam keadaan"."<strong> DARURAT </strong> karena berisiko sedang atau tinggi terhadap (COVID-19). Segera hubungi petugas kesehatan di RS dr Suyoto untuk RUJUKAN LANJUTAN";
             }elseif ($hasil >= 1) {
               $kesimpulan = "Risiko Rendah Terhadap COVID-19";
             }elseif ($hasil == "0") {

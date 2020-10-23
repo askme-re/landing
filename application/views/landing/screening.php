@@ -3,14 +3,14 @@
     <div class="row justify-content-center ">
       <div class="col-lg-10">
         <div class="mb-10">
-          <div class="card">
-            <div class="card-header text-center">
-              <h4 class="card-title">Input Data Peserta Skrining</h4>
+          <div class="panel">
+            <div class="panel-header text-center">
+              <h4 class="panel-title">Daftar Pertanyaan</h4>
             </div>
             <?php if($this->session->flashdata('msg')): ?>
 		        <p><?php echo $this->session->flashdata('msg'); ?></p>
 		      <?php endif; ?>
-            <div class="card-body">
+            <div class="panel-body">
               <form method="POST" action="<?php echo base_url().'welcome/screening_save'?>">
 								
 				<input type="text" name="id" style="display:none" value="<?php echo $user_id; ?>"/>
@@ -32,7 +32,7 @@
 									
 				<div class="form-row col-12">
 					<div class="form-group col-sm-12">
-						<h4 class="info-text"> Bagaimana keadaan Anda saat ini?</h4>
+						<h4 class="info-text"> Bagaimana keadaan Anda dalam 14 hari terakhir?</h4>
 					</div>
 				</div>	
 				

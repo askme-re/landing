@@ -2,14 +2,14 @@
 
 <div class="site-section pt-8" id="features-section">
   <div class="container">
-    <div class="row justify-content-center ">
+    <div class="row justify-content-center " style="padding-top:10px;">
       <div class="col-lg-10">
         <div class="mb-8">
-          <div class="card">
-            <div class="card-header text-center">
-              <h4 class="card-title">Input Data Peserta Skrining</h4>
+          <div class="panel">
+            <div class="panel-header text-center">
+              <h4 class="panel-title">Input Data Peserta Skrining</h4>
             </div>
-            <div class="card-body">
+            <div class="panel-body">
               <form method="POST" action="<?php echo base_url().'welcome/biodata_save'?>">
 								
 				<input type="text" name="id" style="display:none" value="<?php echo $user->id; ?>"/>
@@ -274,3 +274,9 @@ $(document).ready(function() {
 
 });
 </script>
+<style type="text/css">
+body{
+	/*background: rgb(5,91,175);*/
+	/*background: radial-gradient(circle, rgba(5,91,175,1) 9%, rgba(7,151,152,1) 46%);*/
+}
+</style>

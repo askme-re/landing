@@ -130,6 +130,8 @@ class Landing_model extends CI_Model
 		$this->db->select('*');
 		$this->db->from('data_hasil_skrining');
 		$this->db->where('id_user', $id);
+		$this->db->order_by('tgl_skrining', 'desc');
+		$this->db->limit(1);
 		$query = $this->db->get();
 		return $query->result();
 	}
