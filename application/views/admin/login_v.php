@@ -43,7 +43,7 @@
 <?php endif; ?>
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <h1 class="text-center login-title">Masuk ke Portal Admin</h1>
+            <h1 class="text-center login-title" style="padding-top:40px;">Masuk ke Portal Admin</h1>
             <div class="account-wall">
             <img class="profile-img" src="<?php echo base_url();?>assets/img/favicon.png">
                 <form class="form-signin" method="POST" action="<?php echo base_url().'Login/masuk' ?>">
@@ -54,7 +54,7 @@
                       <input name="password" type="password" class="form-control" placeholder="Masukan password Anda" required>
                   </div>
                   <div class="form-group">
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    <button class="btn btn-outline-primary btn-lg btn-inline" style="padding:10px;"type="submit">
                     Masuk</button>
                     </div>
                 </form>

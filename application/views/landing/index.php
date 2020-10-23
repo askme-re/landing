@@ -399,7 +399,7 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
 		
 		// // input validation
 		if(vSetuju == false) {
-			alert('Skring harus disetujui');
+			alert('Skrining harus disetujui');
 			$('#cb_setuju').focus();
 			return false;
 		}
