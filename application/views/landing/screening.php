@@ -1,11 +1,11 @@
-<div class="site-section pt-8" id="features-section">
+<div class="site-section pt-8 tengah" id="features-section " >
   <div class="container">
-    <div class="row justify-content-center ">
+    <div class="row justify-content-center">
       <div class="col-lg-10">
         <div class="mb-10">
           <div class="panel">
             <div class="panel-header text-center">
-              <h4 class="panel-title">Daftar Pertanyaan</h4>
+              <h4 class="panel-title" style="padding-top:40px;">Daftar Pertanyaan</h4>
             </div>
             <?php if($this->session->flashdata('msg')): ?>
 		        <p><?php echo $this->session->flashdata('msg'); ?></p>
@@ -83,4 +83,20 @@ $(document).ready(function() {
   });
 	
 });
+
+
 </script>
+<style type="text/css">
+	.tengah {
+		background-image: url('https://kastara.id/wp-content/uploads/2018/11/Kementerian-Pertahanan.jpg');
+		height: 50%;
+		background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+		color: black;
+	}
+	.panel {
+		/*background-color: orange;*/
+		background-color:rgba(248, 248, 255, 0.95);
+	}
+</style>

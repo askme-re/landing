@@ -10,7 +10,7 @@
           <img style="max-height:60px;" src="<?php echo base_url()?>assets/img/favicon.png">
               </td>
               <td>
-          <h4 class="titlecetak">Terima kasih atas kesediaan Anda mengisi data dalam aplikasi ini.</h4>
+          <h4 class="titlecetak">Terima kasih atas kesediaan Anda mengisi data dalam aplikasi ini</h4>
               </td>
             </tr>
           </table>
@@ -24,15 +24,18 @@
             </div>
             <p class="rs_light"><?php
             if ($value->hasil >= 4) {
-              echo "Selalu patuhi Protokol Kesehatan, Anda dalam keadaan"."<strong> DARURAT </strong> karena berisiko sedang atau tinggi terhadap (COVID-19). Segera hubungi petugas kesehatan di RS dr Suyoto untuk RUJUKAN LANJUTAN";
+              echo "<p class='rs_light sedang'> Anda dalam keadaan"."<strong> BERISIKO SEDANG/TINGGI </strong><BR></p>";
+              echo "<center>Jika Anda berobat ke RS dr Suyoto: SEGERA hubungi Petugas Kesehatan di RS dr Suyoto, agar segera dilakukan pemeriksaan skrining lanjutan; tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Gunakan Masker, Menjaga Jarak dan Mencuci tangan)</center>";
             }elseif ($value->hasil >= 1) {
-              echo "Selalu patuhi Protokol Kesehatan, Anda patut "."<strong> WAS-WAS </strong> karena berisiko rendah terhadap (COVID-19)";
+              echo "<p class='rs_light rendah'> Anda dalam keadaan"."<strong> BERISIKO RENDAH</strong><BR></p>";
+              echo "<center>Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Gunakan Masker, Menjaga Jarak dan Mencuci tangan)</center>";
             }
             if ($value->hasil == "0") {
-              echo "Selalu patuhi Protokol Kesehatan, Anda "."<strong> SEHAT </strong> dan berisiko rendah terhadap (COVID-19)";
+              echo "<p class='rs_light sehat'> Anda dalam keadaan "."<strong> SEHAT </strong><BR></p>";
+              echo "<center>Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Gunakan Masker, Menjaga Jarak dan Mencuci tangan)</center>";
             }
           };?> </p>
-          <p class="rs_light small">Silakan simpan baik baik dan tunjukan hasil skrining Anda hanya kepada Tim Skrining Terpusat RS dr Suyoto</p>
+          <p class="rs_light small">Silahkan <strong> unduh</strong> atau <strong>screenshot</strong>; simpan baik-baik dan tunjukkan hasil skrining Anda hanya kepada Tim Skrining Terpusat RS dr. Suyoto</p>
           <p class="rs_info">Data ini hanya berlaku 1x24 jam dari waktu Skrining</p>
             <p class="rs_light small">Waktu skrining : <?php echo "$value->tgl_skrining"; ?> </p>
         </div>
@@ -67,17 +70,33 @@ text-align: center;
   text-align: center;
 }
 .rs_light{
-  border: solid;
+  /*border: solid;*/
   margin-top: 15px;
   text-align: center;
 }
+.sehat {
+  background-color: #2CB10E;
+  padding: 5px;
+  color: white;
+}
+.rendah {
+  background-color: #E8C702;
+  padding: 5px;
+  color: white;
+}
+.sedang {
+  background-color: #FF5733;
+  padding: 5px;
+  color: white;
+}
 .rs_light.small {
   border: none;
-font-size: 14px;
-font-style: italic;
+  font-size: 14px;
+  font-style: italic;
 }
 .rs_info{
-  background-color: pink;
+  color: red;
+  font-size: 12px;
   text-align: center;
 }
 </style>

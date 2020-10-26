@@ -64,11 +64,11 @@ class Welcome extends CI_Controller {
 	}
 
 
-	function biodata($id_user)
+	function biodata()
 	{
 	$head['title'] = 'Biodata';
 		
-	$data['user'] = $this->landing_model->get_user_detail(array('id' => $id_user));
+	// $data['user'] = $this->landing_model->get_user_detail(array('id' => $id_user));
 	$data['prov'] = $this->landing_model->get_provinsi();
 
 	$this->load->view('layout/landing/header', $head);
@@ -78,24 +78,81 @@ class Welcome extends CI_Controller {
 	}
 	
 	function biodata_save()	{
-		$id = $this->input->post('id');
-		$user['nama'] = $this->input->post('nama');
-		$user['tp_lahir'] = $this->input->post('tempat_lahir');
-		$user['tgl_lahir'] = $this->input->post('tgl_lahir');
-		$user['id_prov'] = $this->input->post('prov');
-		$user['id_kab'] = $this->input->post('kab');
-		$user['id_kec'] = $this->input->post('kec');
-		$user['id_kel'] = $this->input->post('kel');
-		$user['alamat'] = $this->input->post('alamat');
-		$user['email'] = $this->input->post('email');
+		$phone = $this->input->post('telp');
+		$status = $this->input->post('dd_status');
+		$tujuan = $this->input->post('dd_tujuan');
+		$riwayat = $this->input->post('cb_tujuan');
+		$nama = $this->input->post('nama');
+		$tp_lahir = $this->input->post('tempat_lahir');
+		$tgl_lahir = $this->input->post('tgl_lahir');
+		$id_prov = $this->input->post('prov');
+		$id_kab = $this->input->post('kab');
+		$id_kec = $this->input->post('kec');
+		$id_kel = $this->input->post('kel');
+		$alamat = $this->input->post('alamat');
+		$email = $this->input->post('email');
+		
+		// print_r(array($phone,$status,$tujuan,$riwayat,$nama,$tp_lahir,$tgl_lahir,$id_prov,$id_kab,$id_kec,$id_kel,$alamat,$email));exit;
+		
+		// is user available
+		$user = $this->landing_model->get_user_detail(array('telp' => $phone));
+		
+		if($user){
+			// overwrite data user
+			$id = $user->id;
 			
-			// overwrite data user				
-		$this->db->where('id', $id);
-		$this->db->update('user', $user);
+			$data['riw_penyakit'] = implode(", ",$riwayat);
+			$data['tujuan_rs'] = $tujuan;
+			$data['jenis_user'] = $status;
+			
+			$this->db->where('id', $id);
+			$this->db->update('user', $data);
 
-		$this->session->set_flashdata('message_sukses', 'Perubahan Data Berhasil Disimpan');
+			$this->session->set_flashdata('message_sukses', 'Perubahan Data Berhasil Disimpan');
 
-		redirect("/welcome/screening/$id");
+			redirect("/welcome/screening/$id");
+			
+		} else {
+			// save new user return id
+			$data['telp'] = $phone;
+			$user['nama'] = $nama;
+			$user['tp_lahir'] = $tp_lahir;
+			$user['tgl_lahir'] = $tgl_lahir;
+			$user['id_prov'] = $id_prov;
+			$user['id_kab'] = $id_kab;
+			$user['id_kec'] = $id_kec;
+			$user['id_kel'] = $id_kel;
+			$user['alamat'] = $alamat;
+			$user['email'] = $email;
+			$data['riw_penyakit'] = implode(", ",$riwayat);
+			$data['tujuan_rs'] = $tujuan;
+			$data['jenis_user'] = $status;
+			
+			$this->db->insert('user', $data);
+			$id = $this->db->insert_id();
+
+			$this->session->set_flashdata('message_sukses', 'Data Berhasil Disimpan');
+
+			redirect("/welcome/screening/$id");
+		}
+		// $id = $this->input->post('id');
+		// $user['nama'] = $this->input->post('nama');
+		// $user['tp_lahir'] = $this->input->post('tempat_lahir');
+		// $user['tgl_lahir'] = $this->input->post('tgl_lahir');
+		// $user['id_prov'] = $this->input->post('prov');
+		// $user['id_kab'] = $this->input->post('kab');
+		// $user['id_kec'] = $this->input->post('kec');
+		// $user['id_kel'] = $this->input->post('kel');
+		// $user['alamat'] = $this->input->post('alamat');
+		// $user['email'] = $this->input->post('email');
+			
+		// 	// overwrite data user				
+		// $this->db->where('id', $id);
+		// $this->db->update('user', $user);
+
+		// $this->session->set_flashdata('message_sukses', 'Perubahan Data Berhasil Disimpan');
+
+		// redirect("/welcome/screening/$id");
 	}
 
 	
@@ -114,10 +171,34 @@ function screening($id_user)
 
   public function test()
   {
-  	$birthdate = new DateTime('2009-02-20');
-		$today     = new DateTime();
-		$interval  = $today->diff($birthdate);
-		echo  $interval->format('%y years');
+  	$head['title'] = 'Biodata';
+
+		$data['prov'] = $this->landing_model->get_provinsi();
+
+		$this->load->view('layout/landing/header', $head);
+		$this->load->view('layout/landing/nav_header_logo');
+		$this->load->view('errors/biodata', $data);
+		$this->load->view('layout/landing/footer');
+
+  // 	$this->load->view('header_admin');
+  // 	$this->load->view('landing/nda');
+  // 	$birthdate = new DateTime('2009-02-20');
+		// $today     = new DateTime();
+		// $interval  = $today->diff($birthdate);
+		// echo  $interval->format('%y years');
+  }
+  public function register()
+  {
+  	$this->load->view('header_admin');
+  	$this->load->view('landing/nda');
+  	// $head['title'] = 'Pernyataan';
+  	// $this->load->view('layout/landing/header', $head);
+  	// $this->load->view('landing/nda');
+   //  $this->load->view('layout/landing/footer');
+  // 	$birthdate = new DateTime('2009-02-20');
+		// $today     = new DateTime();
+		// $interval  = $today->diff($birthdate);
+		// echo  $interval->format('%y years');
   }
 	
 	function screening_save()
@@ -208,7 +289,7 @@ function screening($id_user)
 				}
 				
 				// Write question
-				$result .= '<div class="col-sm-10 ">
+				$result .= '<div class="col-sm-12 ">
 								<div class="form-group">
 								<label class="form-check-label">'.$no.'. '.$v->pertanyaan.'? </label>';
 				

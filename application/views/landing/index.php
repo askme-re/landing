@@ -4,10 +4,12 @@
         <div class="row justify-content-center text-center">
           <div class="col-lg-10">
             <div class="mb-5">
-              <h1 class="hero-heading"><strong>A</strong>plikasi <strong>S</strong>krining <strong>K</strong>husus <br>Penyakit <strong>ME</strong>nular</h1>
-               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#persetujuanModal" id="md_peretujuan">
-                ASK_ME 
-              </button>
+              <h1 class="hero-heading"><strong>A</strong>PLIKASI <strong>S</strong>KRINING <strong>K</strong>HUSUS <br>PENYAKIT <strong>ME</strong>NULAR</h1>
+               <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#persetujuanModal" id="md_peretujuan">
+              </button> -->
+              <a class="btn btn-primary mulai" href="<?php echo base_url('welcome/register');?>">
+                Klik ASK_ME 
+              </a>
             </div>
             <img src="<?php echo base_url()?>assets/img/logo_RSdrSuyoto.jpg" alt="image" class="img-fluid">
           </div>
@@ -21,7 +23,7 @@
         <div class="row">
           <div class="col-12 text-center mb-5">
             <!-- <span class="subtitle-1">Skrining Khusus</span> -->
-            <h2 class="section-title-1 font-weight-bold">Skrining Penyakit Menular</h2>
+            <h2 class="section-title-1 font-weight-bold" style="text-transform: uppercase;">Skrining Penyakit Menular</h2>
           </div>
         </div>
         <div class="row align-items-center mb-5">
@@ -30,28 +32,17 @@
           </div>
           <div class="col-lg-5 mr-auto">
             <div class="mb-4">
-              <h2 class="section-title-2">Apa itu Covid-19?</h2>
+              <h2 class="section-title-2" style="font-weight:bold;">Apa itu Covid-19?</h2>
               <p>Pneumonia Coronavirus Disease 2019 atau COVID-19 adalah penyakit peradangan paru yang disebabkan oleh Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2). </p>
             </div>
 
             <div class="d-flex feature-v1">
               <span class="wrap-icon icon-users"></span>
               <div>
-                <h3>Bagaimana COVID-19 Menular?</h3>
-                <p>Gejala klinis yang muncul beragam, mulai dari seperti gejala flu biasa (batuk, pilek, nyeri tenggorok, nyeri otot, nyeri kepala) sampai yang berkomplikasi berat (pneumonia atau sepsis). Melalui kontak dengan droplet saluran napas penderita. Droplet merupakan partikel kecil dari mulut penderita yang mengandung kuman penyakit, yang dihasilkan pada saat batuk, bersin, atau berbicara. Droplet dapat melewati sampai jarak tertentu (biasanya 1 meter). Droplet bisa menempel di pakaian atau benda di sekitar penderita pada saat batuk atau bersin. Namun, partikel droplet 
-cukup besar sehingga tidak akan bertahan atau mengendap di udara dalam waktu yang lama. Oleh karena itu, orang yang sedang sakit, diwajibkan untuk menggunakan masker 
-untuk mencegah penyebaran droplet. Untuk penularan melalui makanan, sampai saat ini belum ada bukti ilmiahnya.</p>
+                <h3 style="font-weight:bold;">Bagaimana COVID-19 Menular?</h3>
+                <p>Gejala klinis yang muncul beragam, mulai dari seperti gejala flu biasa (batuk, pilek, nyeri tenggorok, nyeri otot, nyeri kepala) sampai yang berkomplikasi berat (pneumonia atau sepsis). Melalui kontak dengan droplet saluran napas penderita. Droplet merupakan partikel kecil dari mulut penderita yang mengandung kuman penyakit, yang dihasilkan pada saat batuk, bersin, atau berbicara. Droplet dapat melewati sampai jarak tertentu (biasanya 1 meter). Droplet bisa menempel di pakaian atau benda di sekitar penderita pada saat batuk atau bersin. Namun, partikel droplet cukup besar sehingga tidak akan bertahan atau mengendap di udara dalam waktu yang lama. Oleh karena itu, orang yang sedang sakit, diwajibkan untuk menggunakan masker untuk mencegah penyebaran droplet. Untuk penularan melalui makanan, sampai saat ini belum ada bukti ilmiahnya.</p>
               </div>
             </div>
-
-<!--             <div class="d-flex feature-v1">
-              <span class="wrap-icon icon-layers"></span>
-              <div>
-                <h3>Sajian Makanan Tidak Higienis</h3>
-                <p>Sajian kelelawar dari kawasan China yang bermutasi menjadi virus</p>
-              </div>
-            </div> -->
-
           </div>
         </div>
 
@@ -61,27 +52,17 @@ untuk mencegah penyebaran droplet. Untuk penularan melalui makanan, sampai saat 
           </div>
           <div class="col-lg-5 order-lg-1 ml-auto">
             <div class="mb-4">
-              <h2 class="section-title-2">Apa itu Malaria?</h2>
+              <h2 class="section-title-2" style="font-weight:bold;">Apa itu Malaria?</h2>
               <p> Penyakit yang menyerang sel darah merah disebabkan oleh parasit plasmodium ditularkan kepada manusia melalui gigitan nyamuk Anopheles betina yang terinfeksi</p>
             </div>
 
             <div class="d-flex feature-v1">
               <span class="wrap-icon icon-cog"></span>
               <div>
-                <h3>Bagaimana proses penularan Malaria?</h3>
-                <p>Penularan parasit Plasmodium kepada manusia adalah melalui nyamuk Anopheles berina, ketika nyamuk menggigit seseorang yang terinfeksi malaria, nyamuk tersebut menyedot parasit yang disebut gametocytes. Parasit tersebut menyelesaikan siklus pertumbuhannya di dalam tubuh nyamuk dan kemudian merambat ke kelenjar ludah nyamuk  Pada saat menggigit anda, nyamuk ini menyuntikkan parasit ke aliran darah anda. 
-Menuju hati kemudian melipatgandakan diri. Malaria juga dapat menular melalui transfusi darah</p>
+                <h3 style="font-weight:bold;">Bagaimana proses penularan Malaria?</h3>
+                <p>Penularan parasit Plasmodium kepada manusia adalah melalui nyamuk Anopheles berina, ketika nyamuk menggigit seseorang yang terinfeksi malaria, nyamuk tersebut menyedot parasit yang disebut gametocytes. Parasit tersebut menyelesaikan siklus pertumbuhannya di dalam tubuh nyamuk dan kemudian merambat ke kelenjar ludah nyamuk  Pada saat menggigit anda, nyamuk ini menyuntikkan parasit ke aliran darah anda. Menuju hati kemudian melipatgandakan diri. Malaria juga dapat menular melalui transfusi darah</p>
               </div>
             </div>
-
-    <!--         <div class="d-flex feature-v1">
-              <span class="wrap-icon icon-bolt"></span>
-              <div>
-                <h3>Demam</h3>
-                <p>Infeksi membuat demam dan sakit perut</p>
-              </div>
-            </div>
- -->
           </div>
         </div>
 
@@ -92,27 +73,17 @@ Menuju hati kemudian melipatgandakan diri. Malaria juga dapat menular melalui tr
           </div>
           <div class="col-lg-5 mr-auto">
             <div class="mb-4">
-              <h2 class="section-title-2">Apa itu Campak?</h2>
+              <h2 class="section-title-2" style="font-weight:bold;">Apa itu Campak?</h2>
               <p>Merupakan salah satu penyakit penyebab kematian tertinggi pada anak, sangat infeksius, dapat menular sejak awal masa prodromal (4 hari sebelum muncul ruam) sampai lebih kurang 4 hari setelah munculnya ruam</p>
             </div>
 
             <div class="d-flex feature-v1">
               <span class="wrap-icon icon-users"></span>
               <div>
-                <h3>Bagaimana Penyebaran Campak?</h3>
-                <p>Penyebaran infeksi terjadi jika terhirup droplet yang mengandung virus campak di udara yang berasal dari penderita. Virus campak 
-masuk melalui saluran pernapasan dan melekat di sel-sel epitel saluran napas. Setelah melekat, virus bereplikasi dan diikuti dengan penyebaran ke kelenjar limfe regional</p>
+                <h3 style="font-weight:bold;">Bagaimana Penyebaran Campak?</h3>
+                <p>Penyebaran infeksi terjadi jika terhirup droplet yang mengandung virus campak di udara yang berasal dari penderita. Virus campak masuk melalui saluran pernapasan dan melekat di sel-sel epitel saluran napas. Setelah melekat, virus bereplikasi dan diikuti dengan penyebaran ke kelenjar limfe regional</p>
               </div>
             </div>
-
-            <!-- <div class="d-flex feature-v1">
-              <span class="wrap-icon icon-layers"></span>
-              <div>
-                <h3>Demam</h3>
-                <p>Mengalami kenaikan suhu tubuh disertai pilek dan mungkin batuk</p>
-              </div>
-            </div> -->
-
           </div>
         </div>
 
@@ -167,10 +138,8 @@ masuk melalui saluran pernapasan dan melekat di sel-sel epitel saluran napas. Se
               <a href="<?php echo base_url()?>">
                 <img style="max-height:200px;padding:0px 30px 0px 30px" src="<?php echo base_url();?>assets/img/favicon.png" alt="Image" class="img-fluid">
               </a>
-              <h4>Aplikasi ASKME?</h4>
-              <p>ASK_ME RS dr Suyoto dibangun sebagai bentuk salah satu upaya preventif penanggulangan wabah penyakit menular di Lingkungan Kemhan. Pada tahap awal 
-aplikasi ini khusus untuk skrining wabah penyakit COVID-19 sedangkan untuk selanjutnya akan dikembangkan dengan kemampuan melakukan penyaringan 16 wabah 
-kasus menular sesuai dengan PERMENHAN No. 22 Tahun 2017 tentang Penanggulangan Wabah Penyakit Menular di Lingkungan Kemhan dan TNI.</p>
+              <h4>Aplikasi <strong>ASKME</strong>?</h4>
+              <p><strong>ASK_ME </strong> RS dr Suyoto dibangun sebagai bentuk salah satu upaya preventif penanggulangan wabah penyakit menular di Lingkungan Kemhan. Pada tahap awal aplikasi khusus skrining wabah penyakit COVID-19 untuk selanjutnya akan dikembangkan dengan kemampuan melakukan penyaringan 16 wabah kasus menular sesuai dengan PERMENHAN No. 22 Tahun 2017 tentang Penanggulangan Wabah Penyakit Menular di Lingkungan Kemhan & TNI.</p>
             </div> 
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
@@ -179,7 +148,7 @@ kasus menular sesuai dengan PERMENHAN No. 22 Tahun 2017 tentang Penanggulangan W
                 <img src="<?php echo base_url()?>assets/img/perhitungan.jpg" alt="Image" class="img-fluid">
               </a>
               <h4>Proses Perhitungan Risiko</h4>
-              <p>menggunakan 3 tipe pendekatan data dalam menentukan hasil skrining. Yaitu;
+              <p>Menggunakan 3 tipe pendekatan data dalam menentukan hasil skrining. Yaitu;
               <ol>
                 <li>Biodata diri dan data demografi; digunakan untuk melihat zona / area risiko tempat tinggal Anda. </li>
                 <li>Riwayat kesehatan; digunakan untuk mengetahui penyakit penyerta dan kemungkinan menjadi faktor pemberat kasus penyakit menular</li>
@@ -193,10 +162,8 @@ kasus menular sesuai dengan PERMENHAN No. 22 Tahun 2017 tentang Penanggulangan W
               <a href="<?php echo base_url()?>">
                 <img src="<?php echo base_url()?>assets/img/prosedur.png" alt="Image" class="img-fluid">
               </a>
-              <h4>Bagaimana Cara Kerja ASKME?</h4>
-              <p>Dibangun sebagai bentuk salah satu upaya preventif penanggulangan wabah penyakit menular di Lingkungan 
-Kemhan. Pada tahap awal aplikasi ini khusus untuk skrining wabah penyakit COVID-19 sedangkan untuk selanjutnya akan dikembangkan dengan kemampuan melakukan 
-penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa pertanyaan sederhana. Setiap pertanyaan telah ditentukan bobot dan dilakukan pemrosesan data</p>
+              <h4>Bagaimana Cara Kerja <strong>ASKME</strong>?</h4>
+              <p>Dibangun sebagai bentuk salah satu upaya preventif penanggulangan wabah penyakit menular di Lingkungan Kemhan. Pada tahap awal aplikasi khusus skrining wabah penyakit COVID-19 sedangkan untuk selanjutnya akan dikembangkan dengan kemampuan melakukan penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa pertanyaan sederhana. Setiap pertanyaan telah ditentukan bobot dan dilakukan pemrosesan data</p>
             </div> 
           </div>
           
@@ -245,7 +212,7 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
     </div>
 
     <!-- Modal -->
-    <div class="modal fade bd-example-modal-lg" id="persetujuanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- <div class="modal fade bd-example-modal-lg" id="persetujuanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -429,3 +396,4 @@ penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa p
 		}
   }); 
 </script> 
+ -->

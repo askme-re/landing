@@ -12,7 +12,7 @@
             <div class="panel-body">
               <form method="POST" action="<?php echo base_url().'welcome/biodata_save'?>">
 								
-				<input type="text" name="id" style="display:none" value="<?php echo $user->id; ?>"/>
+				<!-- <input type="text" name="id" style="display:none" value="<?php echo $user->id; ?>"/> -->
 							
                 <div class="form-row col-12">
                   <div class="form-group col-sm-12">
@@ -62,12 +62,88 @@
                   </div>
                   <div class="form-group col-sm-12">
                     <label>Email</label>
-                    <input name="email" id="email" type="email" class="form-control" placeholder="andrew@mail.com">
+                    <input name="email" id="email" type="email" class="form-control" placeholder="Contoh: andrew@mail.com">
                   </div>
                   <div class="form-group col-sm-12">
                     <label>No. Telepon <small>(wajib)</small></label>
-                    <input name="telp" id="telp" type="text" class="form-control" value="<?php echo $user->telp; ?>" readonly>
+                    <input name="telp" id="telp" type="tel" max-length="13" class="form-control" placeholder="Contoh: 0832932932399">
                   </div>
+
+                  <!-- data tambahan -->
+                  <div class="form-group col-sm-6">
+					<label class="col-form-label">Status :</label>
+					<select class="form-control" id="dd_status" name="dd_status" required>
+						<option value="" selected="selected" disabled >Pilih Salah Satu</option>
+						<option value="Pasien">Pasien</option>
+						<option value="Pengunjung">Pengunjung</option>
+						<option value="Pegawai RS">Pegawai RS</option>
+					</select>
+				</div>
+				<div class="form-group col-sm-6">
+				<label class="col-form-label">Tujuan :</label>
+				<select class="form-control" id="dd_tujuan" name="dd_tujuan">
+					<option value="" selected="selected" disabled >Pilih Salah Satu</option>
+					<option value="Rawat Jalan (Poliklinik)">Rawat Jalan (Poliklinik)</option>
+					<option value="Rawat Inap">Rawat Inap</option>
+					<option value="Laboratorium">Laboratorium</option>
+					<option value="Farmasi">Farmasi</option>
+					<option value="Radiologi">Radiologi</option>
+					<option value="Administrasi RS (Admin Ranap, BPJS, dll)">Administrasi RS (Admin Ranap, BPJS, dll)</option>
+					<option value="Manajemen RS (Jajaran pimpinan, pengadaan dll)">Manajemen RS (Jajaran pimpinan, pengadaan dll)</option>
+					<option value="Rehab Medik (Terapi)">Rehab Medik (Terapi)</option>
+				</select>
+				</div>
+							
+				<div class="form-group col-sm-12">
+					<label class="col-form-label">Riwayat Penyakit Serius:</label>
+				</div>
+				<div class="form-group col-sm-6">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_1" name="cb_tujuan[]" value="Kencing Manis (diabetes)">
+						<label class="custom-control-label" for="cb_tujuan_1">Kencing Manis (diabetes)</label>
+					</div>
+				</div>
+				<div class="form-group col-sm-6">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_2" name="cb_tujuan[]" value="Tekanan Darah Tinggi (Hipertensi)">
+						<label class="custom-control-label" for="cb_tujuan_2">Tekanan Darah Tinggi (Hipertensi)</label>
+					</div>
+				</div>
+				
+				<div class="form-group col-sm-6">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_3" name="cb_tujuan[]" value="Penyakit Kanker">
+						<label class="custom-control-label" for="cb_tujuan_3">Penyakit Kanker</label>
+					</div>
+				</div>
+				
+				<div class="form-group col-sm-6">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_4" name="cb_tujuan[]" value="Penyakit Ginjal">
+						<label class="custom-control-label" for="cb_tujuan_4">Penyakit Ginjal</label>
+					</div>
+				</div>
+				
+				<div class="form-group col-sm-6">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_5" name="cb_tujuan[]" value="Penyakit Lupus">
+						<label class="custom-control-label" for="cb_tujuan_5">Penyakit Lupus</label>
+					</div>
+				</div>
+				
+				<div class="form-group col-sm-6">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_6" name="cb_tujuan[]" value="Penyakit Saraf ">
+						<label class="custom-control-label" for="cb_tujuan_6">Penyakit Saraf </label>
+					</div>
+				</div>
+              <div class="form-group col-sm-6">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_7" name="cb_tujuan[]" value="Tidak ada ">
+						<label class="custom-control-label" for="cb_tujuan_7">Tidak Ada </label>
+					</div>
+				</div>
+                  <!-- data tambahan -->
                   <hr>
                   <br/>
                   <div class="form-group col-sm-12 row" style="margin-top: 15px;">
@@ -274,9 +350,3 @@ $(document).ready(function() {
 
 });
 </script>
-<style type="text/css">
-body{
-	/*background: rgb(5,91,175);*/
-	/*background: radial-gradient(circle, rgba(5,91,175,1) 9%, rgba(7,151,152,1) 46%);*/
-}
-</style>
