@@ -30,11 +30,11 @@
 					</select>
                   </div>
 									
-				<div class="form-row col-12">
+				<!-- <div class="form-row col-12">
 					<div class="form-group col-sm-12">
 						<h4 class="info-text"> Bagaimana keadaan Anda dalam 14 hari terakhir?</h4>
 					</div>
-				</div>	
+				</div> -->	
 				
 				<div class="form_group col-sm-12" id="isi">
 				

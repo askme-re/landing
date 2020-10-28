@@ -71,7 +71,7 @@
 
                   <!-- data tambahan -->
                   <div class="form-group col-sm-6">
-					<label class="col-form-label">Status :</label>
+					<label class="col-form-label">Status Kunjungan:</label>
 					<select class="form-control" id="dd_status" name="dd_status" required>
 						<option value="" selected="selected" disabled >Pilih Salah Satu</option>
 						<option value="Pasien">Pasien</option>
@@ -80,7 +80,7 @@
 					</select>
 				</div>
 				<div class="form-group col-sm-6">
-				<label class="col-form-label">Tujuan :</label>
+				<label class="col-form-label">Tujuan Kunjungan:</label>
 				<select class="form-control" id="dd_tujuan" name="dd_tujuan">
 					<option value="" selected="selected" disabled >Pilih Salah Satu</option>
 					<option value="Rawat Jalan (Poliklinik)">Rawat Jalan (Poliklinik)</option>

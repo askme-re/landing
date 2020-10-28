@@ -8,7 +8,7 @@
                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#persetujuanModal" id="md_peretujuan">
               </button> -->
               <a class="btn btn-primary mulai" href="<?php echo base_url('welcome/register');?>">
-                Klik ASK_ME 
+                Klik Disini!
               </a>
             </div>
             <img src="<?php echo base_url()?>assets/img/logo_RSdrSuyoto.jpg" alt="image" class="img-fluid">

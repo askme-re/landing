@@ -158,7 +158,7 @@ class Welcome extends CI_Controller {
 	
 function screening($id_user)
   {
-    $head['title'] = 'Scrining';
+    $head['title'] = 'Skrining';
 		
 		$data['user_id'] = $id_user;
 		$data['jenis'] = $this->landing_model->get_jenis_skrining();
@@ -284,6 +284,7 @@ function screening($id_user)
 				
 				if($nQuiz > 0){
 					$result .= '
+
 									</div>
 								  </div>';
 				}

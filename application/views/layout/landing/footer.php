@@ -6,14 +6,13 @@
           <!-- <div class="col-md-9"> -->
           <img style="max-height:60px; margin-left:20px" src="<?php echo base_url()?>assets/img/logo_RSdrSuyoto.jpg">
           <img style="max-height:60px; margin-left:20px" src="<?php echo base_url()?>assets/img/favicon.png">
-          <img style="max-height:50px;margin-left:20px" src="<?php echo base_url()?>assets/img/REFRADA-File-04.png">
-          </div>
+                    </div>
       <div class="col-md-12 text-center">
           <div class="border-top pt-5">
       <p class="copyright"><small>
           </small>
           Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved ASK_ME | made with <i class="icon-heart text-danger" aria-hidden="true"></i> 
-          <a href="https://refrada.id" target="_blank">Love</a> powered by Refrada.id
+          <a href="https://refrada.id" target="_blank">Love</a> powered by <img style="max-height:20px;" src="<?php echo base_url()?>assets/img/REFRADA-File-04.png">
           </p>
           </div>
           </div>

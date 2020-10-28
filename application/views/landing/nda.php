@@ -7,7 +7,8 @@
                 <div class="card wizard-card trs" data-color="theme" id="wizardProfile">
                     <div class="wizard-header">
                     	<h2 class="judul">
-                    		<b>Selamat Datang</b> di ASK_ME <br>
+                            <p><img class="head" src="<?php echo base_url('assets/img/favicon.png')?>"></p>
+                    		<b>Selamat Datang !</b><br>
                         	<small>PERTANYAAN SKRINING KHUSUS PENYAKIT INFEKSI MENULAR </small>
                     	</h2>
                     </div>
@@ -18,7 +19,7 @@
                 			<p>Jika Anda SETUJU silakan tekan tombol 
                         		<a class="btn btn-primary btn-lg" style="color:white;" href="<?php echo base_url('welcome/biodata');?>"> Mulai Skrining!</a>
                 			</p>
-                    		<p class="ttd">Bersama <img class="thanks" src="<?php echo base_url('assets/img/favicon.png')?>">, kami mengucapkan terima kasih.</p>
+                    		<p class="ttd">Bersama ASKME, kami mengucapkan terima kasih.</p>
                     		<p>Semoga Anda selalu Sehat</p>
                     	</div>
                     </div>
@@ -34,6 +35,9 @@
 </html>
 
 <style type="text/css">
+.head {
+    max-height: 50px;
+}
 
 h2{
 	text-align: center;
