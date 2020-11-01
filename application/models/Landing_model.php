@@ -16,14 +16,24 @@ class Landing_model extends CI_Model
 
 		$query = $this->db->get('user');
 		if ($query->num_rows() > 0) {
-				if (isset($where) or $where != NULL) {
-						return $query->row();
-				} else {
-						return $query->result();
-				}
+			if (isset($where) or $where != NULL) {
+				return $query->row();
+			} else {
+				return $query->result();
+			}
 		}
 		return FALSE;
   }
+
+	function is_user_avail($telp){
+		$str = "SELECT * FROM user WHERE telp='".$telp."'";
+		$qry = $this->db->query($str);
+
+		if ($qry->num_rows() > 0){
+			return $qry->row();
+		}
+		return null;
+	}
 
   function get_jenis_skrining($where=NULL)
   {
@@ -82,6 +92,7 @@ class Landing_model extends CI_Model
 	function get_provinsi(){
 		$this->db->select('id_prop AS k, nama_prop AS v');
         $this->db->from('ms_provinsi');
+		$this->db->order_by('nama_prop', 'ASC');
         $query = $this->db->get();
 
 		if ($query->num_rows() > 0){
@@ -94,6 +105,7 @@ class Landing_model extends CI_Model
 		$this->db->select('id_kab AS k, nama_kab AS v');
 		$this->db->from('ms_kabupaten');
 		$this->db->where('id_prop', $id_prov);
+		$this->db->order_by('nama_kab', 'ASC');
         $query = $this->db->get();
 
 		if ($query->num_rows() > 0){
@@ -106,6 +118,7 @@ class Landing_model extends CI_Model
 		$this->db->select('id_kec AS k, nama_kec AS v');
 		$this->db->from('ms_kecamatan');
 		$this->db->where('id_kab', $id_kab);
+		$this->db->order_by('nama_kec', 'ASC');
         $query = $this->db->get();
 
 		if ($query->num_rows() > 0){
@@ -118,6 +131,7 @@ class Landing_model extends CI_Model
 		$this->db->select('id_desa AS k, nama_desa AS v');
 		$this->db->from('ms_desa');
 		$this->db->where('id_kec', $id_kec);
+		$this->db->order_by('nama_desa', 'ASC');
         $query = $this->db->get();
 
 		if ($query->num_rows() > 0){

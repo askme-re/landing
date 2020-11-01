@@ -78,11 +78,11 @@ class Welcome extends CI_Controller {
 	}
 	
 	function biodata_save()	{
-		$phone = $this->input->post('telp');
+		$phone = trim($this->input->post('telp'));
 		$status = $this->input->post('dd_status');
 		$tujuan = $this->input->post('dd_tujuan');
 		$riwayat = $this->input->post('cb_tujuan');
-		$nama = $this->input->post('nama');
+		$nama = trim($this->input->post('nama'));
 		$tp_lahir = $this->input->post('tempat_lahir');
 		$tgl_lahir = $this->input->post('tgl_lahir');
 		$id_prov = $this->input->post('prov');
@@ -92,12 +92,36 @@ class Welcome extends CI_Controller {
 		$alamat = $this->input->post('alamat');
 		$email = $this->input->post('email');
 		
-		// print_r(array($phone,$status,$tujuan,$riwayat,$nama,$tp_lahir,$tgl_lahir,$id_prov,$id_kab,$id_kec,$id_kel,$alamat,$email));exit;
+		$user = $this->landing_model->is_user_avail($phone);
+		// print_r($user == false);exit;
+		// print_r(array($phone,$status,$tujuan,$riwayat,$nama,$tp_lahir,$tgl_lahir,$id_prov,$id_kab,$id_kec,$id_kel,$alamat,$email,$user));exit;
 		
 		// is user available
-		$user = $this->landing_model->get_user_detail(array('telp' => $phone));
 		
-		if($user){
+		if($user == false){
+			// save new user return id
+			$data['telp'] = $phone;
+			$data['nama'] = $nama;
+			$data['tp_lahir'] = $tp_lahir;
+			$data['tgl_lahir'] = $tgl_lahir;
+			$data['id_prov'] = $id_prov;
+			$data['id_kab'] = $id_kab;
+			$data['id_kec'] = $id_kec;
+			$data['id_kel'] = $id_kel;
+			$data['alamat'] = $alamat;
+			$data['email'] = $email;
+			$data['riw_penyakit'] = implode(", ",$riwayat);
+			$data['tujuan_rs'] = $tujuan;
+			$data['jenis_user'] = $status;
+			
+			$this->db->insert('user', $data);
+			$id = $this->db->insert_id();
+
+			$this->session->set_flashdata('message_sukses', 'Data Berhasil Disimpan');
+
+			redirect("/welcome/screening/$id");
+			
+		} else {
 			// overwrite data user
 			$id = $user->id;
 			
@@ -109,29 +133,6 @@ class Welcome extends CI_Controller {
 			$this->db->update('user', $data);
 
 			$this->session->set_flashdata('message_sukses', 'Perubahan Data Berhasil Disimpan');
-
-			redirect("/welcome/screening/$id");
-			
-		} else {
-			// save new user return id
-			$data['telp'] = $phone;
-			$user['nama'] = $nama;
-			$user['tp_lahir'] = $tp_lahir;
-			$user['tgl_lahir'] = $tgl_lahir;
-			$user['id_prov'] = $id_prov;
-			$user['id_kab'] = $id_kab;
-			$user['id_kec'] = $id_kec;
-			$user['id_kel'] = $id_kel;
-			$user['alamat'] = $alamat;
-			$user['email'] = $email;
-			$data['riw_penyakit'] = implode(", ",$riwayat);
-			$data['tujuan_rs'] = $tujuan;
-			$data['jenis_user'] = $status;
-			
-			$this->db->insert('user', $data);
-			$id = $this->db->insert_id();
-
-			$this->session->set_flashdata('message_sukses', 'Data Berhasil Disimpan');
 
 			redirect("/welcome/screening/$id");
 		}

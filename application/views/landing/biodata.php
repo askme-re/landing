@@ -153,7 +153,7 @@
                     <div class="col-sm-8">
                     </div>
                     <div class="col-sm-2">
-                      <button type="submit" class="btn btn-primary">Selanjutnya</button>
+                      <button type="submit" class="btn btn-primary" id="btn_next">Selanjutnya</button>
                     </div>
                   </div>
                 </div>
