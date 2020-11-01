@@ -11,9 +11,9 @@
             </div>
             <div class="panel-body">
               <form method="POST" action="<?php echo base_url().'welcome/biodata_save'?>">
-								
+
 				<!-- <input type="text" name="id" style="display:none" value="<?php echo $user->id; ?>"/> -->
-							
+
                 <div class="form-row col-12">
                   <div class="form-group col-sm-12">
                     <label >Nama Lengkap <small>(wajib)</small></label>
@@ -35,7 +35,7 @@
                     <label>Provinsi <small>(wajib)</small></label>
                     <select name="prov" id="prov" class="form-control">
                         <option value="0"> Piih Provinsi </option>;
-                      <?php 
+                      <?php
                         foreach($prov as $v){
                           echo '<option value="'.$v->k.'">'.$v->v.'</option>';
                         }
@@ -66,7 +66,7 @@
                   </div>
                   <div class="form-group col-sm-12">
                     <label>No. Telepon <small>(wajib)</small></label>
-                    <input name="telp" id="telp" type="tel" max-length="13" class="form-control" placeholder="Contoh: 0832932932399">
+                    <input name="telp" id="telp" type="tel" maxlength="13" class="form-control" placeholder="Contoh: 0832932932399">
                   </div>
 
                   <!-- data tambahan -->
@@ -93,7 +93,7 @@
 					<option value="Rehab Medik (Terapi)">Rehab Medik (Terapi)</option>
 				</select>
 				</div>
-							
+
 				<div class="form-group col-sm-12">
 					<label class="col-form-label">Riwayat Penyakit Serius:</label>
 				</div>
@@ -109,28 +109,28 @@
 						<label class="custom-control-label" for="cb_tujuan_2">Tekanan Darah Tinggi (Hipertensi)</label>
 					</div>
 				</div>
-				
+
 				<div class="form-group col-sm-6">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="cb_tujuan_3" name="cb_tujuan[]" value="Penyakit Kanker">
 						<label class="custom-control-label" for="cb_tujuan_3">Penyakit Kanker</label>
 					</div>
 				</div>
-				
+
 				<div class="form-group col-sm-6">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="cb_tujuan_4" name="cb_tujuan[]" value="Penyakit Ginjal">
 						<label class="custom-control-label" for="cb_tujuan_4">Penyakit Ginjal</label>
 					</div>
 				</div>
-				
+
 				<div class="form-group col-sm-6">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="cb_tujuan_5" name="cb_tujuan[]" value="Penyakit Lupus">
 						<label class="custom-control-label" for="cb_tujuan_5">Penyakit Lupus</label>
 					</div>
 				</div>
-				
+
 				<div class="form-group col-sm-6">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="cb_tujuan_6" name="cb_tujuan[]" value="Penyakit Saraf ">
@@ -169,10 +169,10 @@
 
 <script src="<?php echo base_url()?>assets/theme/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {	
+$(document).ready(function() {
 	$("#jenis").change(function () {
         var vJenis = this.value;
-		
+
 		$.ajax({
 			url:'ajax_quiz',
 			method: 'post',
@@ -185,11 +185,11 @@ $(document).ready(function() {
 			}
 		});
     });
-	
+
 	$("#cinta").click(function(){
 	var vNama = $('#nama').val();
 	console.log("ini kalo kel" + vNama);
-	}); 
+	});
 
   $("#btn_next").click(function(){
 		var vNama = $('#nama').val();
@@ -202,54 +202,54 @@ $(document).ready(function() {
 		var vKel = $('#kel').val();
 		var vTelp = $('#telp').val();
 		var vEmail = $('#email').val();
-		
-		
+
+
 		 if(vProv == 0){
 			 alert("Provinsi tidak boleh kosong!");
 			 $('#prov').focus();
 			 return false;
 		 }
-		
+
 		 if(vKab == 0){
 			 alert("Kabupaten/Kota tidak boleh kosong!");
 			 $('#kab').focus();
 			 return false;
 		 }
-		
+
 		 if(vKec == 0){
 			 alert("Kecamatan tidak boleh kosong!");
 			 $('#kec').focus();
 			 return false;
 		 }
-		
+
 		 if(vKel == 0){
 		 alert("Desa/Kelurahan tidak boleh kosong!");
 			 $('#kel').focus();
 			 return false;
 		 }
-		
+
 		 if(vTelp === "" || vTelp === " "){
 			 alert("No. Telepon tidak boleh kosong!");
 			 $('#telp').focus();
 			 return false;
 		 }
-		
+
 		 console.log(vNama + vProv);
 		// return false;
 
-  }); 
-  
-  
+  });
+
+
   // Dropdown Ajax
 	$('#prov').change(function() {
 		var selGroup = $(this).val();
 		 console.log(selGroup);
-		
+
 		 if(selGroup==0){
 			 alert("Pilih Provinsi");
 			 return false;
 		 }
-		
+
 		 $.ajax({
 			 url:'<?php echo base_url()?>welcome/ajax_kab',
 			 method: 'post',
@@ -259,33 +259,33 @@ $(document).ready(function() {
 				 if(res.status == 1){
 					 var option = "<option value='0'>Tentukan Kabupaten/Kota</option>";
 					 var src = res.data;
-					
+
 					 if(src.length>0){
 						 for(var i=0; i<src.length; i++){
 							 var id = src[i].k;
 							 var name = src[i].v;
 
-							 option += "<option value='"+id+"'>"+name+"</option>"; 
+							 option += "<option value='"+id+"'>"+name+"</option>";
 						 }
            }
-           
+
 					 $("#kab").empty();
 					 $("#kab").append(option);
 				 }
 			 }
 		 });
   });
-  
+
 
 	$('#kab').change(function() {
 		var selGroup = $(this).val();
 		 console.log(selGroup);
-		
+
 		 if(selGroup==0){
 			 alert("Tentukan Kabupaten/Kota");
 			 return false;
 		 }
-		
+
 		 $.ajax({
 			 url:'<?php echo base_url()?>welcome/ajax_kec',
 			 method: 'post',
@@ -295,33 +295,33 @@ $(document).ready(function() {
 				 if(res.status == 1){
 					 var option = "<option value='0'>Tentukan Kecamatan</option>";
 					 var src = res.data;
-					
+
 					 if(src.length>0){
 						 for(var i=0; i<src.length; i++){
 							 var id = src[i].k;
 							 var name = src[i].v;
 
-							 option += "<option value='"+id+"'>"+name+"</option>"; 
+							 option += "<option value='"+id+"'>"+name+"</option>";
 						 }
            }
-           
+
 					 $("#kec").empty();
 					 $("#kec").append(option);
 				 }
 			 }
 		 });
   });
-  
-  
+
+
 	$('#kec').change(function() {
 		var selGroup = $(this).val();
 		 console.log(selGroup);
-		
+
 		 if(selGroup==0){
 			 alert("Tentukan Kecamatan");
 			 return false;
 		 }
-		
+
 		 $.ajax({
 			 url:'<?php echo base_url()?>welcome/ajax_kel',
 			 method: 'post',
@@ -331,16 +331,16 @@ $(document).ready(function() {
 				 if(res.status == 1){
 					 var option = "<option value='0'>Tentukan Desa/Kelurahan</option>";
 					 var src = res.data;
-					
+
 					 if(src.length>0){
 						 for(var i=0; i<src.length; i++){
 							 var id = src[i].k;
 							 var name = src[i].v;
 
-							 option += "<option value='"+id+"'>"+name+"</option>"; 
+							 option += "<option value='"+id+"'>"+name+"</option>";
 						 }
            }
-           
+
 					 $("#kel").empty();
 					 $("#kel").append(option);
 				 }
