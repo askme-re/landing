@@ -69,6 +69,7 @@
 
                   <!-- data tambahan -->
                   <div class="form-group col-sm-6">
+<<<<<<< HEAD
         					<label class="col-form-label">Status Kunjungan:</label>
         					<select class="form-control" id="dd_status" name="dd_status" required>
         						<option value="" selected="selected" disabled >Pilih Salah Satu</option>
@@ -91,6 +92,30 @@
         					<option value="Rehab Medik (Terapi)">Rehab Medik (Terapi)</option>
         				</select>
         				</div>
+=======
+					<label class="col-form-label">Status Kunjungan:</label>
+					<select class="form-control" id="dd_status" name="dd_status" required>
+						<option value="" selected="selected" disabled >Pilih Salah Satu</option>
+						<option value="Pasien">Pasien</option>
+						<option value="Pengunjung">Pengunjung</option>
+						<option value="Pegawai RS">Pegawai RS</option>
+					</select>
+				</div>
+				<div class="form-group col-sm-6">
+				<label class="col-form-label">Tujuan Kunjungan:</label>
+				<select class="form-control" id="dd_tujuan" name="dd_tujuan">
+					<option value="" selected="selected" disabled >Pilih Salah Satu</option>
+					<option value="Rawat Jalan (Poliklinik)">Rawat Jalan (Poliklinik)</option>
+					<option value="Rawat Inap">Rawat Inap</option>
+					<option value="Laboratorium">Laboratorium</option>
+					<option value="Farmasi">Farmasi</option>
+					<option value="Radiologi">Radiologi</option>
+					<option value="Administrasi RS (Admin Ranap, BPJS, dll)">Administrasi RS (Admin Ranap, BPJS, dll)</option>
+					<option value="Manajemen RS (Jajaran pimpinan, pengadaan dll)">Manajemen RS (Jajaran pimpinan, pengadaan dll)</option>
+					<option value="Rehab Medik (Terapi)">Rehab Medik (Terapi)</option>
+				</select>
+				</div>
+>>>>>>> f4b2fbf387f93102ea23397285eb26f8df53da54
 
 				<div class="form-group col-sm-12">
 					<label class="col-form-label">Riwayat Penyakit Serius:</label>
