@@ -1,6 +1,6 @@
 <div class="modal fade-in" id="resume" role="dialog">
     <div class="modal-dialog">
-      
+
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -19,7 +19,7 @@
         	<?php 	foreach ($user as $key => $value) {
             $id= $value->id_user; ?>
             <div class="rs_name">
-            <?php echo "Nama : $value->nama".'<br>';; 
+            <?php echo "Nama : $value->nama".'<br>';;
             echo "Kode Unik Anda : $value->kode_skrining".'<br>'; ?>
             </div>
             <p class="rs_light"><?php
@@ -28,14 +28,14 @@
               echo "<center>Jika Anda berobat ke RS dr Suyoto: SEGERA hubungi Petugas Kesehatan di RS dr Suyoto, agar segera dilakukan pemeriksaan skrining lanjutan; tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Gunakan Masker, Menjaga Jarak dan Mencuci tangan)</center>";
             }elseif ($value->hasil >= 1) {
               echo "<p class='rs_light rendah'> Anda dalam keadaan"."<strong> BERISIKO RENDAH</strong><BR></p>";
-              echo "<center>Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Gunakan Masker, Menjaga Jarak dan Mencuci tangan)</center>";
+              echo "<center>Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)</center>";
             }
             if ($value->hasil == "0") {
               echo "<p class='rs_light sehat'> Anda dalam keadaan "."<strong> SEHAT </strong><BR></p>";
-              echo "<center>Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Gunakan Masker, Menjaga Jarak dan Mencuci tangan)</center>";
+              echo "<center>Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)</center>";
             }
           };?> </p>
-          <p class="rs_light small">Silahkan <strong> unduh</strong> atau <strong>screenshot</strong>; simpan baik-baik dan tunjukkan hasil skrining Anda hanya kepada Tim Skrining Terpusat RS dr. Suyoto</p>
+          <p class="rs_light small">Silakan <strong> unduh</strong> atau <strong>tangkapan layar</strong>; simpan baik-baik dan tunjukkan hasil skrining Anda hanya kepada Tim Skrining Terpusat RS dr. Suyoto</p>
           <p class="rs_info">Data ini hanya berlaku 1x24 jam dari waktu Skrining</p>
             <p class="rs_light small">Waktu skrining : <?php echo "$value->tgl_skrining"; ?> </p>
         </div>
@@ -44,7 +44,7 @@
             <a href="<?php echo base_url().''?>">KEMBALI</a>
           </div>
       </div>
-      
+
     </div>
   </div>
 

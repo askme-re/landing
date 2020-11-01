@@ -4,7 +4,7 @@
         <div class="row justify-content-center text-center">
           <div class="col-lg-10">
             <div class="mb-5">
-              <h1 class="hero-heading"><strong>A</strong>PLIKASI <strong>S</strong>KRINING <strong>K</strong>HUSUS <br>PENYAKIT <strong>ME</strong>NULAR</h1>
+              <h1 class="hero-heading"><strong style="font-size:50px;">A</strong>PLIKASI <strong>S</strong>KRINING <strong>K</strong>HUSUS <br>PENYAKIT <strong>ME</strong>NULAR</h1>
                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#persetujuanModal" id="md_peretujuan">
               </button> -->
               <a class="btn btn-primary mulai" href="<?php echo base_url('welcome/register');?>">
@@ -120,7 +120,7 @@
 
         </div>
       </div>
-    </div>   
+    </div>
 
     <div class="site-section bg-light" id="blog-section">
       <div class="container">
@@ -138,9 +138,9 @@
               <a href="<?php echo base_url()?>">
                 <img style="max-height:200px;padding:0px 30px 0px 30px" src="<?php echo base_url();?>assets/img/favicon.png" alt="Image" class="img-fluid">
               </a>
-              <h4>Aplikasi <strong>ASKME</strong>?</h4>
+              <h4>Aplikasi <strong>ASK_ME</strong>?</h4>
               <p><strong>ASK_ME </strong> RS dr Suyoto dibangun sebagai bentuk salah satu upaya preventif penanggulangan wabah penyakit menular di Lingkungan Kemhan. Pada tahap awal aplikasi khusus skrining wabah penyakit COVID-19 untuk selanjutnya akan dikembangkan dengan kemampuan melakukan penyaringan 16 wabah kasus menular sesuai dengan PERMENHAN No. 22 Tahun 2017 tentang Penanggulangan Wabah Penyakit Menular di Lingkungan Kemhan & TNI.</p>
-            </div> 
+            </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="h-entry">
@@ -162,11 +162,11 @@
               <a href="<?php echo base_url()?>">
                 <img src="<?php echo base_url()?>assets/img/prosedur.png" alt="Image" class="img-fluid">
               </a>
-              <h4>Bagaimana Cara Kerja <strong>ASKME</strong>?</h4>
+              <h4>Bagaimana Cara Kerja <strong>ASK_ME</strong>?</h4>
               <p>Dibangun sebagai bentuk salah satu upaya preventif penanggulangan wabah penyakit menular di Lingkungan Kemhan. Pada tahap awal aplikasi khusus skrining wabah penyakit COVID-19 sedangkan untuk selanjutnya akan dikembangkan dengan kemampuan melakukan penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa pertanyaan sederhana. Setiap pertanyaan telah ditentukan bobot dan dilakukan pemrosesan data</p>
-            </div> 
+            </div>
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -225,12 +225,12 @@
 						<?php echo form_open('/welcome/user_check', array('name' => 'user', 'id' => 'user', 'class' => 'form-validate', 'enctype' => 'multipart/form-data', 'method' => 'post')); ?>
 							<div class="form-group">
 								<input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
-								
+
 								<label class="col-form-label">
 									Anda akan diminta mengisi beberapa pertanyaan sederhana dengan benar, dapat dipertanggungjawabkan dan tidak dibuat-buat. Data yang Anda masukan akan dilakukan pemrosesan sesuai dengan ketentuan dari ASK_ME. Data ini ditujukan untuk kebutuhan riset dan pelayanan terkait Penyakit Menular dan digunakan dalam kaidah yang diizinkan sesuai dengan Peraturan Perundang-undangan yang berlaku.
 								</label>
 							</div>
-							
+
               <div class="form-group row">
                 <div class="col-sm-12">
                   <div class="custom-control custom-checkbox">
@@ -275,7 +275,7 @@
 									<option value="Rehab Medik (Terapi)">Rehab Medik (Terapi)</option>
 								</select>
 							</div>
-							
+
 							<div class="form-group">
 								<label class="col-form-label">Riwayat Penyakit Serius:</label>
 							</div>
@@ -335,16 +335,16 @@
                   </div>
                 </div>
               </div>
-							
-						
+
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
               <button type="submit" class="btn btn-primary" id="btn_submit">Mulai</button>
-							
+
             </div>
           </div>
-							
+
 						</form>
       </div>
     </div>
@@ -357,43 +357,43 @@
     var vStatus = $('#dd_status').val();
     var vTujuan = $('#dd_tujuan').val();
     var vBaseUrl = <?php echo json_encode(base_url()); ?>;
-		
+
 		var riwayat = [];
 		$.each($("input[name='cb_tujuan']:checked"), function(){
 				riwayat.push($(this).val());
 		});
 		var vRiwayat = riwayat.join(", ");
-		
+
 		// // input validation
 		if(vSetuju == false) {
 			alert('Skrining harus disetujui');
 			$('#cb_setuju').focus();
 			return false;
 		}
-		
+
 		if(vPhone == '' || vPhone == 0 || vPhone == ' ') {
 			alert('Nomor Telpon harus diisi');
 			$('#phone').focus();
 			return false;
-		} 
-		
+		}
+
 		if(vPhone.length < 11 || vPhone.length > 13) {
 			alert('Nomor Telpon minimal 11 dan maksimal 13 digit');
 			$('#phone').focus();
 			return false;
 		}
-		
+
 		if(vStatus == '') {
 			alert('Status harus dipilih');
 			$('#dd_status').focus();
 			return false;
 		}
-		
+
 		if(vTujuan == '') {
 			alert('Tujuan harus dipilih');
 			$('#dd_tujuan').focus();
 			return false;
 		}
-  }); 
-</script> 
+  });
+</script>
  -->
