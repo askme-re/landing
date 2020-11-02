@@ -390,23 +390,26 @@ function screening($id_user)
         	$pdf->Cell(190,7,"- Jenis Skrining : ".$row->wabah,0,1,'l');
         	$pdf->Cell(190,7,"- Tanggal Skrining: ".$row->tgl_skrining,0,1,'l');
             // $pdf->Cell(55,6,"Tanggal Screening ".$row->created_at,0,1);
+						$pdf->Cell(55,6,"- Status Kunjungan: ".$row->jenis_user,0,1);
+						$pdf->Cell(55,6,"- Usia : ".$row->usia,0,1);
         	$hasil = $row->hasil;
             if ($hasil >=4) {
-              $kesimpulan ="Selalu patuhi Protokol Kesehatan, Anda dalam keadaan"."<strong> DARURAT </strong> karena berisiko sedang atau tinggi terhadap (COVID-19). Segera hubungi petugas kesehatan di RS dr Suyoto untuk RUJUKAN LANJUTAN";
+              $kesimpulan = "Anda dalam keadaan BERISIKO SEDANG/TINGGI Jika Anda berobat ke RS dr Suyoto: SEGERA hubungi Petugas Kesehatan di RS dr Suyoto, agar segera dilakukan pemeriksaan skrining lanjutan; tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)";
             }elseif ($hasil >= 1) {
-              $kesimpulan = "Risiko Rendah Terhadap COVID-19";
+              $kesimpulan = "Anda dalam keadaan BERISIKO RENDAH Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)";
             }elseif ($hasil == "0") {
-              $kesimpulan = "Selalu patuhi Protokol Kesehatan, Anda SEHAT";
+              $kesimpulan = "Anda dalam keadaan SEHAT Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)";
             }
 
-            $pdf->MultiCell(190,6,"- Hasil : ".$kesimpulan);
-            $pdf->Cell(55,6,"- Usia : ".$row->usia,0,1);
-            $pdf->Cell(55,6,"- Status Skrining: ".$row->jenis_user,0,1);
-            $pdf->Cell(55,6,"Kode :".$row->kode_skrining,1,0);
+						$pdf->Cell(10,10,'',0,1);
+            $pdf->MultiCell(190,6,"Hasil : ".$kesimpulan);
+						$pdf->SetFont('Arial','B',10);
+            $pdf->Cell(40,7,"Kode :".$row->kode_skrining,1,0);
         }
 
         // $pdf->Output("D","skrining.pdf");
 				$pdf->Cell(10,10,'',0,1);
+				$pdf->SetFont('Arial','I',10);
 				$pdf->Cell(190,7,"\n Harap Simpan baik baik kode yang ada di hasil ini ya.",0,1,'l');
         $pdf->Output();
     }
