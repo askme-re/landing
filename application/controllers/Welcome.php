@@ -394,7 +394,7 @@ function screening($id_user)
         	$pdf->Cell(190,7,"- Tanggal Skrining: ".$row->tgl_skrining,0,1,'l');
             // $pdf->Cell(55,6,"Tanggal Screening ".$row->created_at,0,1);
 						$pdf->Cell(55,6,"- Status Kunjungan: ".$row->jenis_user,0,1);
-						$pdf->Cell(55,6,"- Usia : ".$row->usia,0,1);
+						$pdf->Cell(55,6,"- Usia : ".$row->usia.' Tahun ',0,1);
         	$hasil = $row->hasil;
             if ($hasil >=4) {
               $kesimpulan = "Anda dalam keadaan BERISIKO SEDANG/TINGGI";
