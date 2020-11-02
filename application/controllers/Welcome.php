@@ -91,23 +91,8 @@ class Welcome extends CI_Controller {
 		$id_kel = $this->input->post('kel');
 		$alamat = $this->input->post('alamat');
 		$email = $this->input->post('email');
-<<<<<<< HEAD
 
 		$user = $this->landing_model->is_user_avail($phone);
-		// print_r($user == false);exit;
-		// print_r(array($phone,$status,$tujuan,$riwayat,$nama,$tp_lahir,$tgl_lahir,$id_prov,$id_kab,$id_kec,$id_kel,$alamat,$email,$user));exit;
-
-		// is user available
-
-=======
-		
-		$user = $this->landing_model->is_user_avail($phone);
-		// print_r($user == false);exit;
-		// print_r(array($phone,$status,$tujuan,$riwayat,$nama,$tp_lahir,$tgl_lahir,$id_prov,$id_kab,$id_kec,$id_kel,$alamat,$email,$user));exit;
-		
-		// is user available
-		
->>>>>>> f4b2fbf387f93102ea23397285eb26f8df53da54
 		if($user == false){
 			// save new user return id
 			$data['telp'] = $phone;
@@ -123,17 +108,8 @@ class Welcome extends CI_Controller {
 			$data['riw_penyakit'] = implode(", ",$riwayat);
 			$data['tujuan_rs'] = $tujuan;
 			$data['jenis_user'] = $status;
-<<<<<<< HEAD
-
 			$this->db->insert('user', $data);
 			$id = $this->db->insert_id();
-
-=======
-			
-			$this->db->insert('user', $data);
-			$id = $this->db->insert_id();
-
->>>>>>> f4b2fbf387f93102ea23397285eb26f8df53da54
 			$this->session->set_flashdata('message_sukses', 'Data Berhasil Disimpan');
 
 			redirect("/welcome/screening/$id");
@@ -141,24 +117,12 @@ class Welcome extends CI_Controller {
 		} else {
 			// overwrite data user
 			$id = $user->id;
-<<<<<<< HEAD
-
 			$data['riw_penyakit'] = implode(", ",$riwayat);
 			$data['tujuan_rs'] = $tujuan;
 			$data['jenis_user'] = $status;
 
-			$this->db->insert('user', $data);
-			$id = $this->db->insert_id();
-=======
-			
-			$data['riw_penyakit'] = implode(", ",$riwayat);
-			$data['tujuan_rs'] = $tujuan;
-			$data['jenis_user'] = $status;
-			
 			$this->db->where('id', $id);
 			$this->db->update('user', $data);
->>>>>>> f4b2fbf387f93102ea23397285eb26f8df53da54
-
 			$this->session->set_flashdata('message_sukses', 'Perubahan Data Berhasil Disimpan');
 
 			redirect("/welcome/screening/$id");

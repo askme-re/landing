@@ -4,7 +4,7 @@
         <div class="row justify-content-center text-center">
           <div class="col-lg-10">
             <div class="mb-5">
-              <h1 class="hero-heading"><strong style="font-size:50px;">A</strong>PLIKASI <strong>S</strong>KRINING <strong>K</strong>HUSUS <br>PENYAKIT <strong>ME</strong>NULAR</h1>
+              <h1 class="hero-heading"><strong style="font-size:40px;">A</strong>PLIKASI <strong style="font-size:40px;">S</strong>KRINING <strong style="font-size:40px;">K</strong>HUSUS <br>PENYAKIT <strong style="font-size:40px;">ME</strong>NULAR</h1>
                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#persetujuanModal" id="md_peretujuan">
               </button> -->
               <a class="btn btn-primary mulai" href="<?php echo base_url('welcome/register');?>">

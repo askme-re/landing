@@ -25,7 +25,7 @@
             <p class="rs_light"><?php
             if ($value->hasil >= 4) {
               echo "<p class='rs_light sedang'> Anda dalam keadaan"."<strong> BERISIKO SEDANG/TINGGI </strong><BR></p>";
-              echo "<center>Jika Anda berobat ke RS dr Suyoto: SEGERA hubungi Petugas Kesehatan di RS dr Suyoto, agar segera dilakukan pemeriksaan skrining lanjutan; tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Gunakan Masker, Menjaga Jarak dan Mencuci tangan)</center>";
+              echo "<center>Jika Anda berobat ke RS dr Suyoto: SEGERA hubungi Petugas Kesehatan di RS dr Suyoto, agar segera dilakukan pemeriksaan skrining lanjutan; tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)</center>";
             }elseif ($value->hasil >= 1) {
               echo "<p class='rs_light rendah'> Anda dalam keadaan"."<strong> BERISIKO RENDAH</strong><BR></p>";
               echo "<center>Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)</center>";
