@@ -78,13 +78,20 @@ class Welcome extends CI_Controller {
 	}
 
 	function biodata_save()	{
+
+		$tgl = $this->input->post('tgl');
+		$bulan = $this->input->post('bulan');
+		$tahun = $this->input->post('tahun');
+
 		$phone = trim($this->input->post('telp'));
 		$status = $this->input->post('dd_status');
 		$tujuan = $this->input->post('dd_tujuan');
 		$riwayat = $this->input->post('cb_tujuan');
 		$nama = trim($this->input->post('nama'));
 		$tp_lahir = $this->input->post('tempat_lahir');
-		$tgl_lahir = $this->input->post('tgl_lahir');
+		$tgl_lahir = $tahun.'-'.$bulan.'-'.$tgl;
+		// print_r($tgl_lahir);
+
 		$id_prov = $this->input->post('prov');
 		$id_kab = $this->input->post('kab');
 		$id_kec = $this->input->post('kec');
@@ -115,7 +122,7 @@ class Welcome extends CI_Controller {
 			redirect("/welcome/screening/$id");
 
 		} else {
-			// overwrite data user
+			//overwrite data user
 			$id = $user->id;
 			$data['riw_penyakit'] = implode(", ",$riwayat);
 			$data['tujuan_rs'] = $tujuan;
@@ -127,24 +134,24 @@ class Welcome extends CI_Controller {
 
 			redirect("/welcome/screening/$id");
 		}
-		// $id = $this->input->post('id');
-		// $user['nama'] = $this->input->post('nama');
-		// $user['tp_lahir'] = $this->input->post('tempat_lahir');
-		// $user['tgl_lahir'] = $this->input->post('tgl_lahir');
-		// $user['id_prov'] = $this->input->post('prov');
-		// $user['id_kab'] = $this->input->post('kab');
-		// $user['id_kec'] = $this->input->post('kec');
-		// $user['id_kel'] = $this->input->post('kel');
-		// $user['alamat'] = $this->input->post('alamat');
-		// $user['email'] = $this->input->post('email');
+		$id = $this->input->post('id');
+		$user['nama'] = $this->input->post('nama');
+		$user['tp_lahir'] = $this->input->post('tempat_lahir');
+		$user['tgl_lahir'] = $this->input->post('tgl_lahir');
+		$user['id_prov'] = $this->input->post('prov');
+		$user['id_kab'] = $this->input->post('kab');
+		$user['id_kec'] = $this->input->post('kec');
+		$user['id_kel'] = $this->input->post('kel');
+		$user['alamat'] = $this->input->post('alamat');
+		$user['email'] = $this->input->post('email');
 
-		// 	// overwrite data user
-		// $this->db->where('id', $id);
-		// $this->db->update('user', $user);
+			// overwrite data user
+		$this->db->where('id', $id);
+		$this->db->update('user', $user);
 
-		// $this->session->set_flashdata('message_sukses', 'Perubahan Data Berhasil Disimpan');
+		$this->session->set_flashdata('message_sukses', 'Perubahan Data Berhasil Disimpan');
 
-		// redirect("/welcome/screening/$id");
+		redirect("/welcome/screening/$id");
 	}
 
 
@@ -204,7 +211,6 @@ function screening($id_user)
 		$interval  = $today->diff($birthdate);
 		// $usia = $interval->format('%y Tahun');
 		$usia = $interval->format('%y');
-		// print_r($usia);
 		$arr_add = '';
 
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

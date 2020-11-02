@@ -14,23 +14,58 @@
 
                 <div class="form-row col-12">
                   <div class="form-group col-sm-12">
-                    <label >Nama Lengkap <small>(wajib)</small></label>
+                    <label >Nama Lengkap </label>
                     <input name="nama" id="nama" type="text" class="form-control" placeholder="Contoh: Andrew Setiawan" required/>
                   </div>
                   <div class="form-group col-sm-6">
-                    <label>Tempat Lahir <small>(wajib)</small></label>
+                    <label>Tempat Lahir </label>
                     <input name="tempat_lahir" id="tempat_lahir" type="text" class="form-control" placeholder="Contoh: Jakarta" required/>
                   </div>
                   <div class="form-group col-sm-6">
-                    <label>Tanggal Lahir <small>(wajib)</small></label>
-                    <input name="tgl_lahir" id="tgl_lahir" type="date" class="form-control" placeholder="DD/MM/YYYY" required/>
+                    <label>Tanggal Lahir </label>
+                    <select name="tgl" id="tgl" class="form-control">
+                      <option value="" selected="selected" disabled> Pilih Tanggal </option>
+                      <?php for ($i=1; $i < 32; $i++) { ?>
+                        <option value="<?php echo $i ?>">
+                          <?php echo $i ?>
+                        </option>
+                      <?php } ?>
+                    </select>
                   </div>
+                  <div class="form-group col-sm-6">
+                    <label>Bulan Lahir </label>
+                    <select name="bulan" id="bulan" class="form-control">
+                      <option selected="selected" disabled> Pilih Bulan </option>
+                      <?php for ($i=1; $i < 13; $i++) { ?>
+                        <option value="<?php echo $i ?>">
+                          <?php echo $i ?>
+                        </option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label>Tahun Lahir </label>
+                    <?php $thn = date("Y");
+                    $min = $thn-100;?>
+                    <select name="tahun" id="tahun" class="form-control">
+                      <option selected="selected" disabled> Pilih Tahun </option>
+                      <?php for ($i=$min; $i <= $thn; $i=$i+1) { ?>
+                        <option value="<?php echo $i ?>">
+                          <?php echo $i ?>
+                        </option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                  <!-- <div class="form-group col-sm-6">
+                    <label>Tanggal Lahir </label>
+                    <input name="tgl_lahir" id="tgl_lahir" type="date" class="form-control" placeholder="DD/MM/YYYY" required/>
+                  </div> -->
                   <div class="form-group col-sm-12">
-                    <label>Alamat <small>(wajib)</small></label>
+                    <label>Alamat </label>
                     <input name="alamat" id="alamat" type="text" class="form-control" placeholder="Contoh: Jalan ... RT/RW ..." required/>
                   </div>
                   <div class="form-group col-sm-6">
-                    <label>Provinsi <small>(wajib)</small></label>
+                    <label>Provinsi </label>
                     <select name="prov" id="prov" class="form-control">
                         <option value="0"> Piih Provinsi </option>;
                       <?php
@@ -41,29 +76,29 @@
                     </select>
                   </div>
                   <div class="form-group col-sm-6">
-                    <label>Kabupaten/Kota <small>(wajib)</small></label>
+                    <label>Kabupaten/Kota </label>
                     <select name="kab" id="kab" class="form-control">
                       <option value="0"> Piih Kabupaten/Kota </option>
                     </select>
                   </div>
                   <div class="form-group col-sm-6">
-                    <label>Kecamatan <small>(wajib)</small></label>
+                    <label>Kecamatan </label>
                     <select name="kec" id="kec" class="form-control">
                       <option value="0"> Piih Kecamatan </option>
                     </select>
                   </div>
                   <div class="form-group col-sm-6">
-                    <label>Desa/Kelurahan <small>(wajib)</small></label>
+                    <label>Desa/Kelurahan </label>
                     <select name="kel" id="kel" class="form-control">
                       <option value="0"> Piih Desa/Kelurahan </option>
                     </select>
                   </div>
                   <div class="form-group col-sm-12">
-                    <label>Email</label>
+                    <label>Email <small>(Opsional)</small></label>
                     <input name="email" id="email" type="email" class="form-control" placeholder="Contoh: andrew@mail.com">
                   </div>
                   <div class="form-group col-sm-12">
-                    <label>No. Telepon <small>(wajib)</small></label>
+                    <label>No Handphone </label>
                     <input name="telp" id="telp" type="tel" maxlength="13" class="form-control" placeholder="Contoh: 0832932932399">
                   </div>
 
