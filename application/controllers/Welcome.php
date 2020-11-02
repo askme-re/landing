@@ -199,11 +199,12 @@ function screening($id_user)
 		$jenis = $this->input->post('jenis');
 		// $get_umur = $this->input->post('tgl_lahir');
 		$get_umur = $this->landing_model->get_usia($id);
-		print_r($get_umur);
-		$birthdate = new DateTime($get_umur);
+		$birthdate = new DateTime($get_umur->tgl_lahir);
 		$today     = new DateTime();
 		$interval  = $today->diff($birthdate);
-		$usia = $interval->format('%y years');
+		// $usia = $interval->format('%y Tahun');
+		$usia = $interval->format('%y');
+		// print_r($usia);
 		$arr_add = '';
 
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -396,17 +397,22 @@ function screening($id_user)
 						$pdf->Cell(55,6,"- Usia : ".$row->usia,0,1);
         	$hasil = $row->hasil;
             if ($hasil >=4) {
-              $kesimpulan = "Anda dalam keadaan BERISIKO SEDANG/TINGGI Jika Anda berobat ke RS dr Suyoto: SEGERA hubungi Petugas Kesehatan di RS dr Suyoto, agar segera dilakukan pemeriksaan skrining lanjutan; tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)";
+              $kesimpulan = "Anda dalam keadaan BERISIKO SEDANG/TINGGI";
+							$ket =" Jika Anda berobat ke RS dr Suyoto: SEGERA hubungi Petugas Kesehatan di RS dr Suyoto, agar segera dilakukan pemeriksaan skrining lanjutan; tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)";
             }elseif ($hasil >= 1) {
-              $kesimpulan = "Anda dalam keadaan BERISIKO RENDAH Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)";
+              $kesimpulan = "Anda dalam keadaan BERISIKO RENDAH";
+							$ket=" Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)";
             }elseif ($hasil == "0") {
-              $kesimpulan = "Anda dalam keadaan SEHAT Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)";
+              $kesimpulan = "Anda dalam keadaan SEHAT";
+							$ket =" Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)";
             }
-
-						$pdf->Cell(10,10,'',0,1);
-            $pdf->MultiCell(190,6,"Hasil : ".$kesimpulan);
 						$pdf->SetFont('Arial','B',10);
-            $pdf->Cell(40,7,"Kode :".$row->kode_skrining,1,0);
+            $pdf->Cell(100,6,"Hasil : ".$kesimpulan,1,0);
+						$pdf->Cell(10,8,'',0,1);
+						$pdf->SetFont('Arial','',10);
+            $pdf->MultiCell(190,6,$ket);
+						$pdf->SetFont('Arial','B',10);
+            $pdf->Cell(40,7,"Kode :".$row->kode_skrining);
         }
 
         // $pdf->Output("D","skrining.pdf");

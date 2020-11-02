@@ -13,7 +13,7 @@
             </div>
             <img src="<?php echo base_url()?>assets/img/logo_RSdrSuyoto.jpg" alt="image" class="img-fluid">
           </div>
-              <p><br><strong>Pusat Rehabilitasi Kementerian Pertahanan RI Rumah Sakit dr. SUYOTO</strong></p>
+              <p><br><strong>RS dr. Suyoto Pusat Rehabilitasi Kementerian Pertahanan</strong></p>
         </div>
       </div>
     </div>
