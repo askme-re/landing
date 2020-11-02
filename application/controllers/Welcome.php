@@ -197,7 +197,9 @@ function screening($id_user)
 	{
 		$id = $this->input->post('id');
 		$jenis = $this->input->post('jenis');
-		$get_umur = $this->input->post('tgl_lahir');
+		// $get_umur = $this->input->post('tgl_lahir');
+		$get_umur = $this->landing_model->get_usia($id);
+		print_r($get_umur);
 		$birthdate = new DateTime($get_umur);
 		$today     = new DateTime();
 		$interval  = $today->diff($birthdate);

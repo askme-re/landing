@@ -34,6 +34,15 @@ class Landing_model extends CI_Model
 		}
 		return null;
 	}
+	function get_usia($id){
+		$str = "SELECT * FROM user WHERE id='$id'";
+		$qry = $this->db->query($str);
+
+		if ($qry->num_rows() > 0){
+			return $qry->row();
+		}
+		return null;
+	}
 
   function get_jenis_skrining($where=NULL)
   {

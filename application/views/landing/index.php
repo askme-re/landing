@@ -4,7 +4,7 @@
         <div class="row justify-content-center text-center">
           <div class="col-lg-10">
             <div class="mb-5">
-              <h1 class="hero-heading"><strong style="font-size:40px;">A</strong>PLIKASI <strong style="font-size:40px;">S</strong>KRINING <strong style="font-size:40px;">K</strong>HUSUS <br>PENYAKIT <strong style="font-size:40px;">ME</strong>NULAR</h1>
+              <h1 class="hero-heading"><strong style="font-size:50px;">A</strong>PLIKASI <strong style="font-size:50px;">S</strong>KRINING <strong style="font-size:50px;">K</strong>HUSUS <br>PENYAKIT <strong style="font-size:50px;">ME</strong>NULAR</h1>
                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#persetujuanModal" id="md_peretujuan">
               </button> -->
               <a class="btn btn-primary mulai" href="<?php echo base_url('welcome/register');?>">
@@ -32,7 +32,7 @@
           </div>
           <div class="col-lg-5 mr-auto">
             <div class="mb-4">
-              <h2 class="section-title-2" style="font-weight:bold;">Apa itu Covid-19?</h2>
+              <h2 class="section-title-2" style="font-weight:bold;">Apa itu COVID-19?</h2>
               <p>Pneumonia Coronavirus Disease 2019 atau COVID-19 adalah penyakit peradangan paru yang disebabkan oleh Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2). </p>
             </div>
 
