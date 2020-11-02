@@ -16,10 +16,10 @@
                     	<div class="nda">
                         	<p>Anda akan diminta mengisi beberapa pertanyaan sederhana dengan benar, dapat dipertanggungjawabkan dan tidak dibuat-buat. Data yang Anda masukan akan dilakukan pemrosesan sesuai dengan ketentuan dari <strong>ASK_ME</strong>. Data ini ditujukan untuk kebutuhan riset dan pelayanan terkait Penyakit Menular dan digunakan dalam kaidah yang diizinkan sesuai dengan Peraturan Perundang-undangan yang berlaku.</p>
                         	<p>Data yang dimasukan sudah sesuai dan data tersebut tidak di sebar luaskan, dipergunakan semestinya.</p>
-                			<p>Jika Anda <strong>SETUJU</strong> silakan tekan tombol 
+                			<p>Jika Anda <strong>SETUJU</strong> silakan tekan tombol
                         		<a class="btn btn-primary btn-lg" style="color:white;" href="<?php echo base_url('welcome/biodata');?>"> Mulai Skrining!</a>
                 			</p>
-                    		<p class="ttd">Bersama ASK_ME, kami mengucapkan terima kasih.</p>
+                    		<p class="ttd">Bersama <strong>ASK_ME</strong>, kami mengucapkan terima kasih.</p>
                     		<p>Semoga Anda selalu Sehat</p>
                     	</div>
                     </div>

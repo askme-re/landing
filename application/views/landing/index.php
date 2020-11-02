@@ -139,7 +139,7 @@
                 <img style="max-height:200px;padding:0px 30px 0px 30px" src="<?php echo base_url();?>assets/img/favicon.png" alt="Image" class="img-fluid">
               </a>
               <h4>Aplikasi <strong>ASK_ME</strong>?</h4>
-              <p><strong>ASK_ME </strong> RS dr Suyoto dibangun sebagai bentuk salah satu upaya preventif penanggulangan wabah penyakit menular di Lingkungan Kemhan. Pada tahap awal aplikasi khusus skrining wabah penyakit COVID-19 untuk selanjutnya akan dikembangkan dengan kemampuan melakukan penyaringan 16 wabah kasus menular sesuai dengan PERMENHAN No. 22 Tahun 2017 tentang Penanggulangan Wabah Penyakit Menular di Lingkungan Kemhan & TNI.</p>
+              <p><strong>ASK_ME </strong> RS dr Suyoto dibangun sebagai bentuk salah satu upaya preventif penanggulangan wabah penyakit menular di Lingkungan Kemhan. Pada tahap awal aplikasi khusus skrining wabah penyakit COVID-19 untuk selanjutnya akan dikembangkan dengan kemampuan melakukan penyaringan 18 wabah kasus menular sesuai dengan PERMENHAN No. 22 Tahun 2017 tentang Penanggulangan Wabah Penyakit Menular di Lingkungan Kemhan & TNI.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
