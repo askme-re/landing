@@ -1,51 +1,77 @@
 <div class="content">
   <div class="row">
     <div class="col-md-12">
-            <!-- <div class="card"> -->
       <div class="card">
         <div class="card-header">
-        </div>
-      <div class="card-body">	
-	<?php 
+        <h3>
+          Detail Skrining :
+          <?php
+            // var_dump($id);
+          foreach ($dataJawaban as $orang) {
+          $name = $orang->nama;
+          $telp = $orang->telp;
+          $riwayat = $orang->riw_penyakit;
+          $tujuan = $orang->tujuan_rs;
+          $prov = $orang->nama_prop;
+          $kec = $orang->nama_kec;
+          $date = $orang->tgl;
 
-	#if($datapertanyaan->num_rows() > 0):
-					foreach($datascreening as $result): 
-						?>
-				<!-- <form method="post" action="<?php echo base_url().'index.php/Admin/updatequiz' ?>" class="form-horizontal"> -->
-	          		<div class="row">
-	          		  <div class="col-sm-8 col-sm-offset-2">
-		          		  <input type="hidden" name="id" class="form-control" value="<?php echo $result->id;?>">
-		          		  <div class="form-group">
-	          		  		<label>Nama: </label>
-		          		    <input type="text" name="pertanyaan" class="form-control" value="<?php echo $result->nama;?>" dis>
-		          		  </div>
-		          		  <div class="form-group">
-	          		  		<label>Kode Antrian </label>
-		          		    <input type="text" name="pilihan" class="form-control" value="<?php echo $result->kode;?>">
-		          		  </div>
-		          		  <div class="form-group">
-	          		  		<label>Tanggal </label>
-		          		    <input type="text" name="pilihan" class="form-control" value="<?php echo $result->pertanyaan;?>">
-		          		  </div>
-		          		  <div class="form-group">
-	          		  		<label>Hasil Screening</label>
-		          		    <input type="text" name="pilihan2" class="form-control" value="<?php echo $result->nilai;?>">
-		          		  </div>
-		          		  <div class="form-group">
-	          		  		<label>Hasil Pertanyaan</label>
-		          		    <input type="text" name="pilihan2" class="form-control" value="<?php echo $result->nilai;?>">
-		          		  </div>
-	          		  </div>
-		          		<div class="col-sm-3">
-		          			<button type="submit" class="btn btn-default btn-sm" style="vertical-align:super;" href="<?php echo base_url().'index.php/Admin/Skrinning' ?>">Kembali </button>
-		          		</div>
-	          		</div>
-	          		</div>
-				<!-- </form> -->
-			 <?php endforeach; ?>
-	              
-           	  </div>
-         </div>
+          }
+          echo $name;
+          ?>
+        </h3>
+        </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-3">No Telp</label>
+              <input type="text" name="" value="<?php echo $telp ?>" readonly>
+            </div>
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-3">Riwayat penyakit</label>
+              <input type="text" name="" value="<?php echo $riwayat ?>" readonly>
+            </div>
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-3">Tujuan Kunjungan</label>
+              <input type="text" class="col-sm-6" name="" value="<?php echo $tujuan ?>" readonly>
+            </div>
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-3">Provinsi Asal</label>
+              <input type="text" name="" value="<?php echo $prov ?>" readonly>
+            </div>
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-3">Kecamatan Asal</label>
+              <input type="text" name="" value="<?php echo $kec ?>" readonly>
+            </div>
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-3">Tanggal Terdata</label>
+              <input type="text" name="" value="<?php echo $date ?>" readonly>
+
+            </div>
+            <div class="form-group col-sm-10">
+              <h4>Detail Jawaban</h4>
+              <?php
+
+              foreach ($dataJawaban as $j) {
+
+                echo '<p>'.$j->pertanyaan.'? </p>';
+                // echo ''.$j->bobot;
+                if ($j->bobot > 0) {
+                  echo " <p> Jawab : Ya </p>";
+                }elseif ($j->bobot == 0) {
+                  echo "<p> Jawab : Tidak </p> ";
+                }
+                ?>
+                <br>
+                <?php } ?>
+
+            </div>
+          </div>
+          <a class="btn btn-default"href="<?php echo base_url().'pertanyaan' ?>">Kembali</a>
+        </div>
+      </div>
+
     </div>
-</div>
+  </div>
 </div>

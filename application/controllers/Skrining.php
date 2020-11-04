@@ -29,8 +29,9 @@ class Skrining extends CI_Controller {
            $data[] = array(
                 $r->id,
                 $r->tgl_skrining,
-                $r->kode_skrining,
+                "<a href='skrining/detailTrx/$r->id'>".$r->kode_skrining."</a>",
                 $r->nama,
+              // "<a href='skrining/detailTrx/$r->id'>".$r->nama."</a>",
                 $r->telp,
                 $r->hasil,
                 $r->wabah,
@@ -49,6 +50,15 @@ class Skrining extends CI_Controller {
             );
       echo json_encode($result);
       exit();
+   }
+
+   function detailTrx($id){
+      $where = array('id_user' => $id);
+      $data['dataJawaban'] = $this->admin_m->detail($where,'hasil_skringin')->result();
+   		$this->load->view('header_admin');
+   		$this->load->view('navigasi');
+   		$this->load->view('admin/skrining_detail',$data);
+   		$this->load->view('footer_admin');
    }
 
    public function exp_skrining()

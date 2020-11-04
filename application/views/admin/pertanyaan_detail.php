@@ -1,40 +1,43 @@
 <div class="content">
   <div class="row">
     <div class="col-md-12">
-            <!-- <div class="card"> -->
       <div class="card">
         <div class="card-header">
+          <h3>
+            Detail Pertanyaan : <?php
+            foreach ($dataQuestion as $key) {
+              $kokom = $key->penyakit;
+            }
+            echo $kokom;
+            ?>
+          </h3>
         </div>
-      <div class="card-body">	
-	<?php 
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-10">
 
-	#if($datapertanyaan->num_rows() > 0):
-					foreach($datapertanyaan as $setelan): 
-						?>
-          <h4 class="card-title">Pertanyaan : <?php echo $setelan->pertanyaan;?></h4>
-				<form method="post" action="<?php echo base_url().'index.php/Admin/updateskor' ?>" class="form-horizontal">
-	          		<div class="row">
-	          		  <div class="col-sm-8 col-sm-offset-2">
-		          		  <input type="hidden" name="id" class="form-control" value="<?php echo $setelan->id;?>">
-		          		  <div class="form-group">
-		          		  <label>JAwaban : <?php echo $setelan->pilihan;  ?> </label>
-		          		    <input type="text" name="bobot1" class="form-control" value="<?php echo $setelan->bobot1;?>">
-		          		  </div>
-		          		  <div class="form-group">
-		          		  <label>JAwaban : <?php echo $setelan->pilihan2;  ?> </label>
-		          		    <input type="text" name="bobot2" class="form-control" value="<?php echo $setelan->bobot2;?>">
-		          		  </div>
-	          		  </div>
-		          		<div class="col-sm-3">
-		          			<button type="submit" class="btn btn-default btn-sm" style="vertical-align:super;">Ubah Skor Jawban</button>
-		          		</div>
-	          		</div>
-	          		</div>
-				</form>
-			 <?php endforeach; ?>
-	              
-           	  </div>
-         </div>
+            <table class="table">
+              <thead>
+                <td>Pertanyaan</td>
+                <td>Bobot</td>
+              </thead>
+              <tbody>
+                <?php  foreach ($dataQuestion as $j) {?>
+                  <tr>
+                    <td><?php echo $j->pertanyaan.'?';?>
+                    </td>
+                    <td><?php echo $j->bobot.'?';?>
+                    </td>
+                  </tr>
+                <?php } ?>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+        <a class="btn btn-default"href="<?php echo base_url().'pertanyaan' ?>">Kembali</a>
+      </div>
+
     </div>
-</div>
+  </div>
 </div>

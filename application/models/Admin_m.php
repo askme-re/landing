@@ -2,7 +2,7 @@
 
 class Admin_m extends CI_Model
 {
-	
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -22,6 +22,12 @@ class Admin_m extends CI_Model
 		$this->db->from('pertanyaan');
 		return $this->db->get();
 	}
+
+	public function jns_wabah(){
+		$this->db->select('*');
+		$this->db->from('jns_wabah');
+		return $this->db->get();
+	}
 	public function result_skrining(){
 		$this->db->select('*');
 		$this->db->from('data_hasil_skrining');
@@ -29,12 +35,17 @@ class Admin_m extends CI_Model
 	}
 
 	public function detail($where,$table)
-	{	
+	{
 		return $this->db->get_where($table,$where);
 	}
-	public function detail_quiz($where,$table)
-	{	
+	public function detailQues($where,$table)
+	{
+		// $this->db->join('bobot', 'bobot.id_pertanyaan = form.id');
 		return $this->db->get_where($table,$where);
+	}
+	public function detail_userskrin($re,$table)
+	{
+		return $this->db->get_where($table,$re);
 	}
 	public function update_skor($bobot2,$bobot1,$id){
 		$hasil = $this->db->query("UPDATE `form` SET `bobot2` = '$bobot2', `bobot1` = '$bobot1' WHERE `form`.`id` = $id");
@@ -44,7 +55,7 @@ class Admin_m extends CI_Model
 		$str = "SELECT f.id, f.pertanyaan,f.jenis,b.id AS id_bobot,b.bobot,b.jawaban,b.id_pertanyaan
 					,CASE WHEN b.jawaban=1 THEN 'Iya'
 						WHEN b.jawaban = 0 THEN 'Tidak' END AS opsi_bobot
-					FROM form f 
+					FROM form f
 					LEFT JOIN bobot b ON b.id_pertanyaan=f.id
 					group by f.pertanyaan ORDER BY f.id";
 		$qry = $this->db->query($str);
@@ -59,11 +70,11 @@ class Admin_m extends CI_Model
 		return $hasil;
 	}
 	public function detail_skrining($where,$table)
-	{	
+	{
 		return $this->db->get_where($table,$where);
 	}
 	public function insert_form(){
-	// $nama_proyek, $dana, $jenis, $daterange, $institusi, $frekuensi, 
+	// $nama_proyek, $dana, $jenis, $daterange, $institusi, $frekuensi,
 	// 		$teknologi,
 	// 		$jmlh,
 	// 		$jun,
@@ -77,9 +88,9 @@ class Admin_m extends CI_Model
 	// 		$tanggal,
 	// 		$hasil)
 	// {
-	// 	$hasil = $this->db->query("insert into temptbl (nama_proyek, dana, jenis, waktu, institusi, frekuensi, teknologi, jmhl_pro, 
-	// 		jun, mutuprogrammer, low, senior, 
-	// 		 konfirmasi_user, testing, spesifikasi, tanggal, hasil, durasi)  
+	// 	$hasil = $this->db->query("insert into temptbl (nama_proyek, dana, jenis, waktu, institusi, frekuensi, teknologi, jmhl_pro,
+	// 		jun, mutuprogrammer, low, senior,
+	// 		 konfirmasi_user, testing, spesifikasi, tanggal, hasil, durasi)
 	// 		values ('$nama_proyek', '$dana', '$jenis', '$daterange', '$institusi', '$frekuensi',
 	// 		 '$teknologi',
 	// 		 '$jmlh',
@@ -108,6 +119,6 @@ class Admin_m extends CI_Model
 			return $this->db->get('temp_trx')->result();
 			var_dump($this->db->get()->result());
 	}
-	
+
 }
 ?>

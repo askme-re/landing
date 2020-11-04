@@ -17,22 +17,34 @@ class Pertanyaan extends CI_Controller {
     $this->load->view('footer_admin');
    }
 
+   public function detailQuestion($id)
+   {
+     // $query = $this->admin_m->jns_wabah();
+     $where = array('jenis' => $id, 'opsi_bobot' => "Iya");
+     $data['dataQuestion'] = $this->admin_m->detailQues($where,'pertanyaan')->result();
+    $this->load->view('header_admin');
+    $this->load->view('navigasi');
+    $this->load->view('admin/pertanyaan_detail',$data);
+    $this->load->view('footer_admin');
+   }
+
    public function get_pertanyaan()
    {
       $draw = intval($this->input->get("draw"));
       $start = intval($this->input->get("start"));
       $length = intval($this->input->get("length"));
 
-      $query = $this->admin_m->forms();
+      // $query = $this->admin_m->forms();
+      $query = $this->admin_m->jns_wabah();
       $data = [];
       foreach($query->result() as $r) {
-        
+
            $data[] = array(
-                // $r->id,
-                $r->pertanyaan,
-                $r->penyakit,
-                $r->opsi_bobot,
-                $r->bobot
+                $r->id,
+                // "<a href='skrining/detailTrx/$r->id'>".$r->wabah."</a>",
+                $r->wabah,
+                $r->ket,
+                "<a class='btn btn-primary' href='pertanyaan/detailQuestion/$r->id'> Detail </a>"
 
            );
       }

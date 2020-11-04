@@ -3,11 +3,11 @@
       <div class="logo">
         <a href="<?php echo base_url('Login');?>" class="simple-text logo-mini">
           <div class="logo-image-small">
-            <img src="<?php echo base_url();?>assets/img/ASK_ME.jpg">
+            <img src="<?php echo base_url();?>assets/img/favicon.png">
           </div>
         </a>
         <a href="<?php echo base_url('Login');?>" class="simple-text logo-normal" style="font-size:24px;text-decoration:none;color:rgb(5,91,175);padding:30 0 30 0;">
-          Admin-ASK
+          Admin ASK_ME
         </a>
       </div>
       <div class="sidebar-wrapper">
