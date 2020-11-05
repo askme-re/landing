@@ -5,7 +5,7 @@
         <div class="mb-8"> -->
           <div class="panel" >
             <div class="panel-header text-center" style="padding-top:40px;">
-              <h4 class="panel-title">Input Data Peserta</h4>
+              <h4 class="panel-title">Pengisian Data Diri</h4>
             </div>
             <div class="panel-body">
               <form method="POST" action="<?php echo base_url().'welcome/biodata_save'?>">

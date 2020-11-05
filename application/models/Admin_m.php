@@ -36,11 +36,11 @@ class Admin_m extends CI_Model
 
 	public function detail($where,$table)
 	{
+		$this->db->join('trx_skrining', 'timestamp(trx_skrining.created_at)=timestamp(hasil_skringin.tgl)','right');
 		return $this->db->get_where($table,$where);
 	}
 	public function detailQues($where,$table)
 	{
-		// $this->db->join('bobot', 'bobot.id_pertanyaan = form.id');
 		return $this->db->get_where($table,$where);
 	}
 	public function detail_userskrin($re,$table)

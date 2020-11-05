@@ -6,10 +6,15 @@
         <h3>
           Detail Skrining :
           <?php
-            // var_dump($id);
           foreach ($dataJawaban as $orang) {
+          $kode = $orang->kode_skrining;
           $name = $orang->nama;
           $telp = $orang->telp;
+          $hasil = $orang->hasil;
+          $tp_lhir = $orang->pob;
+          $tgl_lhir = $orang->dob;
+          $umur = $orang->usia;
+          $status = $orang->status;
           $riwayat = $orang->riw_penyakit;
           $tujuan = $orang->tujuan_rs;
           $prov = $orang->nama_prop;
@@ -17,16 +22,42 @@
           $date = $orang->tgl;
 
           }
-          echo $name;
+          echo $kode;
+
+          if ($hasil >=4) {
+            $kesimpulan = "BERISIKO SEDANG/TINGGI";
+          }elseif ($hasil >= 1) {
+            $kesimpulan = "BERISIKO RENDAH";
+          }elseif ($hasil == "0") {
+            $kesimpulan = "SEHAT";
+          }
           ?>
         </h3>
+        <button type="button" name="button" class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url().'skrining' ?>'"> Kembali </button>
+        <button type="button" name="button" class="btn btn-warning btn-lg" onclick="window.print()"> Cetak</button>
         </div>
       <div class="card-body">
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group col-sm-12">
+              <label for="" class="col-sm-3">Nama </label>
+              <input type="text" name="" value="<?php echo $name ?>" readonly>
+            </div>
+            <div class="form-group col-sm-12">
               <label for="" class="col-sm-3">No Telp</label>
               <input type="text" name="" value="<?php echo $telp ?>" readonly>
+            </div>
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-3">TTL</label>
+              <input type="text" name="" value="<?php echo $tp_lhir .', '. $tgl_lhir ?>" readonly>
+            </div>
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-3">Usia</label>
+              <input type="text" name="" value="<?php echo $umur?> Tahun " readonly>
+            </div>
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-3">Status Kunjungan</label>
+              <input type="text" name="" value="<?php echo $status?>" readonly>
             </div>
             <div class="form-group col-sm-12">
               <label for="" class="col-sm-3">Riwayat penyakit</label>
@@ -45,17 +76,16 @@
               <input type="text" name="" value="<?php echo $kec ?>" readonly>
             </div>
             <div class="form-group col-sm-12">
-              <label for="" class="col-sm-3">Tanggal Terdata</label>
-              <input type="text" name="" value="<?php echo $date ?>" readonly>
-
+              <label for="" class="col-sm-3">Hasil Skrining</label>
+              <input type="text" class="col-sm-6" value="<?php echo $kesimpulan ?>" readonly>
             </div>
             <div class="form-group col-sm-10">
               <h4>Detail Jawaban</h4>
               <?php
-
+              $i=1;
               foreach ($dataJawaban as $j) {
 
-                echo '<p>'.$j->pertanyaan.'? </p>';
+                echo '<p>'.$i++.') '.$j->pertanyaan.'? </p>';
                 // echo ''.$j->bobot;
                 if ($j->bobot > 0) {
                   echo " <p> Jawab : Ya </p>";
@@ -68,7 +98,7 @@
 
             </div>
           </div>
-          <a class="btn btn-default"href="<?php echo base_url().'pertanyaan' ?>">Kembali</a>
+          <button type="button" name="button" class="btn btn-default btn-lg" onclick="window.location.href='<?php echo base_url().'skrining' ?>'"> Kembali </button>
         </div>
       </div>
 

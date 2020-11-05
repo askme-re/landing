@@ -421,11 +421,11 @@ function screening($id_user)
             $pdf->Cell(40,7,"Kode :".$row->kode_skrining);
         }
 
-        // $pdf->Output("D","skrining.pdf");
 				$pdf->Cell(10,10,'',0,1);
 				$pdf->SetFont('Arial','I',10);
 				$pdf->Cell(190,7,"\n Harap Simpan baik baik kode yang ada di hasil ini ya.",0,1,'l');
-        $pdf->Output();
+        // $pdf->Output();
+				$pdf->Output("skrining.pdf");
     }
 
 }
