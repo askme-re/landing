@@ -425,7 +425,7 @@ function screening($id_user)
 				$pdf->SetFont('Arial','I',10);
 				$pdf->Cell(190,7,"\n Harap Simpan baik baik kode yang ada di hasil ini ya.",0,1,'l');
         // $pdf->Output();
-				$pdf->Output("skrining.pdf");
+				$pdf->Output("D","skrining.pdf");
     }
 
 }
