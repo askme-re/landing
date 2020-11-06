@@ -84,9 +84,7 @@
               <?php
               $i=1;
               foreach ($dataJawabans as $j) {
-
                 echo '<p>'.$i++.') '.$j->pertanyaan.'? </p>';
-                // echo ''.$j->bobot;
                 if ($j->bobot > 0) {
                   echo " <p> Jawab : Ya </p>";
                 }elseif ($j->bobot == 0) {

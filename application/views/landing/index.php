@@ -202,12 +202,6 @@
               <a href="#">cinta@mail.com</a>
             </p>
           </div>
-        <!--   <div class="col-md-5 footer-social">
-            <h4 class="footer-heading ">Ingin terhubung lebih mudah di sosial media?</h4>
-            <a href="#" class="pl-0 pr-5"><span class="icon-facebook"></span></a>
-            <a href="#" class="pl-5 pr-5"><span class="icon-twitter"></span></a>
-            <a href="#" class="pl-5 pr-5"><span class="icon-linkedin"></span></a>
-          </div> -->
       </div>
     </div>
 
@@ -329,7 +323,6 @@
                 </div>
               </div>
 
-
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -364,29 +357,5 @@
 			return false;
 		}
 
-		if(vPhone == '' || vPhone == 0 || vPhone == ' ') {
-			alert('Nomor Telpon harus diisi');
-			$('#phone').focus();
-			return false;
-		}
-
-		if(vPhone.length < 11 || vPhone.length > 13) {
-			alert('Nomor Telpon minimal 11 dan maksimal 13 digit');
-			$('#phone').focus();
-			return false;
-		}
-
-		if(vStatus == '') {
-			alert('Status harus dipilih');
-			$('#dd_status').focus();
-			return false;
-		}
-
-		if(vTujuan == '') {
-			alert('Tujuan harus dipilih');
-			$('#dd_tujuan').focus();
-			return false;
-		}
   });
-</script>
- -->
+</script>-->

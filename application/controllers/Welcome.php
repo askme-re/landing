@@ -166,30 +166,8 @@ function screening($id_user)
 
   public function test()
   {
-
-		// $kodeBarang = "xx";
-		$kodeTrx = $this->landing_model->get_last();
-		$urutan = (int) substr($kodeTrx->kodeTerbesar, 3, 5);
-
-		$urutan++;
-
-		$id_tr = sprintf("ME%s%03d", "20", $urutan);
-		// echo $kodeBarang;
-		// echo sprintf("%'.05d\n", $num);
-		// $id=2;
-		// // $i=1;
-		// if (!empty($id)) {
-		// 	// code...
-		// 	for ($i=0; $i >0 ; $i++) {
-		// 		// code...
-				echo $id_tr;
-		// 	}
-		// }
-
   	// $head['title'] = 'Biodata';
-		//
 		// $data['prov'] = $this->landing_model->get_provinsi();
-		//
 		// $this->load->view('layout/landing/header', $head);
 		// $this->load->view('layout/landing/nav_header_logo');
 		// $this->load->view('landing/biodata', $data);
@@ -271,7 +249,6 @@ function screening($id_user)
 			redirect('welcome/hasil_screening/'.$id);
 		}
 
-
 	}
 
 	function hasil_screening($id){
@@ -313,12 +290,12 @@ function screening($id_user)
 
 			if(!is_null($v->bobot)){
 				$result .= '
-                          <div class="radio">
+            <div class="radio">
 							  <label>
 								<input type="radio" name="rb_'.$v->id.'" value="'.$v->id_bobot.'#'.$v->bobot.'" required>
 								'.$v->opsi_bobot.'
 							  </label>
-                          </div>';
+            </div>';
 			}
 
 		}
@@ -388,32 +365,30 @@ function screening($id_user)
 	function inde($id){
 	   //   $this->load->library('pdf');
 	 	$image="favicon.png";
-        $pdf = new FPDF('l','mm','A5');
-				$pdf->SetCompression(true);
-        // membuat halaman baru
-        $pdf->AddPage();
-        // setting jenis font yang akan digunakan
-        $pdf->SetFont('Arial','B',16);
-        // mencetak string
-				$pdf->Image('./assets/img/logo_download.png',15,8,15,15);
-        $pdf->Cell(140,10,' Kartu Hasil ASK_ME RS dr. Suyoto ',0,5,'C');
-        $pdf->SetFont('Arial','B',12);
-        // Memberikan space kebawah agar tidak terlalu rapat
-        $pdf->Cell(10,10,'',0,1);
-        $pdf->SetFont('Arial','B',10);
-        $pdf->SetFont('Arial','',10);
-        $hasil = $this->db->query("select * from data_hasil_skrining where id_user='$id' order by tgl_skrining desc limit 1 ")->result();
-        foreach ($hasil as $row){
-        	$pdf->SetFont('Arial','B',12);
-        	$pdf->Cell(190,7,"Nama Peserta : ".$row->nama,0,1,'l');
-        $pdf->SetFont('Arial','',10);
-            $pdf->Cell(190,7,"Detail:",0,1,'l');
-        	$pdf->Cell(190,7,"- Jenis Skrining : ".$row->wabah,0,1,'l');
-        	$pdf->Cell(190,7,"- Tanggal Skrining: ".$row->tgl_skrining,0,1,'l');
-            // $pdf->Cell(55,6,"Tanggal Screening ".$row->created_at,0,1);
-						$pdf->Cell(55,6,"- Status Kunjungan: ".$row->jenis_user,0,1);
-						$pdf->Cell(55,6,"- Usia : ".$row->usia.' Tahun ',0,1);
-        	$hasil = $row->hasil;
+    $pdf = new FPDF('l','mm','A5');
+		$pdf->SetCompression(true);
+    // membuat halaman baru
+    $pdf->AddPage();
+    $pdf->SetFont('Arial','B',16);
+    // mencetak string
+		$pdf->Image('./assets/img/logo_download.png',15,8,15,15);
+    $pdf->Cell(140,10,' Kartu Hasil ASK_ME RS dr. Suyoto ',0,5,'C');
+    $pdf->SetFont('Arial','B',12);
+    // Memberikan space kebawah agar tidak terlalu rapat
+    $pdf->Cell(10,10,'',0,1);
+    $pdf->SetFont('Arial','B',10);
+    $pdf->SetFont('Arial','',10);
+    $hasil = $this->db->query("select * from data_hasil_skrining where id_user='$id' order by tgl_skrining desc limit 1 ")->result();
+		foreach ($hasil as $row){
+		$pdf->SetFont('Arial','B',12);
+		$pdf->Cell(190,7,"Nama Peserta : ".$row->nama,0,1,'l');
+		$pdf->SetFont('Arial','',10);
+		$pdf->Cell(190,7,"Detail:",0,1,'l');
+		$pdf->Cell(190,7,"- Jenis Skrining : ".$row->wabah,0,1,'l');
+		$pdf->Cell(190,7,"- Tanggal Skrining: ".$row->tgl_skrining,0,1,'l');
+		$pdf->Cell(55,6,"- Status Kunjungan: ".$row->jenis_user,0,1);
+		$pdf->Cell(55,6,"- Usia : ".$row->usia.' Tahun ',0,1);
+		$hasil = $row->hasil;
             if ($hasil >=4) {
               $kesimpulan = "Anda dalam keadaan BERISIKO SEDANG/TINGGI";
 							$ket =" Jika Anda berobat ke RS dr Suyoto: SEGERA hubungi Petugas Kesehatan di RS dr Suyoto, agar segera dilakukan pemeriksaan skrining lanjutan; tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)";

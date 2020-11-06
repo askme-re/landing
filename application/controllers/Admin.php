@@ -25,9 +25,9 @@ class Admin extends CI_Controller {
 	public function detailquiz($id)
 	{
 		$where = array('id' => $id);
-		
+
 		$data['datapertanyaan'] = $this->admin_m->detail_quiz($where,'form')->result();
-		
+
 		$this->load->view('header_admin');
 		$this->load->view('navigasi');
 		$this->load->view('admin/quiz_detail',$data);
@@ -37,9 +37,9 @@ class Admin extends CI_Controller {
 	public function detailpertanyaan($id)
 	{
 		$where = array('id' => $id);
-		
+
 		$data['datapertanyaan'] = $this->admin_m->detail($where,'form')->result();
-		
+
 		$this->load->view('header_admin');
 		$this->load->view('navigasi');
 		$this->load->view('admin/pertanyaan_detail',$data);
@@ -71,50 +71,16 @@ class Admin extends CI_Controller {
 		$this->load->view('footer_admin');
 	}
 
-	function isiscreening()
-	{
-		// $nama_proyek = $this->input->post('nama_proyek');
-		// $nilai_proyek =$this->input->post('nilai_proyek');
-		// $kualitas =$this->input->post('kualitas');
-		// $kualitas =$this->input->post('kualitas');
-		// $komunikasi =$this->input->post('komunikasi');
-		// $komunikasi =$this->input->post('komunikasi');
-		// $kode =$this->generateRandomString();
-		$this->admin_m->insert_form($nama_proyek, $nilai_proyek, $kualitas, $komunikasi, $respon, $waktu_proyek, $jenis_proyek);
-		$this->session->set_flashdata('msg', "<div class='alert alert-success' role='alert'>
-		<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button> <strong>Success!</strong> Berhasil simpan. </div>");
-		
-		redirect('calc');
-	}
 	function detailSkrining($id)
 	{
 		$where = array('id' => $id);
-		
+
 		$data['datascreening'] = $this->admin_m->detail_skrining($where,'temp_trx')->result();
-		
+
 		$this->load->view('header_admin');
 		$this->load->view('navigasi');
 		$this->load->view('admin/skrining_detail',$data);
 		$this->load->view('footer_admin');
 	}
 
-	function generateRandomString($length = 5) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
-    }
-    echo "$randomString";
-
-	}
-
-	public function hasil()
-	{
-		$data['pengguna'] = $this->Admin_m->users();
-		$this->load->view('header_admin');
-		$this->load->view('navigasi');
-		$this->load->view('admin/pengguna',$data);
-		$this->load->view('footer_admin');
-	}
 }

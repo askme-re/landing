@@ -10,11 +10,10 @@
             <div class="panel-body">
               <form method="POST" action="<?php echo base_url().'welcome/biodata_save'?>">
 				<!-- <input type="text" name="id" style="display:none" value="<?php echo $user->id; ?>"/> -->
-
                 <div class="form-row col-12">
                   <div class="form-group col-sm-12">
                     <label >Nama Lengkap </label>
-                    <input name="nama" id="nama" type="text" minlength="2" class="form-control" placeholder="Contoh: Andrew Setiawan" required/>
+                    <input name="nama" id="nama" type="text" minlength="2" class="form-control" placeholder="Contoh: Andrew Setiawan" required autofocus/>
                   </div>
                   <div class="form-group col-sm-6">
                     <label>Tempat Lahir </label>
@@ -198,7 +197,6 @@
   <!-- </div> -->
 </div>
 
-
 <script src="<?php echo base_url()?>assets/theme/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -257,11 +255,7 @@ $(document).ready(function() {
 			 $('#kel').focus();
 			 return false;
 		 }
-		 // console.log(vNama + vProv);
-		// return false;
-
   });
-
 
   // Dropdown Ajax
 	$('#prov').change(function() {
@@ -299,7 +293,6 @@ $(document).ready(function() {
 		 });
   });
 
-
 	$('#kab').change(function() {
 		var selGroup = $(this).val();
 		 console.log(selGroup);
@@ -334,7 +327,6 @@ $(document).ready(function() {
 			 }
 		 });
   });
-
 
 	$('#kec').change(function() {
 		var selGroup = $(this).val();

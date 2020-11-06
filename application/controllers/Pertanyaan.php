@@ -20,12 +20,12 @@ class Pertanyaan extends CI_Controller {
    public function detailQuestion($id)
    {
      // $query = $this->admin_m->jns_wabah();
-     $where = array('jenis' => $id, 'opsi_bobot' => "Iya");
-     $data['dataQuestion'] = $this->admin_m->detailQues($where,'pertanyaan')->result();
-    $this->load->view('header_admin');
-    $this->load->view('navigasi');
-    $this->load->view('admin/pertanyaan_detail',$data);
-    $this->load->view('footer_admin');
+      $where = array('jenis' => $id, 'opsi_bobot' => "Iya");
+      $data['dataQuestion'] = $this->admin_m->detailQues($where,'pertanyaan')->result();
+      $this->load->view('header_admin');
+      $this->load->view('navigasi');
+      $this->load->view('admin/pertanyaan_detail',$data);
+      $this->load->view('footer_admin');
    }
 
    public function get_pertanyaan()
@@ -41,10 +41,9 @@ class Pertanyaan extends CI_Controller {
 
            $data[] = array(
                 $r->id,
-                // "<a href='skrining/detailTrx/$r->id'>".$r->wabah."</a>",
                 $r->wabah,
                 $r->ket,
-                "<a class='btn btn-primary' href='pertanyaan/detailQuestion/$r->id'> Detail </a>"
+                "<a class='btn btn-info btn-lg' href='pertanyaan/detailQuestion/$r->id'> Detail </a>"
 
            );
       }

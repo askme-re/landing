@@ -5,7 +5,7 @@
   <div class="card">
       <div class="card-header">
         <div class="card-title">
-          Daftar Jenis Penyakit Menular
+          <h2>Daftar Jenis Penyakit Menular</h2>
         </div>
       </div>
       <div class="card-body">
