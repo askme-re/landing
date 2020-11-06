@@ -12,6 +12,10 @@ class Admin_m extends CI_Model
 		$this->db->select('*');
 		$this->db->from('user');
 		$this->db->where('role','<>','1');
+		$this->db->join('ms_provinsi mp','mp.id_prop=user.id_prov','left');
+		$this->db->join('ms_kabupaten mkab','mkab.id_kab=user.id_kab','left');
+		$this->db->join('ms_kecamatan mkec','mkec.id_kec=user.id_kec','left');
+		$this->db->join('ms_desa mdesa','mdesa.id_desa=user.id_kel','left');
 		$this->db->order_by('nama','asc');
 
 		return $this->db->get();
@@ -36,7 +40,7 @@ class Admin_m extends CI_Model
 
 	public function detail($where,$table)
 	{
-		$this->db->join('trx_skrining', 'timestamp(trx_skrining.created_at)=timestamp(hasil_skringin.tgl)','right');
+		$this->db->join('trx_skrining ts', 'ts.id_trxs = hasil_skringin.id_trx','left');
 		return $this->db->get_where($table,$where);
 	}
 	public function detailQues($where,$table)
@@ -65,10 +69,20 @@ class Admin_m extends CI_Model
 		return null;
 	}
 
-	public function update_quiz($pertanyaan,$pilihan1,$pilihan2,$id){
-		$hasil = $this->db->query("UPDATE `form` SET `pilihan` = '$pilihan1', `pilihan2` = '$pilihan2', `pertanyaan` = '$pertanyaan' WHERE `form`.`id` = $id");
-		return $hasil;
+	public function dataSkrining($id){
+		$this->db->select('kode_skrining, u.id, hasil, nama,tp_lahir, tgl_lahir, usia, telp, jenis_user,id_trx, id_trxs, tujuan_rs,riw_penyakit,alamat, tgl, q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13');
+		$this->db->from('detailjwb');
+		$this->db->join('user u', 'detailjwb.id_user = u.id','left');
+		$this->db->join('trx_skrining ts', 'ts.id_trxs = detailjwb.id_trx','left');
+		if (!empty($id)) {
+			$this->db->where('kode_skrining',$id);
+			return $this->db->get();
+		}
+		return $this->db->get();
+
 	}
+
+
 	public function detail_skrining($where,$table)
 	{
 		return $this->db->get_where($table,$where);
@@ -108,13 +122,6 @@ class Admin_m extends CI_Model
 		return $this->db->get();
 	}
 
-	public function sets(){
-		$this->db->select('*');
-		$this->db->from('tsetting');
-		$this->db->order_by('id','ASC');
-
-		return $this->db->get();
-	}
 	public function get_all(){
 			return $this->db->get('temp_trx')->result();
 			var_dump($this->db->get()->result());

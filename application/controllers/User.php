@@ -25,13 +25,21 @@ class User extends CI_Controller {
 
       $query = $this->admin_m->users();
       $data = [];
+      $i=1;
       foreach($query->result() as $r) {
            $data[] = array(
-                $r->id,
-                $r->nama,
+                $i++,
+                '<p style="text-transform: capitalize">'.$r->nama.'</p>',
+                $r->telp.' - '.$r->email,
                 $r->jenis_user,
-                $r->telp,
-                $r->riw_penyakit
+                $r->riw_penyakit,
+                $r->tujuan_rs,
+                $r->tp_lahir.'<br>'.$r->tgl_lahir,
+                $r->alamat,
+                $r->nama_desa,
+                $r->nama_kec,
+                $r->nama_kab,
+                $r->nama_prop
 
            );
       }

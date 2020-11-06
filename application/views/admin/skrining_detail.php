@@ -11,14 +11,14 @@
           $name = $orang->nama;
           $telp = $orang->telp;
           $hasil = $orang->hasil;
-          $tp_lhir = $orang->pob;
-          $tgl_lhir = $orang->dob;
+          $tp_lhir = $orang->tp_lahir;
+          $tgl_lhir = $orang->tgl_lahir;
           $umur = $orang->usia;
-          $status = $orang->status;
+          $status = $orang->jenis_user;
           $riwayat = $orang->riw_penyakit;
           $tujuan = $orang->tujuan_rs;
-          $prov = $orang->nama_prop;
-          $kec = $orang->nama_kec;
+          $alamat = $orang->alamat;
+          // $kec = $orang->nama_kec;
           $date = $orang->tgl;
 
           }
@@ -68,13 +68,13 @@
               <input type="text" class="col-sm-6" name="" value="<?php echo $tujuan ?>" readonly>
             </div>
             <div class="form-group col-sm-12">
-              <label for="" class="col-sm-3">Provinsi Asal</label>
-              <input type="text" name="" value="<?php echo $prov ?>" readonly>
+              <label for="" class="col-sm-3">Alamat</label>
+              <input type="text" name="" value="<?php echo $alamat ?>" readonly>
             </div>
-            <div class="form-group col-sm-12">
+            <!-- <div class="form-group col-sm-12">
               <label for="" class="col-sm-3">Kecamatan Asal</label>
-              <input type="text" name="" value="<?php echo $kec ?>" readonly>
-            </div>
+              <input type="text" name="" value="<?php echo $kec ?>" readonly> -->
+            <!-- </div> -->
             <div class="form-group col-sm-12">
               <label for="" class="col-sm-3">Hasil Skrining</label>
               <input type="text" class="col-sm-6" value="<?php echo $kesimpulan ?>" readonly>
@@ -83,7 +83,7 @@
               <h4>Detail Jawaban</h4>
               <?php
               $i=1;
-              foreach ($dataJawaban as $j) {
+              foreach ($dataJawabans as $j) {
 
                 echo '<p>'.$i++.') '.$j->pertanyaan.'? </p>';
                 // echo ''.$j->bobot;

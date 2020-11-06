@@ -7,21 +7,28 @@
       <?php endif; ?>
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Daftar Pengguna</h4>
+          <h4 class="card-title">Daftar Peserta Skrining Mandiri</h4>
         </div>
       <div class="card-body">
-        
+
         <div class="table-responsive">
-          <table class="table" id="tabelPengguna">
-            <thead class=" text-primary">
-              <th> No </th>
-              <th> Nama </th>
-              <th> Jenis Pengguna </th>
-              <th> Telp/HP </th>
-              <th> Riwayat Penyakit</th>
+          <table class="table table-striped table-bordered" style="width:100%;font-size:13px;" id="tabelPengguna">
+            <thead class=" text-primary" align="center">
+              <th style="font-size:12px;max-width:10px;"> No </th>
+              <th style="font-size:12px;min-width:150px;"> Nama </th>
+              <th  style="font-size:12px;"> Telp/HP - Email </th>
+              <th  style="font-size:12px;"> Jenis Pengguna </th>
+              <th  style="font-size:12px;"> Riwayat Penyakit</th>
+              <th  style="font-size:12px;"> Tujuan Ke</th>
+              <th style="font-size:12px; min-width:100px"> TT Lahir <br> (Y-M-D)</th>
+              <th  style="font-size:12px;min-width:200px"> Alamat Domisili</th>
+              <th style="font-size:12px;"> Kelurahan</th>
+              <th style="font-size:12px;"> Kecamatan</th>
+              <th style="font-size:12px;"> Kab/Kota</th>
+              <th style="font-size:12px;"> Provinsi</th>
             </thead>
             <tbody>
-             
+
             </tbody>
           </table>
         </div>
@@ -31,7 +38,7 @@
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
 <!-- <script type="text/javascript" src="http://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script> -->
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>

@@ -22,22 +22,40 @@ class Skrining extends CI_Controller {
       $draw = intval($this->input->get("draw"));
       $start = intval($this->input->get("start"));
       $length = intval($this->input->get("length"));
-
-      $query = $this->admin_m->result_skrining();
+      $id='';
+      $query = $this->admin_m->dataSkrining($id);
+      // $query = $this->admin_m->result_skrining();
+      $i=1;
       $data = [];
       foreach($query->result() as $r) {
            $data[] = array(
-                $r->id,
-                $r->tgl_skrining,
+                $i++,
+                $r->tgl,
                 "<a href='skrining/detailTrx/$r->kode_skrining'>".$r->kode_skrining."</a>",
                 $r->nama,
-              // "<a href='skrining/detailTrx/$r->id'>".$r->nama."</a>",
+              // "<a href='skrining/detailTrx/$r->id'>".
+              #$r->riw_penyakit,
+              // ."</a>",
                 $r->telp,
                 $r->hasil,
-                $r->wabah,
-                $r->usia,
+                $r->tgl_lahir,
+                $r->usia.' Tahun',
                 $r->jenis_user,
-                $r->tujuan_rs
+                $r->riw_penyakit,
+                $r->tujuan_rs,
+                $r->q1,
+                $r->q2,
+                $r->q3,
+                $r->q4,
+                $r->q5,
+                $r->q6,
+                $r->q7,
+                $r->q8,
+                $r->q9,
+                $r->q10,
+                $r->q11,
+                $r->q12,
+                $r->q13
 
            );
       }
@@ -53,8 +71,9 @@ class Skrining extends CI_Controller {
    }
 
    function detailTrx($id){
-      $where = array('trx_skrining.kode_skrining' => $id);
-      $data['dataJawaban'] = $this->admin_m->detail($where,'hasil_skringin')->result();
+      $data['dataJawaban'] = $this->admin_m->dataSkrining($id)->result();
+      $where = array('kode_skrining' => $id);
+      $data['dataJawabans'] = $this->admin_m->detail($where,'hasil_skringin')->result();
    		$this->load->view('header_admin');
    		// $this->load->view('navigasi');
    		$this->load->view('admin/skrining_detail',$data);
@@ -102,7 +121,7 @@ class Skrining extends CI_Controller {
                   $r->nama,
                   $r->jenis_user,
                   $r->telp,
-                  $r->wabah,
+                  $r->tgl_lahir,
                   $r->tujuan_rs,
                   $r->kode_skrining,
                   $r->usia

@@ -1,7 +1,7 @@
 <div class="site-section pt-8" id="features-section">
   <div class="container">
-    <!-- <div class="row justify-content-center "> -->
-<!--      <div class="col-lg-10">
+    <!-- <div class="row justify-content-center ">
+      <div class="col-lg-10">
         <div class="mb-8"> -->
           <div class="panel" >
             <div class="panel-header text-center" style="padding-top:40px;">
@@ -9,7 +9,6 @@
             </div>
             <div class="panel-body">
               <form method="POST" action="<?php echo base_url().'welcome/biodata_save'?>">
-
 				<!-- <input type="text" name="id" style="display:none" value="<?php echo $user->id; ?>"/> -->
 
                 <div class="form-row col-12">
@@ -23,7 +22,7 @@
                   </div>
                   <div class="form-group col-sm-6">
                     <label>Tanggal Lahir </label>
-                    <select name="tgl" id="tgl" class="form-control">
+                    <select name="tgl" id="tgl" class="form-control" required>
                       <option value="" selected="selected" disabled> Pilih Tanggal </option>
                       <?php for ($i=1; $i < 32; $i++) { ?>
                         <option value="<?php echo $i ?>">
@@ -34,8 +33,8 @@
                   </div>
                   <div class="form-group col-sm-6">
                     <label>Bulan Lahir </label>
-                    <select name="bulan" id="bulan" class="form-control">
-                      <option selected="selected" disabled> Pilih Bulan </option>
+                    <select name="bulan" id="bulan" class="form-control" required>
+                      <option value="" selected="selected" disabled> Pilih Bulan </option>
                       <?php for ($i=1; $i < 13; $i++) { ?>
                         <option value="<?php echo $i ?>">
                           <?php echo $i ?>
@@ -47,8 +46,8 @@
                     <label>Tahun Lahir </label>
                     <?php $thn = date("Y");
                     $min = $thn-100;?>
-                    <select name="tahun" id="tahun" class="form-control">
-                      <option selected="selected" disabled> Pilih Tahun </option>
+                    <select name="tahun" id="tahun" class="form-control" required>
+                      <option selected="selected" value="" disabled> Pilih Tahun </option>
                       <?php for ($i=$min; $i <= $thn; $i=$i+1) { ?>
                         <option value="<?php echo $i ?>">
                           <?php echo $i ?>
@@ -66,8 +65,8 @@
                   </div>
                   <div class="form-group col-sm-6">
                     <label>Provinsi </label>
-                    <select name="prov" id="prov" class="form-control">
-                        <option value="0"> Piih Provinsi </option>;
+                    <select name="prov" id="prov" class="form-control" required>
+                        <option value="" selected="selected"> Piih Provinsi </option>;
                       <?php
                         foreach($prov as $v){
                           echo '<option value="'.$v->k.'">'.$v->v.'</option>';
@@ -77,29 +76,29 @@
                   </div>
                   <div class="form-group col-sm-6">
                     <label>Kabupaten/Kota </label>
-                    <select name="kab" id="kab" class="form-control">
-                      <option value="0"> Piih Kabupaten/Kota </option>
+                    <select name="kab" id="kab" class="form-control" required>
+                      <option value="" selected="selected"> Piih Kabupaten/Kota </option>
                     </select>
                   </div>
                   <div class="form-group col-sm-6">
                     <label>Kecamatan </label>
-                    <select name="kec" id="kec" class="form-control">
-                      <option value="0"> Piih Kecamatan </option>
+                    <select name="kec" id="kec" class="form-control" required>
+                      <option value="" selected="selected"> Piih Kecamatan </option>
                     </select>
                   </div>
                   <div class="form-group col-sm-6">
                     <label>Desa/Kelurahan </label>
-                    <select name="kel" id="kel" class="form-control">
-                      <option value="0"> Piih Desa/Kelurahan </option>
+                    <select name="kel" id="kel" class="form-control" required>
+                      <option value="" selected="selected"> Piih Desa/Kelurahan </option>
                     </select>
                   </div>
-                  <div class="form-group col-sm-12">
-                    <label>Email <small>(Opsional)</small></label>
+                  <div class="form-group col-sm-6">
+                    <label>Email <small>(Tidak wajib)</small></label>
                     <input name="email" id="email" type="email" class="form-control" placeholder="Contoh: andrew@mail.com">
                   </div>
-                  <div class="form-group col-sm-12">
+                  <div class="form-group col-sm-6">
                     <label>No Handphone </label>
-                    <input name="telp" id="telp" type="tel" maxlength="13" class="form-control" placeholder="Contoh: 0832932932399">
+                    <input name="telp" id="telp" type="tel" maxlength="13" minlength="9" class="form-control" placeholder="Contoh: 0832932932399" required>
                   </div>
 
                   <!-- data tambahan -->
@@ -114,7 +113,7 @@
           				</div>
           				<div class="form-group col-sm-6">
           				<label class="col-form-label">Tujuan Kunjungan:</label>
-          				<select class="form-control" id="dd_tujuan" name="dd_tujuan">
+          				<select class="form-control" id="dd_tujuan" name="dd_tujuan" required>
           					<option value="" selected="selected" disabled >Pilih Salah Satu</option>
           					<option value="Rawat Jalan (Poliklinik)">Rawat Jalan (Poliklinik)</option>
           					<option value="Rawat Inap">Rawat Inap</option>
@@ -132,47 +131,47 @@
 				</div>
 				<div class="form-group col-sm-6">
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_1" name="cb_tujuan[]" value="Kencing Manis (diabetes)">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_1" name="cb_tujuan[]" value="Kencing Manis (diabetes)" >
 						<label class="custom-control-label" for="cb_tujuan_1">Kencing Manis (diabetes)</label>
 					</div>
 				</div>
 				<div class="form-group col-sm-6">
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_2" name="cb_tujuan[]" value="Tekanan Darah Tinggi (Hipertensi)">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_2" name="cb_tujuan[]" value="Tekanan Darah Tinggi (Hipertensi)" >
 						<label class="custom-control-label" for="cb_tujuan_2">Tekanan Darah Tinggi (Hipertensi)</label>
 					</div>
 				</div>
 
 				<div class="form-group col-sm-6">
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_3" name="cb_tujuan[]" value="Penyakit Kanker">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_3" name="cb_tujuan[]" value="Penyakit Kanker" >
 						<label class="custom-control-label" for="cb_tujuan_3">Penyakit Kanker</label>
 					</div>
 				</div>
 
 				<div class="form-group col-sm-6">
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_4" name="cb_tujuan[]" value="Penyakit Ginjal">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_4" name="cb_tujuan[]" value="Penyakit Ginjal" >
 						<label class="custom-control-label" for="cb_tujuan_4">Penyakit Ginjal</label>
 					</div>
 				</div>
 
 				<div class="form-group col-sm-6">
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_5" name="cb_tujuan[]" value="Penyakit Lupus">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_5" name="cb_tujuan[]" value="Penyakit Lupus" >
 						<label class="custom-control-label" for="cb_tujuan_5">Penyakit Lupus</label>
 					</div>
 				</div>
 
 				<div class="form-group col-sm-6">
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_6" name="cb_tujuan[]" value="Penyakit Saraf ">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_6" name="cb_tujuan[]" value="Penyakit Saraf " >
 						<label class="custom-control-label" for="cb_tujuan_6">Penyakit Saraf </label>
 					</div>
 				</div>
               <div class="form-group col-sm-6">
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_7" name="cb_tujuan[]" value="Tidak ada ">
+						<input type="checkbox" class="custom-control-input" id="cb_tujuan_7" name="cb_tujuan[]" value="Tidak ada " autofocus>
 						<label class="custom-control-label" for="cb_tujuan_7">Tidak Ada </label>
 					</div>
 				</div>
@@ -212,7 +211,6 @@ $(document).ready(function() {
 			data: {jenis: vJenis},
 			dataType: 'json',
 			success: function(res){
-				// console.log(res);
 				$("#isi").html(res);
 				$("#pertanyaan").css("display","block");
 			}
@@ -235,7 +233,6 @@ $(document).ready(function() {
 		var vKel = $('#kel').val();
 		var vTelp = $('#telp').val();
 		var vEmail = $('#email').val();
-
 
 		 if(vProv == 0){
 			 alert("Provinsi tidak boleh kosong!");
@@ -260,14 +257,7 @@ $(document).ready(function() {
 			 $('#kel').focus();
 			 return false;
 		 }
-
-		 if(vTelp === "" || vTelp === " "){
-			 alert("No. Telepon tidak boleh kosong!");
-			 $('#telp').focus();
-			 return false;
-		 }
-
-		 console.log(vNama + vProv);
+		 // console.log(vNama + vProv);
 		// return false;
 
   });

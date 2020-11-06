@@ -43,9 +43,13 @@ class Landing_model extends CI_Model
 		}
 		return null;
 	}
+	function get_last(){
+		$str = "SELECT max(id_trx) kodeTerbesar FROM screening";
+		$qry = $this->db->query($str);
+		return $qry->row();
+	}
 
-  function get_jenis_skrining($where=NULL)
-  {
+  function get_jenis_skrining($where=NULL){
     if (isset($where) or $where != NULL) {
 				$this->db->where($where);
 		}

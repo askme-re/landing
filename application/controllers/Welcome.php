@@ -7,7 +7,6 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url','form'));
 		$this->load->model('landing_model');
-		// $this->load->model('admin_m');
 		$this->load->library('session');
 	}
 
@@ -23,7 +22,6 @@ class Welcome extends CI_Controller {
 	function user_check()
 	{
 		$phone = $this->input->post('phone');
-		// $setuju = $this->input->post('setuju');
 		$status = $this->input->post('dd_status');
 		$tujuan = $this->input->post('dd_tujuan');
 		$riwayat = $this->input->post('cb_tujuan');
@@ -90,7 +88,6 @@ class Welcome extends CI_Controller {
 		$nama = trim($this->input->post('nama'));
 		$tp_lahir = $this->input->post('tempat_lahir');
 		$tgl_lahir = $tahun.'-'.$bulan.'-'.$tgl;
-		// print_r($tgl_lahir);
 
 		$id_prov = $this->input->post('prov');
 		$id_kab = $this->input->post('kab');
@@ -170,21 +167,37 @@ function screening($id_user)
 
   public function test()
   {
-  	$head['title'] = 'Biodata';
 
-		$data['prov'] = $this->landing_model->get_provinsi();
+		// $kodeBarang = "xx";
+		$kodeTrx = $this->landing_model->get_last();
+		$urutan = (int) substr($kodeTrx->kodeTerbesar, 3, 5);
 
-		$this->load->view('layout/landing/header', $head);
-		$this->load->view('layout/landing/nav_header_logo');
-		$this->load->view('landing/biodata', $data);
-		$this->load->view('layout/landing/footer');
+		$urutan++;
+
+		$id_tr = sprintf("ME%s%03d", "20", $urutan);
+		// echo $kodeBarang;
+		// echo sprintf("%'.05d\n", $num);
+		// $id=2;
+		// // $i=1;
+		// if (!empty($id)) {
+		// 	// code...
+		// 	for ($i=0; $i >0 ; $i++) {
+		// 		// code...
+				echo $id_tr;
+		// 	}
+		// }
+
+  	// $head['title'] = 'Biodata';
+		//
+		// $data['prov'] = $this->landing_model->get_provinsi();
+		//
+		// $this->load->view('layout/landing/header', $head);
+		// $this->load->view('layout/landing/nav_header_logo');
+		// $this->load->view('landing/biodata', $data);
+		// $this->load->view('layout/landing/footer');
 
   // 	$this->load->view('header_admin');
   // 	$this->load->view('landing/nda');
-  // 	$birthdate = new DateTime('2009-02-20');
-		// $today     = new DateTime();
-		// $interval  = $today->diff($birthdate);
-		// echo  $interval->format('%y years');
   }
   public function register()
   {
@@ -194,10 +207,6 @@ function screening($id_user)
   	// $this->load->view('layout/landing/header', $head);
   	// $this->load->view('landing/nda');
    //  $this->load->view('layout/landing/footer');
-  // 	$birthdate = new DateTime('2009-02-20');
-		// $today     = new DateTime();
-		// $interval  = $today->diff($birthdate);
-		// echo  $interval->format('%y years');
   }
 
 	function screening_save()
@@ -209,9 +218,13 @@ function screening($id_user)
 		$birthdate = new DateTime($get_umur->tgl_lahir);
 		$today     = new DateTime();
 		$interval  = $today->diff($birthdate);
-		// $usia = $interval->format('%y Tahun');
 		$usia = $interval->format('%y');
 		$arr_add = '';
+
+		$kodeTrx = $this->landing_model->get_last();
+		$urutan = (int) substr($kodeTrx->kodeTerbesar, 3, 5);
+		$urutan++;
+		$id_tr = sprintf("ME%s%03d", "20", $urutan);
 
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$charactersLength = strlen($characters);
@@ -240,6 +253,7 @@ function screening($id_user)
 				$data['id_bobot'] = $arr_bobot[0];
 			}
 
+			$data['id_trx'] = $id_tr;
 			array_push($screening, $data);
 		}
 
@@ -251,6 +265,7 @@ function screening($id_user)
 			$header['id_user'] = $id;
 			$header['kode_skrining'] = $randomString;
 			$header['usia'] = $usia;
+			$header['id_trxs'] = $id_tr;
 
 			$this->db->insert('trx_skrining', $header);
 			// $this->load->hasil_screening($id);
@@ -269,8 +284,6 @@ function screening($id_user)
 		$this->load->view('publik/redirecthasil',$data);
 		$this->load->view('footer');
 	}
-
-
 
 	function ajax_quiz(){
 		$jenis = $this->input->post('jenis');

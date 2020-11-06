@@ -239,13 +239,6 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group">
-              <center>
-                <h3>
-                  Langkah Awal Skrining Mandiri!
-                </h3>
-              </center>
-              </div>
 
 							<div class="form-group">
 								<label class="col-form-label">Masukan Nomor Ponsel :</label>
