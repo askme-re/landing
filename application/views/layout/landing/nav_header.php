@@ -1,5 +1,3 @@
-
-
 <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
@@ -22,10 +20,6 @@
                 <li><a href="#pricing-section" class="nav-link">Prosedur</a></li>
                 <li><a href="#blog-section" class="nav-link">Tentang</a></li>
                 <li><a href="#contact-section" class="nav-link">Kontak Tim Peneliti</a></li>
-
-               <!--  <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li> -->
               </ul>
             </nav>
           </div>

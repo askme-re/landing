@@ -14,7 +14,7 @@
                 <div class="form-row col-12">
                   <div class="form-group col-sm-12">
                     <label >Nama Lengkap </label>
-                    <input name="nama" id="nama" type="text" class="form-control" placeholder="Contoh: Andrew Setiawan" required/>
+                    <input name="nama" id="nama" type="text" minlength="2" class="form-control" placeholder="Contoh: Andrew Setiawan" required/>
                   </div>
                   <div class="form-group col-sm-6">
                     <label>Tempat Lahir </label>
@@ -60,8 +60,8 @@
                     <input name="tgl_lahir" id="tgl_lahir" type="date" class="form-control" placeholder="DD/MM/YYYY" required/>
                   </div> -->
                   <div class="form-group col-sm-12">
-                    <label>Alamat </label>
-                    <input name="alamat" id="alamat" type="text" class="form-control" placeholder="Contoh: Jalan ... RT/RW ..." required/>
+                    <label>Alamat Domisili</label>
+                    <input name="alamat" id="alamat" type="text" class="form-control" minlength="2"placeholder="Contoh: Jalan ... RT/RW ..." required/>
                   </div>
                   <div class="form-group col-sm-6">
                     <label>Provinsi </label>
@@ -126,55 +126,55 @@
           				</select>
           				</div>
 
-				<div class="form-group col-sm-12">
-					<label class="col-form-label">Riwayat Penyakit Serius:</label>
-				</div>
-				<div class="form-group col-sm-6">
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_1" name="cb_tujuan[]" value="Kencing Manis (diabetes)" >
-						<label class="custom-control-label" for="cb_tujuan_1">Kencing Manis (diabetes)</label>
-					</div>
-				</div>
-				<div class="form-group col-sm-6">
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_2" name="cb_tujuan[]" value="Tekanan Darah Tinggi (Hipertensi)" >
-						<label class="custom-control-label" for="cb_tujuan_2">Tekanan Darah Tinggi (Hipertensi)</label>
-					</div>
-				</div>
+          				<div class="form-group col-sm-12">
+          					<label class="col-form-label">Riwayat Penyakit Serius:</label>
+          				</div>
+          				<div class="form-group col-sm-6">
+          					<div class="custom-control custom-checkbox">
+          						<input type="checkbox" class="custom-control-input" id="cb_tujuan_1" name="cb_tujuan[]" value="Kencing Manis (diabetes)" >
+          						<label class="custom-control-label" for="cb_tujuan_1">Kencing Manis (diabetes)</label>
+          					</div>
+          				</div>
+          				<div class="form-group col-sm-6">
+          					<div class="custom-control custom-checkbox">
+          						<input type="checkbox" class="custom-control-input" id="cb_tujuan_2" name="cb_tujuan[]" value="Tekanan Darah Tinggi (Hipertensi)" >
+          						<label class="custom-control-label" for="cb_tujuan_2">Tekanan Darah Tinggi (Hipertensi)</label>
+          					</div>
+          				</div>
 
-				<div class="form-group col-sm-6">
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_3" name="cb_tujuan[]" value="Penyakit Kanker" >
-						<label class="custom-control-label" for="cb_tujuan_3">Penyakit Kanker</label>
-					</div>
-				</div>
+          				<div class="form-group col-sm-6">
+          					<div class="custom-control custom-checkbox">
+          						<input type="checkbox" class="custom-control-input" id="cb_tujuan_3" name="cb_tujuan[]" value="Penyakit Kanker" >
+          						<label class="custom-control-label" for="cb_tujuan_3">Penyakit Kanker</label>
+          					</div>
+          				</div>
 
-				<div class="form-group col-sm-6">
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_4" name="cb_tujuan[]" value="Penyakit Ginjal" >
-						<label class="custom-control-label" for="cb_tujuan_4">Penyakit Ginjal</label>
-					</div>
-				</div>
+          				<div class="form-group col-sm-6">
+          					<div class="custom-control custom-checkbox">
+          						<input type="checkbox" class="custom-control-input" id="cb_tujuan_4" name="cb_tujuan[]" value="Penyakit Ginjal" >
+          						<label class="custom-control-label" for="cb_tujuan_4">Penyakit Ginjal</label>
+          					</div>
+          				</div>
 
-				<div class="form-group col-sm-6">
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_5" name="cb_tujuan[]" value="Penyakit Lupus" >
-						<label class="custom-control-label" for="cb_tujuan_5">Penyakit Lupus</label>
-					</div>
-				</div>
+          				<div class="form-group col-sm-6">
+          					<div class="custom-control custom-checkbox">
+          						<input type="checkbox" class="custom-control-input" id="cb_tujuan_5" name="cb_tujuan[]" value="Penyakit Lupus" >
+          						<label class="custom-control-label" for="cb_tujuan_5">Penyakit Lupus</label>
+          					</div>
+          				</div>
 
-				<div class="form-group col-sm-6">
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_6" name="cb_tujuan[]" value="Penyakit Saraf " >
-						<label class="custom-control-label" for="cb_tujuan_6">Penyakit Saraf </label>
-					</div>
-				</div>
-              <div class="form-group col-sm-6">
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="cb_tujuan_7" name="cb_tujuan[]" value="Tidak ada " autofocus>
-						<label class="custom-control-label" for="cb_tujuan_7">Tidak Ada </label>
-					</div>
-				</div>
+          				<div class="form-group col-sm-6">
+          					<div class="custom-control custom-checkbox">
+          						<input type="checkbox" class="custom-control-input" id="cb_tujuan_6" name="cb_tujuan[]" value="Penyakit Saraf " >
+          						<label class="custom-control-label" for="cb_tujuan_6">Penyakit Saraf </label>
+          					</div>
+          				</div>
+                        <div class="form-group col-sm-6">
+          					<div class="custom-control custom-checkbox">
+          						<input type="checkbox" class="custom-control-input" id="cb_tujuan_7" name="cb_tujuan[]" value="Tidak ada " autofocus>
+          						<label class="custom-control-label" for="cb_tujuan_7">Tidak Ada </label>
+          					</div>
+          				</div>
                   <!-- data tambahan -->
                   <hr>
                   <br/>
@@ -185,7 +185,7 @@
                     <div class="col-sm-8">
                     </div>
                     <div class="col-sm-2">
-                      <button type="submit" class="btn btn-primary" id="btn_next">Selanjutnya</button>
+                      <button type="submit" class="btn btn-primary" id="btn_next">Lanjut</button>
                     </div>
                   </div>
                 </div>

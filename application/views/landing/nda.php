@@ -1,12 +1,12 @@
 <div class="image-container set-full-height tengah">
 	<div class="container">
         <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-12">
         	<div class="wizard-container">
 
                 <div class="card wizard-card trs" data-color="theme" id="wizardProfile">
                     <div class="wizard-header">
-                    	<h2 class="judul">
+                    	<h2 class="">
                             <p><img class="head" src="<?php echo base_url('assets/img/favicon.png')?>"></p>
                     		<b>Selamat Datang !</b><br>
                         	<small>PERTANYAAN SKRINING KHUSUS PENYAKIT INFEKSI MENULAR </small>
@@ -51,10 +51,10 @@ h2{
 	font-size: 12px;
 	margin-left: -20px;
 	margin-right: -20px;
-	/*text-align: center;*/
+	text-align: justify;
 }
 .nda p {
-	font-size: 12px;
+	font-size: 14px;
 
 }
 .ttd {

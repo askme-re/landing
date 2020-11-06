@@ -19,8 +19,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('layout/landing/footer');
 	}
 
-	function user_check()
-	{
+	function user_check()	{
 		$phone = $this->input->post('phone');
 		$status = $this->input->post('dd_status');
 		$tujuan = $this->input->post('dd_tujuan');
