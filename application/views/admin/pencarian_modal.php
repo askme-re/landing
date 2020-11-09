@@ -1,3 +1,8 @@
+<!-- <button type="button" name="button" onclick="<?php echo base_url('skrining/exp_skrining') ?>">Unduh Semua</button> -->
+
+<button type="button" name="button" class="btn btn-info btn-lg" onclick="window.location.href='<?php echo base_url().'skrining/exp_skrining' ?>'"> Unduh Semua Data </button>
+
+<!--
 <p>
   <button class="btn btn-fill btn-warning btn-wd" type="button" data-toggle="collapse" data-target="#collapsePencarian" aria-expanded="false" aria-controls="collapseExample">
     Filter XLS</button>
@@ -25,4 +30,4 @@
       <button type="submit" class="form-control btn-primary">Unduh</button>
     </form>
   </div>
-</div>
+</div> -->

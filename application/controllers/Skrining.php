@@ -28,6 +28,18 @@ class Skrining extends CI_Controller {
       $i=1;
       $data = [];
       foreach($query->result() as $r) {
+
+        $resul = $r->hasil;
+        if ($resul==0) {
+          $hasil = "SEHAT";
+        }elseif ($resul>= 1) {
+          $hasil = "RENDAH";
+        }elseif ($resul>4) {
+          $hasil = "SEDANG/TINGGI";
+        }elseif (is_null($resul)) {
+          $hasil = "BUKAN COVID";
+        }
+
            $data[] = array(
                 $i++,
                 $r->tgl,
@@ -37,7 +49,7 @@ class Skrining extends CI_Controller {
               #$r->riw_penyakit,
               // ."</a>",
                 $r->telp,
-                $r->hasil,
+                $hasil,
                 $r->tgl_lahir,
                 $r->usia.' Tahun',
                 $r->jenis_user,
@@ -86,7 +98,7 @@ class Skrining extends CI_Controller {
       //name the worksheet
       $this->excel->getActiveSheet()->setTitle('HasilSkrining');
       //set cell A1 content with some text
-      $this->excel->getActiveSheet()->setCellValue('A1', 'Daftar Skrining');
+      $this->excel->getActiveSheet()->setCellValue('A1', 'Daftar Skrining COVID-19');
 
       $this->excel->getActiveSheet()->setCellValue('A3', 'Waktu');
       $this->excel->getActiveSheet()->setCellValue('B3', 'Nama');
@@ -131,6 +143,16 @@ class Skrining extends CI_Controller {
       //         $exceldata[] = $row;
       // }
       foreach ($rs->result() as $r){
+        $resul = $r->hasil;
+        if ($resul==0) {
+          $hasil = "SEHAT";
+        }elseif ($resul>= 1) {
+          $hasil = "RENDAH";
+        }elseif ($resul>4) {
+          $hasil = "SEDANG/TINGGI";
+        }elseif (is_null($resul)) {
+          $hasil = "BUKAN COVID";
+        }
        // $exceldata[] = $row;
        $exceldata[] = array(
         $r->tgl,
@@ -141,7 +163,7 @@ class Skrining extends CI_Controller {
         $r->tujuan_rs,
         $r->kode_skrining,
         $r->usia,
-        $war = $r->hasil,
+        $hasil,
 
 
         #pertanyaan

@@ -7,12 +7,11 @@
           <h4 class="card-title">Daftar Hasil Skrining</h4>
         </div>
         <div class="card-body">
-        <?php $this->load->view('admin/pencarian_modal') ?>
           <div class="table-responsive">
             <table class="table table-striped table-bordered" style="width:100%;font-size:13px;" id="tabelHSkrining">
               <thead class=" text-primary" align="center">
                 <th>
-                  id
+                  No
                 </th>
                 <th>
                   Waktu
@@ -45,43 +44,43 @@
                   Tujuan Ke
                 </th>
                 <th>
-                  Soal 1
+                  Q1
                 </th>
                 <th>
-                  Soal 2
+                  Q2
                 </th>
                 <th>
-                  Soal 3
+                  Q3
                 </th>
                 <th>
-                  Soal 4
+                  Q4
                 </th>
                 <th>
-                  Soal 5
+                  Q5
                 </th>
                 <th>
-                  Soal 6
+                  Q6
                 </th>
                 <th>
-                  Soal 7
+                  Q7
                 </th>
                 <th>
-                  Soal 8
+                  Q8
                 </th>
                 <th>
-                  Soal 9
+                  Q9
                 </th>
                 <th>
-                  Soal 10
+                  Q10
                 </th>
                 <th>
-                  Soal 11
+                  Q11
                 </th>
                 <th>
-                  Soal 12
+                  Q12
                 </th>
                 <th>
-                  Soal 13
+                  Q13
                 </th>
 
               </thead>
@@ -90,14 +89,58 @@
               </tbody>
                   </table>
                 </div>
+                <?php $this->load->view('admin/pencarian_modal') ?>
               </div>
             </div>
           </div>
         </div>
       </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+      <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css">
+      <!-- https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css -->
+<!-- https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css -->
+<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script> -->
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.flash.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+ <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script>
+<!--
+<script type="text/javascript">
+    $(document).ready(function() {
+    table = $('#tabelHSkrining').DataTable({
+        "dom": 'B<"top"i>rt<"bottom"flp><"clear">',
+        "buttons": [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+            "url" : "<?php echo base_url(); ?>skrining/get_hasil_skrining",
+            "type": "POST"
+        },
+
+        //Set column definition initialisation properties.
+        "columnDefs": [
+        {
+            "targets": [ -1 ], //last column
+            "orderable": false, //set not orderable
+        },
+        ],
+
+    });
+
+});
+</script> -->
 <script>
  $('#tabelHSkrining').DataTable({
         "ajax": {
@@ -105,4 +148,5 @@
             type : 'GET'
         },
     });
+
 </script>

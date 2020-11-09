@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-header">
         <h3>
-          Detail Skrining :
+          Hasil Skrining -
           <?php
           foreach ($dataJawaban as $orang) {
           $kode = $orang->kode_skrining;
@@ -38,46 +38,49 @@
         </div>
       <div class="card-body">
         <div class="row">
-          <div class="col-sm-12">
-            <div class="form-group col-sm-12">
-              <label for="" class="col-sm-3">Nama </label>
-              <input type="text" name="" value="<?php echo $name ?>" readonly>
+          <div class="col-sm-12" style="font-size:14px;">
+            <div class="form-group col-sm-10">
+              <h4>Detail Peserta</h4>
             </div>
             <div class="form-group col-sm-12">
-              <label for="" class="col-sm-3">No Telp</label>
-              <input type="text" name="" value="<?php echo $telp ?>" readonly>
+              <label for="" class="col-sm-2">Nama </label>
+              <input type="text" name="" class="col-sm-6" value="<?php echo $name ?>" readonly>
             </div>
             <div class="form-group col-sm-12">
-              <label for="" class="col-sm-3">TTL</label>
-              <input type="text" name="" value="<?php echo $tp_lhir .', '. $tgl_lhir ?>" readonly>
+              <label for="" class="col-sm-2">No Telp</label>
+              <input type="text"  class="col-sm-6" name="" value="<?php echo $telp ?>" readonly>
             </div>
             <div class="form-group col-sm-12">
-              <label for="" class="col-sm-3">Usia</label>
-              <input type="text" name="" value="<?php echo $umur?> Tahun " readonly>
+              <label for="" class="col-sm-2">TTL</label>
+              <input type="text" name="" class="col-sm-6" value="<?php echo $tp_lhir .', '. $tgl_lhir ?>" readonly>
             </div>
             <div class="form-group col-sm-12">
-              <label for="" class="col-sm-3">Status Kunjungan</label>
-              <input type="text" name="" value="<?php echo $status?>" readonly>
+              <label for="" class="col-sm-2">Usia</label>
+              <input type="text" name="" class="col-sm-6" value="<?php echo $umur?> Tahun " readonly>
             </div>
             <div class="form-group col-sm-12">
-              <label for="" class="col-sm-3">Riwayat penyakit</label>
-              <input type="text" name="" value="<?php echo $riwayat ?>" readonly>
+              <label for="" class="col-sm-2">Status Kunjungan</label>
+              <input type="text" name="" class="col-sm-6" value="<?php echo $status?>" readonly>
             </div>
             <div class="form-group col-sm-12">
-              <label for="" class="col-sm-3">Tujuan Kunjungan</label>
+              <label for="" class="col-sm-2">Riwayat penyakit</label>
+              <input type="text" class="col-sm-6"name="" value="<?php echo $riwayat ?>" readonly>
+            </div>
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-2">Tujuan Kunjungan</label>
               <input type="text" class="col-sm-6" name="" value="<?php echo $tujuan ?>" readonly>
             </div>
             <div class="form-group col-sm-12">
-              <label for="" class="col-sm-3">Alamat</label>
-              <input type="text" name="" value="<?php echo $alamat ?>" readonly>
+              <label for="" class="col-sm-2">Alamat Domisili</label>
+              <textarea name="" class="col-sm-6" readonly><?php echo $alamat ?></textarea>
             </div>
             <!-- <div class="form-group col-sm-12">
               <label for="" class="col-sm-3">Kecamatan Asal</label>
               <input type="text" name="" value="<?php echo $kec ?>" readonly> -->
             <!-- </div> -->
             <div class="form-group col-sm-12">
-              <label for="" class="col-sm-3">Hasil Skrining</label>
-              <input type="text" class="col-sm-6" value="<?php echo $kesimpulan ?>" readonly>
+              <label for="" class="col-sm-2">Hasil Skrining</label>
+              <input type="text" id="hasil" class="col-sm-6" value="<?php echo $kesimpulan ?>" readonly>
             </div>
             <div class="form-group col-sm-10">
               <h4>Detail Jawaban</h4>
@@ -103,3 +106,8 @@
     </div>
   </div>
 </div>
+<style media="screen">
+  #hasil{
+    font-weight: bold;
+  }
+</style>

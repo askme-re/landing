@@ -30,11 +30,11 @@ class User extends CI_Controller {
            $data[] = array(
                 $i++,
                 '<p style="text-transform: capitalize">'.$r->nama.'</p>',
+                $r->tp_lahir.'<br>'.$r->tgl_lahir,
                 $r->telp.' - '.$r->email,
                 $r->jenis_user,
                 $r->riw_penyakit,
                 $r->tujuan_rs,
-                $r->tp_lahir.'<br>'.$r->tgl_lahir,
                 $r->alamat,
                 $r->nama_desa,
                 $r->nama_kec,
