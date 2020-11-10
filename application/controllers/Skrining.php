@@ -39,6 +39,71 @@ class Skrining extends CI_Controller {
         }elseif (is_null($resul)) {
           $hasil = "BUKAN COVID";
         }
+        if ($r->q1==0) {
+          $jwb1="Tidak";
+        }else {
+          $jwb1="Ya";
+        }
+        if ($r->q2==0) {
+          $jwb2="Tidak";
+        }else {
+          $jwb2="Ya";
+        }
+        if ($r->q3==0) {
+          $jwb3="Tidak";
+        }else {
+          $jwb3="Ya";
+        }
+        if ($r->q4==0) {
+          $jwb4="Tidak";
+        }else {
+          $jwb4="Ya";
+        }
+        if ($r->q5==0) {
+          $jwb5="Tidak";
+        }else {
+          $jwb5="Ya";
+        }
+        if ($r->q6==0) {
+          $jwb6="Tidak";
+        }else {
+          $jwb6="Ya";
+        }
+        if ($r->q7==0) {
+          $jwb7="Tidak";
+        }else {
+          $jwb7="Ya";
+        }
+        if ($r->q8==0) {
+          $jwb8="Tidak";
+        }else {
+          $jwb8="Ya";
+        }
+        if ($r->q9==0) {
+          $jwb9="Tidak";
+        }else {
+          $jwb9="Ya";
+        }
+        if ($r->q10==0) {
+          $jwb10="Tidak";
+        }else {
+          $jwb10="Ya";
+        }
+        if ($r->q11==0) {
+          $jwb11="Tidak";
+        }else {
+          $jwb11="Ya";
+        }
+        if ($r->q12==0) {
+          $jwb12="Tidak";
+        }else {
+          $jwb12="Ya";
+        }
+        if ($r->q13==0) {
+          $jwb13="Tidak";
+        }else {
+          $jwb13="Ya";
+        }
 
            $data[] = array(
                 $i++,
@@ -55,19 +120,19 @@ class Skrining extends CI_Controller {
                 $r->jenis_user,
                 $r->riw_penyakit,
                 $r->tujuan_rs,
-                $r->q1,
-                $r->q2,
-                $r->q3,
-                $r->q4,
-                $r->q5,
-                $r->q6,
-                $r->q7,
-                $r->q8,
-                $r->q9,
-                $r->q10,
-                $r->q11,
-                $r->q12,
-                $r->q13
+                $jwb1,
+                $jwb2,
+                $jwb3,
+                $jwb4,
+                $jwb5,
+                $jwb6,
+                $jwb7,
+                $jwb8,
+                $jwb9,
+                $jwb10,
+                $jwb11,
+                $jwb12,
+                $jwb13
 
            );
       }
@@ -101,28 +166,36 @@ class Skrining extends CI_Controller {
       $this->excel->getActiveSheet()->setCellValue('A1', 'Daftar Skrining COVID-19');
 
       $this->excel->getActiveSheet()->setCellValue('A3', 'Waktu');
-      $this->excel->getActiveSheet()->setCellValue('B3', 'Nama');
-      $this->excel->getActiveSheet()->setCellValue('C3', 'Jenis User');
-      $this->excel->getActiveSheet()->setCellValue('D3', 'No. Ponsel');
-      $this->excel->getActiveSheet()->setCellValue('E3', 'Tanggal Lahir');
-      $this->excel->getActiveSheet()->setCellValue('F3', 'Tujuan ke RS');
-      $this->excel->getActiveSheet()->setCellValue('G3', 'Kode');
-      $this->excel->getActiveSheet()->setCellValue('H3', 'Usia (Tahun)');
-      $this->excel->getActiveSheet()->setCellValue('I3', 'Hasil');
+      $this->excel->getActiveSheet()->setCellValue('B3', 'Kode');
+      $this->excel->getActiveSheet()->setCellValue('C3', 'Nama');
+      $this->excel->getActiveSheet()->setCellValue('D3', 'Status Kunjungan');
+      $this->excel->getActiveSheet()->setCellValue('E3', 'Tujuan Kunjungan');
+      $this->excel->getActiveSheet()->setCellValue('F3', 'No. Ponsel');
+      $this->excel->getActiveSheet()->setCellValue('G3', 'Email');
+      $this->excel->getActiveSheet()->setCellValue('H3', 'Tempat Lahir');
+      $this->excel->getActiveSheet()->setCellValue('I3', 'Tanggal Lahir');
+      $this->excel->getActiveSheet()->setCellValue('J3', 'Usia (Tahun)');
+      $this->excel->getActiveSheet()->setCellValue('K3', 'Alamat');
+      $this->excel->getActiveSheet()->setCellValue('L3', 'Desa');
+      $this->excel->getActiveSheet()->setCellValue('M3', 'Kelurahan');
+      $this->excel->getActiveSheet()->setCellValue('N3', 'Kecamatan');
+      $this->excel->getActiveSheet()->setCellValue('O3', 'Kabupaten');
+      $this->excel->getActiveSheet()->setCellValue('P3', 'Provinsi');
+      $this->excel->getActiveSheet()->setCellValue('Q3', 'Riwayat Penyakit');
+      $this->excel->getActiveSheet()->setCellValue('R3', 'Hasil');
       #pertanyaan
-      $this->excel->getActiveSheet()->setCellValue('J3', 'Q1');
-      $this->excel->getActiveSheet()->setCellValue('K3', 'Q2');
-      $this->excel->getActiveSheet()->setCellValue('L3', 'Q3');
-      $this->excel->getActiveSheet()->setCellValue('M3', 'Q4');
-      $this->excel->getActiveSheet()->setCellValue('N3', 'Q5');
-      $this->excel->getActiveSheet()->setCellValue('O3', 'Q6');
-      $this->excel->getActiveSheet()->setCellValue('P3', 'Q7');
-      $this->excel->getActiveSheet()->setCellValue('Q3', 'Q8');
-      $this->excel->getActiveSheet()->setCellValue('R3', 'Q9');
-      $this->excel->getActiveSheet()->setCellValue('S3', 'Q10');
-      $this->excel->getActiveSheet()->setCellValue('T3', 'Q11');
-      $this->excel->getActiveSheet()->setCellValue('U3', 'Q12');
-      $this->excel->getActiveSheet()->setCellValue('V3', 'Q13');
+      $this->excel->getActiveSheet()->setCellValue('S3', 'Q1');
+      $this->excel->getActiveSheet()->setCellValue('T3', 'Q2');
+      $this->excel->getActiveSheet()->setCellValue('U3', 'Q3');
+      $this->excel->getActiveSheet()->setCellValue('V3', 'Q4');
+      $this->excel->getActiveSheet()->setCellValue('W3', 'Q5');
+      $this->excel->getActiveSheet()->setCellValue('X3', 'Q6');
+      $this->excel->getActiveSheet()->setCellValue('Y3', 'Q7');
+      $this->excel->getActiveSheet()->setCellValue('Z3', 'Q9');
+      $this->excel->getActiveSheet()->setCellValue('AA3', 'Q10');
+      $this->excel->getActiveSheet()->setCellValue('AB3', 'Q11');
+      $this->excel->getActiveSheet()->setCellValue('AC3', 'Q12');
+      $this->excel->getActiveSheet()->setCellValue('AD3', 'Q13');
       //merge cell title
       $this->excel->getActiveSheet()->mergeCells('A1:h1');
       //set aligment to center for that merged cell
@@ -134,14 +207,11 @@ class Skrining extends CI_Controller {
       for($col = ord('A'); $col <= ord('C'); $col++){ //set column dimension $this->excel->getActiveSheet()->getColumnDimension(chr($col))->setAutoSize(true);
        //change the font size
       $this->excel->getActiveSheet()->getStyle(chr($col))->getFont()->setSize(12);
-      $this->excel->getActiveSheet()->getStyle(chr($col))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+      $this->excel->getActiveSheet()->getStyle(chr($col))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::   HORIZONTAL_CENTER);
       }
       $id='';
       $rs = $this->admin_m->dataSkrining($id);
       $exceldata=[];
-      // foreach ($rs->result_array() as $row){
-      //         $exceldata[] = $row;
-      // }
       foreach ($rs->result() as $r){
         $resul = $r->hasil;
         if ($resul==0) {
@@ -153,33 +223,123 @@ class Skrining extends CI_Controller {
         }elseif (is_null($resul)) {
           $hasil = "BUKAN COVID";
         }
+
+        // for ($i=1; $i <14 ; $i+1) {
+        //   "$r->q.$i = $jwb $i";
+        // }
+        //
+
+      if ($r->q1==0) {
+        $jwb1="Tidak";
+      }else {
+        $jwb1="Ya";
+      }
+      if ($r->q2==0) {
+        $jwb2="Tidak";
+      }else {
+        $jwb2="Ya";
+      }
+      if ($r->q3==0) {
+        $jwb3="Tidak";
+      }else {
+        $jwb3="Ya";
+      }
+      if ($r->q4==0) {
+        $jwb4="Tidak";
+      }else {
+        $jwb4="Ya";
+      }
+      if ($r->q5==0) {
+        $jwb5="Tidak";
+      }else {
+        $jwb5="Ya";
+      }
+      if ($r->q6==0) {
+        $jwb6="Tidak";
+      }else {
+        $jwb6="Ya";
+      }
+      if ($r->q7==0) {
+        $jwb7="Tidak";
+      }else {
+        $jwb7="Ya";
+      }
+      if ($r->q8==0) {
+        $jwb8="Tidak";
+      }else {
+        $jwb8="Ya";
+      }
+      if ($r->q9==0) {
+        $jwb9="Tidak";
+      }else {
+        $jwb9="Ya";
+      }
+      if ($r->q10==0) {
+        $jwb10="Tidak";
+      }else {
+        $jwb10="Ya";
+      }
+      if ($r->q11==0) {
+        $jwb11="Tidak";
+      }else {
+        $jwb11="Ya";
+      }
+      if ($r->q12==0) {
+        $jwb12="Tidak";
+      }else {
+        $jwb12="Ya";
+      }
+      if ($r->q13==0) {
+        $jwb13="Tidak";
+      }else {
+        $jwb13="Ya";
+      }
        // $exceldata[] = $row;
        $exceldata[] = array(
         $r->tgl,
+        $r->kode_skrining,
         $r->nama,
         $r->jenis_user,
-        $r->telp,
-        $r->tgl_lahir,
         $r->tujuan_rs,
-        $r->kode_skrining,
+        $r->telp,
+        $r->email,
+        $r->tp_lahir,
+        $r->tgl_lahir,
         $r->usia,
+        $r->alamat,
+        $r->nama_desa,
+        $r->nama_kec,
+        $r->nama_kab,
+        $r->nama_prop,
+        $r->riw_penyakit,
         $hasil,
 
-
         #pertanyaan
-        $r->q1,
-        $r->q2,
-        $r->q3,
-        $r->q4,
-        $r->q5,
-        $r->q6,
-        $r->q7,
-        $r->q8,
-        $r->q9,
-        $r->q10,
-        $r->q11,
-        $r->q12,
-        $r->q3
+        $jwb1,
+        $jwb2,
+        $jwb3,
+        $jwb4,
+        $jwb5,
+        $jwb6,
+        $jwb7,
+        $jwb8,
+        $jwb9,
+        $jwb10,
+        $jwb11,
+        $jwb12,
+        $jwb13
+        // $r->q2,
+        // $r->q3,
+        // $r->q4,
+        // $r->q5,
+        // $r->q6,
+        // $r->q7,
+        // $r->q8,
+        // $r->q9,
+        // $r->q10,
+        // $r->q11,
+        // $r->q12,
+        // $r->q3
 
       );
       }
@@ -195,11 +355,11 @@ class Skrining extends CI_Controller {
       $this->excel->getActiveSheet()->getStyle('F4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
       $this->excel->getActiveSheet()->getStyle('G4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
       $this->excel->getActiveSheet()->getStyle('H4:H100')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-      $this->excel->getActiveSheet()->getStyle('I4:I1000')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-      $this->excel->getActiveSheet()->getStyle('I3:I100')->getFill()
-        ->setFillType(PHPExcel_Style_Fill::FILL_SOLID)
-        ->getStartColor()
-        ->setRGB('62a9f0');
+      // $this->excel->getActiveSheet()->getStyle('I4:I1000')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+      // $this->excel->getActiveSheet()->getStyle('I3:I100')->getFill()
+      //   ->setFillType(PHPExcel_Style_Fill::FILL_SOLID)
+      //   ->getStartColor()
+      //   ->setRGB('62a9f0');
       //
       // if ($war =0) {
       //     $this->excel->getActiveSheet()->getStyle('I4:I100')->getFill()

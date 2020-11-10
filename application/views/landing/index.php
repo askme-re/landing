@@ -163,7 +163,7 @@
                 <img src="<?php echo base_url()?>assets/img/prosedur.png" alt="Image" class="img-fluid">
               </a>
               <h4>Bagaimana Cara Kerja <strong>ASK_ME</strong>?</h4>
-              <p>Dibangun sebagai bentuk salah satu upaya preventif penanggulangan wabah penyakit menular di Lingkungan Kemhan. Pada tahap awal aplikasi khusus skrining wabah penyakit COVID-19 sedangkan untuk selanjutnya akan dikembangkan dengan kemampuan melakukan penyaringan 16 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa pertanyaan sederhana. Setiap pertanyaan telah ditentukan bobot dan dilakukan pemrosesan data</p>
+              <p>Dibangun sebagai bentuk salah satu upaya preventif penanggulangan wabah penyakit menular di Lingkungan Kemhan. Pada tahap awal aplikasi khusus skrining wabah penyakit COVID-19 sedangkan untuk selanjutnya akan dikembangkan dengan kemampuan melakukan penyaringan 18 wabah kasus menular COVID-19 dilakukan skrining dengan beberapa pertanyaan sederhana. Setiap pertanyaan telah ditentukan bobot dan dilakukan pemrosesan data</p>
             </div>
           </div>
 
@@ -178,7 +178,7 @@
           <div class="col-md-7 text-center">
             <span class="sub-title">Kontak</span>
             <h2 class="font-weight-bold text-black">Mitra Koordinator</h2>
-            <p class="mb-5">Tim IT Mitra Aplikasi ASK_ME Rumah Sakit Dr Suyoto</p>
+            <p class="mb-5">Tim IT Mitra Aplikasi ASK_ME Rumah Sakit dr Suyoto</p>
           </div>
         </div>
 

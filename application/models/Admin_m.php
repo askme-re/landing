@@ -70,9 +70,14 @@ class Admin_m extends CI_Model
 	}
 
 	public function dataSkrining($id){
-		$this->db->select('kode_skrining, u.id, hasil, nama,tp_lahir, tgl_lahir, usia, telp, jenis_user,id_trx, id_trxs, tujuan_rs,riw_penyakit,alamat, tgl, q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13');
+		$this->db->select('kode_skrining, u.id, hasil, nama,tp_lahir, nama_prop, nama_kab, nama_desa, nama_kec,
+		email, tgl_lahir, usia, telp, jenis_user,id_trx, id_trxs, tujuan_rs,riw_penyakit,alamat, tgl, q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13');
 		$this->db->from('detailjwb');
 		$this->db->join('user u', 'detailjwb.id_user = u.id','left');
+		$this->db->join('ms_provinsi mp','mp.id_prop=u.id_prov','left');
+		$this->db->join('ms_kabupaten mkab','mkab.id_kab=u.id_kab','left');
+		$this->db->join('ms_kecamatan mkec','mkec.id_kec=u.id_kec','left');
+		$this->db->join('ms_desa mdesa','mdesa.id_desa=u.id_kel','left');
 		$this->db->join('trx_skrining ts', 'ts.id_trxs = detailjwb.id_trx','left');
 		if (!empty($id)) {
 			$this->db->where('kode_skrining',$id);
