@@ -103,9 +103,9 @@ class Landing_model extends CI_Model
 
 
 	function get_provinsi(){
-		$this->db->select('id_prop AS k, nama_prop AS v');
-        $this->db->from('ms_provinsi');
-		$this->db->order_by('nama_prop', 'ASC');
+		$this->db->select('id AS k, name AS v');
+        $this->db->from('provinces');
+		$this->db->order_by('name', 'ASC');
         $query = $this->db->get();
 
 		if ($query->num_rows() > 0){
@@ -115,10 +115,10 @@ class Landing_model extends CI_Model
 	}
 
 	function get_kabupaten($id_prov){
-		$this->db->select('id_kab AS k, nama_kab AS v');
-		$this->db->from('ms_kabupaten');
-		$this->db->where('id_prop', $id_prov);
-		$this->db->order_by('nama_kab', 'ASC');
+		$this->db->select('id AS k, name AS v');
+		$this->db->from('regencies');
+		$this->db->where('province_id', $id_prov);
+		$this->db->order_by('name', 'ASC');
         $query = $this->db->get();
 
 		if ($query->num_rows() > 0){
@@ -128,10 +128,10 @@ class Landing_model extends CI_Model
 	}
 
 	function get_kecamatan($id_kab){
-		$this->db->select('id_kec AS k, nama_kec AS v');
-		$this->db->from('ms_kecamatan');
-		$this->db->where('id_kab', $id_kab);
-		$this->db->order_by('nama_kec', 'ASC');
+		$this->db->select('id AS k, name AS v');
+		$this->db->from('districts');
+		$this->db->where('regency_id', $id_kab);
+		$this->db->order_by('name', 'ASC');
         $query = $this->db->get();
 
 		if ($query->num_rows() > 0){
@@ -141,10 +141,10 @@ class Landing_model extends CI_Model
 	}
 
 	function get_kelurahan($id_kec){
-		$this->db->select('id_desa AS k, nama_desa AS v');
-		$this->db->from('ms_desa');
-		$this->db->where('id_kec', $id_kec);
-		$this->db->order_by('nama_desa', 'ASC');
+		$this->db->select('id AS k, name AS v');
+		$this->db->from('villages');
+		$this->db->where('district_id', $id_kec);
+		$this->db->order_by('name', 'ASC');
         $query = $this->db->get();
 
 		if ($query->num_rows() > 0){

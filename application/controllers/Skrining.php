@@ -105,6 +105,9 @@ class Skrining extends CI_Controller {
           $jwb13="Ya";
         }
 
+        $originalDate = $r->tgl_lahir;
+        $newDate = date("d-m-Y", strtotime($originalDate));
+
            $data[] = array(
                 $i++,
                 $r->tgl,
@@ -115,7 +118,7 @@ class Skrining extends CI_Controller {
               // ."</a>",
                 $r->telp,
                 $hasil,
-                $r->tgl_lahir,
+                $newDate,
                 $r->usia.' Tahun',
                 $r->jenis_user,
                 $r->riw_penyakit,
@@ -213,6 +216,8 @@ class Skrining extends CI_Controller {
       $rs = $this->admin_m->dataSkrining($id);
       $exceldata=[];
       foreach ($rs->result() as $r){
+        $originalDate = $r->tgl_lahir;
+        $newDate = date("d-m-Y", strtotime($originalDate));
         $resul = $r->hasil;
         if ($resul==0) {
           $hasil = "SEHAT";
@@ -304,7 +309,7 @@ class Skrining extends CI_Controller {
         $r->telp,
         $r->email,
         $r->tp_lahir,
-        $r->tgl_lahir,
+        $newDate,
         $r->usia,
         $r->alamat,
         $r->nama_desa,
@@ -383,7 +388,7 @@ class Skrining extends CI_Controller {
       $this->excel->getActiveSheet()->getStyle('V4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
       $filename='Skringin.xls'; //save our workbook as this file name
       header('Content-Type: application/vnd.ms-excel'); //mime type
-      header('Content-Disposition: attachment;filename="'.$filename.'"'); //tell browser what's the file name
+      header('Content-Disposition: attachment;filename=Hasil"'.$filename.'"'); //tell browser what's the file name
       header('Cache-Control: max-age=0'); //no cache
       //save it to Excel5 format (excel 2003 .XLS file), change this to 'Excel2007' (and adjust the filename extension, also the header mime type)
       //if want to save it as .XLSX Excel 2007 format

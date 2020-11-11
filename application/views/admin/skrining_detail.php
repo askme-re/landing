@@ -12,13 +12,15 @@
           $telp = $orang->telp;
           $hasil = $orang->hasil;
           $tp_lhir = $orang->tp_lahir;
-          $tgl_lhir = $orang->tgl_lahir;
+          // $tgl_lhir = $orang->tgl_lahir;
           $umur = $orang->usia;
           $status = $orang->jenis_user;
           $riwayat = $orang->riw_penyakit;
           $tujuan = $orang->tujuan_rs;
           $alamat = $orang->alamat;
           // $kec = $orang->nama_kec;
+          $originalDate = $orang->tgl_lahir;
+          $newDate = date("d-m-Y", strtotime($originalDate));
           $date = $orang->tgl;
 
           }
@@ -52,7 +54,7 @@
             </div>
             <div class="form-group col-sm-12">
               <label for="" class="col-sm-2">TTL</label>
-              <input type="text" name="" class="col-sm-6" value="<?php echo $tp_lhir .', '. $tgl_lhir ?>" readonly>
+              <input type="text" name="" class="col-sm-6" value="<?php echo $tp_lhir .', '. $newDate ?>" readonly>
             </div>
             <div class="form-group col-sm-12">
               <label for="" class="col-sm-2">Usia</label>

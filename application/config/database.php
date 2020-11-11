@@ -70,10 +70,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-$active_group = 'default';
+$active_group = 'localhost';
 $query_builder = TRUE;
 
-$db['default'] = array(
+$db['default']['failover'] = array(
+	array(
+		'dsn'	=> '',
+		'hostname' => '103.28.53.243',
+		'username' => 'refradai_asked',
+		'password' => '@Bigio000',
+		'database' => 'refradai_ask',
+		'dbdriver' => 'mysqli',
+		'dbprefix' => '',
+		'pconnect' => FALSE,
+		'db_debug' => (ENVIRONMENT !== 'production'),
+		'cache_on' => FALSE,
+		'cachedir' => '',
+		'char_set' => 'utf8',
+		'dbcollat' => 'utf8_general_ci',
+		'swap_pre' => '',
+		'encrypt' => FALSE,
+		'compress' => FALSE,
+		'stricton' => FALSE,
+		'failover' => array(),
+		'save_queries' => TRUE
+	),
+	array(
+		'dsn'	=> '',
+		'hostname' => '103.55.39.194',
+		'username' => 'askmeid_skrining',
+		'password' => 'askme@Screening',
+		'database' => 'askmeid_asked',
+		'dbdriver' => 'mysqli',
+		'dbprefix' => '',
+		'pconnect' => FALSE,
+		'db_debug' => (ENVIRONMENT !== 'production'),
+		'cache_on' => FALSE,
+		'cachedir' => '',
+		'char_set' => 'utf8',
+		'dbcollat' => 'utf8_general_ci',
+		'swap_pre' => '',
+		'encrypt' => FALSE,
+		'compress' => FALSE,
+		'stricton' => FALSE,
+		'failover' => array(),
+		'save_queries' => TRUE
+	)
+);
+
+
+$db['localhost'] = array(
 	'dsn'	=> '',
 	'hostname' => '103.28.53.243',
 	'username' => 'refradai_asked',

@@ -9,13 +9,13 @@ class Admin_m extends CI_Model
 	}
 
 	public function users(){
-		$this->db->select('*');
+		$this->db->select('user.id id, user.nama nama, email, alamat, telp, jenis_user, tp_lahir, tgl_lahir, tujuan_rs, mp.name nama_prop, mkab.name nama_kab, mdesa.name nama_desa, mkec.name nama_kec,riw_penyakit');
 		$this->db->from('user');
 		$this->db->where('role','<>','1');
-		$this->db->join('ms_provinsi mp','mp.id_prop=user.id_prov','left');
-		$this->db->join('ms_kabupaten mkab','mkab.id_kab=user.id_kab','left');
-		$this->db->join('ms_kecamatan mkec','mkec.id_kec=user.id_kec','left');
-		$this->db->join('ms_desa mdesa','mdesa.id_desa=user.id_kel','left');
+		$this->db->join('provinces mp','mp.id=user.id_prov','left');
+		$this->db->join('regencies mkab','mkab.id=user.id_kab','left');
+		$this->db->join('districts mkec','mkec.id=user.id_kec','left');
+		$this->db->join('villages mdesa','mdesa.id=user.id_kel','left');
 		$this->db->order_by('nama','asc');
 
 		return $this->db->get();
@@ -70,14 +70,14 @@ class Admin_m extends CI_Model
 	}
 
 	public function dataSkrining($id){
-		$this->db->select('kode_skrining, u.id, hasil, nama,tp_lahir, nama_prop, nama_kab, nama_desa, nama_kec,
+		$this->db->select('kode_skrining, u.id, hasil, nama,tp_lahir, mp.name nama_prop, mkab.name nama_kab, mdesa.name nama_desa, mkec.name nama_kec,
 		email, tgl_lahir, usia, telp, jenis_user,id_trx, id_trxs, tujuan_rs,riw_penyakit,alamat, tgl, q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13');
 		$this->db->from('detailjwb');
 		$this->db->join('user u', 'detailjwb.id_user = u.id','left');
-		$this->db->join('ms_provinsi mp','mp.id_prop=u.id_prov','left');
-		$this->db->join('ms_kabupaten mkab','mkab.id_kab=u.id_kab','left');
-		$this->db->join('ms_kecamatan mkec','mkec.id_kec=u.id_kec','left');
-		$this->db->join('ms_desa mdesa','mdesa.id_desa=u.id_kel','left');
+		$this->db->join('provinces mp','mp.id=u.id_prov','left');
+		$this->db->join('regencies mkab','mkab.id=u.id_kab','left');
+		$this->db->join('districts mkec','mkec.id=u.id_kec','left');
+		$this->db->join('villages mdesa','mdesa.id=u.id_kel','left');
 		$this->db->join('trx_skrining ts', 'ts.id_trxs = detailjwb.id_trx','left');
 		if (!empty($id)) {
 			$this->db->where('kode_skrining',$id);

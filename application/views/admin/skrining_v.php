@@ -26,7 +26,7 @@
                   Telp
                 </th>
                 <th>
-                  Skor
+                  Hasil
                 </th>
                 <th>
                   Tgl Lahir
@@ -148,5 +148,18 @@
             type : 'GET'
         },
     });
-
+ // $(document).ready(function() {
+ //
+ //     var dataTable1 = $('#tabelHSkrining').DataTable({
+ //        "ajax":{
+ //               url:"<?php echo base_url(); ?>skrining/get_hasil_skrining",
+ //               type:"POST"
+ //          },
+ //         dom: 'Bfrtip',
+ //         buttons: [
+ //             'copy', 'csv', 'excel', 'pdf', 'print', 'colvis'
+ //         ]
+ //     } );
+ //
+ // } );
 </script>

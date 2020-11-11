@@ -83,4 +83,9 @@ class Admin extends CI_Controller {
 		$this->load->view('footer_admin');
 	}
 
+	public function testi()
+	{
+		$this->load->view('detailproyek');
+	}
+
 }
