@@ -92,32 +92,6 @@ class Admin_m extends CI_Model
 	{
 		return $this->db->get_where($table,$where);
 	}
-	public function insert_form(){
-	// $nama_proyek, $dana, $jenis, $daterange, $institusi, $frekuensi,
-	// 		$teknologi,
-	// 		$jmlh,
-	// 		$jun,
-	// 		$mutuprogrammer,
-	// 		$low,
-	// 		$senior,
-	// 		$konfirmasi_user,
-	// 		$testing,
-	// 		$spesifikasi,
-	// 		$waktu_proyek,
-	// 		$tanggal,
-	// 		$hasil)
-	// {
-	// 	$hasil = $this->db->query("insert into temptbl (nama_proyek, dana, jenis, waktu, institusi, frekuensi, teknologi, jmhl_pro,
-	// 		jun, mutuprogrammer, low, senior,
-	// 		 konfirmasi_user, testing, spesifikasi, tanggal, hasil, durasi)
-	// 		values ('$nama_proyek', '$dana', '$jenis', '$daterange', '$institusi', '$frekuensi',
-	// 		 '$teknologi',
-	// 		 '$jmlh',
-	// 			,'$waktu_proyek') ");
-	// 	return $hasil;
-	}
-
-
 
 	public function screening(){
 		$this->db->select('*');
@@ -125,11 +99,6 @@ class Admin_m extends CI_Model
 		// $this->db->order_by('name','asc');
 
 		return $this->db->get();
-	}
-
-	public function get_all(){
-			return $this->db->get('temp_trx')->result();
-			var_dump($this->db->get()->result());
 	}
 
 }

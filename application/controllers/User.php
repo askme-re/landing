@@ -27,10 +27,12 @@ class User extends CI_Controller {
       $data = [];
       $i=1;
       foreach($query->result() as $r) {
+        $originalDate = $r->tgl_lahir;
+        $newDate = date("d-m-Y", strtotime($originalDate));
            $data[] = array(
                 $i++,
                 '<p style="text-transform: capitalize">'.$r->nama.'</p>',
-                $r->tp_lahir.'<br>'.$r->tgl_lahir,
+                $r->tp_lahir.', <br>'.$newDate,
                 $r->telp.' - '.$r->email,
                 $r->jenis_user,
                 $r->riw_penyakit,

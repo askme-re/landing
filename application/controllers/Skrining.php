@@ -6,24 +6,24 @@ class Skrining extends CI_Controller {
 
    public function __construct() {
       parent::__construct();
-      $this->load->model('admin_m');
+      $this->load->model('skrining_m');
    }
 
    public function index()
    {
-    $this->load->view('header_admin');
-    $this->load->view('navigasi');
+    // $this->load->view('header_admin');
+    // $this->load->view('navigasi');
     $this->load->view('admin/skrining_v');
-    $this->load->view('footer_admin');
+    // $this->load->view('footer_admin');
    }
 
-   public function get_hasil_skrining()
+   public function get_hasil_skrinings()
    {
-      $draw = intval($this->input->get("draw"));
-      $start = intval($this->input->get("start"));
-      $length = intval($this->input->get("length"));
+      // $draw = intval($this->input->get("draw"));
+      // $start = intval($this->input->get("start"));
+      // $length = intval($this->input->get("length"));
       $id='';
-      $query = $this->admin_m->dataSkrining($id);
+      $query = $this->skrining_m->make_dt();
       // $query = $this->admin_m->result_skrining();
       $i=1;
       $data = [];
@@ -140,17 +140,24 @@ class Skrining extends CI_Controller {
            );
       }
 
-      $result = array(
-               "draw" => $draw,
-                 "recordsTotal" => $query->num_rows(),
-                 "recordsFiltered" => $query->num_rows(),
-                 "data" => $data
-            );
+      // $result = array(
+      //          "draw" => $draw,
+      //            "recordsTotal" => $query->num_rows(),
+      //            "recordsFiltered" => $query->num_rows(),
+      //            "data" => $data
+      //       );
+      $output = array(
+           "draw" => intval($_POST["draw"]),
+           "recordsTotal" => $this->testi_m->get_all_data(),
+           "recordsFiltered" => $this->testi_m->get_filtered_data(),
+           "data" => $data
+      );
       echo json_encode($result);
-      exit();
+      // exit();
    }
 
    function detailTrx($id){
+     $this->load->model('admin_m');
       $data['dataJawaban'] = $this->admin_m->dataSkrining($id)->result();
       $where = array('kode_skrining' => $id);
       $data['dataJawabans'] = $this->admin_m->detail($where,'hasil_skringin')->result();
@@ -228,12 +235,6 @@ class Skrining extends CI_Controller {
         }elseif (is_null($resul)) {
           $hasil = "BUKAN COVID";
         }
-
-        // for ($i=1; $i <14 ; $i+1) {
-        //   "$r->q.$i = $jwb $i";
-        // }
-        //
-
       if ($r->q1==0) {
         $jwb1="Tidak";
       }else {
@@ -333,20 +334,7 @@ class Skrining extends CI_Controller {
         $jwb11,
         $jwb12,
         $jwb13
-        // $r->q2,
-        // $r->q3,
-        // $r->q4,
-        // $r->q5,
-        // $r->q6,
-        // $r->q7,
-        // $r->q8,
-        // $r->q9,
-        // $r->q10,
-        // $r->q11,
-        // $r->q12,
-        // $r->q3
-
-      );
+        );
       }
       //Fill data
       $this->excel->getActiveSheet()->fromArray($exceldata, null, 'A4');
@@ -396,5 +384,74 @@ class Skrining extends CI_Controller {
       //force user to download the Excel file without writing it to server's HD
       $objWriter->save('php://output');
     }
+
+    function get_hasil_skrining()
+    {
+      $fetch_data = $this->skrining_m->make_dt();
+       $data = array();
+       $i=1;
+       foreach($fetch_data as $row)
+       {
+         $originalDate = $row->tgl_lahir;
+         $newDate = date("d-m-Y", strtotime($originalDate));
+         $skrining = $row->hasil;
+         if ($skrining == 0) {
+           $screening = "SEHAT";
+         } elseif ($skrining < 4) {
+           $screening = "RENDAH" ;
+         } elseif ($skrining >= 4) {
+           $screening = "SEDANG/TINGGI";
+         } elseif (is_null($skrining)) {
+           $screening = "BUKAN COVID";
+         }
+         if ($row->email == false) {
+           $email = "-";
+         }else {
+           $email = $row->email;
+         }
+
+            $sub_array = array();
+            $sub_array[] = $i++;
+            $sub_array[] = $row->tgl;
+            $sub_array[] = "<a href='./detailTrx/$row->kode_skrining'>".$row->kode_skrining."</a>";#$row->kode_skrining;
+            $sub_array[] = $row->nama;
+            $sub_array[] = $email;
+            $sub_array[] = $row->telp;
+            $sub_array[] = $screening;
+            $sub_array[] = $row->tp_lahir .', '. $newDate;
+            $sub_array[] = $row->usia;
+            $sub_array[] = $row->jenis_user;
+            $sub_array[] = $row->riw_penyakit;
+            $sub_array[] = $row->tujuan_rs;
+            $sub_array[] = $row->alamat;
+            $sub_array[] = $row->nama_desa;
+            $sub_array[] = $row->nama_kec;
+            $sub_array[] = $row->nama_kab;
+            $sub_array[] = $row->nama_prop;
+            $sub_array[] = $row->q1;
+            $sub_array[] = $row->q2;
+            $sub_array[] = $row->q3;
+            $sub_array[] = $row->q4;
+            $sub_array[] = $row->q5;
+            $sub_array[] = $row->q6;
+            $sub_array[] = $row->q7;
+            $sub_array[] = $row->q8;
+            $sub_array[] = $row->q9;
+            $sub_array[] = $row->q10;
+            $sub_array[] = $row->q11;
+            $sub_array[] = $row->q12;
+            $sub_array[] = $row->q13;
+            $data[] = $sub_array;
+       }
+       $output = array(
+            "draw" => intval($_POST["draw"]),
+            "recordsTotal" => $this->skrining_m->get_all_data(),
+            "recordsFiltered" => $this->skrining_m->get_filtered_data(),
+            "data" => $data
+       );
+       echo json_encode($output);
+    }
+
+
 
 }

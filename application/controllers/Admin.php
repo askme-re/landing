@@ -85,7 +85,36 @@ class Admin extends CI_Controller {
 
 	public function testi()
 	{
+		$this->load->model('testi_m');
+		$this->load->helper('url');
 		$this->load->view('detailproyek');
 	}
+
+	function get_list_pertanyaan()
+	{
+		$this->load->model('testi_m');
+		$list = $this->testi_m->get_datatables();
+        $data = array();
+        // $no = $_POST['start'];
+        foreach ($list as $customers) {
+            // $no++;
+            $row = array();
+            $row[] = $customers->id;
+            $row[] = $customers->pertanyaan;
+            $row[] = $customers->description;
+
+            $data[] = $row;
+        }
+
+        $output = array(
+                        "draw" => $_POST['draw'],
+                        "recordsTotal" => $this->testi_m->count_all(),
+                        "recordsFiltered" => $this->testi_m->count_filtered(),
+                        "data" => $data,
+                );
+        //output to json format
+        echo json_encode($output);
+    }
+
 
 }
