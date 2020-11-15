@@ -413,7 +413,7 @@ class Skrining extends CI_Controller {
             $sub_array = array();
             $sub_array[] = $i++;
             $sub_array[] = $row->tgl;
-            $sub_array[] = "<a href='./detailTrx/$row->kode_skrining'>".$row->kode_skrining."</a>";#$row->kode_skrining;
+            $sub_array[] = "<a href='skrining/detailTrx/$row->kode_skrining'>".$row->kode_skrining."</a>";#$row->kode_skrining;
             $sub_array[] = $row->nama;
             $sub_array[] = $email;
             $sub_array[] = $row->telp;

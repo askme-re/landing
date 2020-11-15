@@ -18,7 +18,10 @@
           $riwayat = $orang->riw_penyakit;
           $tujuan = $orang->tujuan_rs;
           $alamat = $orang->alamat;
-          // $kec = $orang->nama_kec;
+          $desa = $orang->nama_desa;
+          $kec = $orang->nama_kec;
+          $kab = $orang->nama_kab;
+          $prov = $orang->nama_prop;
           $originalDate = $orang->tgl_lahir;
           $newDate = date("d-m-Y", strtotime($originalDate));
           $date = $orang->tgl;
@@ -80,6 +83,23 @@
               <label for="" class="col-sm-3">Kecamatan Asal</label>
               <input type="text" name="" value="<?php echo $kec ?>" readonly> -->
             <!-- </div> -->
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-2">Kelurahan</label>
+              <input type="text" id="desa" class="col-sm-6" value="<?php echo $desa ?>" readonly>
+            </div>
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-2">Kecamatan</label>
+              <input type="text" id="kec" class="col-sm-6" value="<?php echo $kec ?>" readonly>
+            </div>
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-2">Kabupaten/Kota</label>
+              <input type="text" id="kab" class="col-sm-6" value="<?php echo $kab ?>" readonly>
+            </div>
+            <div class="form-group col-sm-12">
+              <label for="" class="col-sm-2">Provinsi</label>
+              <input type="text" id="prov" class="col-sm-6" value="<?php echo $prov ?>" readonly>
+            </div>
+
             <div class="form-group col-sm-12">
               <label for="" class="col-sm-2">Hasil Skrining</label>
               <input type="text" id="hasil" class="col-sm-6" value="<?php echo $kesimpulan ?>" readonly>
