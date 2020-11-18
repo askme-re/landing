@@ -187,13 +187,14 @@
           <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-room d-block h2 text-primary"></span>
-              <span>Tanah Air tercinta Indonesia</span>
+              <span>TIM SKRINING dr Suyoto</span>
+              <span>Jl RC Veteran No 178 Bintaro, Jakarta Selatan</span>
             </p>
           </div>
           <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-phone d-block h2 text-primary"></span>
-              <a href="#">+62878-3474-2510</a>
+              <a href="#">+6221-7388-4000</a>
             </p>
           </div>
           <div class="col-md-4 text-center">

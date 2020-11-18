@@ -36,7 +36,34 @@
                       <option value="" selected="selected" disabled> Pilih Bulan </option>
                       <?php for ($i=1; $i < 13; $i++) { ?>
                         <option value="<?php echo $i ?>">
-                          <?php echo $i ?>
+                          <?php
+                          if ($i==1) {
+                            $bulan = "Januari";
+                          }elseif ($i==2) {
+                            $bulan = "Februari";
+                          }elseif ($i==3) {
+                            $bulan = "Maret";
+                          }elseif ($i==4) {
+                            $bulan = "April";
+                          }elseif ($i==5) {
+                            $bulan = "Mei";
+                          }elseif ($i==6) {
+                            $bulan = "Juni";
+                          }elseif ($i==7) {
+                            $bulan = "Juli";
+                          }elseif ($i==8) {
+                            $bulan = "Agustus";
+                          }elseif ($i==9) {
+                            $bulan = "September";
+                          }elseif ($i==10) {
+                            $bulan = "Oktober";
+                          }elseif ($i==11) {
+                            $bulan = "November";
+                          }elseif ($i==12) {
+                            $bulan = "Desember";
+                          }
+
+                          echo $bulan ?>
                         </option>
                       <?php } ?>
                     </select>
@@ -114,14 +141,16 @@
           				<label class="col-form-label">Tujuan Kunjungan:</label>
           				<select class="form-control" id="dd_tujuan" name="dd_tujuan" required>
           					<option value="" selected="selected" disabled >Pilih Salah Satu</option>
-          					<option value="Rawat Jalan (Poliklinik)">Rawat Jalan (Poliklinik)</option>
+          					<option value="Rawat Jalan (Poliklinik dan MCU)">Rawat Jalan (Poliklinik dan MCU)</option>
           					<option value="Rawat Inap">Rawat Inap</option>
+          					<option value="IGD">IGD</option>
           					<option value="Laboratorium">Laboratorium</option>
           					<option value="Farmasi">Farmasi</option>
           					<option value="Radiologi">Radiologi</option>
+          					<option value="Kamar Operasi">Kamar Operasi</option>
           					<option value="Administrasi RS (Admin Ranap, BPJS, dll)">Administrasi RS (Admin Ranap, BPJS, dll)</option>
           					<option value="Manajemen RS (Jajaran pimpinan, pengadaan dll)">Manajemen RS (Jajaran pimpinan, pengadaan dll)</option>
-          					<option value="Rehab Medik (Terapi)">Rehab Medik (Terapi)</option>
+          					<option value="Rehab Medik (Poli Rehab dan Terapi)">Rehab Medik (Poli Rehab dan Terapi)</option>
           				</select>
           				</div>
 
@@ -157,8 +186,8 @@
 
           				<div class="form-group col-sm-6">
           					<div class="custom-control custom-checkbox">
-          						<input type="checkbox" class="custom-control-input" id="cb_tujuan_5" name="cb_tujuan[]" value="Penyakit Lupus" >
-          						<label class="custom-control-label" for="cb_tujuan_5">Penyakit Lupus</label>
+          						<input type="checkbox" class="custom-control-input" id="cb_tujuan_5" name="cb_tujuan[]" value="Penyakit Autoimun" >
+          						<label class="custom-control-label" for="cb_tujuan_5">Penyakit Autoimun</label>
           					</div>
           				</div>
 
@@ -168,7 +197,15 @@
           						<label class="custom-control-label" for="cb_tujuan_6">Penyakit Saraf </label>
           					</div>
           				</div>
-                        <div class="form-group col-sm-6">
+                  <div class="form-group col-sm-6">
+                    <label>Penyakit Lainnya (Sebutkan bila ada)</label>
+                    <input name="cb_tujuan[]" id="cb_tujuan_8" type="text" class="form-control" placeholder="Contoh: Stroke"/>
+                    <!-- <div class="custom-control custom-checkbox">
+                    <input type="text" class="custom-control-input" id="cb_tujuan_8" name="cb_tujuan[]" value="Tidak ada ">
+                      <label class="custom-control-label" for="cb_tujuan_8">Lainnya:... </label>
+                    </div> -->
+                  </div>
+                  <div class="form-group col-sm-6">
           					<div class="custom-control custom-checkbox">
           						<input type="checkbox" class="custom-control-input" id="cb_tujuan_7" name="cb_tujuan[]" value="Tidak ada " autofocus>
           						<label class="custom-control-label" for="cb_tujuan_7">Tidak Ada </label>

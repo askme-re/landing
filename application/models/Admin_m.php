@@ -16,7 +16,7 @@ class Admin_m extends CI_Model
 		$this->db->join('regencies mkab','mkab.id=user.id_kab','left');
 		$this->db->join('districts mkec','mkec.id=user.id_kec','left');
 		$this->db->join('villages mdesa','mdesa.id=user.id_kel','left');
-		$this->db->order_by('nama','asc');
+		$this->db->order_by('lasttime','desc');
 
 		return $this->db->get();
 	}

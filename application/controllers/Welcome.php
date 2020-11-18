@@ -410,9 +410,9 @@ function screening($id_user)
 
 				$pdf->Cell(10,10,'',0,1);
 				$pdf->SetFont('Arial','I',10);
-				$pdf->Cell(190,7,"\n Harap Simpan baik baik kode yang ada di hasil ini ya.",0,1,'l');
+				$pdf->Cell(190,7,"\n Harap Simpan baik baik dan tunjukkan hasil skrining hanya kepada Tim Skrining dan Petugas di RS dr Suyoto.",0,1,'l');
         // $pdf->Output();
-				$pdf->Output("D","skrining.pdf");
+				$pdf->Output("D","kartu hasil ask_me.pdf");
     }
 
 }

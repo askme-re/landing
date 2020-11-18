@@ -35,7 +35,7 @@
               echo "<center>Jika Anda berobat ke RS dr Suyoto: tetap patuhi protokol kesehatan; upayakan tetap dalam ruangan / tempat dengan ventilasi udara yang baik;  dan lakukan 3M (Menggunakan Masker, Menjaga Jarak dan Mencuci tangan)</center>";
             }
           };?> </p>
-          <p class="rs_light small">Silakan <strong> unduh</strong> atau <strong>tangkapan layar</strong>; simpan baik-baik dan tunjukkan hasil skrining Anda hanya kepada Tim Skrining Terpusat RS dr. Suyoto</p>
+          <p class="rs_light small">Silakan <strong> unduh</strong> atau <strong>screenshot</strong>; simpan baik-baik dan tunjukkan hasil skrining Anda hanya kepada Tim Skrining Terpusat dan Petugas di RS dr Suyoto</p>
           <p class="rs_info">Data ini hanya berlaku 1x24 jam dari waktu Skrining</p>
             <p class="rs_light small">Waktu skrining : <?php echo "$value->tgl_skrining"; ?> </p>
         </div>

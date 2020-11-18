@@ -7,7 +7,7 @@
       <?php endif; ?>
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Daftar Peserta Skrining Mandiri</h4>
+          <h4 class="card-title">Daftar Pengguna ASK_ME</h4>
         </div>
       <div class="card-body">
 

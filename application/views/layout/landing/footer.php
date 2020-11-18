@@ -19,8 +19,8 @@
     <p class="copyright">
       <small>
         Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <strong><a
-          href="https://askme.id">ASK_ME</a></strong> | made with <i class="icon-heart text-danger" aria-hidden="true"></i>
-        <a href="https://refrada.id" target="_blank">Love</a> powered by <img style="max-height:20px;" src="<?php echo base_url()?>assets/img/REFRADA-File-04.png">
+          href="https://askme.id">ASK_ME</a></strong> | dibuat dengan penuh <i class="icon-heart text-danger" aria-hidden="true"></i>
+        <a href="https://refrada.id" target="_blank">Cinta</a> Oleh Rina dan <img style="max-height:20px;" src="<?php echo base_url()?>assets/img/REFRADA-File-04.png">
       </small>
     </p>
   </div>
