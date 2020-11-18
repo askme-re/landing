@@ -69,7 +69,7 @@
             </div>
             <div class="form-group col-sm-12">
               <label for="" class="col-sm-2">Riwayat penyakit</label>
-              <input type="text" class="col-sm-6"name="" value="<?php echo $riwayat ?>" readonly>
+              <textarea type="text" class="col-sm-6"name="" value="<?php echo $riwayat ?>" readonly><?php echo $riwayat ?></textarea>
             </div>
             <div class="form-group col-sm-12">
               <label for="" class="col-sm-2">Tujuan Kunjungan</label>

@@ -9,7 +9,7 @@ class Skrining_m extends CI_Model
   var $table = 'detailjwb';
   var $order_column = array(null,'kode_skrining', 'u.id', 'hasil', 'nama','tp_lahir', 'mp.name nama_prop', 'mkab.name nama_kab', 'mdesa.name nama_desa', 'mkec.name nama_kec', 'email', 'tgl_lahir', 'usia', 'telp','jenis_user', 'tujuan_rs','riw_penyakit','alamat', 'tgl', 'q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11','q12','q13');
   var $select_column = array('kode_skrining', 'u.id', 'hasil', 'nama','tp_lahir', 'mp.name nama_prop', 'mkab.name nama_kab', 'mdesa.name nama_desa', 'mkec.name nama_kec','email', 'tgl_lahir', 'usia', 'telp', 'jenis_user', 'tujuan_rs','riw_penyakit','alamat','tgl','q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11','q12','q13');
-  var $order = array('id' => 'asc'); // default order
+  var $order = array('tgl' => 'desc'); // default order
   public function __construct()
   {
     parent::__construct();
@@ -27,12 +27,12 @@ class Skrining_m extends CI_Model
         }
         $koom = $this->input->post('hasil');
 
-          if ($koom==0) {
-            $this->db->where('hasil', 0);
-          }
-          if ($koom==1) {
-            $this->db->where('hasil >', 0);
-          }
+          // if ($koom==0) {
+          //   $this->db->where('hasil', 0);
+          // }
+          // if ($koom==1) {
+          //   $this->db->where('hasil >', 0);
+          // }
 
         if($this->input->post('tgl'))
         {
