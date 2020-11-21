@@ -487,7 +487,7 @@ class Skrining extends CI_Controller {
             $sub_array[] = $row->tp_lahir .', '. $newDate;
             $sub_array[] = $row->usia;
             $sub_array[] = $row->jenis_user;
-            $sub_array[] = $row->riw_penYkit;
+            $sub_array[] = $row->riw_penyakit;
             $sub_array[] = $row->tujuan_rs;
             $sub_array[] = $row->alamat;
             $sub_array[] = $row->nama_desa;
