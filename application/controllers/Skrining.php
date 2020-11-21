@@ -29,7 +29,7 @@ class Skrining extends CI_Controller {
       $data = [];
       foreach($query->result() as $r) {
 
-        $resul = $r->hasil;
+        $resul = $row->hasil;
         if ($resul==0) {
           $hasil = "SEHAT";
         }elseif ($resul>= 1) {
@@ -39,90 +39,90 @@ class Skrining extends CI_Controller {
         }elseif (is_null($resul)) {
           $hasil = "BUKAN COVID";
         }
-        if ($r->q1==0) {
-          $jwb1="Tidak";
+        if ($row->q1==0) {
+          $jwb1="T";
         }else {
-          $jwb1="Ya";
+          $jwb1="Y";
         }
-        if ($r->q2==0) {
-          $jwb2="Tidak";
+        if ($row->q2==0) {
+          $jwb2="T";
         }else {
-          $jwb2="Ya";
+          $jwb2="Y";
         }
-        if ($r->q3==0) {
-          $jwb3="Tidak";
+        if ($row->q3==0) {
+          $jwb3="T";
         }else {
-          $jwb3="Ya";
+          $jwb3="Y";
         }
-        if ($r->q4==0) {
-          $jwb4="Tidak";
+        if ($row->q4==0) {
+          $jwb4="T";
         }else {
-          $jwb4="Ya";
+          $jwb4="Y";
         }
-        if ($r->q5==0) {
-          $jwb5="Tidak";
+        if ($row->q5==0) {
+          $jwb5="T";
         }else {
-          $jwb5="Ya";
+          $jwb5="Y";
         }
-        if ($r->q6==0) {
-          $jwb6="Tidak";
+        if ($row->q6==0) {
+          $jwb6="T";
         }else {
-          $jwb6="Ya";
+          $jwb6="Y";
         }
-        if ($r->q7==0) {
-          $jwb7="Tidak";
+        if ($row->q7==0) {
+          $jwb7="T";
         }else {
-          $jwb7="Ya";
+          $jwb7="Y";
         }
-        if ($r->q8==0) {
-          $jwb8="Tidak";
+        if ($row->q8==0) {
+          $jwb8="T";
         }else {
-          $jwb8="Ya";
+          $jwb8="Y";
         }
-        if ($r->q9==0) {
-          $jwb9="Tidak";
+        if ($row->q9==0) {
+          $jwb9="T";
         }else {
-          $jwb9="Ya";
+          $jwb9="Y";
         }
-        if ($r->q10==0) {
-          $jwb10="Tidak";
+        if ($row->q10==0) {
+          $jwb10="T";
         }else {
-          $jwb10="Ya";
+          $jwb10="Y";
         }
-        if ($r->q11==0) {
-          $jwb11="Tidak";
+        if ($row->q11==0) {
+          $jwb11="T";
         }else {
-          $jwb11="Ya";
+          $jwb11="Y";
         }
-        if ($r->q12==0) {
-          $jwb12="Tidak";
+        if ($row->q12==0) {
+          $jwb12="T";
         }else {
-          $jwb12="Ya";
+          $jwb12="Y";
         }
-        if ($r->q13==0) {
-          $jwb13="Tidak";
+        if ($row->q13==0) {
+          $jwb13="T";
         }else {
-          $jwb13="Ya";
+          $jwb13="Y";
         }
 
-        $originalDate = $r->tgl_lahir;
+        $originalDate = $row->tgl_lahir;
         $newDate = date("d-m-Y", strtotime($originalDate));
 
            $data[] = array(
                 $i++,
-                $r->tgl,
-                "<a href='skrining/detailTrx/$r->kode_skrining'>".$r->kode_skrining."</a>",
-                $r->nama,
-              // "<a href='skrining/detailTrx/$r->id'>".
-              #$r->riw_penyakit,
+                $row->tgl,
+                "<a href='skrining/detailTrx/$row->kode_skrining'>".$row->kode_skrining."</a>",
+                $row->nama,
+              // "<a href='skrining/detailTrx/$row->id'>".
+              #$row->riw_penYkit,
               // ."</a>",
-                $r->telp,
+                $row->telp,
                 $hasil,
                 $newDate,
-                $r->usia.' Tahun',
-                $r->jenis_user,
-                $r->riw_penyakit,
-                $r->tujuan_rs,
+                $row->usia.' Tahun',
+                $row->jenis_user,
+                $row->riw_penYkit,
+                $row->tujuan_rs,
                 $jwb1,
                 $jwb2,
                 $jwb3,
@@ -191,9 +191,9 @@ class Skrining extends CI_Controller {
       $this->excel->getActiveSheet()->setCellValue('N3', 'Kecamatan');
       $this->excel->getActiveSheet()->setCellValue('O3', 'Kabupaten');
       $this->excel->getActiveSheet()->setCellValue('P3', 'Provinsi');
-      $this->excel->getActiveSheet()->setCellValue('Q3', 'Riwayat Penyakit');
+      $this->excel->getActiveSheet()->setCellValue('Q3', 'RiwaYt PenYkit');
       $this->excel->getActiveSheet()->setCellValue('R3', 'Hasil');
-      #pertanyaan
+      #pertanYan
       $this->excel->getActiveSheet()->setCellValue('S3', 'Q1');
       $this->excel->getActiveSheet()->setCellValue('T3', 'Q2');
       $this->excel->getActiveSheet()->setCellValue('U3', 'Q3');
@@ -223,9 +223,9 @@ class Skrining extends CI_Controller {
       $rs = $this->admin_m->dataSkrining($id);
       $exceldata=[];
       foreach ($rs->result() as $r){
-        $originalDate = $r->tgl_lahir;
+        $originalDate = $row->tgl_lahir;
         $newDate = date("d-m-Y", strtotime($originalDate));
-        $resul = $r->hasil;
+        $resul = $row->hasil;
         if ($resul==0) {
           $hasil = "SEHAT";
         }elseif ($resul>= 1) {
@@ -235,92 +235,92 @@ class Skrining extends CI_Controller {
         }elseif (is_null($resul)) {
           $hasil = "BUKAN COVID";
         }
-      if ($r->q1==0) {
-        $jwb1="Tidak";
+      if ($row->q1==0) {
+        $jwb1="T";
       }else {
-        $jwb1="Ya";
+        $jwb1="Y";
       }
-      if ($r->q2==0) {
-        $jwb2="Tidak";
+      if ($row->q2==0) {
+        $jwb2="T";
       }else {
-        $jwb2="Ya";
+        $jwb2="Y";
       }
-      if ($r->q3==0) {
-        $jwb3="Tidak";
+      if ($row->q3==0) {
+        $jwb3="T";
       }else {
-        $jwb3="Ya";
+        $jwb3="Y";
       }
-      if ($r->q4==0) {
-        $jwb4="Tidak";
+      if ($row->q4==0) {
+        $jwb4="T";
       }else {
-        $jwb4="Ya";
+        $jwb4="Y";
       }
-      if ($r->q5==0) {
-        $jwb5="Tidak";
+      if ($row->q5==0) {
+        $jwb5="T";
       }else {
-        $jwb5="Ya";
+        $jwb5="Y";
       }
-      if ($r->q6==0) {
-        $jwb6="Tidak";
+      if ($row->q6==0) {
+        $jwb6="T";
       }else {
-        $jwb6="Ya";
+        $jwb6="Y";
       }
-      if ($r->q7==0) {
-        $jwb7="Tidak";
+      if ($row->q7==0) {
+        $jwb7="T";
       }else {
-        $jwb7="Ya";
+        $jwb7="Y";
       }
-      if ($r->q8==0) {
-        $jwb8="Tidak";
+      if ($row->q8==0) {
+        $jwb8="T";
       }else {
-        $jwb8="Ya";
+        $jwb8="Y";
       }
-      if ($r->q9==0) {
-        $jwb9="Tidak";
+      if ($row->q9==0) {
+        $jwb9="T";
       }else {
-        $jwb9="Ya";
+        $jwb9="Y";
       }
-      if ($r->q10==0) {
-        $jwb10="Tidak";
+      if ($row->q10==0) {
+        $jwb10="T";
       }else {
-        $jwb10="Ya";
+        $jwb10="Y";
       }
-      if ($r->q11==0) {
-        $jwb11="Tidak";
+      if ($row->q11==0) {
+        $jwb11="T";
       }else {
-        $jwb11="Ya";
+        $jwb11="Y";
       }
-      if ($r->q12==0) {
-        $jwb12="Tidak";
+      if ($row->q12==0) {
+        $jwb12="T";
       }else {
-        $jwb12="Ya";
+        $jwb12="Y";
       }
-      if ($r->q13==0) {
-        $jwb13="Tidak";
+      if ($row->q13==0) {
+        $jwb13="T";
       }else {
-        $jwb13="Ya";
+        $jwb13="Y";
       }
        // $exceldata[] = $row;
        $exceldata[] = array(
-        $r->tgl,
-        $r->kode_skrining,
-        $r->nama,
-        $r->jenis_user,
-        $r->tujuan_rs,
-        $r->telp,
-        $r->email,
-        $r->tp_lahir,
+        $row->tgl,
+        $row->kode_skrining,
+        $row->nama,
+        $row->jenis_user,
+        $row->tujuan_rs,
+        $row->telp,
+        $row->email,
+        $row->tp_lahir,
         $newDate,
-        $r->usia,
-        $r->alamat,
-        $r->nama_desa,
-        $r->nama_kec,
-        $r->nama_kab,
-        $r->nama_prop,
-        $r->riw_penyakit,
+        $row->usia,
+        $row->alamat,
+        $row->nama_desa,
+        $row->nama_kec,
+        $row->nama_kab,
+        $row->nama_prop,
+        $row->riw_penYkit,
         $hasil,
 
-        #pertanyaan
+        #pertanYan
         $jwb1,
         $jwb2,
         $jwb3,
@@ -410,6 +410,72 @@ class Skrining extends CI_Controller {
            $email = $row->email;
          }
 
+         if ($row->q1==0) {
+           $jwb1="T";
+         }else {
+           $jwb1="Y";
+         }
+         if ($row->q2==0) {
+           $jwb2="T";
+         }else {
+           $jwb2="Y";
+         }
+         if ($row->q3==0) {
+           $jwb3="T";
+         }else {
+           $jwb3="Y";
+         }
+         if ($row->q4==0) {
+           $jwb4="T";
+         }else {
+           $jwb4="Y";
+         }
+         if ($row->q5==0) {
+           $jwb5="T";
+         }else {
+           $jwb5="Y";
+         }
+         if ($row->q6==0) {
+           $jwb6="T";
+         }else {
+           $jwb6="Y";
+         }
+         if ($row->q7==0) {
+           $jwb7="T";
+         }else {
+           $jwb7="Y";
+         }
+         if ($row->q8==0) {
+           $jwb8="T";
+         }else {
+           $jwb8="Y";
+         }
+         if ($row->q9==0) {
+           $jwb9="T";
+         }else {
+           $jwb9="Y";
+         }
+         if ($row->q10==0) {
+           $jwb10="T";
+         }else {
+           $jwb10="Y";
+         }
+         if ($row->q11==0) {
+           $jwb11="T";
+         }else {
+           $jwb11="Y";
+         }
+         if ($row->q12==0) {
+           $jwb12="T";
+         }else {
+           $jwb12="Y";
+         }
+         if ($row->q13==0) {
+           $jwb13="T";
+         }else {
+           $jwb13="Y";
+         }
+
             $sub_array = array();
             $sub_array[] = $i++;
             $sub_array[] = $row->tgl;
@@ -421,7 +487,7 @@ class Skrining extends CI_Controller {
             $sub_array[] = $row->tp_lahir .', '. $newDate;
             $sub_array[] = $row->usia;
             $sub_array[] = $row->jenis_user;
-            $sub_array[] = $row->riw_penyakit;
+            $sub_array[] = $row->riw_penYkit;
             $sub_array[] = $row->tujuan_rs;
             $sub_array[] = $row->alamat;
             $sub_array[] = $row->nama_desa;

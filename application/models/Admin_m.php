@@ -23,7 +23,7 @@ class Admin_m extends CI_Model
 
 	public function forms(){
 		$this->db->select('*');
-		$this->db->from('pertanyaan');
+		$this->db->from('pertanyaans');
 		return $this->db->get();
 	}
 
