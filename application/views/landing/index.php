@@ -200,7 +200,7 @@
           <div class="col-md-4 text-center">
             <p class="mb-0">
               <span class="icon-mail_outline d-block h2 text-primary"></span>
-              <a href="#">cinta@mail.com</a>
+              <a href="#">timaskme.id@gmail.com</a>
             </p>
           </div>
       </div>
