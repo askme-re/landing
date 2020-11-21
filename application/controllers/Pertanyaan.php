@@ -43,7 +43,7 @@ class Pertanyaan extends CI_Controller {
                 $r->id,
                 $r->wabah,
                 $r->ket,
-                "<a class='btn btn-info btn-lg' href='pertanyaan/detailQuestion/$r->id'> Detail </a>"
+                "<a class='btn btn-info btn-lg' href='pertanyaan/detailQuestion/$r->wabah'> Detail </a>"
 
            );
       }
