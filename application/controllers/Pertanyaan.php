@@ -21,7 +21,7 @@ class Pertanyaan extends CI_Controller {
    {
      // $query = $this->admin_m->jns_wabah();
       $where = array('jenis' => $id, 'opsi_bobot' => "Iya");
-      $data['dataQuestion'] = $this->admin_m->detailQues($where,'pertanyaan')->result();
+      $data['dataQuestion'] = $this->admin_m->detailQues($where,'pertanyaans')->result();
       $this->load->view('header_admin');
       $this->load->view('navigasi');
       $this->load->view('admin/pertanyaan_detail',$data);
