@@ -166,6 +166,15 @@ class Skrining extends CI_Controller {
    		$this->load->view('admin/skrining_detail',$data);
    		$this->load->view('footer_admin');
    }
+   function delTrx($id){
+     $this->load->model('admin_m');
+     $where = $id;
+     $table = 'trx_skrining';
+     $data['dataJawabans'] = $this->admin_m->hapus($where,$table);
+
+   	 $this->load->view('publik/hpsSkrining',$data);
+     redirect(skrining);
+   }
 
    public function exp_skrining()
    {
@@ -475,7 +484,7 @@ class Skrining extends CI_Controller {
          }else {
            $jwb13="Y";
          }
-
+         $trx= $row->id_trx;
             $sub_array = array();
             $sub_array[] = $i++;
             $sub_array[] = $row->tgl;
@@ -507,6 +516,7 @@ class Skrining extends CI_Controller {
             $sub_array[] = $jwb11;
             $sub_array[] = $jwb12;
             $sub_array[] = $jwb13;
+            $sub_array[] = "<a href='skrining/delTrx/$trx' class='btn btn-warning btn-sm'>HAPUS</a>";
             $data[] = $sub_array;
        }
        $output = array(
@@ -517,7 +527,5 @@ class Skrining extends CI_Controller {
        );
        echo json_encode($output);
     }
-
-
 
 }

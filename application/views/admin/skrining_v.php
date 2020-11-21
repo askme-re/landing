@@ -209,6 +209,9 @@
                 <th>
                   Q13
                 </th>
+                <th>
+                  Aksi
+                </th>
 
               </thead>
               <tbody>

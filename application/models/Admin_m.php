@@ -92,7 +92,14 @@ class Admin_m extends CI_Model
 	{
 		return $this->db->get_where($table,$where);
 	}
-
+	function hapus($where,$table)
+	{
+		// return $this->db->get_where($table,$where);
+		$this->db->where('id_trxs', $where);
+		$this->db->delete($table);
+		$this->db->where('id_trx', $where);
+		$this->db->delete('screening');
+	}
 	public function screening(){
 		$this->db->select('*');
 		$this->db->from('temp_trx');
