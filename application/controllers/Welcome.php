@@ -190,6 +190,10 @@ function screening($id_user)
 	{
 		$id = $this->input->post('id');
 		$jenis = $this->input->post('jenis');
+		if (is_null($jenis)) {
+			redirect("/welcome/screening/$id");
+		}
+		// break;
 		// $get_umur = $this->input->post('tgl_lahir');
 		$get_umur = $this->landing_model->get_usia($id);
 		$birthdate = new DateTime($get_umur->tgl_lahir);
@@ -233,6 +237,7 @@ function screening($id_user)
 			$data['id_trx'] = $id_tr;
 			array_push($screening, $data);
 		}
+
 
 		$query = $this->db->insert_batch('screening', $screening);
 		if($query){

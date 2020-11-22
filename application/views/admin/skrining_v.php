@@ -88,12 +88,28 @@
         <div class="">
           <form id="form-filter" class="">
               <div class="col-sm-10">
-                <label class="col-form-label">Pilih Status Kunjungan:</label>
+                <label class="col-form-label">Status Kunjungan:</label>
                 <select class="form-control" id="jenis_user" name="jenis_user">
                   <option value="" selected="selected" disabled >Pilih Salah Satu</option>
                   <option value="Pasien">Pasien</option>
                   <option value="Pengunjung">Pengunjung</option>
                   <option value="Pegawai RS">Pegawai RS</option>
+                </select>
+              </div>
+              <div class="col-sm-10">
+                <label class="col-form-label">Tujuan Kunjungan:</label>
+                <select class="form-control" id="tujuan" name="tujuan">
+                  <option value="" selected="selected" disabled >Pilih Salah Satu</option>
+                  <option value="Rawat Jalan (Poliklinik dan MCU)">Rawat Jalan (Poliklinik dan MCU)</option>
+                  <option value="Rawat Inap">Rawat Inap</option>
+                  <option value="IGD">IGD</option>
+                  <option value="Laboratorium">Laboratorium</option>
+                  <option value="Farmasi">Farmasi</option>
+                  <option value="Radiologi">Radiologi</option>
+                  <option value="Kamar Operasi">Kamar Operasi</option>
+                  <option value="Administrasi RS (Admin Ranap, BPJS, dll)">Administrasi RS (Admin Ranap, BPJS, dll)</option>
+                  <option value="Manajemen RS (Jajaran pimpinan, pengadaan dll)">Manajemen RS (Jajaran pimpinan, pengadaan dll)</option>
+                  <option value="Rehab Medik (Poli Rehab dan Terapi)">Rehab Medik (Poli Rehab dan Terapi)</option>
                 </select>
               </div>
               <div class="col-sm-10">
@@ -272,12 +288,12 @@
               "type": "POST",
               "data": function( data ){
                 data.jenis_user = $('#jenis_user').val();
+                data.tujuan = $('#tujuan').val();
                 data.hasil = $('#hasil').val();
                 data.tgl = $('#tgl').val();
                 data.cari = $('#cari').val();
               }
           },
-
           //Set column definition initialisation properties.
           "columnDefs": [
           {
@@ -287,6 +303,7 @@
           ],
 
       });
+      // console.log(data[hasil]);
       $('#btn-filter').click(function(){ //button filter event click
           table.ajax.reload();  //just reload table
       });

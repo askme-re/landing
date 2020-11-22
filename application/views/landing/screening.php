@@ -37,7 +37,10 @@
       					<div class="col-sm-8">
       					</div>
       					<div class="col-sm-2">
-      						<button type="submit" class="btn btn-primary">Kirim</button>
+                  <?php if (is_null($jenis)): ?>
+                    <?php echo "kampsre" ?>
+                  <?php endif; ?>
+      						<button type="submit" id="kirim" class="btn btn-primary">Kirim</button>
       					</div>
       				</div>
 
@@ -70,6 +73,16 @@ $(document).ready(function() {
 				$("#pertanyaan").css("display","block");
 			}
 		});
+  });
+
+  $("#kirim").click(function(){
+    var vNama = $('#jenis').val();
+    if(vNama == 0){
+    alert("Jenis Wabah belum dipilih");
+      $('#jenis').focus();
+      return false;
+    }
+    console.log(vNama);
   });
 
 });

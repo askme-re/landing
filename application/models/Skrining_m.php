@@ -25,14 +25,18 @@ class Skrining_m extends CI_Model
         {
             $this->db->like('jenis_user', $this->input->post('jenis_user'));
         }
+       if($this->input->post('tujuan'))
+        {
+            $this->db->like('tujuan_rs', $this->input->post('tujuan'));
+        }
         $koom = $this->input->post('hasil');
 
-          // if ($koom==0) {
-          //   $this->db->where('hasil', 0);
-          // }
-          // if ($koom==1) {
-          //   $this->db->where('hasil >', 0);
-          // }
+          if ($koom==0) {
+            $this->db->like('hasil', $koom);
+          }
+          if ($koom==1) {
+            $this->db->where('hasil >=', 1);
+          }
 
         if($this->input->post('tgl'))
         {
