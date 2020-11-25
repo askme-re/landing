@@ -38,7 +38,7 @@ class Skrining_m extends CI_Model
             $this->db->where('hasil >=', 1);
           }
 
-        if($this->input->post('tgl'))
+        if($this->input->post('tgl_awal'))
         {
             $this->db->like('tgl', $this->input->post('tgl'));
         }

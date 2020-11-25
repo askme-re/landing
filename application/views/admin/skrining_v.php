@@ -87,7 +87,11 @@
         </div>
         <div class="">
           <form id="form-filter" class="">
-              <div class="col-sm-10">
+            <div class="col-sm-5">
+              <label>Cari Kode atau Nama</label>
+              <input name="cari" id="cari" type="text" class="form-control" placeholder="Masukan kata kunci"/>
+            </div>
+              <div class="col-sm-5">
                 <label class="col-form-label">Status Kunjungan:</label>
                 <select class="form-control" id="jenis_user" name="jenis_user">
                   <option value="" selected="selected" disabled >Pilih Salah Satu</option>
@@ -96,7 +100,7 @@
                   <option value="Pegawai RS">Pegawai RS</option>
                 </select>
               </div>
-              <div class="col-sm-10">
+              <div class="col-sm-5">
                 <label class="col-form-label">Tujuan Kunjungan:</label>
                 <select class="form-control" id="tujuan" name="tujuan">
                   <option value="" selected="selected" disabled >Pilih Salah Satu</option>
@@ -112,7 +116,7 @@
                   <option value="Rehab Medik (Poli Rehab dan Terapi)">Rehab Medik (Poli Rehab dan Terapi)</option>
                 </select>
               </div>
-              <div class="col-sm-10">
+              <div class="col-sm-5">
                 <label class="col-form-label">Hasil Skrining:</label>
                 <select class="form-control" id="hasil" name="hasil">
                   <option value="" selected="selected" disabled >Pilih Salah Satu</option>
@@ -121,14 +125,14 @@
                   <!-- <option value=">=4">SEDANG-TINGGI</option> -->
                 </select>
               </div>
-              <div class="col-sm-10">
-                <label>Cari Kode atau Nama</label>
-                <input name="cari" id="cari" type="text" class="form-control" placeholder="Masukan kata kunci"/>
+              <!-- <div class="col-sm-5">
+                <label>Tanggal Awal</label>
+                <input name="tgl_akhir" id="tgl_awal" type="date" class="form-control" placeholder="DD/MM/YYYY"/>
               </div>
-              <div class="col-sm-10">
-                <label>Tanggal </label>
-                <input name="tgl" id="tgl" type="date" class="form-control" placeholder="DD/MM/YYYY"/>
-              </div>
+              <div class="col-sm-5">
+                <label>Tanggal Akhir</label>
+                <input name="tgl_awal" id="tgl_akhir" type="date" class="form-control" placeholder="DD/MM/YYYY"/>
+              </div> -->
               <button type="button" id="btn-filter" class="btn btn-primary">Filter</button>
               <button type="button" id="btn-reset" class="btn btn-default">Reset</button>
         </form>
@@ -290,7 +294,8 @@
                 data.jenis_user = $('#jenis_user').val();
                 data.tujuan = $('#tujuan').val();
                 data.hasil = $('#hasil').val();
-                data.tgl = $('#tgl').val();
+                data.tgl_awal = $('#tgl_awal').val();
+                data.tgl_akhir = $('#tgl_akhir').val();
                 data.cari = $('#cari').val();
               }
           },

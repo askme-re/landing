@@ -8,7 +8,11 @@
             foreach ($dataQuestion as $key) {
               $kokom = $key->penyakit;
             }
-            echo $kokom;
+            if (empty($kokom)) {
+              echo "-";
+            }else{
+              echo $kokom;
+            }
             ?>
           </h3>
         </div>
@@ -18,15 +22,18 @@
 
             <table class="table">
               <thead>
+                <td>No</td>
                 <td>Pertanyaan</td>
                 <td>Bobot</td>
               </thead>
               <tbody>
-                <?php  foreach ($dataQuestion as $j) {?>
+                <?php  $i=1;
+                foreach ($dataQuestion as $j) {?>
                   <tr>
+                    <td><?php echo 'Q'. $i++;?>
                     <td><?php echo $j->pertanyaan.'?';?>
                     </td>
-                    <td><?php echo $j->bobot.'?';?>
+                    <td><?php echo $j->bobot;?>
                     </td>
                   </tr>
                 <?php } ?>
