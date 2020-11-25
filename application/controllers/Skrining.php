@@ -173,7 +173,7 @@ class Skrining extends CI_Controller {
      $data['dataJawabans'] = $this->admin_m->hapus($where,$table);
 
    	 $this->load->view('publik/hpsSkrining',$data);
-     redirect(skrining);
+     redirect(base_url("skrining"));
    }
 
    public function exp_skrining()
