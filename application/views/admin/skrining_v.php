@@ -78,6 +78,9 @@
         </nav>
 
 <div class="content">
+  <?php if($this->session->flashdata('msg')): ?>
+    <p><?php echo $this->session->flashdata('msg'); ?></p>
+  <?php endif; ?>
   <div class="row">
     <div class="col-md-12" style="background-color:white;">
       <!-- <div class="card"> -->
@@ -125,14 +128,14 @@
                   <!-- <option value=">=4">SEDANG-TINGGI</option> -->
                 </select>
               </div>
-              <!-- <div class="col-sm-5">
+              <div class="col-sm-5">
                 <label>Tanggal Awal</label>
-                <input name="tgl_akhir" id="tgl_awal" type="date" class="form-control" placeholder="DD/MM/YYYY"/>
+                <input name="tgl_awal" id="tgl_awal" type="date" class="form-control" placeholder="DD/MM/YYYY"/>
               </div>
               <div class="col-sm-5">
                 <label>Tanggal Akhir</label>
-                <input name="tgl_awal" id="tgl_akhir" type="date" class="form-control" placeholder="DD/MM/YYYY"/>
-              </div> -->
+                <input name="tgl_akhir" id="tgl_akhir" type="date" class="form-control" placeholder="DD/MM/YYYY"/>
+              </div>
               <button type="button" id="btn-filter" class="btn btn-primary">Filter</button>
               <button type="button" id="btn-reset" class="btn btn-default">Reset</button>
         </form>

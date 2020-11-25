@@ -172,7 +172,9 @@ class Skrining extends CI_Controller {
      $table = 'trx_skrining';
      $data['dataJawabans'] = $this->admin_m->hapus($where,$table);
 
+     // $this->load->view('header_admin');
    	 $this->load->view('publik/hpsSkrining',$data);
+    $this->session->set_flashdata('message_sukses', 'Anda berhasil menghapus data!');
      redirect(base_url("skrining"));
    }
 
@@ -516,7 +518,7 @@ class Skrining extends CI_Controller {
             $sub_array[] = $jwb11;
             $sub_array[] = $jwb12;
             $sub_array[] = $jwb13;
-            $sub_array[] = "<a href='skrining/delTrx/$trx' class='btn btn-warning btn-sm'>HAPUS</a>";
+            $sub_array[] = "<a href='skrining/delTrx/$trx' onclick='alert('Apakah Anda yakin?');' class='btn btn-warning btn-sm'>HAPUS</a>";
             $data[] = $sub_array;
        }
        $output = array(

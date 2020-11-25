@@ -37,10 +37,14 @@ class Skrining_m extends CI_Model
           if ($koom==1) {
             $this->db->where('hasil >=', 1);
           }
-
-        if($this->input->post('tgl_awal'))
+        $sd = $this->input->post('tgl_awal');
+        $endd = $this->input->post('tgl_akhir');
+        if($sd)
         {
-            $this->db->like('tgl', $this->input->post('tgl'));
+            $this->db->where('tgl >=', $sd);
+        }
+        if ($endd) {
+          $this->db->where('tgl <=', $endd);
         }
         if($this->input->post('cari'))
         {
