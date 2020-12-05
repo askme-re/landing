@@ -24,6 +24,7 @@ class Welcome extends CI_Controller {
 		$status = $this->input->post('dd_status');
 		$tujuan = $this->input->post('dd_tujuan');
 		$riwayat = $this->input->post('cb_tujuan');
+		$kerabat = $this->input->post('dd_family');
 
 		// is user available
 		$user = $this->landing_model->get_user_detail(array('telp' => $phone));
@@ -44,7 +45,7 @@ class Welcome extends CI_Controller {
 
 			redirect("/welcome/screening/$id");
 
-		} else {
+		}else {
 			// save new user return id
 			$data['telp'] = $phone;
 			$data['riw_penyakit'] = $riwayat;
@@ -79,6 +80,7 @@ class Welcome extends CI_Controller {
 		$tgl = $this->input->post('tgl');
 		$bulan = $this->input->post('bulan');
 		$tahun = $this->input->post('tahun');
+		$kerabat = $this->input->post('dd_family');
 
 		$phone = trim($this->input->post('telp'));
 		$status = $this->input->post('dd_status');
@@ -107,6 +109,7 @@ class Welcome extends CI_Controller {
 			$data['id_kec'] = $id_kec;
 			$data['id_kel'] = $id_kel;
 			$data['alamat'] = $alamat;
+			$data['family'] = $kerabat;
 			$data['email'] = $email;
 			$data['riw_penyakit'] = implode(", ",$riwayat);
 			$data['tujuan_rs'] = $tujuan;
@@ -117,7 +120,53 @@ class Welcome extends CI_Controller {
 
 			redirect("/welcome/screening/$id");
 
-		} else {
+		} elseif ($user == true && $kerabat=="Anak" || $kerabat=="Ibu" || $kerabat=="Ayah") {
+			//id user ditemukan dari hp dan kerabat isinya anak atau orang tua maka bikin user baru, telpnya sama
+			$telp = $user->telp;
+			$data['telp'] = $telp;
+			$data['nama'] = $nama;
+			$data['family'] = $kerabat;
+			$data['tp_lahir'] = $tp_lahir;
+			$data['tgl_lahir'] = $tgl_lahir;
+			$data['id_prov'] = $id_prov;
+			$data['id_kab'] = $id_kab;
+			$data['id_kec'] = $id_kec;
+			$data['id_kel'] = $id_kel;
+			$data['alamat'] = $alamat;
+			$data['email'] = $email;
+			$data['riw_penyakit'] = implode(", ",$riwayat);
+			$data['tujuan_rs'] = $tujuan;
+			$data['jenis_user'] = $status;
+			// print_r($data);
+			$this->db->insert('user', $data);
+			$id = $this->db->insert_id();
+			$this->session->set_flashdata('message_sukses', 'Data Berhasil Disimpan');
+			redirect("/welcome/screening/$id");
+		}elseif ($user == true && $kerabat=="0") {
+			$id = $user->id;
+			$data['riw_penyakit'] = implode(", ",$riwayat);
+			$data['tujuan_rs'] = $tujuan;
+			$data['jenis_user'] = $status;
+
+				// overwrite data user
+			$this->db->where('id', $id);
+			$this->db->update('user', $data);
+
+			$this->session->set_flashdata('message_sukses', 'Perubahan Data Berhasil Disimpan');
+
+			redirect("/welcome/screening/$id");
+		}elseif ($user == true && $kerabat<>"0") {
+			$id = $user->id;
+			$telp = $user->telp;
+			$famili = $user->family;
+			$data['riw_penyakit'] = implode(", ",$riwayat);
+			$data['tujuan_rs'] = $tujuan;
+			$data['jenis_user'] = $status;
+
+			$this->db->where('id', $id);
+			$this->db->update('user', $data);
+			redirect("/welcome/screening/$id");
+		}elseif ($user==true) {
 			//overwrite data user
 			$id = $user->id;
 			$data['riw_penyakit'] = implode(", ",$riwayat);
@@ -130,24 +179,7 @@ class Welcome extends CI_Controller {
 
 			redirect("/welcome/screening/$id");
 		}
-		$id = $this->input->post('id');
-		$user['nama'] = $this->input->post('nama');
-		$user['tp_lahir'] = $this->input->post('tempat_lahir');
-		$user['tgl_lahir'] = $this->input->post('tgl_lahir');
-		$user['id_prov'] = $this->input->post('prov');
-		$user['id_kab'] = $this->input->post('kab');
-		$user['id_kec'] = $this->input->post('kec');
-		$user['id_kel'] = $this->input->post('kel');
-		$user['alamat'] = $this->input->post('alamat');
-		$user['email'] = $this->input->post('email');
 
-			// overwrite data user
-		$this->db->where('id', $id);
-		$this->db->update('user', $user);
-
-		$this->session->set_flashdata('message_sukses', 'Perubahan Data Berhasil Disimpan');
-
-		redirect("/welcome/screening/$id");
 	}
 
 

@@ -11,10 +11,40 @@
               <form method="POST" action="<?php echo base_url().'welcome/biodata_save'?>">
 				<!-- <input type="text" name="id" style="display:none" value="<?php echo $user->id; ?>"/> -->
                 <div class="form-row col-12">
-                  <div class="form-group col-sm-12">
+                  <div class="form-group col-sm-6">
                     <label >Nama Lengkap </label>
                     <input name="nama" id="nama" type="text" minlength="2" class="form-control" placeholder="Contoh: Andrew Setiawan" required autofocus/>
                   </div>
+                  <div class="form-group col-sm-6">
+                    <label>No Handphone (Kerabat)</label>
+                    <input name="telp" id="telp" type="tel" maxlength="13" minlength="9" class="form-control" placeholder="Contoh: 0832932932399" required>
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label>Jenis Kerabat</label>
+                    <select class="form-control" id="dd_family" name="dd_family" required>
+            					<option value="" selected="selected" disabled >Pilih Salah Satu</option>
+            					<option value="0">Diri Sendiri</option>
+            					<option value="Anak">Anak</option>
+            					<option value="Ibu">Orang Tua Ibu</option>
+            					<option value="Ayah">Orang Tua Ayah</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-6">
+          				<label class="col-form-label">Tujuan Kunjungan:</label>
+          				<select class="form-control" id="dd_tujuan" name="dd_tujuan" required>
+          					<option value="" selected="selected" disabled >Pilih Salah Satu</option>
+          					<option value="Rawat Jalan (Poliklinik dan MCU)">Rawat Jalan (Poliklinik dan MCU)</option>
+          					<option value="Rawat Inap">Rawat Inap</option>
+          					<option value="IGD">IGD</option>
+          					<option value="Laboratorium">Laboratorium</option>
+          					<option value="Farmasi">Farmasi</option>
+          					<option value="Radiologi">Radiologi</option>
+          					<option value="Kamar Operasi">Kamar Operasi</option>
+          					<option value="Administrasi RS (Admin Ranap, BPJS, dll)">Administrasi RS (Admin Ranap, BPJS, dll)</option>
+          					<option value="Manajemen RS (Jajaran pimpinan, pengadaan dll)">Manajemen RS (Jajaran pimpinan, pengadaan dll)</option>
+          					<option value="Rehab Medik (Poli Rehab dan Terapi)">Rehab Medik (Poli Rehab dan Terapi)</option>
+          				</select>
+          				</div>
                   <div class="form-group col-sm-6">
                     <label>Tempat Lahir </label>
                     <input name="tempat_lahir" id="tempat_lahir" type="text" class="form-control" placeholder="Contoh: Jakarta" required/>
@@ -122,10 +152,7 @@
                     <label>Email <small>(Tidak wajib)</small></label>
                     <input name="email" id="email" type="email" class="form-control" placeholder="Contoh: andrew@mail.com">
                   </div>
-                  <div class="form-group col-sm-6">
-                    <label>No Handphone </label>
-                    <input name="telp" id="telp" type="tel" maxlength="13" minlength="9" class="form-control" placeholder="Contoh: 0832932932399" required>
-                  </div>
+
 
                   <!-- data tambahan -->
                   <div class="form-group col-sm-6">
@@ -137,22 +164,7 @@
           						<option value="Pegawai RS">Pegawai RS</option>
           					</select>
           				</div>
-          				<div class="form-group col-sm-6">
-          				<label class="col-form-label">Tujuan Kunjungan:</label>
-          				<select class="form-control" id="dd_tujuan" name="dd_tujuan" required>
-          					<option value="" selected="selected" disabled >Pilih Salah Satu</option>
-          					<option value="Rawat Jalan (Poliklinik dan MCU)">Rawat Jalan (Poliklinik dan MCU)</option>
-          					<option value="Rawat Inap">Rawat Inap</option>
-          					<option value="IGD">IGD</option>
-          					<option value="Laboratorium">Laboratorium</option>
-          					<option value="Farmasi">Farmasi</option>
-          					<option value="Radiologi">Radiologi</option>
-          					<option value="Kamar Operasi">Kamar Operasi</option>
-          					<option value="Administrasi RS (Admin Ranap, BPJS, dll)">Administrasi RS (Admin Ranap, BPJS, dll)</option>
-          					<option value="Manajemen RS (Jajaran pimpinan, pengadaan dll)">Manajemen RS (Jajaran pimpinan, pengadaan dll)</option>
-          					<option value="Rehab Medik (Poli Rehab dan Terapi)">Rehab Medik (Poli Rehab dan Terapi)</option>
-          				</select>
-          				</div>
+
 
           				<div class="form-group col-sm-12">
           					<label class="col-form-label">Riwayat Penyakit Serius:</label>
@@ -262,6 +274,7 @@ $(document).ready(function() {
 		var vTempatLahir = $('#tempat_lahir').val();
 		var vTglLahir = $('#tgl_lahir').val();
 		var vAlamat = $('#alamat').val();
+		// var vAlamat = $('#alamat').val();
 		var vProv = $('#prov').val();
 		var vKab = $('#kab').val();
 		var vKec = $('#kec').val();
