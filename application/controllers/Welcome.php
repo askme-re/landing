@@ -147,7 +147,11 @@ class Welcome extends CI_Controller {
 			$data['riw_penyakit'] = implode(", ",$riwayat);
 			$data['tujuan_rs'] = $tujuan;
 			$data['jenis_user'] = $status;
-
+			$data['id_prov'] = $id_prov;
+			$data['id_kab'] = $id_kab;
+			$data['id_kec'] = $id_kec;
+			$data['id_kel'] = $id_kel;
+			$data['alamat'] = $alamat;
 				// overwrite data user
 			$this->db->where('id', $id);
 			$this->db->update('user', $data);
@@ -163,6 +167,7 @@ class Welcome extends CI_Controller {
 			$data['tujuan_rs'] = $tujuan;
 			$data['jenis_user'] = $status;
 
+
 			$this->db->where('id', $id);
 			$this->db->update('user', $data);
 			redirect("/welcome/screening/$id");
@@ -172,6 +177,11 @@ class Welcome extends CI_Controller {
 			$data['riw_penyakit'] = implode(", ",$riwayat);
 			$data['tujuan_rs'] = $tujuan;
 			$data['jenis_user'] = $status;
+			$data['id_prov'] = $id_prov;
+			$data['id_kab'] = $id_kab;
+			$data['id_kec'] = $id_kec;
+			$data['id_kel'] = $id_kel;
+			$data['alamat'] = $alamat;
 
 			$this->db->where('id', $id);
 			$this->db->update('user', $data);
