@@ -1,2 +1,2 @@
 # landing
-landing infreksi
+landing infeksi
